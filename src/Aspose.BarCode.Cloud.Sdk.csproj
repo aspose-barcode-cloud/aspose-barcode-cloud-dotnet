@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net20;net45</TargetFrameworks>
+    <Company>Aspose Pty Ltd.</Company>
+    <Description>Aspose.BarCode Cloud SDK for .NET Standard 2.0, .NET Framework 2.0 and higher</Description>
+    <RepositoryUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet</RepositoryUrl>
+    <PackageTags>barcode, Aspose, cloud, REST, recognize, QR, EAN13, Code128</PackageTags>
+    <PackageLicenseUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <Copyright>2018 Aspose Pty Ltd.</Copyright>
+    <RepositoryType>Git</RepositoryType>
+    <PackageProjectUrl>https://products.aspose.cloud/barcode/cloud</PackageProjectUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)'=='net20' OR '$(TargetFramework)'=='net45'">
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+</Project>
