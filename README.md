@@ -1,9 +1,9 @@
-# Aspose.BarCode for Cloud .NET SDK
+# Aspose.BarCode Cloud SDK for .NET
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/cloud) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
-This repository contains Aspose.BarCode for Cloud .NET SDK source code. This SDK allows you to work with Aspose.BarCode for Cloud REST APIs in your .NET Core or .NET Standard applications quickly and easily.
+This repository contains Aspose.BarCode Cloud SDK for .NET source code. This SDK allows you to work with Aspose.BarCode for Cloud REST APIs in your .NET Core or .NET Standard applications quickly and easily.
 
-Aspose.BarCode for Cloud .NET SDK provides cross-platform bindings for:
+Aspose.BarCode Cloud SDK for .NET provides cross-platform bindings for:
 - .NET Standard 2.0
 - .NET Framework 2.0 and higher
 
@@ -14,7 +14,7 @@ The complete source code is available in this repository folder. You can either 
 
 ## Prerequisites
 
-To use Aspose.BarCode for Cloud .NET SDK you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+To use Aspose.BarCode Cloud SDK for .NET you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and SID at [Cloud Dashboard](https://dashboard.aspose.cloud/#/apps). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation
 
