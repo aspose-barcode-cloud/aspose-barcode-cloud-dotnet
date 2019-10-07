@@ -46,6 +46,13 @@ namespace Aspose.BarCode.Cloud.Sdk
         public string AppSid { get; set; }
 
         /// <summary>
+        /// Gets or sets the Jwt token.
+        /// If set the library would handle auth internally
+        /// </summary>
+        public string JwtToken { get; set; }
+
+
+        /// <summary>
         /// Gets or sets a value indicating whether debug mode.
         /// </summary>
         public bool DebugMode { get; set; }
@@ -70,7 +77,7 @@ namespace Aspose.BarCode.Cloud.Sdk
 
         internal string GetApiRootUrl()
         {
-            var result = this.ApiBaseUrl + "/v" + (int)ApiVersion;
+            var result = this.ApiBaseUrl + "/v" + ApiVersion;
 
             return result.EndsWith("/") ? result.Substring(0, result.Length - 1) : result;
         }

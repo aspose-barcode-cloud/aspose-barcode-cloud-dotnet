@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="BarCodeApi.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2019 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -53,6 +53,12 @@ namespace Aspose.BarCode.Cloud.Sdk
         {
         }
 
+        public BarCodeApi(string jwtToken)
+            : this(new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V3, AuthType = AuthType.ExternalAuth })
+        {
+        }
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="BarCodeApi"/> class.
         /// </summary>    
@@ -62,10 +68,18 @@ namespace Aspose.BarCode.Cloud.Sdk
             this.configuration = configuration;
             
             var requestHandlers = new List<IRequestHandler>();
-            requestHandlers.Add(new OAuthRequestHandler(this.configuration));
+            switch (this.configuration.AuthType)
+            {
+                case AuthType.RequestSignature: requestHandlers.Add(new AuthWithSignatureRequestHandler(this.configuration));
+                    break;
+                case AuthType.OAuth2: requestHandlers.Add(new OAuthRequestHandler(this.configuration));
+                    break;
+                case AuthType.ExternalAuth: requestHandlers.Add(new ExternalAuthorizationRequestHandler(this.configuration));
+                    break;
+            }
+
             requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
             requestHandlers.Add(new ApiExceptionRequestHandler());
-            requestHandlers.Add(new AuthWithSignatureRequestHandler(this.configuration));
             this.apiInvoker = new ApiInvoker(requestHandlers);
         }                            
 
