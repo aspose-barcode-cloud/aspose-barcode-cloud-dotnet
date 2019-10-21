@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="BarCodePostGenerateMultipleRequest.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2019 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy

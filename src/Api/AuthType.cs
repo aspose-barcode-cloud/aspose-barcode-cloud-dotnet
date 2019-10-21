@@ -38,6 +38,12 @@ namespace Aspose.BarCode.Cloud.Sdk
         /// <summary>
         /// Authentification with signing of url.
         /// </summary>
-        RequestSignature = 1
+        RequestSignature = 1,
+
+        /// <summary>
+        /// Token for OAuth2 provided by caller
+        /// </summary>
+        ExternalAuth = 2,
+
     }
 }

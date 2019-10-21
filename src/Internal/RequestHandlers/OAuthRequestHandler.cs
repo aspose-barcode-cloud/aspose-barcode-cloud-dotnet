@@ -27,12 +27,12 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
 {
     using System.Collections.Generic;
     using System.IO;
-    using System.Net;    
-    
+    using System.Net;
+
     using Newtonsoft.Json;
 
     internal class OAuthRequestHandler : IRequestHandler
-    {        
+    {
         private readonly Configuration configuration;
         private readonly ApiInvoker apiInvoker;
 
@@ -72,7 +72,7 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
             }
 
             request.Headers.Add("Authorization", "Bearer " + this.accessToken);
-        }       
+        }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
@@ -94,7 +94,7 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
             var requestUrl = this.configuration.ApiBaseUrl + "/oauth2/token";
 
             var postData = "grant_type=refresh_token";
-            postData += "&refresh_token=" + this.refreshToken;            
+            postData += "&refresh_token=" + this.refreshToken;
 
             var responseString = this.apiInvoker.InvokeApi(
                 requestUrl,
@@ -129,7 +129,7 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
             this.accessToken = result.AccessToken;
             this.refreshToken = result.RefreshToken;
         }
-        
+
         private class GetAccessTokenResult
         {
             [JsonProperty(PropertyName = "access_token")]
@@ -137,6 +137,6 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
 
             [JsonProperty(PropertyName = "refresh_token")]
             public string RefreshToken { get; set; }
-        }        
+        }
     }
 }

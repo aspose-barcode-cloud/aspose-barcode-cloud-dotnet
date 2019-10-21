@@ -28,21 +28,32 @@ namespace Aspose.BarCode.Cloud.Sdk
     /// <summary>
     /// The availiable api versions.
     /// </summary>
-    public enum ApiVersion
+    public class ApiVersion
     {
+        public string Version { get; set; }
+        private ApiVersion(string version)
+        {
+            Version = version;
+        }
         /// <summary>
         /// Current API version
         /// </summary>
-        V1 = 1,
+        public static ApiVersion V1 = new ApiVersion("1.0");
 
         /// <summary>
         /// Stable version
         /// </summary>
-        V2 = 2,
+        public static ApiVersion V2 = new ApiVersion("2.0");
 
         /// <summary>
         /// Frozen version
         /// </summary>
-        V3 = 3
+        public static ApiVersion V3 = new ApiVersion("3.0");
+
+        public override string ToString()
+        {
+            return Version;
+        }
     }
+
 }
