@@ -23,6 +23,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Collections.Generic;
+
 namespace Aspose.BarCode.Cloud.Sdk
 {
     /// <summary>
@@ -67,12 +69,18 @@ namespace Aspose.BarCode.Cloud.Sdk
         /// </summary>
         public ApiVersion ApiVersion { get; set; }
 
+        /// <summary>
+        /// Gets or sets HTTP headers
+        /// </summary>
+        public Dictionary<string, string> DefaultHeaders { get; set; }
+
         public Configuration()
         {
             ApiBaseUrl = "https://api.aspose.cloud";
             DebugMode = false;
             ApiVersion = ApiVersion.V1;
             AuthType = AuthType.OAuth2;
+            DefaultHeaders = new Dictionary<string, string>();
         }
 
         internal string GetApiRootUrl()
