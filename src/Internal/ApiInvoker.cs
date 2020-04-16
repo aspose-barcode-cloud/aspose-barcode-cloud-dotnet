@@ -38,8 +38,17 @@ namespace Aspose.BarCode.Cloud.Sdk
         private readonly Dictionary<string, string> defaultHeaderMap = new Dictionary<string, string>();
         private readonly List<IRequestHandler> requestHandlers; 
     
-        public ApiInvoker(List<IRequestHandler> requestHandlers)
+        public ApiInvoker(Configuration configuration, List<IRequestHandler> requestHandlers)
         {
+            Dictionary<string, string> headers = configuration.DefaultHeaders;
+            if (headers != null)
+            {
+                foreach (KeyValuePair<string, string> header in headers)
+                {
+                    AddDefaultHeader(header.Key, header.Value);
+                }
+            }
+
             var sdkVersion = this.GetType().Assembly.GetName().Version;
             this.AddDefaultHeader(AsposeClientHeaderName, ".net sdk");
             this.AddDefaultHeader(AsposeClientVersionHeaderName, string.Format("{0}.{1}", sdkVersion.Major, sdkVersion.Minor));

@@ -46,7 +46,7 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
             var requestHandlers = new List<IRequestHandler>();
             requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
             requestHandlers.Add(new ApiExceptionRequestHandler());
-            this.apiInvoker = new ApiInvoker(requestHandlers);
+            this.apiInvoker = new ApiInvoker(configuration, requestHandlers);
         }
 
         public string ProcessUrl(string url)

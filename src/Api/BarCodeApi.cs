@@ -80,7 +80,7 @@ namespace Aspose.BarCode.Cloud.Sdk
 
             requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
             requestHandlers.Add(new ApiExceptionRequestHandler());
-            this.apiInvoker = new ApiInvoker(requestHandlers);
+            this.apiInvoker = new ApiInvoker(configuration, requestHandlers);
         }                            
 
         /// <summary>
