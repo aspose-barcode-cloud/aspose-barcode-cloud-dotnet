@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="ApiExceptionRequestHandler.cs">
+// <copyright company="Aspose" file="BarCodeApi.cs">
 //   Copyright (c) 2018 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -9,10 +9,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,28 +23,29 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using System.Text;
-
-namespace Aspose.BarCode.Cloud.Sdk.Model
+namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
-    class BarCodeErrorResponse : AsposeResponse
+    /// <summary>
+    /// The available api versions.
+    /// </summary>
+    public class ApiVersion
     {
-        /// <summary>
-        /// Error message.
-        /// </summary>  
-        public string Message { get; set; }
+        public string Version { get; set; }
+        private ApiVersion(string version)
+        {
+            Version = version;
+        }
 
-        /// <summary>
-        /// Get the string presentation of the object
-        /// </summary>
-        /// <returns>String presentation of the object</returns>
+        //public static ApiVersion V1 = new ApiVersion("1.0");
+
+        //public static ApiVersion V1_1 = new ApiVersion("1.1");
+
+        public static readonly ApiVersion V3 = new ApiVersion("3.0");
+
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class BarCodeErrorResponse {\n");
-            sb.Append("  Message: ").Append(this.Message).Append("\n");
-            sb.Append("}\n");
-            return sb.ToString();
+            return Version;
         }
     }
+
 }

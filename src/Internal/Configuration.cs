@@ -9,10 +9,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,7 +25,7 @@
 
 using System.Collections.Generic;
 
-namespace Aspose.BarCode.Cloud.Sdk
+namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
     /// <summary>
     /// Represents a set of configuration settings
@@ -60,7 +60,7 @@ namespace Aspose.BarCode.Cloud.Sdk
         public bool DebugMode { get; set; }
 
         /// <summary>
-        /// Authentification type.
+        /// Authentication type.
         /// </summary>
         public AuthType AuthType { get; set; }
 
@@ -78,14 +78,14 @@ namespace Aspose.BarCode.Cloud.Sdk
         {
             ApiBaseUrl = "https://api.aspose.cloud";
             DebugMode = false;
-            ApiVersion = ApiVersion.V1;
-            AuthType = AuthType.OAuth2;
+            ApiVersion = ApiVersion.V3;
+            AuthType = AuthType.JWT;
             DefaultHeaders = new Dictionary<string, string>();
         }
 
         internal string GetApiRootUrl()
         {
-            var result = this.ApiBaseUrl + "/v" + ApiVersion;
+            var result = ApiBaseUrl + "/v" + ApiVersion;
 
             return result.EndsWith("/") ? result.Substring(0, result.Length - 1) : result;
         }
