@@ -67,7 +67,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         /// <summary>
         /// Get or sets Cloud API Version.
         /// </summary>
-        public ApiVersion ApiVersion { get; set; }
+        private ApiVersion ApiVersion { get; }
 
         /// <summary>
         /// Gets or sets HTTP headers
