@@ -59,11 +59,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public FontMode? FontSizeMode { get; set; }
         /// <summary>
-        /// Common Units for all measuring in query.             
+        /// Common Units for all measuring in query. Default units: pixel.             
         /// </summary>
         public AvailableGraphicsUnit? Units { get; set; }
         /// <summary>
-        /// Value indicating whether size of barcode changes automatically.             
+        /// Specifies the different types of automatic sizing modes. Default value: AutoSizeMode.None.
         /// </summary>
         public AutoSizeMode? SizeMode { get; set; }
         /// <summary>
@@ -71,7 +71,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public BorderDashStyle? BorderDashStyle { get; set; }
         /// <summary>
-        /// Value indicating whether checksum is enabled.             
+        /// Enable checksum during generation 1D barcodes. Default is treated as Yes for symbology which must contain checksum, as No where checksum only possible. Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN, Codabar Checksum always used: Rest symbology             
         /// </summary>
         public EnableChecksum? EnableChecksum { get; set; }
         /// <summary>
@@ -83,7 +83,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public string TwoDDisplayText { get; set; }
         /// <summary>
-        /// Color of the code text.             
+        /// Specify the displaying CodeText's Color. Default value: Color.Black.
         /// </summary>
         public string TextColor { get; set; }
         /// <summary>
@@ -103,7 +103,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public double? ResolutionY { get; set; }
         /// <summary>
-        /// Smallest width unit of barcode.             
+        /// The smallest width of the unit of BarCode bars or spaces. Increase this will increase the whole barcode image width. Ignored if AutoSizeMode property is set to AutoSizeMode.Nearest or AutoSizeMode.Interpolation.
         /// </summary>
         public double? DimensionX { get; set; }
         /// <summary>
@@ -111,19 +111,19 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public double? TextSpace { get; set; }
         /// <summary>
-        /// Height of the barcode.             
+        /// Height of the barcode in given units. Default units: pixel.             
         /// </summary>
         public double? BarHeight { get; set; }
         /// <summary>
-        /// Height of the barcode image.             
+        /// Height of the barcode image in given units. Default units: pixel.             
         /// </summary>
         public double? ImageHeight { get; set; }
         /// <summary>
-        /// Width of the barcode image.             
+        /// Width of the barcode image in given units. Default units: pixel.             
         /// </summary>
         public double? ImageWidth { get; set; }
         /// <summary>
-        /// Angle of barcode orientation.             
+        /// BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0.
         /// </summary>
         public double? RotationAngle { get; set; }
         /// <summary>
@@ -139,15 +139,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public CaptionParams CaptionBelow { get; set; }
         /// <summary>
-        /// Background color.             
+        /// Background color of the barcode image. Default value: Color.White.
         /// </summary>
         public string BackColor { get; set; }
         /// <summary>
-        /// Bar color.             
+        /// Bars color. Default value: Color.Black.
         /// </summary>
         public string BarColor { get; set; }
         /// <summary>
-        /// Color of the border.             
+        /// Border color. Default value: Color.Black.
         /// </summary>
         public string BorderColor { get; set; }
         /// <summary>
@@ -155,7 +155,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// </summary>
         public double? BorderWidth { get; set; }
         /// <summary>
-        /// Value indicating whether border is visible.             
+        /// Border visibility. If false than parameter Width is always ignored (0). Default value: false.
         /// </summary>
         public bool? BorderVisible { get; set; }
         /// <summary>

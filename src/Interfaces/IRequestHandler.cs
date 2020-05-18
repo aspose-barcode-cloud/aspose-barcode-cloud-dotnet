@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="OAuthRequestHandler.cs">
+// <copyright company="Aspose" file="IRequestHandler.cs">
 //   Copyright (c) 2018 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -25,37 +25,15 @@
 
 using System.IO;
 using System.Net;
-using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
-namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
+namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
-    internal class ExternalAuthorizationRequestHandler : IRequestHandler
+    internal interface IRequestHandler
     {
-        private readonly Configuration configuration;
+        string ProcessUrl(string url);
 
-        public ExternalAuthorizationRequestHandler(Configuration configuration)
-        {
-            this.configuration = configuration;
-        }
+        void BeforeSend(WebRequest request, Stream streamToSend);
 
-        public string ProcessUrl(string url)
-        {
-            return url;
-        }
-
-        public void BeforeSend(WebRequest request, Stream streamToSend)
-        {
-            if (this.configuration.AuthType == AuthType.OAuth2 && string.IsNullOrEmpty(this.configuration.JwtToken))
-            {
-                throw new ApiException(401, "Authorization header value required");
-            }
-
-            request.Headers.Add("Authorization", "Bearer " + this.configuration.JwtToken);
-        }
-
-        public void ProcessResponse(HttpWebResponse response, Stream resultStream)
-        {
-        }
-
+        void ProcessResponse(HttpWebResponse response, Stream resultStream);
     }
 }

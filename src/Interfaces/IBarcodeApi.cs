@@ -26,7 +26,7 @@
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
-namespace Aspose.BarCode.Cloud.Sdk.Internal
+namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
     public interface IBarcodeApi
     {

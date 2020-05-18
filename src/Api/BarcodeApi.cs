@@ -29,6 +29,7 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
@@ -44,25 +45,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
     {
         private readonly ApiInvoker apiInvoker;
         private readonly Configuration configuration;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BarcodeApi"/> class.
-        /// </summary>
-        /// <param name="apiKey">
-        /// The api Key.
-        /// </param>
-        /// <param name="appSid">
-        /// The app Sid.
-        /// </param>
-        public BarcodeApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
-        {
-        }
-
-        // public BarcodeApi(string jwtToken)
-        //     : this(new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V3, AuthType = AuthType.ExternalAuth })
-        // {
-        // }
 
 
         /// <summary>
@@ -90,6 +72,25 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             requestHandlers.Add(new ApiExceptionRequestHandler());
             this.apiInvoker = new ApiInvoker(configuration, requestHandlers);
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BarcodeApi"/> class.
+        /// </summary>
+        /// <param name="apiKey">
+        /// The api Key.
+        /// </param>
+        /// <param name="appSid">
+        /// The app Sid.
+        /// </param>
+        public BarcodeApi(string apiKey, string appSid)
+            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+        {
+        }
+
+        // public BarcodeApi(string jwtToken)
+        //     : this(new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V3, AuthType = AuthType.ExternalAuth })
+        // {
+        // }
 
         /// <summary>
         /// Generate barcode.              
@@ -232,12 +233,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                     null,
                     null,
                     null);
+
                 if (response != null)
                 {
                     return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
                 }
 
                 return null;
+
             //}
             //catch (ApiException ex)
             //{
@@ -301,7 +304,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             {
                 formParams.Add("image", this.apiInvoker.ToFileInfo(request.image, "image"));
             }
-
             //try
             //{
                 var response = this.apiInvoker.InvokeApi(
@@ -310,12 +312,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                     null,
                     null,
                     formParams);
+
                 if (response != null)
                 {
                     return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
                 }
 
                 return null;
+
             //}
             //catch (ApiException ex)
             //{
@@ -445,12 +449,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                     null,
                     null,
                     null);
+
                 if (response != null)
                 {
                     return (ResultImageInfo)SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
                 }
 
                 return null;
+
             //}
             //catch (ApiException ex)
             //{
@@ -501,12 +507,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                     postBody,
                     null,
                     null);
+
                 if (response != null)
                 {
                     return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
                 }
 
                 return null;
+
             //}
             //catch (ApiException ex)
             //{
@@ -557,12 +565,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                     postBody,
                     null,
                     null);
+
                 if (response != null)
                 {
                     return (ResultImageInfo)SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
                 }
 
                 return null;
+
             //}
             //catch (ApiException ex)
             //{

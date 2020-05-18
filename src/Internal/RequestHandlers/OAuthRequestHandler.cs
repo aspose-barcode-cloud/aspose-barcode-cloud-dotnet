@@ -26,6 +26,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Newtonsoft.Json;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
