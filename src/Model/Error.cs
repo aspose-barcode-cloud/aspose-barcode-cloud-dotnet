@@ -38,26 +38,26 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
   using System.Text;
 
   /// <summary>
-  /// 
+  /// Error
   /// </summary>
   public class Error
   {
         /// <summary>
-        /// Gets or sets Code
+        /// Code             
         /// </summary>
         public string Code { get; set; }
         /// <summary>
-        /// Gets or sets Message
+        /// Message             
         /// </summary>
         public string Message { get; set; }
         /// <summary>
-        /// Gets or sets Description
+        /// Description             
         /// </summary>
         public string Description { get; set; }
         /// <summary>
-        /// Gets or sets InnerError
+        /// Inner Error             
         /// </summary>
-        public InnerError InnerError { get; set; }
+        public ErrorDetails InnerError { get; set; }
         /// <summary>
         /// Get the string presentation of the object
         /// </summary>

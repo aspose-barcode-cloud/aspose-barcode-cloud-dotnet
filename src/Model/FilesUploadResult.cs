@@ -49,7 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         /// List of errors.
         /// </summary>
-        public List<Error2> Errors { get; set; }
+        public List<Error> Errors { get; set; }
         /// <summary>
         /// Get the string presentation of the object
         /// </summary>

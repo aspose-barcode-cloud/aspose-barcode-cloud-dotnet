@@ -38,12 +38,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
   using System.Text;
 
   /// <summary>
-  /// 
+  /// BarCodeErrorResponse             
   /// </summary>
   public class BarCodeErrorResponse
   {
         /// <summary>
-        /// Gets or sets Error
+        /// Error             
         /// </summary>
         public Error Error { get; set; }
         /// <summary>
