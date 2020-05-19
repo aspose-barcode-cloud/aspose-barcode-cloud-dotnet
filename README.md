@@ -44,12 +44,17 @@ From within Visual Studio:
 The examples below show how you can generate Code128 barcode and save it into local file using Aspose.BarCode-Cloud library:
 
 ```csharp
-var barCodeApi = new BarCodeApi(AppKey, AppSid);
-using (Stream response = api.BarCodeGetBarCodeGenerate(new BarCodeGetBarCodeGenerateRequest("Sample text", "Code128", "jpg")))
-using (FileStream stream = File.Create("out.jpg"))
-{
+const string appSID = "App SID from https://dashboard.aspose.cloud/#/apps";
+const string appKey = "App Key from https://dashboard.aspose.cloud/#/apps";
+
+var api = new BarcodeApi(appKey, appSID);
+
+using Stream response = api.GetBarcodeGenerate(
+    new GetBarcodeGenerateRequest(
+        EncodeBarcodeType.Code128.ToString(), "Sample text", format: "png")
+    );
+using FileStream stream = File.Create("out.png");
 response.CopyTo(stream);
-}
 ```
 
 ## Dependencies
