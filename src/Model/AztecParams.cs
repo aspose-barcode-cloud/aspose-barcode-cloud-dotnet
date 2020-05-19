@@ -31,47 +31,49 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Aztec parameters.             
-  /// </summary>
-  public class AztecParams
-  {
+    /// <summary>
+    ///     Aztec parameters.             
+    /// </summary>
+    public class AztecParams
+    {
         /// <summary>
-        /// Aztec Symbol mode. Default value: AztecSymbolMode.Auto.
+        ///     Aztec Symbol mode. Default value: AztecSymbolMode.Auto.
         /// </summary>
         public AztecSymbolMode? SymbolMode { get; set; }
+
         /// <summary>
-        /// Height/Width ratio of 2D BarCode module.             
+        ///     Height/Width ratio of 2D BarCode module.             
         /// </summary>
         public double? AspectRatio { get; set; }
+
         /// <summary>
-        /// Level of error correction of Aztec types of barcode. Value should between 10 to 95.
+        ///     Level of error correction of Aztec types of barcode. Value should between 10 to 95.
         /// </summary>
         public int? ErrorLevel { get; set; }
+
         /// <summary>
-        /// Sets the encoding of codetext.             
+        ///     Sets the encoding of codetext.             
         /// </summary>
         public string TextEncoding { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class AztecParams {\n");
-          sb.Append("  AspectRatio: ").Append(this.AspectRatio).Append("\n");
-          sb.Append("  ErrorLevel: ").Append(this.ErrorLevel).Append("\n");
-          sb.Append("  SymbolMode: ").Append(this.SymbolMode).Append("\n");
-          sb.Append("  TextEncoding: ").Append(this.TextEncoding).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class AztecParams {\n");
+            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
+            sb.Append("  ErrorLevel: ").Append(ErrorLevel).Append("\n");
+            sb.Append("  SymbolMode: ").Append(SymbolMode).Append("\n");
+            sb.Append("  TextEncoding: ").Append(TextEncoding).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

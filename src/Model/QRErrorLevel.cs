@@ -31,34 +31,34 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum QRErrorLevel
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum QRErrorLevel
+    { 
+        /// <summary>
         /// Enum value LevelL
         /// </summary>
         LevelL,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value LevelM
         /// </summary>
         LevelM,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value LevelQ
         /// </summary>
         LevelQ,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value LevelH
         /// </summary>
         LevelH
-		
-  }
+      
+    }
 }

@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.GetDiscUsage" /> operation.
-  /// </summary>
-  public class GetDiscUsageRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GetDiscUsageRequest"/> class.
-        /// </summary>
-        // public GetDiscUsageRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.StorageApi.GetDiscUsage" /> operation.
+    /// </summary>
+    public class GetDiscUsageRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="GetDiscUsageRequest"/> class.
         /// </summary>
@@ -58,5 +49,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// Storage name
         /// </summary>
         public string storageName { get; set; }
-  }
+    }
 }

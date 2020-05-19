@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.DeleteFile" /> operation.
-  /// </summary>
-  public class DeleteFileRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DeleteFileRequest"/> class.
-        /// </summary>
-        // public DeleteFileRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.DeleteFile" /> operation.
+    /// </summary>
+    public class DeleteFileRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteFileRequest"/> class.
         /// </summary>
@@ -72,5 +63,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// File version ID to delete
         /// </summary>
         public string versionId { get; set; }
-  }
+    }
 }

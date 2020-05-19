@@ -31,57 +31,61 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Caption             
-  /// </summary>
-  public class CaptionParams
-  {
+    /// <summary>
+    ///     Caption             
+    /// </summary>
+    public class CaptionParams
+    {
         /// <summary>
-        /// Text alignment.             
+        ///     Text alignment.             
         /// </summary>
         public TextAlignment? Alignment { get; set; }
+
         /// <summary>
-        /// Caption text.             
+        ///     Caption text.             
         /// </summary>
         public string Text { get; set; }
+
         /// <summary>
-        /// Text color.             
+        ///     Text color.             
         /// </summary>
         public string Color { get; set; }
+
         /// <summary>
-        /// Is caption visible.             
+        ///     Is caption visible.             
         /// </summary>
         public bool? Visible { get; set; }
+
         /// <summary>
-        /// Font.             
+        ///     Font.             
         /// </summary>
         public FontParams Font { get; set; }
+
         /// <summary>
-        /// Padding.             
+        ///     Padding.             
         /// </summary>
         public Padding Padding { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class CaptionParams {\n");
-          sb.Append("  Text: ").Append(this.Text).Append("\n");
-          sb.Append("  Alignment: ").Append(this.Alignment).Append("\n");
-          sb.Append("  Color: ").Append(this.Color).Append("\n");
-          sb.Append("  Visible: ").Append(this.Visible).Append("\n");
-          sb.Append("  Font: ").Append(this.Font).Append("\n");
-          sb.Append("  Padding: ").Append(this.Padding).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class CaptionParams {\n");
+            sb.Append("  Text: ").Append(Text).Append("\n");
+            sb.Append("  Alignment: ").Append(Alignment).Append("\n");
+            sb.Append("  Color: ").Append(Color).Append("\n");
+            sb.Append("  Visible: ").Append(Visible).Append("\n");
+            sb.Append("  Font: ").Append(Font).Append("\n");
+            sb.Append("  Padding: ").Append(Padding).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

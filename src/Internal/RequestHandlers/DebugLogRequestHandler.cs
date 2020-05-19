@@ -23,6 +23,7 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -33,11 +34,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 {
     internal class DebugLogRequestHandler : IRequestHandler
     {
-        private readonly Configuration configuration;
+        private readonly Configuration _configuration;
 
         public DebugLogRequestHandler(Configuration configuration)
         {
-            this.configuration = configuration;
+            _configuration = configuration;
         }
 
         public string ProcessUrl(string url)
@@ -47,27 +48,27 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (this.configuration.DebugMode)
+            if (_configuration.DebugMode)
             {
-                this.LogRequest(request, streamToSend);
+                LogRequest(request, streamToSend);
             }
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (this.configuration.DebugMode)
+            if (_configuration.DebugMode)
             {
                 resultStream.Position = 0;
-                this.LogResponse(response, resultStream);
+                LogResponse(response, resultStream);
             }
         }
 
         private void LogRequest(WebRequest request, Stream streamToSend)
         {
-            var header = string.Format("{0}: {1}", request.Method, request.RequestUri);
+            var header = $"{request.Method}: {request.RequestUri}";
             var sb = new StringBuilder();
 
-            this.FormatHeaders(sb, request.Headers);
+            FormatHeaders(sb, request.Headers);
             if (streamToSend != null)
             {
                 streamToSend.Position = 0;
@@ -75,20 +76,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 streamToSend.Position = 0;
             }
 
-            this.Log(header, sb);
+            Log(header, sb);
         }
 
-        private void LogResponse(HttpWebResponse response, Stream resultStream)
+        private static void LogResponse(HttpWebResponse response, Stream resultStream)
         {
-            var header = string.Format("\r\nResponse {0}: {1}", (int)response.StatusCode, response.StatusCode);
+            var header = $"\r\nResponse {(int) response.StatusCode}: {response.StatusCode}";
             var sb = new StringBuilder();
 
-            this.FormatHeaders(sb, response.Headers);
+            FormatHeaders(sb, response.Headers);
             StreamHelper.CopyStreamToStringBuilder(sb, resultStream);
-            this.Log(header, sb);
+            Log(header, sb);
         }
 
-        private void FormatHeaders(StringBuilder sb, WebHeaderCollection headerDictionary)
+        private static void FormatHeaders(StringBuilder sb, NameValueCollection headerDictionary)
         {
             foreach (var key in headerDictionary.AllKeys)
             {
@@ -98,7 +99,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             }
         }
 
-        private void Log(string header, StringBuilder sb)
+        private static void Log(string header, StringBuilder sb)
         {
             Trace.WriteLine(header);
             Trace.WriteLine(sb.ToString());

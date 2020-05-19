@@ -28,16 +28,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
     /// <summary>
     /// The available api versions.
     /// </summary>
-    public class ApiVersion
+    internal class ApiVersion
     {
-        public string Version { get; set; }
+        private string Version { get; }
         private ApiVersion(string version)
         {
             Version = version;
         }
 
         //public static ApiVersion V1 = new ApiVersion("1.0");
-
         //public static ApiVersion V1_1 = new ApiVersion("1.1");
 
         public static readonly ApiVersion V3 = new ApiVersion("3.0");

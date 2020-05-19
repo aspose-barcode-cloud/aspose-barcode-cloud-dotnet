@@ -31,177 +31,205 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Represents BarcodeReader object.             
-  /// </summary>
-  public class ReaderParams
-  {
+    /// <summary>
+    ///     Represents BarcodeReader object.             
+    /// </summary>
+    public class ReaderParams
+    {
         /// <summary>
-        /// The type of barcode to read.             
+        ///     The type of barcode to read.             
         /// </summary>
         public DecodeBarcodeType? Type { get; set; }
+
         /// <summary>
-        /// Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies             
+        ///     Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies             
         /// </summary>
         public ChecksumValidation? ChecksumValidation { get; set; }
+
         /// <summary>
-        /// Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality.
+        ///     Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality.
         /// </summary>
         public PresetType? Preset { get; set; }
+
         /// <summary>
-        /// Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.
+        ///     Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.
         /// </summary>
         public CustomerInformationInterpretingType? AustralianPostEncodingTable { get; set; }
+
         /// <summary>
-        /// A flag which force engine to detect codetext encoding for Unicode.
+        ///     A flag which force engine to detect codetext encoding for Unicode.
         /// </summary>
         public bool? DetectEncoding { get; set; }
+
         /// <summary>
-        /// Set X for area for recognition.             
+        ///     Set X for area for recognition.             
         /// </summary>
         public int? RectX { get; set; }
+
         /// <summary>
-        /// Set Y for area for recognition.             
+        ///     Set Y for area for recognition.             
         /// </summary>
         public int? RectY { get; set; }
+
         /// <summary>
-        /// Set Width of area for recognition.             
+        ///     Set Width of area for recognition.             
         /// </summary>
         public int? RectWidth { get; set; }
+
         /// <summary>
-        /// Set Height of area for recognition.             
+        ///     Set Height of area for recognition.             
         /// </summary>
         public int? RectHeight { get; set; }
+
         /// <summary>
-        /// Value indicating whether FNC symbol strip must be done.             
+        ///     Value indicating whether FNC symbol strip must be done.             
         /// </summary>
         public bool? StripFNC { get; set; }
+
         /// <summary>
-        /// Timeout of recognition process.             
+        ///     Timeout of recognition process.             
         /// </summary>
         public int? Timeout { get; set; }
+
         /// <summary>
-        /// Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set.
+        ///     Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set.
         /// </summary>
         public int? MedianSmoothingWindowSize { get; set; }
+
         /// <summary>
-        /// Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes.
+        ///     Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes.
         /// </summary>
         public bool? AllowMedianSmoothing { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode.
+        ///     Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode.
         /// </summary>
         public bool? AllowComplexBackground { get; set; }
+
         /// <summary>
-        /// Allows engine for Datamatrix to recognize dashed industrial Datamatrix barcodes. Slow mode which helps only for dashed barcodes which consist from spots.
+        ///     Allows engine for Datamatrix to recognize dashed industrial Datamatrix barcodes. Slow mode which helps only for dashed barcodes which consist from spots.
         /// </summary>
         public bool? AllowDatamatrixIndustrialBarcodes { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize decreased image as additional scan. Size for decreasing is selected by internal engine algorithms. Mode helps to recognize barcodes which are noised and blurred but captured with high resolution.
+        ///     Allows engine to recognize decreased image as additional scan. Size for decreasing is selected by internal engine algorithms. Mode helps to recognize barcodes which are noised and blurred but captured with high resolution.
         /// </summary>
         public bool? AllowDecreasedImage { get; set; }
+
         /// <summary>
-        /// Allows engine to use gap between scans to increase recognition speed. Mode can make recognition problems with low height barcodes.
+        ///     Allows engine to use gap between scans to increase recognition speed. Mode can make recognition problems with low height barcodes.
         /// </summary>
         public bool? AllowDetectScanGap { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize barcodes which has incorrect checksum or incorrect values. Mode can be used to recognize damaged barcodes with incorrect text.
+        ///     Allows engine to recognize barcodes which has incorrect checksum or incorrect values. Mode can be used to recognize damaged barcodes with incorrect text.
         /// </summary>
         public bool? AllowIncorrectBarcodes { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize inverse color image as additional scan. Mode can be used when barcode is white on black background.
+        ///     Allows engine to recognize inverse color image as additional scan. Mode can be used when barcode is white on black background.
         /// </summary>
         public bool? AllowInvertImage { get; set; }
+
         /// <summary>
-        /// Allows engine for Postal barcodes to recognize slightly noised images. Mode helps to recognize slightly damaged Postal barcodes.
+        ///     Allows engine for Postal barcodes to recognize slightly noised images. Mode helps to recognize slightly damaged Postal barcodes.
         /// </summary>
         public bool? AllowMicroWhiteSpotsRemoving { get; set; }
+
         /// <summary>
-        /// Allows engine for 1D barcodes to quickly recognize high quality barcodes which fill almost whole image. Mode helps to quickly recognize generated barcodes from Internet.
+        ///     Allows engine for 1D barcodes to quickly recognize high quality barcodes which fill almost whole image. Mode helps to quickly recognize generated barcodes from Internet.
         /// </summary>
         public bool? AllowOneDFastBarcodesDetector { get; set; }
+
         /// <summary>
-        /// Allows engine for 1D barcodes to recognize barcodes with single wiped/glued bars in pattern.
+        ///     Allows engine for 1D barcodes to recognize barcodes with single wiped/glued bars in pattern.
         /// </summary>
         public bool? AllowOneDWipedBarsRestoration { get; set; }
+
         /// <summary>
-        /// Allows engine for QR/MicroQR to recognize damaged MicroQR barcodes.
+        ///     Allows engine for QR/MicroQR to recognize damaged MicroQR barcodes.
         /// </summary>
         public bool? AllowQRMicroQrRestoration { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is.
+        ///     Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is.
         /// </summary>
         public bool? AllowRegularImage { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots.
+        ///     Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots.
         /// </summary>
         public bool? AllowSaltAndPepperFiltering { get; set; }
+
         /// <summary>
-        /// Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering.
+        ///     Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering.
         /// </summary>
         public bool? AllowWhiteSpotsRemoving { get; set; }
+
         /// <summary>
-        /// Sets threshold for detected regions that may contain barcodes.  Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
+        ///     Sets threshold for detected regions that may contain barcodes.  Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
         /// </summary>
         public double? RegionLikelihoodThresholdPercent { get; set; }
+
         /// <summary>
-        /// Scan window sizes in pixels.  Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality.
+        ///     Scan window sizes in pixels.  Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality.
         /// </summary>
         public List<int?> ScanWindowSizes { get; set; }
+
         /// <summary>
-        /// Similarity coefficient depends on how homogeneous barcodes are.  Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]
+        ///     Similarity coefficient depends on how homogeneous barcodes are.  Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]
         /// </summary>
         public double? Similarity { get; set; }
+
         /// <summary>
-        /// Allows detector to skip search for diagonal barcodes.  Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time.
+        ///     Allows detector to skip search for diagonal barcodes.  Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time.
         /// </summary>
         public bool? SkipDiagonalSearch { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ReaderParams {\n");
-          sb.Append("  Type: ").Append(this.Type).Append("\n");
-          sb.Append("  ChecksumValidation: ").Append(this.ChecksumValidation).Append("\n");
-          sb.Append("  DetectEncoding: ").Append(this.DetectEncoding).Append("\n");
-          sb.Append("  Preset: ").Append(this.Preset).Append("\n");
-          sb.Append("  RectX: ").Append(this.RectX).Append("\n");
-          sb.Append("  RectY: ").Append(this.RectY).Append("\n");
-          sb.Append("  RectWidth: ").Append(this.RectWidth).Append("\n");
-          sb.Append("  RectHeight: ").Append(this.RectHeight).Append("\n");
-          sb.Append("  StripFNC: ").Append(this.StripFNC).Append("\n");
-          sb.Append("  Timeout: ").Append(this.Timeout).Append("\n");
-          sb.Append("  MedianSmoothingWindowSize: ").Append(this.MedianSmoothingWindowSize).Append("\n");
-          sb.Append("  AllowMedianSmoothing: ").Append(this.AllowMedianSmoothing).Append("\n");
-          sb.Append("  AllowComplexBackground: ").Append(this.AllowComplexBackground).Append("\n");
-          sb.Append("  AllowDatamatrixIndustrialBarcodes: ").Append(this.AllowDatamatrixIndustrialBarcodes).Append("\n");
-          sb.Append("  AllowDecreasedImage: ").Append(this.AllowDecreasedImage).Append("\n");
-          sb.Append("  AllowDetectScanGap: ").Append(this.AllowDetectScanGap).Append("\n");
-          sb.Append("  AllowIncorrectBarcodes: ").Append(this.AllowIncorrectBarcodes).Append("\n");
-          sb.Append("  AllowInvertImage: ").Append(this.AllowInvertImage).Append("\n");
-          sb.Append("  AllowMicroWhiteSpotsRemoving: ").Append(this.AllowMicroWhiteSpotsRemoving).Append("\n");
-          sb.Append("  AllowOneDFastBarcodesDetector: ").Append(this.AllowOneDFastBarcodesDetector).Append("\n");
-          sb.Append("  AllowOneDWipedBarsRestoration: ").Append(this.AllowOneDWipedBarsRestoration).Append("\n");
-          sb.Append("  AllowQRMicroQrRestoration: ").Append(this.AllowQRMicroQrRestoration).Append("\n");
-          sb.Append("  AllowRegularImage: ").Append(this.AllowRegularImage).Append("\n");
-          sb.Append("  AllowSaltAndPepperFiltering: ").Append(this.AllowSaltAndPepperFiltering).Append("\n");
-          sb.Append("  AllowWhiteSpotsRemoving: ").Append(this.AllowWhiteSpotsRemoving).Append("\n");
-          sb.Append("  RegionLikelihoodThresholdPercent: ").Append(this.RegionLikelihoodThresholdPercent).Append("\n");
-          sb.Append("  ScanWindowSizes: ").Append(this.ScanWindowSizes).Append("\n");
-          sb.Append("  Similarity: ").Append(this.Similarity).Append("\n");
-          sb.Append("  SkipDiagonalSearch: ").Append(this.SkipDiagonalSearch).Append("\n");
-          sb.Append("  AustralianPostEncodingTable: ").Append(this.AustralianPostEncodingTable).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ReaderParams {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  ChecksumValidation: ").Append(ChecksumValidation).Append("\n");
+            sb.Append("  DetectEncoding: ").Append(DetectEncoding).Append("\n");
+            sb.Append("  Preset: ").Append(Preset).Append("\n");
+            sb.Append("  RectX: ").Append(RectX).Append("\n");
+            sb.Append("  RectY: ").Append(RectY).Append("\n");
+            sb.Append("  RectWidth: ").Append(RectWidth).Append("\n");
+            sb.Append("  RectHeight: ").Append(RectHeight).Append("\n");
+            sb.Append("  StripFNC: ").Append(StripFNC).Append("\n");
+            sb.Append("  Timeout: ").Append(Timeout).Append("\n");
+            sb.Append("  MedianSmoothingWindowSize: ").Append(MedianSmoothingWindowSize).Append("\n");
+            sb.Append("  AllowMedianSmoothing: ").Append(AllowMedianSmoothing).Append("\n");
+            sb.Append("  AllowComplexBackground: ").Append(AllowComplexBackground).Append("\n");
+            sb.Append("  AllowDatamatrixIndustrialBarcodes: ").Append(AllowDatamatrixIndustrialBarcodes).Append("\n");
+            sb.Append("  AllowDecreasedImage: ").Append(AllowDecreasedImage).Append("\n");
+            sb.Append("  AllowDetectScanGap: ").Append(AllowDetectScanGap).Append("\n");
+            sb.Append("  AllowIncorrectBarcodes: ").Append(AllowIncorrectBarcodes).Append("\n");
+            sb.Append("  AllowInvertImage: ").Append(AllowInvertImage).Append("\n");
+            sb.Append("  AllowMicroWhiteSpotsRemoving: ").Append(AllowMicroWhiteSpotsRemoving).Append("\n");
+            sb.Append("  AllowOneDFastBarcodesDetector: ").Append(AllowOneDFastBarcodesDetector).Append("\n");
+            sb.Append("  AllowOneDWipedBarsRestoration: ").Append(AllowOneDWipedBarsRestoration).Append("\n");
+            sb.Append("  AllowQRMicroQrRestoration: ").Append(AllowQRMicroQrRestoration).Append("\n");
+            sb.Append("  AllowRegularImage: ").Append(AllowRegularImage).Append("\n");
+            sb.Append("  AllowSaltAndPepperFiltering: ").Append(AllowSaltAndPepperFiltering).Append("\n");
+            sb.Append("  AllowWhiteSpotsRemoving: ").Append(AllowWhiteSpotsRemoving).Append("\n");
+            sb.Append("  RegionLikelihoodThresholdPercent: ").Append(RegionLikelihoodThresholdPercent).Append("\n");
+            sb.Append("  ScanWindowSizes: ").Append(ScanWindowSizes).Append("\n");
+            sb.Append("  Similarity: ").Append(Similarity).Append("\n");
+            sb.Append("  SkipDiagonalSearch: ").Append(SkipDiagonalSearch).Append("\n");
+            sb.Append("  AustralianPostEncodingTable: ").Append(AustralianPostEncodingTable).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

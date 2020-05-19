@@ -31,42 +31,43 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Represents list of barcode generators             
-  /// </summary>
-  public class GeneratorParamsList
-  {
+    /// <summary>
+    ///     Represents list of barcode generators             
+    /// </summary>
+    public class GeneratorParamsList
+    {
         /// <summary>
-        /// List of barcode generators             
+        ///     List of barcode generators             
         /// </summary>
         public List<GeneratorParams> BarcodeBuilders { get; set; }
+
         /// <summary>
-        /// Shift step according to X axis             
+        ///     Shift step according to X axis             
         /// </summary>
         public int? XStep { get; set; }
+
         /// <summary>
-        /// Shift step according to Y axis             
+        ///     Shift step according to Y axis             
         /// </summary>
         public int? YStep { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class GeneratorParamsList {\n");
-          sb.Append("  BarcodeBuilders: ").Append(this.BarcodeBuilders).Append("\n");
-          sb.Append("  XStep: ").Append(this.XStep).Append("\n");
-          sb.Append("  YStep: ").Append(this.YStep).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class GeneratorParamsList {\n");
+            sb.Append("  BarcodeBuilders: ").Append(BarcodeBuilders).Append("\n");
+            sb.Append("  XStep: ").Append(XStep).Append("\n");
+            sb.Append("  YStep: ").Append(YStep).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Tests
 
         protected static Stream GetTestImage(string fileName)
         {
-            string filePath = TestFilePath(fileName);
+            var filePath = TestFilePath(fileName);
             return File.Open(filePath, FileMode.Open, FileAccess.Read);
         }
     }

@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.DeleteFolder" /> operation.
-  /// </summary>
-  public class DeleteFolderRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DeleteFolderRequest"/> class.
-        /// </summary>
-        // public DeleteFolderRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FolderApi.DeleteFolder" /> operation.
+    /// </summary>
+    public class DeleteFolderRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteFolderRequest"/> class.
         /// </summary>
@@ -72,5 +63,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// Enable to delete folders, subfolders and files
         /// </summary>
         public bool? recursive { get; set; }
-  }
+    }
 }

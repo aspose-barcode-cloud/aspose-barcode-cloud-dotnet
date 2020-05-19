@@ -31,34 +31,34 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum CodabarSymbol
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum CodabarSymbol
+    { 
+        /// <summary>
         /// Enum value A
         /// </summary>
         A,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value B
         /// </summary>
         B,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value C
         /// </summary>
         C,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value D
         /// </summary>
         D
-		
-  }
+      
+    }
 }

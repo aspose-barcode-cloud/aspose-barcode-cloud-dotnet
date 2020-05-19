@@ -31,47 +31,49 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Padding around barcode.             
-  /// </summary>
-  public class Padding
-  {
+    /// <summary>
+    ///     Padding around barcode.             
+    /// </summary>
+    public class Padding
+    {
         /// <summary>
-        /// Left padding.             
+        ///     Left padding.             
         /// </summary>
         public double? Left { get; set; }
+
         /// <summary>
-        /// Right padding.             
+        ///     Right padding.             
         /// </summary>
         public double? Right { get; set; }
+
         /// <summary>
-        /// Top padding.             
+        ///     Top padding.             
         /// </summary>
         public double? Top { get; set; }
+
         /// <summary>
-        /// Bottom padding.             
+        ///     Bottom padding.             
         /// </summary>
         public double? Bottom { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Padding {\n");
-          sb.Append("  Left: ").Append(this.Left).Append("\n");
-          sb.Append("  Right: ").Append(this.Right).Append("\n");
-          sb.Append("  Top: ").Append(this.Top).Append("\n");
-          sb.Append("  Bottom: ").Append(this.Bottom).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Padding {\n");
+            sb.Append("  Left: ").Append(Left).Append("\n");
+            sb.Append("  Right: ").Append(Right).Append("\n");
+            sb.Append("  Top: ").Append(Top).Append("\n");
+            sb.Append("  Bottom: ").Append(Bottom).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

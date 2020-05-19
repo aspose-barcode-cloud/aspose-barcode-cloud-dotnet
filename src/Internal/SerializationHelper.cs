@@ -29,7 +29,7 @@ using Newtonsoft.Json;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
-    public static class SerializationHelper
+    internal static class SerializationHelper
     {
         public static string Serialize(object obj)
         {
@@ -56,7 +56,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                     return JsonConvert.DeserializeObject(json, type);
                 }
 
-                System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
+                var xmlDoc = new System.Xml.XmlDocument();
                 xmlDoc.LoadXml(json);
                 return JsonConvert.SerializeXmlNode(xmlDoc);
             }
@@ -64,13 +64,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             {
                 throw new ApiException(500, e.Message);
             }
-            catch (JsonSerializationException jse)
+            catch (JsonSerializationException jsE)
             {
-                throw new ApiException(500, jse.Message);
+                throw new ApiException(500, jsE.Message);
             }
-            catch (System.Xml.XmlException xmle)
+            catch (System.Xml.XmlException xmlE)
             {
-                throw new ApiException(500, xmle.Message);
+                throw new ApiException(500, xmlE.Message);
             }
         }
     }

@@ -31,44 +31,44 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum DataMatrixEncodeMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum DataMatrixEncodeMode
+    { 
+        /// <summary>
         /// Enum value Auto
         /// </summary>
         Auto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ASCII
         /// </summary>
         ASCII,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Full
         /// </summary>
         Full,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Custom
         /// </summary>
         Custom,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value C40
         /// </summary>
         C40,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Text
         /// </summary>
         Text
-		
-  }
+      
+    }
 }

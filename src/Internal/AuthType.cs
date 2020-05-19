@@ -28,26 +28,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
     /// <summary>
     /// Supported types of authentication.
     /// </summary>
-    public enum AuthType
+    internal enum AuthType
     {
-        /// <summary>
-        /// OAuth2.0
-        /// </summary>
-        OAuth2 = 0,
-
-        /// <summary>
-        /// Authentication with signing of url.
-        /// </summary>
-        RequestSignature = 1,
-
-        /// <summary>
-        /// Token for OAuth2 provided by caller
-        /// </summary>
-        ExternalAuth = 2,
-
         /// <summary>
         /// JWT token authorization.
         /// </summary>
-        JWT = 3,
+        JWT = 0,
+
+        /// <summary>
+        /// Token for JWT provided by caller
+        /// </summary>
+        ExternalAuth = 1,
     }
 }

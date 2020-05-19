@@ -31,42 +31,43 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Codabar parameters.
-  /// </summary>
-  public class CodabarParams
-  {
+    /// <summary>
+    ///     Codabar parameters.
+    /// </summary>
+    public class CodabarParams
+    {
         /// <summary>
-        /// Checksum algorithm for Codabar barcodes. Default value: CodabarChecksumMode.Mod16. To enable checksum calculation set value EnableChecksum.Yes to property EnableChecksum.
+        ///     Checksum algorithm for Codabar barcodes. Default value: CodabarChecksumMode.Mod16. To enable checksum calculation set value EnableChecksum.Yes to property EnableChecksum.
         /// </summary>
         public CodabarChecksumMode? ChecksumMode { get; set; }
+
         /// <summary>
-        /// Start symbol (character) of Codabar symbology. Default value: CodabarSymbol.A
+        ///     Start symbol (character) of Codabar symbology. Default value: CodabarSymbol.A
         /// </summary>
         public CodabarSymbol? StartSymbol { get; set; }
+
         /// <summary>
-        /// Stop symbol (character) of Codabar symbology. Default value: CodabarSymbol.A
+        ///     Stop symbol (character) of Codabar symbology. Default value: CodabarSymbol.A
         /// </summary>
         public CodabarSymbol? StopSymbol { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class CodabarParams {\n");
-          sb.Append("  ChecksumMode: ").Append(this.ChecksumMode).Append("\n");
-          sb.Append("  StartSymbol: ").Append(this.StartSymbol).Append("\n");
-          sb.Append("  StopSymbol: ").Append(this.StopSymbol).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class CodabarParams {\n");
+            sb.Append("  ChecksumMode: ").Append(ChecksumMode).Append("\n");
+            sb.Append("  StartSymbol: ").Append(StartSymbol).Append("\n");
+            sb.Append("  StopSymbol: ").Append(StopSymbol).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

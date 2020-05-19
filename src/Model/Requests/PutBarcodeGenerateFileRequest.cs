@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.PutBarcodeGenerateFile" /> operation.
-  /// </summary>
-  public class PutBarcodeGenerateFileRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PutBarcodeGenerateFileRequest"/> class.
-        /// </summary>
-        // public PutBarcodeGenerateFileRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.PutBarcodeGenerateFile" /> operation.
+    /// </summary>
+    public class PutBarcodeGenerateFileRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="PutBarcodeGenerateFileRequest"/> class.
         /// </summary>
@@ -303,5 +294,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// The image format.
         /// </summary>
         public string format { get; set; }
-  }
+    }
 }

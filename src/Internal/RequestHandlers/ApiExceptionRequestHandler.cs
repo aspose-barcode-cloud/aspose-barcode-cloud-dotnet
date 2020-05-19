@@ -59,13 +59,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 using (var responseReader = new StreamReader(resultStream))
                 {
                     var responseData = responseReader.ReadToEnd();
-                    var errorResponse = (BarCodeErrorResponse)SerializationHelper.Deserialize(responseData, typeof(BarCodeErrorResponse));
+                    var errorResponse = (BarCodeErrorResponse)
+                        SerializationHelper.Deserialize(responseData,
+                            typeof(BarCodeErrorResponse));
                     if (string.IsNullOrEmpty(errorResponse.Error.Code))
                     {
                         errorResponse.Error.Message = responseData;
                     }
 
-                    resultException = new ApiException((int)webResponse.StatusCode, $"{errorResponse.Error.Message}: {errorResponse.Error.Description}");
+                    resultException = new ApiException((int) webResponse.StatusCode,
+                        $"{errorResponse.Error.Message}: {errorResponse.Error.Description}");
                 }
             }
             catch (Exception)

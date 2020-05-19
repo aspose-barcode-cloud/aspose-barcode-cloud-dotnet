@@ -31,32 +31,31 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Represents information about barcode list.             
-  /// </summary>
-  public class BarcodeResponseList
-  {
+    /// <summary>
+    ///     Represents information about barcode list.             
+    /// </summary>
+    public class BarcodeResponseList
+    {
         /// <summary>
-        /// List of barcodes which are present in image.             
+        ///     List of barcodes which are present in image.             
         /// </summary>
         public List<BarcodeResponse> Barcodes { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class BarcodeResponseList {\n");
-          sb.Append("  Barcodes: ").Append(this.Barcodes).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class BarcodeResponseList {\n");
+            sb.Append("  Barcodes: ").Append(Barcodes).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

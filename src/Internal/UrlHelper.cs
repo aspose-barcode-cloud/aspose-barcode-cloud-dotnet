@@ -66,7 +66,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             }
 
             var uriBuilder = new UriBuilder(url);
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            NameValueCollection query = HttpUtility.ParseQueryString(uriBuilder.Query);
             query.Add(parameterName, parameterValue.ToString());
             uriBuilder.Query = query.ToString();
 

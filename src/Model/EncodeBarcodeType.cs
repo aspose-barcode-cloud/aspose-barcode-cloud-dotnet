@@ -31,344 +31,344 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// See EncodeTypes             
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum EncodeBarcodeType
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     See EncodeTypes             
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum EncodeBarcodeType
+    { 
+        /// <summary>
         /// Enum value Codabar
         /// </summary>
         Codabar,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code11
         /// </summary>
         Code11,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code39Standard
         /// </summary>
         Code39Standard,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code39Extended
         /// </summary>
         Code39Extended,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code93Standard
         /// </summary>
         Code93Standard,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code93Extended
         /// </summary>
         Code93Extended,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code128
         /// </summary>
         Code128,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value GS1Code128
         /// </summary>
         GS1Code128,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value EAN8
         /// </summary>
         EAN8,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value EAN13
         /// </summary>
         EAN13,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value EAN14
         /// </summary>
         EAN14,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value SCC14
         /// </summary>
         SCC14,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value SSCC18
         /// </summary>
         SSCC18,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value UPCA
         /// </summary>
         UPCA,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value UPCE
         /// </summary>
         UPCE,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISBN
         /// </summary>
         ISBN,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISSN
         /// </summary>
         ISSN,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISMN
         /// </summary>
         ISMN,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Standard2of5
         /// </summary>
         Standard2of5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Interleaved2of5
         /// </summary>
         Interleaved2of5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Matrix2of5
         /// </summary>
         Matrix2of5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ItalianPost25
         /// </summary>
         ItalianPost25,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value IATA2of5
         /// </summary>
         IATA2of5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ITF14
         /// </summary>
         ITF14,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ITF6
         /// </summary>
         ITF6,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value MSI
         /// </summary>
         MSI,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value VIN
         /// </summary>
         VIN,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DeutschePostIdentcode
         /// </summary>
         DeutschePostIdentcode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DeutschePostLeitcode
         /// </summary>
         DeutschePostLeitcode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value OPC
         /// </summary>
         OPC,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value PZN
         /// </summary>
         PZN,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code16K
         /// </summary>
         Code16K,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Pharmacode
         /// </summary>
         Pharmacode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DataMatrix
         /// </summary>
         DataMatrix,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value QR
         /// </summary>
         QR,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Aztec
         /// </summary>
         Aztec,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Pdf417
         /// </summary>
         Pdf417,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value MacroPdf417
         /// </summary>
         MacroPdf417,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value AustraliaPost
         /// </summary>
         AustraliaPost,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Postnet
         /// </summary>
         Postnet,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Planet
         /// </summary>
         Planet,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value OneCode
         /// </summary>
         OneCode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value RM4SCC
         /// </summary>
         RM4SCC,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarOmniDirectional
         /// </summary>
         DatabarOmniDirectional,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarTruncated
         /// </summary>
         DatabarTruncated,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarLimited
         /// </summary>
         DatabarLimited,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarExpanded
         /// </summary>
         DatabarExpanded,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value SingaporePost
         /// </summary>
         SingaporePost,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value GS1DataMatrix
         /// </summary>
         GS1DataMatrix,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value AustralianPosteParcel
         /// </summary>
         AustralianPosteParcel,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value SwissPostParcel
         /// </summary>
         SwissPostParcel,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value PatchCode
         /// </summary>
         PatchCode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarExpandedStacked
         /// </summary>
         DatabarExpandedStacked,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarStacked
         /// </summary>
         DatabarStacked,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DatabarStackedOmniDirectional
         /// </summary>
         DatabarStackedOmniDirectional,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value MicroPdf417
         /// </summary>
         MicroPdf417,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value GS1QR
         /// </summary>
         GS1QR,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value MaxiCode
         /// </summary>
         MaxiCode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Code32
         /// </summary>
         Code32,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DataLogic2of5
         /// </summary>
         DataLogic2of5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DotCode
         /// </summary>
         DotCode,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value DutchKIX
         /// </summary>
         DutchKIX,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value UpcaGs1Code128Coupon
         /// </summary>
         UpcaGs1Code128Coupon,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value UpcaGs1DatabarCoupon
         /// </summary>
         UpcaGs1DatabarCoupon,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value CodablockF
         /// </summary>
         CodablockF,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value GS1CodablockF
         /// </summary>
         GS1CodablockF
-		
-  }
+      
+    }
 }

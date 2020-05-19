@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.MoveFile" /> operation.
-  /// </summary>
-  public class MoveFileRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MoveFileRequest"/> class.
-        /// </summary>
-        // public MoveFileRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.MoveFile" /> operation.
+    /// </summary>
+    public class MoveFileRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="MoveFileRequest"/> class.
         /// </summary>
@@ -86,5 +77,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// File version ID to move
         /// </summary>
         public string versionId { get; set; }
-  }
+    }
 }

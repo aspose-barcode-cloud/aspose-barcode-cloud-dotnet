@@ -31,39 +31,39 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum FontStyle
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum FontStyle
+    { 
+        /// <summary>
         /// Enum value Regular
         /// </summary>
         Regular,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Bold
         /// </summary>
         Bold,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Italic
         /// </summary>
         Italic,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Underline
         /// </summary>
         Underline,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Strikeout
         /// </summary>
         Strikeout
-		
-  }
+      
+    }
 }

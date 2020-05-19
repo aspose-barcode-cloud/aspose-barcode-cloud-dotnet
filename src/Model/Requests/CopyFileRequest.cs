@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.CopyFile" /> operation.
-  /// </summary>
-  public class CopyFileRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CopyFileRequest"/> class.
-        /// </summary>
-        // public CopyFileRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.CopyFile" /> operation.
+    /// </summary>
+    public class CopyFileRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="CopyFileRequest"/> class.
         /// </summary>
@@ -86,5 +77,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// File version ID to copy
         /// </summary>
         public string versionId { get; set; }
-  }
+    }
 }

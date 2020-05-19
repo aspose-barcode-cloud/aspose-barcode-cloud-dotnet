@@ -31,32 +31,31 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Postal parameters. Used for Postnet, Planet.             
-  /// </summary>
-  public class PostalParams
-  {
+    /// <summary>
+    ///     Postal parameters. Used for Postnet, Planet.             
+    /// </summary>
+    public class PostalParams
+    {
         /// <summary>
-        /// Short bar's height of Postal barcodes.             
+        ///     Short bar's height of Postal barcodes.             
         /// </summary>
         public double? ShortBarHeight { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class PostalParams {\n");
-          sb.Append("  ShortBarHeight: ").Append(this.ShortBarHeight).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class PostalParams {\n");
+            sb.Append("  ShortBarHeight: ").Append(ShortBarHeight).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

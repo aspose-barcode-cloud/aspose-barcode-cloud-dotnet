@@ -31,42 +31,43 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Created image info.             
-  /// </summary>
-  public class ResultImageInfo
-  {
+    /// <summary>
+    ///     Created image info.             
+    /// </summary>
+    public class ResultImageInfo
+    {
         /// <summary>
-        /// Result file size.             
+        ///     Result file size.             
         /// </summary>
         public long? FileSize { get; set; }
+
         /// <summary>
-        /// Result image width.             
+        ///     Result image width.             
         /// </summary>
         public int? ImageWidth { get; set; }
+
         /// <summary>
-        /// Result image height.             
+        ///     Result image height.             
         /// </summary>
         public int? ImageHeight { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ResultImageInfo {\n");
-          sb.Append("  FileSize: ").Append(this.FileSize).Append("\n");
-          sb.Append("  ImageWidth: ").Append(this.ImageWidth).Append("\n");
-          sb.Append("  ImageHeight: ").Append(this.ImageHeight).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ResultImageInfo {\n");
+            sb.Append("  FileSize: ").Append(FileSize).Append("\n");
+            sb.Append("  ImageWidth: ").Append(ImageWidth).Append("\n");
+            sb.Append("  ImageHeight: ").Append(ImageHeight).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

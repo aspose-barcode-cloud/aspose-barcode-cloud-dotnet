@@ -31,37 +31,37 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// AustralianPost barcode parameters.             
-  /// </summary>
-  public class AustralianPostParams
-  {
+    /// <summary>
+    ///     AustralianPost barcode parameters.             
+    /// </summary>
+    public class AustralianPostParams
+    {
         /// <summary>
-        /// Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other\&quot;
+        ///     Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other\&quot;
         /// </summary>
         public CustomerInformationInterpretingType? EncodingTable { get; set; }
+
         /// <summary>
-        /// Short bar's height of AustralianPost barcode.
+        ///     Short bar's height of AustralianPost barcode.
         /// </summary>
         public double? ShortBarHeight { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class AustralianPostParams {\n");
-          sb.Append("  EncodingTable: ").Append(this.EncodingTable).Append("\n");
-          sb.Append("  ShortBarHeight: ").Append(this.ShortBarHeight).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class AustralianPostParams {\n");
+            sb.Append("  EncodingTable: ").Append(EncodingTable).Append("\n");
+            sb.Append("  ShortBarHeight: ").Append(ShortBarHeight).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

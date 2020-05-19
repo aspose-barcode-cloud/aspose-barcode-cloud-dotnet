@@ -31,34 +31,34 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// Subset of GraphicsUnit.             
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum AvailableGraphicsUnit
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     Subset of GraphicsUnit.             
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum AvailableGraphicsUnit
+    { 
+        /// <summary>
         /// Enum value Pixel
         /// </summary>
         Pixel,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Point
         /// </summary>
         Point,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Inch
         /// </summary>
         Inch,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Millimeter
         /// </summary>
         Millimeter
-		
-  }
+      
+    }
 }

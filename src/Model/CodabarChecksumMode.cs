@@ -31,24 +31,24 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum CodabarChecksumMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum CodabarChecksumMode
+    { 
+        /// <summary>
         /// Enum value Mod10
         /// </summary>
         Mod10,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Mod16
         /// </summary>
         Mod16
-		
-  }
+      
+    }
 }

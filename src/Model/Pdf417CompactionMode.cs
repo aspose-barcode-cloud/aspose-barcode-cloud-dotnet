@@ -31,34 +31,34 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum Pdf417CompactionMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum Pdf417CompactionMode
+    { 
+        /// <summary>
         /// Enum value Auto
         /// </summary>
         Auto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Text
         /// </summary>
         Text,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Numeric
         /// </summary>
         Numeric,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Binary
         /// </summary>
         Binary
-		
-  }
+      
+    }
 }

@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
@@ -8,8 +8,18 @@ namespace Tests
     [TestFixture]
     public class ConfigurationTests
     {
+
         [Test]
-        public void DefaultConstructorTest()
+        public void DefaultParamsTest()
+        {
+            var config = new Configuration();
+            
+            Assert.AreEqual("https://api.aspose.cloud", config.ApiBaseUrl);
+            Assert.AreEqual("https://api.aspose.cloud/v3.0", config.GetApiRootUrl());
+        }
+
+        [Test]
+        public void DeserializeTest()
         {
             Configuration config;
             using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.template.json")))
@@ -24,9 +34,11 @@ namespace Tests
 
 
         [Test]
-        public void CustomHeadersAppliedTest()
+        public void CanSetAuthTypeAndTokenTest()
         {
-            Assert.Fail("Not implemented");
+            var config = new Configuration {JwtToken = "Test JWT token"};
+            
+            Assert.AreEqual("Test JWT token", config.JwtToken);
         }
     }
 }

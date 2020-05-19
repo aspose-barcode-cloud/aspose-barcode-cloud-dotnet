@@ -31,144 +31,144 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum ECIEncodings
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum ECIEncodings
+    { 
+        /// <summary>
         /// Enum value ISO_8859_1
         /// </summary>
         ISO_8859_1,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_2
         /// </summary>
         ISO_8859_2,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_3
         /// </summary>
         ISO_8859_3,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_4
         /// </summary>
         ISO_8859_4,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_5
         /// </summary>
         ISO_8859_5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_6
         /// </summary>
         ISO_8859_6,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_7
         /// </summary>
         ISO_8859_7,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_8
         /// </summary>
         ISO_8859_8,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_9
         /// </summary>
         ISO_8859_9,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_10
         /// </summary>
         ISO_8859_10,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_11
         /// </summary>
         ISO_8859_11,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_13
         /// </summary>
         ISO_8859_13,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_14
         /// </summary>
         ISO_8859_14,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_15
         /// </summary>
         ISO_8859_15,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ISO_8859_16
         /// </summary>
         ISO_8859_16,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Shift_JIS
         /// </summary>
         Shift_JIS,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Win1250
         /// </summary>
         Win1250,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Win1251
         /// </summary>
         Win1251,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Win1252
         /// </summary>
         Win1252,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Win1256
         /// </summary>
         Win1256,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value UTF16BE
         /// </summary>
         UTF16BE,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value UTF8
         /// </summary>
         UTF8,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value US_ASCII
         /// </summary>
         US_ASCII,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Big5
         /// </summary>
         Big5,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value GB18030
         /// </summary>
         GB18030,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value EUC_KR
         /// </summary>
         EUC_KR
-		
-  }
+      
+    }
 }

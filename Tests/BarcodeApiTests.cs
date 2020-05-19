@@ -26,9 +26,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Aspose.BarCode.Cloud.Sdk;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using Newtonsoft.Json;
@@ -46,7 +46,7 @@ namespace Tests
     [TestFixture]
     public class BarcodeApiTests : TestsBase
     {
-        private BarcodeApi _api;
+        private IBarcodeApi _api;
 
         /// <summary>
         /// Setup before each unit test

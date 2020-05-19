@@ -31,47 +31,49 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Represents information about barcode.             
-  /// </summary>
-  public class BarcodeResponse
-  {
+    /// <summary>
+    ///     Represents information about barcode.             
+    /// </summary>
+    public class BarcodeResponse
+    {
         /// <summary>
-        /// Barcode data.             
+        ///     Barcode data.             
         /// </summary>
         public string BarcodeValue { get; set; }
+
         /// <summary>
-        /// Type of the barcode.             
+        ///     Type of the barcode.             
         /// </summary>
         public string Type { get; set; }
+
         /// <summary>
-        /// Region with barcode.             
+        ///     Region with barcode.             
         /// </summary>
         public List<RegionPoint> Region { get; set; }
+
         /// <summary>
-        /// Checksum of barcode.             
+        ///     Checksum of barcode.             
         /// </summary>
         public string Checksum { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class BarcodeResponse {\n");
-          sb.Append("  BarcodeValue: ").Append(this.BarcodeValue).Append("\n");
-          sb.Append("  Type: ").Append(this.Type).Append("\n");
-          sb.Append("  Region: ").Append(this.Region).Append("\n");
-          sb.Append("  Checksum: ").Append(this.Checksum).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class BarcodeResponse {\n");
+            sb.Append("  BarcodeValue: ").Append(BarcodeValue).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Region: ").Append(Region).Append("\n");
+            sb.Append("  Checksum: ").Append(Checksum).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

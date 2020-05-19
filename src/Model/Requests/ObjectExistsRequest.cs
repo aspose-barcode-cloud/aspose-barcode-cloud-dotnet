@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.ObjectExists" /> operation.
-  /// </summary>
-  public class ObjectExistsRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ObjectExistsRequest"/> class.
-        /// </summary>
-        // public ObjectExistsRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.StorageApi.ObjectExists" /> operation.
+    /// </summary>
+    public class ObjectExistsRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="ObjectExistsRequest"/> class.
         /// </summary>
@@ -72,5 +63,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// File version ID
         /// </summary>
         public string versionId { get; set; }
-  }
+    }
 }

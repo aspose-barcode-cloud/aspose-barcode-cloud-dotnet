@@ -31,62 +31,67 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  public class FileVersion
-  {
+    /// <summary>
+    ///     
+    /// </summary>
+    public class FileVersion
+    {
         /// <summary>
-        /// File or folder name.
+        ///     File or folder name.
         /// </summary>
         public string Name { get; set; }
+
         /// <summary>
-        /// True if it is a folder.
+        ///     True if it is a folder.
         /// </summary>
         public bool? IsFolder { get; set; }
+
         /// <summary>
-        /// File or folder last modified DateTime.
+        ///     File or folder last modified DateTime.
         /// </summary>
         public DateTime? ModifiedDate { get; set; }
+
         /// <summary>
-        /// File or folder size.
+        ///     File or folder size.
         /// </summary>
         public long? Size { get; set; }
+
         /// <summary>
-        /// File or folder path.
+        ///     File or folder path.
         /// </summary>
         public string Path { get; set; }
+
         /// <summary>
-        /// File Version ID.
+        ///     File Version ID.
         /// </summary>
         public string VersionId { get; set; }
+
         /// <summary>
-        /// Specifies whether the file is (true) or is not (false) the latest version of an file.
+        ///     Specifies whether the file is (true) or is not (false) the latest version of an file.
         /// </summary>
         public bool? IsLatest { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class FileVersion {\n");
-          sb.Append("  Name: ").Append(this.Name).Append("\n");
-          sb.Append("  IsFolder: ").Append(this.IsFolder).Append("\n");
-          sb.Append("  ModifiedDate: ").Append(this.ModifiedDate).Append("\n");
-          sb.Append("  Size: ").Append(this.Size).Append("\n");
-          sb.Append("  Path: ").Append(this.Path).Append("\n");
-          sb.Append("  VersionId: ").Append(this.VersionId).Append("\n");
-          sb.Append("  IsLatest: ").Append(this.IsLatest).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class FileVersion {\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  IsFolder: ").Append(IsFolder).Append("\n");
+            sb.Append("  ModifiedDate: ").Append(ModifiedDate).Append("\n");
+            sb.Append("  Size: ").Append(Size).Append("\n");
+            sb.Append("  Path: ").Append(Path).Append("\n");
+            sb.Append("  VersionId: ").Append(VersionId).Append("\n");
+            sb.Append("  IsLatest: ").Append(IsLatest).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

@@ -31,29 +31,29 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum QREncodeType
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum QREncodeType
+    { 
+        /// <summary>
         /// Enum value Auto
         /// </summary>
         Auto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ForceQR
         /// </summary>
         ForceQR,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ForceMicroQR
         /// </summary>
         ForceMicroQR
-		
-  }
+      
+    }
 }

@@ -38,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 source.Position = 0;
             }
 
-            byte[] array = new byte[bufferSize];
+            var array = new byte[bufferSize];
             int count;
             while ((count = source.Read(array, 0, array.Length)) != 0)
             {
@@ -48,8 +48,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
         public static byte[] ReadAsBytes(Stream input)
         {
-            byte[] buffer = new byte[16 * 1024];
-            using (MemoryStream ms = new MemoryStream())
+            var buffer = new byte[16 * 1024];
+            using (var ms = new MemoryStream())
             {
                 int read;
                 while ((read = input.Read(buffer, 0, buffer.Length)) > 0)

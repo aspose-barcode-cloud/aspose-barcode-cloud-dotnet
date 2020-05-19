@@ -31,42 +31,43 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Codablock parameters.
-  /// </summary>
-  public class CodablockParams
-  {
+    /// <summary>
+    ///     Codablock parameters.
+    /// </summary>
+    public class CodablockParams
+    {
         /// <summary>
-        /// Height/Width ratio of 2D BarCode module.
+        ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
+
         /// <summary>
-        /// Columns count.
+        ///     Columns count.
         /// </summary>
         public int? Columns { get; set; }
+
         /// <summary>
-        /// Rows count.
+        ///     Rows count.
         /// </summary>
         public int? Rows { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class CodablockParams {\n");
-          sb.Append("  AspectRatio: ").Append(this.AspectRatio).Append("\n");
-          sb.Append("  Columns: ").Append(this.Columns).Append("\n");
-          sb.Append("  Rows: ").Append(this.Rows).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class CodablockParams {\n");
+            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
+            sb.Append("  Columns: ").Append(Columns).Append("\n");
+            sb.Append("  Rows: ").Append(Rows).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

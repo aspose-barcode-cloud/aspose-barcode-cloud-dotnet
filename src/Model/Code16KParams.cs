@@ -31,42 +31,43 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Code16K parameters.
-  /// </summary>
-  public class Code16KParams
-  {
+    /// <summary>
+    ///     Code16K parameters.
+    /// </summary>
+    public class Code16KParams
+    {
         /// <summary>
-        /// Height/Width ratio of 2D BarCode module.
+        ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
+
         /// <summary>
-        /// Size of the left quiet zone in xDimension. Default value: 10, meaning if xDimension = 2px than left quiet zone will be 20px.
+        ///     Size of the left quiet zone in xDimension. Default value: 10, meaning if xDimension = 2px than left quiet zone will be 20px.
         /// </summary>
         public int? QuietZoneLeftCoef { get; set; }
+
         /// <summary>
-        /// Size of the right quiet zone in xDimension. Default value: 1, meaning if xDimension = 2px than right quiet zone will be 2px.
+        ///     Size of the right quiet zone in xDimension. Default value: 1, meaning if xDimension = 2px than right quiet zone will be 2px.
         /// </summary>
         public int? QuietZoneRightCoef { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Code16KParams {\n");
-          sb.Append("  AspectRatio: ").Append(this.AspectRatio).Append("\n");
-          sb.Append("  QuietZoneLeftCoef: ").Append(this.QuietZoneLeftCoef).Append("\n");
-          sb.Append("  QuietZoneRightCoef: ").Append(this.QuietZoneRightCoef).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Code16KParams {\n");
+            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
+            sb.Append("  QuietZoneLeftCoef: ").Append(QuietZoneLeftCoef).Append("\n");
+            sb.Append("  QuietZoneRightCoef: ").Append(QuietZoneRightCoef).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

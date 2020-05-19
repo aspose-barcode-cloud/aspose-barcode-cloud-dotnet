@@ -31,42 +31,43 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// ITF parameters.             
-  /// </summary>
-  public class ITFParams
-  {
+    /// <summary>
+    ///     ITF parameters.             
+    /// </summary>
+    public class ITFParams
+    {
         /// <summary>
-        /// Border type of ITF barcode. Default value: ITF14BorderType.Bar.
+        ///     Border type of ITF barcode. Default value: ITF14BorderType.Bar.
         /// </summary>
         public ITF14BorderType? BorderType { get; set; }
+
         /// <summary>
-        /// ITF border (bearer bar) thickness in Unit value. Default value: 12pt.
+        ///     ITF border (bearer bar) thickness in Unit value. Default value: 12pt.
         /// </summary>
         public double? BorderThickness { get; set; }
+
         /// <summary>
-        /// Size of the quiet zones in xDimension. Default value: 10, meaning if xDimension = 2px than quiet zones will be 20px.
+        ///     Size of the quiet zones in xDimension. Default value: 10, meaning if xDimension = 2px than quiet zones will be 20px.
         /// </summary>
         public int? QuietZoneCoef { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class ITFParams {\n");
-          sb.Append("  BorderThickness: ").Append(this.BorderThickness).Append("\n");
-          sb.Append("  BorderType: ").Append(this.BorderType).Append("\n");
-          sb.Append("  QuietZoneCoef: ").Append(this.QuietZoneCoef).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class ITFParams {\n");
+            sb.Append("  BorderThickness: ").Append(BorderThickness).Append("\n");
+            sb.Append("  BorderType: ").Append(BorderType).Append("\n");
+            sb.Append("  QuietZoneCoef: ").Append(QuietZoneCoef).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

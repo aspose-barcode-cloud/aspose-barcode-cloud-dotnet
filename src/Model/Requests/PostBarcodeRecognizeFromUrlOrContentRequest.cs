@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.PostBarcodeRecognizeFromUrlOrContent" /> operation.
-  /// </summary>
-  public class PostBarcodeRecognizeFromUrlOrContentRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostBarcodeRecognizeFromUrlOrContentRequest"/> class.
-        /// </summary>
-        // public PostBarcodeRecognizeFromUrlOrContentRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.PostBarcodeRecognizeFromUrlOrContent" /> operation.
+    /// </summary>
+    public class PostBarcodeRecognizeFromUrlOrContentRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostBarcodeRecognizeFromUrlOrContentRequest"/> class.
         /// </summary>
@@ -282,5 +273,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// Image data
         /// </summary>
         public System.IO.Stream image { get; set; }
-  }
+    }
 }

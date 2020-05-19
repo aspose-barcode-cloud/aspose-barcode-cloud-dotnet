@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.PostGenerateMultiple" /> operation.
-  /// </summary>
-  public class PostGenerateMultipleRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PostGenerateMultipleRequest"/> class.
-        /// </summary>
-        // public PostGenerateMultipleRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.PostGenerateMultiple" /> operation.
+    /// </summary>
+    public class PostGenerateMultipleRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="PostGenerateMultipleRequest"/> class.
         /// </summary>
@@ -65,5 +56,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// Format to return stream in
         /// </summary>
         public string format { get; set; }
-  }
+    }
 }

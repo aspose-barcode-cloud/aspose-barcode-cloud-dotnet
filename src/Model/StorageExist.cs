@@ -31,32 +31,31 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Storage exists
-  /// </summary>
-  public class StorageExist
-  {
+    /// <summary>
+    ///     Storage exists
+    /// </summary>
+    public class StorageExist
+    {
         /// <summary>
-        /// Shows that the storage exists.             
+        ///     Shows that the storage exists.             
         /// </summary>
         public bool? Exists { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class StorageExist {\n");
-          sb.Append("  Exists: ").Append(this.Exists).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class StorageExist {\n");
+            sb.Append("  Exists: ").Append(Exists).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

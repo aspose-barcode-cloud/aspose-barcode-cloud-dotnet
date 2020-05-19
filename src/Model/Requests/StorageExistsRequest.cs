@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.StorageExists" /> operation.
-  /// </summary>
-  public class StorageExistsRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StorageExistsRequest"/> class.
-        /// </summary>
-        // public StorageExistsRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.StorageApi.StorageExists" /> operation.
+    /// </summary>
+    public class StorageExistsRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="StorageExistsRequest"/> class.
         /// </summary>
@@ -58,6 +49,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// Storage name
         /// </summary>
         public string storageName { get; set; }
-  }
+    }
 }
 

@@ -31,49 +31,49 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum DataMatrixEccType
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum DataMatrixEccType
+    { 
+        /// <summary>
         /// Enum value EccAuto
         /// </summary>
         EccAuto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Ecc000
         /// </summary>
         Ecc000,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Ecc050
         /// </summary>
         Ecc050,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Ecc080
         /// </summary>
         Ecc080,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Ecc100
         /// </summary>
         Ecc100,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Ecc140
         /// </summary>
         Ecc140,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Ecc200
         /// </summary>
         Ecc200
-		
-  }
+      
+    }
 }

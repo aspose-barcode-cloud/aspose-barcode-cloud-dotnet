@@ -31,44 +31,44 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum QREncodeMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum QREncodeMode
+    { 
+        /// <summary>
         /// Enum value Auto
         /// </summary>
         Auto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Bytes
         /// </summary>
         Bytes,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Utf8BOM
         /// </summary>
         Utf8BOM,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Utf16BEBOM
         /// </summary>
         Utf16BEBOM,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ECIEncoding
         /// </summary>
         ECIEncoding,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value ExtendedCodetext
         /// </summary>
         ExtendedCodetext
-		
-  }
+      
+    }
 }

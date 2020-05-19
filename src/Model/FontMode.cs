@@ -31,24 +31,24 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum FontMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum FontMode
+    { 
+        /// <summary>
         /// Enum value Auto
         /// </summary>
         Auto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Manual
         /// </summary>
         Manual
-		
-  }
+      
+    }
 }

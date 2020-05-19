@@ -31,34 +31,34 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum AztecSymbolMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum AztecSymbolMode
+    { 
+        /// <summary>
         /// Enum value Auto
         /// </summary>
         Auto,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Compact
         /// </summary>
         Compact,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value FullRange
         /// </summary>
         FullRange,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Rune
         /// </summary>
         Rune
-		
-  }
+      
+    }
 }

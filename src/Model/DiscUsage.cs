@@ -31,37 +31,37 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Class for disc space information.
-  /// </summary>
-  public class DiscUsage
-  {
+    /// <summary>
+    ///     Class for disc space information.
+    /// </summary>
+    public class DiscUsage
+    {
         /// <summary>
-        /// Application used disc space.
+        ///     Application used disc space.
         /// </summary>
         public long? UsedSize { get; set; }
+
         /// <summary>
-        /// Total disc space.
+        ///     Total disc space.
         /// </summary>
         public long? TotalSize { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class DiscUsage {\n");
-          sb.Append("  UsedSize: ").Append(this.UsedSize).Append("\n");
-          sb.Append("  TotalSize: ").Append(this.TotalSize).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class DiscUsage {\n");
+            sb.Append("  UsedSize: ").Append(UsedSize).Append("\n");
+            sb.Append("  TotalSize: ").Append(TotalSize).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

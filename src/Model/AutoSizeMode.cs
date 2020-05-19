@@ -31,29 +31,29 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using Newtonsoft.Json;
-  using Newtonsoft.Json.Converters;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Converters;
 
-  /// <summary>
-  /// 
-  /// </summary>
-  [JsonConverter(typeof(StringEnumConverter))]
-  public enum AutoSizeMode
-  {  	
-		/// <summary>
+    /// <summary>
+    ///     
+    /// </summary>
+    [JsonConverter(typeof(StringEnumConverter))]
+    public enum AutoSizeMode
+    { 
+        /// <summary>
         /// Enum value None
         /// </summary>
         None,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Nearest
         /// </summary>
         Nearest,
-		
-		/// <summary>
+      
+        /// <summary>
         /// Enum value Interpolation
         /// </summary>
         Interpolation
-		
-  }
+      
+    }
 }

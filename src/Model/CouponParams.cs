@@ -31,32 +31,31 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Coupon parameters. Used for UpcaGs1DatabarCoupon, UpcaGs1Code128Coupon.
-  /// </summary>
-  public class CouponParams
-  {
+    /// <summary>
+    ///     Coupon parameters. Used for UpcaGs1DatabarCoupon, UpcaGs1Code128Coupon.
+    /// </summary>
+    public class CouponParams
+    {
         /// <summary>
-        /// Space between main the BarCode and supplement BarCode in Unit value.
+        ///     Space between main the BarCode and supplement BarCode in Unit value.
         /// </summary>
         public double? SupplementSpace { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class CouponParams {\n");
-          sb.Append("  SupplementSpace: ").Append(this.SupplementSpace).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class CouponParams {\n");
+            sb.Append("  SupplementSpace: ").Append(SupplementSpace).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

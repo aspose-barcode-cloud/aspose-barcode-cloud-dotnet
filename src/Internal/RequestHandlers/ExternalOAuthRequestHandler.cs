@@ -31,11 +31,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 {
     internal class ExternalAuthorizationRequestHandler : IRequestHandler
     {
-        private readonly Configuration configuration;
+        private readonly Configuration _configuration;
 
         public ExternalAuthorizationRequestHandler(Configuration configuration)
         {
-            this.configuration = configuration;
+            _configuration = configuration;
         }
 
         public string ProcessUrl(string url)
@@ -45,12 +45,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (this.configuration.AuthType == AuthType.OAuth2 && string.IsNullOrEmpty(this.configuration.JwtToken))
+            if (_configuration.AuthType == AuthType.ExternalAuth && string.IsNullOrEmpty(_configuration.JwtToken))
             {
                 throw new ApiException(401, "Authorization header value required");
             }
 
-            request.Headers.Add("Authorization", "Bearer " + this.configuration.JwtToken);
+            request.Headers.Add("Authorization", "Bearer " + _configuration.JwtToken);
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)

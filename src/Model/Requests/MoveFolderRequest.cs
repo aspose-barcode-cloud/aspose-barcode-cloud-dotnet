@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.MoveFolder" /> operation.
-  /// </summary>
-  public class MoveFolderRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MoveFolderRequest"/> class.
-        /// </summary>
-        // public MoveFolderRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FolderApi.MoveFolder" /> operation.
+    /// </summary>
+    public class MoveFolderRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="MoveFolderRequest"/> class.
         /// </summary>
@@ -79,6 +70,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// Destination storage name
         /// </summary>
         public string destStorageName { get; set; }
-  }
+    }
 }
 

@@ -31,37 +31,37 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// DotCode parameters.
-  /// </summary>
-  public class DotCodeParams
-  {
+    /// <summary>
+    ///     DotCode parameters.
+    /// </summary>
+    public class DotCodeParams
+    {
         /// <summary>
-        /// Height/Width ratio of 2D BarCode module.
+        ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
+
         /// <summary>
-        /// Mask of Dotcode barcode. Default value: -1.
+        ///     Mask of Dotcode barcode. Default value: -1.
         /// </summary>
         public int? DotCodeMask { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class DotCodeParams {\n");
-          sb.Append("  AspectRatio: ").Append(this.AspectRatio).Append("\n");
-          sb.Append("  DotCodeMask: ").Append(this.DotCodeMask).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class DotCodeParams {\n");
+            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
+            sb.Append("  DotCodeMask: ").Append(DotCodeMask).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

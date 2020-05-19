@@ -31,77 +31,85 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// PDF417 parameters.             
-  /// </summary>
-  public class Pdf417Params
-  {
+    /// <summary>
+    ///     PDF417 parameters.             
+    /// </summary>
+    public class Pdf417Params
+    {
         /// <summary>
-        /// Pdf417 symbology type of BarCode&#39;s compaction mode. Default value: Pdf417CompactionMode.Auto.
+        ///     Pdf417 symbology type of BarCode&#39;s compaction mode. Default value: Pdf417CompactionMode.Auto.
         /// </summary>
         public Pdf417CompactionMode? CompactionMode { get; set; }
+
         /// <summary>
-        /// Pdf417 symbology type of BarCode&#39;s error correction level ranging from level0 to level8, level0 means no error correction info, level8 means best error correction which means a larger picture.
+        ///     Pdf417 symbology type of BarCode&#39;s error correction level ranging from level0 to level8, level0 means no error correction info, level8 means best error correction which means a larger picture.
         /// </summary>
         public Pdf417ErrorLevel? ErrorLevel { get; set; }
+
         /// <summary>
-        /// Height/Width ratio of 2D BarCode module.             
+        ///     Height/Width ratio of 2D BarCode module.             
         /// </summary>
         public double? AspectRatio { get; set; }
+
         /// <summary>
-        /// Encoding of codetext.             
+        ///     Encoding of codetext.             
         /// </summary>
         public string TextEncoding { get; set; }
+
         /// <summary>
-        /// Columns count.             
+        ///     Columns count.             
         /// </summary>
         public int? Columns { get; set; }
+
         /// <summary>
-        /// Macro Pdf417 barcode's file ID. Used for MacroPdf417.
+        ///     Macro Pdf417 barcode's file ID. Used for MacroPdf417.
         /// </summary>
         public int? MacroFileID { get; set; }
+
         /// <summary>
-        /// Macro Pdf417 barcode's segment ID, which starts from 0, to MacroSegmentsCount - 1.
+        ///     Macro Pdf417 barcode's segment ID, which starts from 0, to MacroSegmentsCount - 1.
         /// </summary>
         public int? MacroSegmentID { get; set; }
+
         /// <summary>
-        /// Macro Pdf417 barcode segments count.
+        ///     Macro Pdf417 barcode segments count.
         /// </summary>
         public int? MacroSegmentsCount { get; set; }
+
         /// <summary>
-        /// Rows count.
+        ///     Rows count.
         /// </summary>
         public int? Rows { get; set; }
+
         /// <summary>
-        /// Whether Pdf417 symbology type of BarCode is truncated (to reduce space).
+        ///     Whether Pdf417 symbology type of BarCode is truncated (to reduce space).
         /// </summary>
         public bool? Truncate { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class Pdf417Params {\n");
-          sb.Append("  AspectRatio: ").Append(this.AspectRatio).Append("\n");
-          sb.Append("  TextEncoding: ").Append(this.TextEncoding).Append("\n");
-          sb.Append("  Columns: ").Append(this.Columns).Append("\n");
-          sb.Append("  CompactionMode: ").Append(this.CompactionMode).Append("\n");
-          sb.Append("  ErrorLevel: ").Append(this.ErrorLevel).Append("\n");
-          sb.Append("  MacroFileID: ").Append(this.MacroFileID).Append("\n");
-          sb.Append("  MacroSegmentID: ").Append(this.MacroSegmentID).Append("\n");
-          sb.Append("  MacroSegmentsCount: ").Append(this.MacroSegmentsCount).Append("\n");
-          sb.Append("  Rows: ").Append(this.Rows).Append("\n");
-          sb.Append("  Truncate: ").Append(this.Truncate).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class Pdf417Params {\n");
+            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
+            sb.Append("  TextEncoding: ").Append(TextEncoding).Append("\n");
+            sb.Append("  Columns: ").Append(Columns).Append("\n");
+            sb.Append("  CompactionMode: ").Append(CompactionMode).Append("\n");
+            sb.Append("  ErrorLevel: ").Append(ErrorLevel).Append("\n");
+            sb.Append("  MacroFileID: ").Append(MacroFileID).Append("\n");
+            sb.Append("  MacroSegmentID: ").Append(MacroSegmentID).Append("\n");
+            sb.Append("  MacroSegmentsCount: ").Append(MacroSegmentsCount).Append("\n");
+            sb.Append("  Rows: ").Append(Rows).Append("\n");
+            sb.Append("  Truncate: ").Append(Truncate).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

@@ -31,37 +31,37 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// Wrapper around Drawing.Point for proper specification.             
-  /// </summary>
-  public class RegionPoint
-  {
+    /// <summary>
+    ///     Wrapper around Drawing.Point for proper specification.             
+    /// </summary>
+    public class RegionPoint
+    {
         /// <summary>
-        /// X-coordinate             
+        ///     X-coordinate             
         /// </summary>
         public int? X { get; set; }
+
         /// <summary>
-        /// Y-coordinate             
+        ///     Y-coordinate             
         /// </summary>
         public int? Y { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class RegionPoint {\n");
-          sb.Append("  X: ").Append(this.X).Append("\n");
-          sb.Append("  Y: ").Append(this.Y).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class RegionPoint {\n");
+            sb.Append("  X: ").Append(X).Append("\n");
+            sb.Append("  Y: ").Append(Y).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

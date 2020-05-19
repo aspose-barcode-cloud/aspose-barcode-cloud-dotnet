@@ -24,14 +24,17 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using Aspose.BarCode.Cloud.Sdk.Internal;
 
-namespace Aspose.BarCode.Cloud.Sdk.Internal
+namespace Aspose.BarCode.Cloud.Sdk
 {
     /// <summary>
     /// Represents a set of configuration settings
     /// </summary>
     public class Configuration
     {
+        private string _jwtToken;
+
         /// <summary>
         /// Aspose Cloud API base URL.
         /// </summary>
@@ -51,7 +54,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         /// Gets or sets the Jwt token.
         /// If set the library would handle auth internally
         /// </summary>
-        public string JwtToken { get; set; }
+        public string JwtToken
+        {
+            get => _jwtToken;
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                    return;
+
+                AuthType = AuthType.ExternalAuth;
+                _jwtToken = value;
+            }
+        }
 
 
         /// <summary>
@@ -62,7 +76,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         /// <summary>
         /// Authentication type.
         /// </summary>
-        public AuthType AuthType { get; set; }
+        internal AuthType AuthType { get; set; }
 
         /// <summary>
         /// Get or sets Cloud API Version.
@@ -83,7 +97,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             DefaultHeaders = new Dictionary<string, string>();
         }
 
-        internal string GetApiRootUrl()
+        public string GetApiRootUrl()
         {
             var result = ApiBaseUrl + "/v" + ApiVersion;
 

@@ -31,37 +31,37 @@ using System;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-  using System.Collections;
-  using System.Collections.Generic;
-  using System.Net;
-  using System.Runtime.Serialization;
-  using System.Text;
+    using System.Collections.Generic;
+    using System.Text;
 
-  /// <summary>
-  /// MaxiCode parameters.
-  /// </summary>
-  public class MaxiCodeParams
-  {
+    /// <summary>
+    ///     MaxiCode parameters.
+    /// </summary>
+    public class MaxiCodeParams
+    {
         /// <summary>
-        /// Height/Width ratio of 2D BarCode module.
+        ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
+
         /// <summary>
-        /// MaxiCode encode mode.
+        ///     MaxiCode encode mode.
         /// </summary>
         public int? EncodeMode { get; set; }
+
         /// <summary>
-        /// Get the string presentation of the object
+        ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-          var sb = new StringBuilder();
-          sb.Append("class MaxiCodeParams {\n");
-          sb.Append("  AspectRatio: ").Append(this.AspectRatio).Append("\n");
-          sb.Append("  EncodeMode: ").Append(this.EncodeMode).Append("\n");
-          sb.Append("}\n");
-          return sb.ToString();
+            var sb = new StringBuilder();
+            sb.Append("class MaxiCodeParams {\n");
+            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
+            sb.Append("  EncodeMode: ").Append(EncodeMode).Append("\n");
+            sb.Append("}\n");
+
+            return sb.ToString();
         }
     }
 }

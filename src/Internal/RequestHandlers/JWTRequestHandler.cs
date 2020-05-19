@@ -31,33 +31,35 @@ using Newtonsoft.Json;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 {
-    internal class JWTRequestHandler : IRequestHandler
+    internal class JwtRequestHandler : IRequestHandler
     {
-        private readonly Configuration configuration;
-        private readonly ApiInvoker apiInvoker;
+        private readonly Configuration _configuration;
+        private readonly ApiInvoker _apiInvoker;
 
-        private string accessToken;
+        private string _accessToken;
 
-        public JWTRequestHandler(Configuration configuration)
+        public JwtRequestHandler(Configuration configuration)
         {
-            this.configuration = configuration;
+            _configuration = configuration;
 
-            var requestHandlers = new List<IRequestHandler>();
-            requestHandlers.Add(new DebugLogRequestHandler(this.configuration));
-            requestHandlers.Add(new ApiExceptionRequestHandler());
-            this.apiInvoker = new ApiInvoker(configuration, requestHandlers);
+            var requestHandlers = new List<IRequestHandler>
+            {
+                new DebugLogRequestHandler(_configuration), 
+                new ApiExceptionRequestHandler()
+            };
+            _apiInvoker = new ApiInvoker(configuration, requestHandlers);
         }
 
         public string ProcessUrl(string url)
         {
-            if (this.configuration.AuthType != AuthType.JWT)
+            if (_configuration.AuthType != AuthType.JWT)
             {
                 return url;
             }
 
-            if (string.IsNullOrEmpty(this.accessToken))
+            if (string.IsNullOrEmpty(_accessToken))
             {
-                this.RequestToken();
+                RequestToken();
             }
 
             return url;
@@ -65,24 +67,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (this.configuration.AuthType != AuthType.JWT)
+            if (_configuration.AuthType != AuthType.JWT)
             {
                 return;
             }
 
-            request.Headers.Add("Authorization", "Bearer " + this.accessToken);
+            request.Headers.Add("Authorization", "Bearer " + _accessToken);
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (this.configuration.AuthType != AuthType.JWT)
+            if (_configuration.AuthType != AuthType.JWT)
             {
                 return;
             }
 
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
-                this.RefreshToken();
+                RefreshToken();
 
                 throw new NeedRepeatRequestException();
             }
@@ -90,13 +92,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private void RequestToken()
         {
-            var requestUrl = this.configuration.ApiBaseUrl + "/connect/token";
+            var requestUrl = _configuration.ApiBaseUrl + "/connect/token";
 
             var postData = "grant_type=client_credentials";
-            postData += "&client_id=" + this.configuration.AppSid;
-            postData += "&client_secret=" + this.configuration.AppKey;
+            postData += "&client_id=" + _configuration.AppSid;
+            postData += "&client_secret=" + _configuration.AppKey;
 
-            var responseString = this.apiInvoker.InvokeApi(
+            var responseString = _apiInvoker.InvokeApi(
                 requestUrl,
                 "POST",
                 postData,
@@ -105,7 +107,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             var result =
                 (GetAccessTokenResult)SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
-            this.accessToken = result.AccessToken;
+            _accessToken = result.AccessToken;
         }
 
         private void RefreshToken()

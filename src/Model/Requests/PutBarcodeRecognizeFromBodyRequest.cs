@@ -31,20 +31,11 @@ using System.Collections.Generic;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
-  using Model;
-
-  /// <summary>
-  /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarCodeApi.PutBarcodeRecognizeFromBody" /> operation.
-  /// </summary>
-  public class PutBarcodeRecognizeFromBodyRequest  
-  {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PutBarcodeRecognizeFromBodyRequest"/> class.
-        /// </summary>
-        // public PutBarcodeRecognizeFromBodyRequest()
-        // {
-        // }
-
+    /// <summary>
+    /// Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.PutBarcodeRecognizeFromBody" /> operation.
+    /// </summary>
+    public class PutBarcodeRecognizeFromBodyRequest
+    {
         /// <summary>
         /// Initializes a new instance of the <see cref="PutBarcodeRecognizeFromBodyRequest"/> class.
         /// </summary>
@@ -86,5 +77,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// The image folder.
         /// </summary>
         public string folder { get; set; }
-  }
+    }
 }
