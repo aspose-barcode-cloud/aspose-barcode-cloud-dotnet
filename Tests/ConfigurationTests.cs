@@ -8,14 +8,14 @@ namespace Tests
     [TestFixture]
     public class ConfigurationTests
     {
-
         [Test]
         public void DefaultParamsTest()
         {
             var config = new Configuration();
-            
+
             Assert.AreEqual("https://api.aspose.cloud", config.ApiBaseUrl);
             Assert.AreEqual("https://api.aspose.cloud/v3.0", config.GetApiRootUrl());
+            Assert.AreEqual(false, config.DebugMode);
         }
 
         [Test]
@@ -37,8 +37,30 @@ namespace Tests
         public void CanSetAuthTypeAndTokenTest()
         {
             var config = new Configuration {JwtToken = "Test JWT token"};
-            
+
             Assert.AreEqual("Test JWT token", config.JwtToken);
+        }
+
+        [Test]
+        public void CanChangeApiBaseUrl()
+        {
+            var config = new Configuration
+            {
+                ApiBaseUrl = "http://localhost:12345"
+            };
+
+            Assert.AreEqual("http://localhost:12345/v3.0", config.GetApiRootUrl());
+        }
+
+        [Test]
+        public void CanSetDebugMode()
+        {
+            var config = new Configuration
+            {
+                DebugMode = true
+            };
+
+            Assert.AreEqual(true, config.DebugMode);
         }
     }
 }

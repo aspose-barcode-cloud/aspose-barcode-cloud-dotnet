@@ -76,7 +76,7 @@ namespace Aspose.BarCode.Cloud.Sdk
         /// <summary>
         /// Authentication type.
         /// </summary>
-        internal AuthType AuthType { get; set; }
+        internal AuthType AuthType { get; private set; }
 
         /// <summary>
         /// Get or sets Cloud API Version.

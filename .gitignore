@@ -4,4 +4,4 @@ _ReSharper.*
 bin
 obj
 .vs
-Tests/Configuration.json
+Tests/Configuration*.json

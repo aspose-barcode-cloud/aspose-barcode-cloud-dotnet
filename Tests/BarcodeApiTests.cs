@@ -98,8 +98,7 @@ namespace Tests
         [Test]
         public void InstanceTest()
         {
-            // TODO uncomment below to test 'IsInstanceOfType' BarcodeApi
-            //Assert.IsInstanceOfType(typeof(BarcodeApi), instance, "instance is a BarcodeApi");
+            Assert.IsInstanceOf(typeof(IBarcodeApi), _api, "instance is a IBarcodeApi");
         }
 
 
