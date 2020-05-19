@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="JWTRequestHandler.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
             var requestHandlers = new List<IRequestHandler>
             {
-                new DebugLogRequestHandler(_configuration), 
+                new DebugLogRequestHandler(_configuration),
                 new ApiExceptionRequestHandler()
             };
             _apiInvoker = new ApiInvoker(configuration, requestHandlers);
