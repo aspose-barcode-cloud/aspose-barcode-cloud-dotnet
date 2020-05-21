@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="UrlHelper.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -9,10 +9,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,12 +23,13 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Aspose.BarCode.Cloud.Sdk
-{
-    using System;
-    using System.Web;
+using System;
+using System.Collections.Specialized;
+using System.Web;
 
-    internal class UrlHelper
+namespace Aspose.BarCode.Cloud.Sdk.Internal
+{
+    internal static class UrlHelper
     {
         public static string AddPathParameter(string url, string parameterName, object parameterValue)
         {
@@ -42,12 +43,12 @@ namespace Aspose.BarCode.Cloud.Sdk
             }
 
             return url;
-        }        
+        }
 
         public static string AddQueryParameterToUrl(string url, string parameterName, object parameterValue)
         {
             if (url.Contains("{" + parameterName + "}"))
-            {               
+            {
                 url = AddPathParameter(url, parameterName, parameterValue);
                 return url;
             }
@@ -58,14 +59,14 @@ namespace Aspose.BarCode.Cloud.Sdk
                 url = AddPathParameter(url, parameterName, parameterValue);
                 return url;
             }
-           
+
             if (parameterValue == null)
             {
                 return url;
             }
 
             var uriBuilder = new UriBuilder(url);
-            var query = HttpUtility.ParseQueryString(uriBuilder.Query);
+            NameValueCollection query = HttpUtility.ParseQueryString(uriBuilder.Query);
             query.Add(parameterName, parameterValue.ToString());
             uriBuilder.Query = query.ToString();
 

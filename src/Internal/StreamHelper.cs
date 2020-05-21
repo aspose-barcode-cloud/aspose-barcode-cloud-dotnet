@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="StreamHelper.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -9,10 +9,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,12 +23,12 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Aspose.BarCode.Cloud.Sdk
-{
-    using System.IO;
-    using System.Text;
+using System.IO;
+using System.Text;
 
-    internal class StreamHelper
+namespace Aspose.BarCode.Cloud.Sdk.Internal
+{
+    internal static class StreamHelper
     {
         public static void CopyTo(Stream source, Stream destination, int bufferSize = 81920)
         {
@@ -38,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk
                 source.Position = 0;
             }
 
-            byte[] array = new byte[bufferSize];
+            var array = new byte[bufferSize];
             int count;
             while ((count = source.Read(array, 0, array.Length)) != 0)
             {
@@ -48,8 +48,8 @@ namespace Aspose.BarCode.Cloud.Sdk
 
         public static byte[] ReadAsBytes(Stream input)
         {
-            byte[] buffer = new byte[16 * 1024];
-            using (MemoryStream ms = new MemoryStream())
+            var buffer = new byte[16 * 1024];
+            using (var ms = new MemoryStream())
             {
                 int read;
                 while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
@@ -63,7 +63,7 @@ namespace Aspose.BarCode.Cloud.Sdk
 
         public static void CopyStreamToStringBuilder(StringBuilder sb, Stream stream)
         {
-            if ((stream == null) || !stream.CanRead)
+            if (stream == null || !stream.CanRead)
             {
                 return;
             }
@@ -89,6 +89,6 @@ namespace Aspose.BarCode.Cloud.Sdk
                 sb.AppendLine("Body:");
                 sb.AppendLine(content);
             }
-        }       
+        }
     }
 }

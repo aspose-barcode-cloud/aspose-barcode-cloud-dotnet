@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="SerializationHelper.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -9,10 +9,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,17 +23,13 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Aspose.BarCode.Cloud.Sdk
+using System;
+using System.IO;
+using Newtonsoft.Json;
+
+namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
-    using System;
-    using System.IO;
-
-    using Aspose.BarCode.Cloud.Sdk.Model;
-
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-
-    internal class SerializationHelper
+    internal static class SerializationHelper
     {
         public static string Serialize(object obj)
         {
@@ -57,10 +53,10 @@ namespace Aspose.BarCode.Cloud.Sdk
             {
                 if (json.StartsWith("{") || json.StartsWith("["))
                 {
-                    return JsonConvert.DeserializeObject(json, type, new PointConverter());
+                    return JsonConvert.DeserializeObject(json, type);
                 }
 
-                System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
+                var xmlDoc = new System.Xml.XmlDocument();
                 xmlDoc.LoadXml(json);
                 return JsonConvert.SerializeXmlNode(xmlDoc);
             }
@@ -68,46 +64,13 @@ namespace Aspose.BarCode.Cloud.Sdk
             {
                 throw new ApiException(500, e.Message);
             }
-            catch (JsonSerializationException jse)
+            catch (JsonSerializationException jsE)
             {
-                throw new ApiException(500, jse.Message);
+                throw new ApiException(500, jsE.Message);
             }
-            catch (System.Xml.XmlException xmle)
+            catch (System.Xml.XmlException xmlE)
             {
-                throw new ApiException(500, xmle.Message);
-            }
-        }
-
-        internal class PointConverter : JsonConverter
-        {
-            public override bool CanWrite
-            {
-                get { return false; }
-            }
-            public override bool CanConvert(Type objectType)
-            {
-                return (objectType == typeof(Point));
-            }
-
-            public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
-            {
-                JToken token =  JObject.ReadFrom(reader);
-                string value = token.Value<string>();
-                string[] values = value.Split(',');
-                Point output = new Point() { IsEmpty = true };
-                if (values.Length > 0)
-                    output.X = int.Parse(values[0]);
-                if (values.Length > 1)
-                    output.Y = int.Parse(values[1]);
-                if (output.X.HasValue || output.Y.HasValue)
-                    output.IsEmpty = false;
-
-                return output;
-            }
-
-            public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
-            {
-                throw new NotImplementedException();
+                throw new ApiException(500, xmlE.Message);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="DebugLogRequestHandler.cs">
-//   Copyright (c) 2018 Aspose.BarCode for Cloud
+//   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -9,10 +9,10 @@
 //  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 //  copies of the Software, and to permit persons to whom the Software is
 //  furnished to do so, subject to the following conditions:
-// 
+//
 //  The above copyright notice and this permission notice shall be included in all
 //  copies or substantial portions of the Software.
-// 
+//
 //  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 //  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 //  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -23,20 +23,22 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
-{
-    using System.Diagnostics;
-    using System.IO;
-    using System.Net;
-    using System.Text;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
+namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
+{
     internal class DebugLogRequestHandler : IRequestHandler
     {
-        private readonly Configuration configuration;
+        private readonly Configuration _configuration;
 
         public DebugLogRequestHandler(Configuration configuration)
         {
-            this.configuration = configuration;
+            _configuration = configuration;
         }
 
         public string ProcessUrl(string url)
@@ -46,48 +48,48 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (this.configuration.DebugMode)
+            if (_configuration.DebugMode)
             {
-                this.LogRequest(request, streamToSend);
+                LogRequest(request, streamToSend);
             }
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (this.configuration.DebugMode)
-            {                
+            if (_configuration.DebugMode)
+            {
                 resultStream.Position = 0;
-                this.LogResponse(response, resultStream);
+                LogResponse(response, resultStream);
             }
         }
 
         private void LogRequest(WebRequest request, Stream streamToSend)
-        {           
-            var header = string.Format("{0}: {1}", request.Method, request.RequestUri);
+        {
+            var header = $"{request.Method}: {request.RequestUri}";
             var sb = new StringBuilder();
 
-            this.FormatHeaders(sb, request.Headers);
+            FormatHeaders(sb, request.Headers);
             if (streamToSend != null)
             {
                 streamToSend.Position = 0;
                 StreamHelper.CopyStreamToStringBuilder(sb, streamToSend);
                 streamToSend.Position = 0;
             }
-            
-            this.Log(header, sb);            
+
+            Log(header, sb);
         }
 
-        private void LogResponse(HttpWebResponse response, Stream resultStream)
+        private static void LogResponse(HttpWebResponse response, Stream resultStream)
         {
-            var header = string.Format("\r\nResponse {0}: {1}", (int)response.StatusCode, response.StatusCode);
+            var header = $"\r\nResponse {(int) response.StatusCode}: {response.StatusCode}";
             var sb = new StringBuilder();
 
-            this.FormatHeaders(sb, response.Headers);
+            FormatHeaders(sb, response.Headers);
             StreamHelper.CopyStreamToStringBuilder(sb, resultStream);
-            this.Log(header, sb);
+            Log(header, sb);
         }
 
-        private void FormatHeaders(StringBuilder sb, WebHeaderCollection headerDictionary)
+        private static void FormatHeaders(StringBuilder sb, NameValueCollection headerDictionary)
         {
             foreach (var key in headerDictionary.AllKeys)
             {
@@ -97,7 +99,7 @@ namespace Aspose.BarCode.Cloud.Sdk.RequestHandlers
             }
         }
 
-        private void Log(string header, StringBuilder sb)
+        private static void Log(string header, StringBuilder sb)
         {
             Trace.WriteLine(header);
             Trace.WriteLine(sb.ToString());
