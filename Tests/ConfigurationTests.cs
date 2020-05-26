@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Aspose.BarCode.Cloud.Sdk;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
