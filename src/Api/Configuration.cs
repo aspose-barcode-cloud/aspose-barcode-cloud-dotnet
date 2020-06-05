@@ -28,7 +28,6 @@
 //
 
 using System.Collections.Generic;
-using Aspose.BarCode.Cloud.Sdk.Internal;
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
@@ -80,7 +79,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         /// Authentication type.
         /// </summary>
-        internal AuthType AuthType { get; private set; }
+        public AuthType AuthType { get; private set; }
 
         /// <summary>
         /// Get or sets Cloud API Version.
@@ -90,7 +89,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         /// Gets or sets HTTP headers
         /// </summary>
-        public Dictionary<string, string> DefaultHeaders { get; set; }
+        public Dictionary<string, string> DefaultHeaders { get; }
 
         public Configuration()
         {

@@ -11,7 +11,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// Gets or sets the error code (HTTP status code)
         /// </summary>
         /// <value>The error code (HTTP status code).</value>
-        public int ErrorCode { get; private set; }
+        public int ErrorCode { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiException"/> class.

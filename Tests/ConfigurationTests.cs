@@ -30,6 +30,7 @@ namespace Tests
 
             Assert.AreEqual("Test.AppKey", config.AppKey);
             Assert.AreEqual("Test.AppSid", config.AppSid);
+            Assert.AreEqual(AuthType.JWT, config.AuthType);
         }
 
 
@@ -39,6 +40,7 @@ namespace Tests
             var config = new Configuration {JwtToken = "Test JWT token"};
 
             Assert.AreEqual("Test JWT token", config.JwtToken);
+            Assert.AreEqual(AuthType.ExternalAuth, config.AuthType);
         }
 
         [Test]
@@ -61,6 +63,24 @@ namespace Tests
             };
 
             Assert.AreEqual(true, config.DebugMode);
+        }
+
+        [Test]
+        public void CanSetDefaultHeaders()
+        {
+            var config = new Configuration {DefaultHeaders = {["User-Agent"] = "Awesome SDK"}};
+            
+            Assert.AreEqual("Awesome SDK", config.DefaultHeaders["User-Agent"]);
+        }
+        
+        [Test]
+        public void CanChangeDefaultHeaders()
+        {
+            // ReSharper disable once UseObjectOrCollectionInitializer
+            var config = new Configuration();
+            config.DefaultHeaders["User-Agent"] = "Awesome SDK";
+            
+            Assert.AreEqual("Awesome SDK", config.DefaultHeaders["User-Agent"]);
         }
     }
 }

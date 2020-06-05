@@ -23,7 +23,6 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-using Aspose.BarCode.Cloud.Sdk;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
