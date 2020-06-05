@@ -1,17 +1,17 @@
 using System;
 
-namespace Aspose.BarCode.Cloud.Sdk.Internal
+namespace Aspose.BarCode.Cloud.Sdk.Api
 {
     /// <summary>
     /// API Exception
     /// </summary>
-    internal class ApiException : Exception
+    public class ApiException : Exception
     {
         /// <summary>
         /// Gets or sets the error code (HTTP status code)
         /// </summary>
         /// <value>The error code (HTTP status code).</value>
-        public int ErrorCode { get; set; }
+        public int ErrorCode { get; private set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiException"/> class.

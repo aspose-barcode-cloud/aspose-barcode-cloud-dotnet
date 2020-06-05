@@ -25,6 +25,7 @@
 
 using System;
 using System.IO;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal
