@@ -6,38 +6,48 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
     public interface IFolderApi
     {
         /// <summary>
-        /// Copy folder
+        ///     Copy folder
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         void CopyFolder(CopyFolderRequest request);
 
         /// <summary>
-        /// Create the folder
+        ///     Create the folder
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         void CreateFolder(CreateFolderRequest request);
 
         /// <summary>
-        /// Delete folder
+        ///     Delete folder
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         void DeleteFolder(DeleteFolderRequest request);
 
         /// <summary>
-        /// Get all files and folders within a folder
+        ///     Get all files and folders within a folder
         /// </summary>
         /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
-        /// <returns><see cref="FilesList"/></returns>
+        /// <returns>
+        ///     <see cref="FilesList" />
+        /// </returns>
         FilesList GetFilesList(GetFilesListRequest request);
 
         /// <summary>
-        /// Move folder
+        ///     Move folder
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         void MoveFolder(MoveFolderRequest request);
     }
 }

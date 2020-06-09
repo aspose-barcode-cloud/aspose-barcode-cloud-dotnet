@@ -25,6 +25,7 @@
 
 using System;
 using System.IO;
+using System.Xml;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
 
@@ -37,10 +38,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             try
             {
                 return obj != null
-                           ? JsonConvert.SerializeObject(
-                               obj,
-                               new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
-                           : null;
+                    ? JsonConvert.SerializeObject(
+                        obj,
+                        new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore})
+                    : null;
             }
             catch (Exception e)
             {
@@ -52,12 +53,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         {
             try
             {
-                if (json.StartsWith("{") || json.StartsWith("["))
-                {
-                    return JsonConvert.DeserializeObject(json, type);
-                }
+                if (json.StartsWith("{") || json.StartsWith("[")) return JsonConvert.DeserializeObject(json, type);
 
-                var xmlDoc = new System.Xml.XmlDocument();
+                var xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(json);
                 return JsonConvert.SerializeXmlNode(xmlDoc);
             }
@@ -69,7 +67,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             {
                 throw new ApiException(500, jsE.Message);
             }
-            catch (System.Xml.XmlException xmlE)
+            catch (XmlException xmlE)
             {
                 throw new ApiException(500, xmlE.Message);
             }

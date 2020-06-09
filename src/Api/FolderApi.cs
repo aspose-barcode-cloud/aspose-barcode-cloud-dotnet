@@ -31,16 +31,15 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
-    using Internal;
-    using Internal.RequestHandlers;
-    using Model;
-    using Model.Requests;
-
     /// <summary>
-    /// Aspose.BarCode for Cloud API.
+    ///     Aspose.BarCode for Cloud API.
     /// </summary>
     public class FolderApi : IFolderApi
     {
@@ -49,7 +48,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FolderApi"/> class.
+        ///     Initializes a new instance of the <see cref="FolderApi" /> class.
         /// </summary>
         /// <param name="configuration">Configuration settings</param>
         public FolderApi(Configuration configuration)
@@ -75,16 +74,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FolderApi"/> class.
+        ///     Initializes a new instance of the <see cref="FolderApi" /> class.
         /// </summary>
         /// <param name="apiKey">
-        /// The api Key.
+        ///     The api Key.
         /// </param>
         /// <param name="appSid">
-        /// The app Sid.
+        ///     The app Sid.
         /// </param>
         public FolderApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+            : this(new Configuration {AppKey = apiKey, AppSid = appSid})
         {
         }
 
@@ -94,23 +93,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         // }
 
         /// <summary>
-        /// Copy folder 
+        ///     Copy folder
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void CopyFolder(CopyFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set
             if (request.srcPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'srcPath' when calling CopyFolder");
-            }
 
             // verify the required parameter 'destPath' is set
             if (request.destPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFolder");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/copy/{srcPath}";
@@ -122,27 +119,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "PUT",
-                null,
-                null,
-                null);
+                "PUT");
         }
 
         /// <summary>
-        /// Create the folder 
+        ///     Create the folder
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void CreateFolder(CreateFolderRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling CreateFolder");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
@@ -152,27 +146,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "PUT",
-                null,
-                null,
-                null);
+                "PUT");
         }
 
         /// <summary>
-        /// Delete folder 
+        ///     Delete folder
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void DeleteFolder(DeleteFolderRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFolder");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
@@ -183,27 +174,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "DELETE",
-                null,
-                null,
-                null);
+                "DELETE");
         }
 
         /// <summary>
-        /// Get all files and folders within a folder 
+        ///     Get all files and folders within a folder
         /// </summary>
         /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
-        /// <returns><see cref="FilesList"/></returns>
+        /// <returns>
+        ///     <see cref="FilesList" />
+        /// </returns>
         public FilesList GetFilesList(GetFilesListRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling GetFilesList");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
@@ -213,41 +201,32 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
-                "GET",
-                null,
-                null,
-                null);
+                "GET");
 
-            if (response != null)
-            {
-                return (FilesList) SerializationHelper.Deserialize(response, typeof(FilesList));
-            }
+            if (response != null) return (FilesList) SerializationHelper.Deserialize(response, typeof(FilesList));
 
             return null;
-
         }
 
         /// <summary>
-        /// Move folder 
+        ///     Move folder
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void MoveFolder(MoveFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set
             if (request.srcPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'srcPath' when calling MoveFolder");
-            }
 
             // verify the required parameter 'destPath' is set
             if (request.destPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFolder");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/move/{srcPath}";
@@ -259,13 +238,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "PUT",
-                null,
-                null,
-                null);
+                "PUT");
         }
     }
 }

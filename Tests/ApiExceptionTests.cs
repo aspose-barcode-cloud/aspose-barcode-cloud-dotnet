@@ -48,7 +48,7 @@ namespace Tests
             // Act
             var ex = Assert.Throws<ApiException>(
                 () => { api.GetBarcodeGenerate(request); });
-            
+
             Assert.AreEqual(400, ex.ErrorCode);
             Assert.AreEqual("Bad Request", ex.Message);
         }

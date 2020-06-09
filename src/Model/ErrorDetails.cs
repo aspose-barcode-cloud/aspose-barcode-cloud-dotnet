@@ -28,12 +28,10 @@
 //
 
 using System;
+using System.Text;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
-    using System.Collections.Generic;
-    using System.Text;
-
     /// <summary>
     ///     The error details
     /// </summary>

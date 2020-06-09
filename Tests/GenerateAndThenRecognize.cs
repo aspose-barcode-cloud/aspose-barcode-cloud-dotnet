@@ -11,8 +11,6 @@ namespace Tests
     [TestFixture]
     public class GenerateAndThenRecognize
     {
-        private BarcodeApi _api;
-
         [SetUp]
         public void Init()
         {
@@ -26,19 +24,22 @@ namespace Tests
             _api = new BarcodeApi(config);
         }
 
+        private BarcodeApi _api;
+
         [Test]
         public void GenerateAndThenRecognizeTest()
         {
             Stream generated = _api.GetBarcodeGenerate(new GetBarcodeGenerateRequest(
                 EncodeBarcodeType.QR.ToString(), "Test"));
 
-            BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(new PostBarcodeRecognizeFromUrlOrContentRequest(
-                image: generated
-            ));
-            
+            BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(
+                new PostBarcodeRecognizeFromUrlOrContentRequest(
+                    image: generated
+                ));
+
             Assert.AreEqual(1, recognized.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(),recognized.Barcodes.First().Type);
-            Assert.AreEqual("Test",recognized.Barcodes.First().BarcodeValue);
+            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);
+            Assert.AreEqual("Test", recognized.Barcodes.First().BarcodeValue);
         }
     }
 }

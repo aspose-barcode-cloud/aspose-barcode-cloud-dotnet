@@ -40,10 +40,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
             var array = new byte[bufferSize];
             int count;
-            while ((count = source.Read(array, 0, array.Length)) != 0)
-            {
-                destination.Write(array, 0, count);
-            }
+            while ((count = source.Read(array, 0, array.Length)) != 0) destination.Write(array, 0, count);
         }
 
         public static byte[] ReadAsBytes(Stream input)
@@ -52,10 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             using (var ms = new MemoryStream())
             {
                 int read;
-                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
-                {
-                    ms.Write(buffer, 0, read);
-                }
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0) ms.Write(buffer, 0, read);
 
                 return ms.ToArray();
             }
@@ -63,10 +57,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
         public static void CopyStreamToStringBuilder(StringBuilder sb, Stream stream)
         {
-            if (stream == null || !stream.CanRead)
-            {
-                return;
-            }
+            if (stream == null || !stream.CanRead) return;
 
             Stream streamToRead;
             if (!stream.CanSeek)
