@@ -26,6 +26,7 @@
 using System;
 using System.IO;
 using System.Net;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
 
@@ -44,10 +45,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (response.StatusCode != HttpStatusCode.OK)
-            {
-                ThrowApiException(response, resultStream);
-            }
+            if (response.StatusCode != HttpStatusCode.OK) ThrowApiException(response, resultStream);
         }
 
         private static void ThrowApiException(HttpWebResponse webResponse, Stream resultStream)
@@ -62,10 +60,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                     var errorResponse = (BarCodeErrorResponse)
                         SerializationHelper.Deserialize(responseData,
                             typeof(BarCodeErrorResponse));
-                    if (string.IsNullOrEmpty(errorResponse.Error.Code))
-                    {
-                        errorResponse.Error.Message = responseData;
-                    }
+                    if (string.IsNullOrEmpty(errorResponse.Error.Code)) errorResponse.Error.Message = responseData;
 
                     resultException = new ApiException((int) webResponse.StatusCode,
                         $"{errorResponse.Error.Message}: {errorResponse.Error.Description}");

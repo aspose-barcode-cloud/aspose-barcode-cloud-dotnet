@@ -29,18 +29,18 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
-    using Internal;
-    using Internal.RequestHandlers;
-    using Model;
-    using Model.Requests;
-
     /// <summary>
-    /// Aspose.BarCode for Cloud API.
+    ///     Aspose.BarCode for Cloud API.
     /// </summary>
     public class FileApi : IFileApi
     {
@@ -49,7 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileApi"/> class.
+        ///     Initializes a new instance of the <see cref="FileApi" /> class.
         /// </summary>
         /// <param name="configuration">Configuration settings</param>
         public FileApi(Configuration configuration)
@@ -75,16 +75,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="FileApi"/> class.
+        ///     Initializes a new instance of the <see cref="FileApi" /> class.
         /// </summary>
         /// <param name="apiKey">
-        /// The api Key.
+        ///     The api Key.
         /// </param>
         /// <param name="appSid">
-        /// The app Sid.
+        ///     The app Sid.
         /// </param>
         public FileApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+            : this(new Configuration {AppKey = apiKey, AppSid = appSid})
         {
         }
 
@@ -94,23 +94,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         // }
 
         /// <summary>
-        /// Copy file 
+        ///     Copy file
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void CopyFile(CopyFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
             if (request.srcPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'srcPath' when calling CopyFile");
-            }
 
             // verify the required parameter 'destPath' is set
             if (request.destPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFile");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/copy/{srcPath}";
@@ -123,27 +121,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "PUT",
-                null,
-                null,
-                null);
+                "PUT");
         }
 
         /// <summary>
-        /// Delete file 
+        ///     Delete file
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void DeleteFile(DeleteFileRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFile");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
@@ -154,27 +149,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "DELETE",
-                null,
-                null,
-                null);
+                "DELETE");
         }
 
         /// <summary>
-        /// Download file 
+        ///     Download file
         /// </summary>
         /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
-        /// <returns><see cref="System.IO.Stream"/></returns>
-        public System.IO.Stream DownloadFile(DownloadFileRequest request)
+        /// <returns>
+        ///     <see cref="System.IO.Stream" />
+        /// </returns>
+        public Stream DownloadFile(DownloadFileRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling DownloadFile");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
@@ -185,7 +177,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-            
+
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
                 "GET",
@@ -195,23 +187,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Move file 
+        ///     Move file
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
-        /// <returns><see cref=""/></returns>
+        /// <returns>
+        ///     <see cref="" />
+        /// </returns>
         public void MoveFile(MoveFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
             if (request.srcPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'srcPath' when calling MoveFile");
-            }
 
             // verify the required parameter 'destPath' is set
             if (request.destPath == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFile");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/move/{srcPath}";
@@ -224,33 +214,28 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-            
+
             _apiInvoker.InvokeApi(
                 resourcePath,
-                "PUT",
-                null,
-                null,
-                null);
+                "PUT");
         }
 
         /// <summary>
-        /// Upload file 
+        ///     Upload file
         /// </summary>
         /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
-        /// <returns><see cref="FilesUploadResult"/></returns>
+        /// <returns>
+        ///     <see cref="FilesUploadResult" />
+        /// </returns>
         public FilesUploadResult UploadFile(UploadFileRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling UploadFile");
-            }
 
             // verify the required parameter '_file' is set
             if (request.File == null)
-            {
                 throw new ApiException(400, "Missing required parameter '_file' when calling UploadFile");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
@@ -261,11 +246,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             var formParams = new Dictionary<string, object>();
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
-            if (request.File != null)
-            {
-                formParams.Add("_file", _apiInvoker.ToFileInfo(request.File, "File"));
-            }
+
+            if (request.File != null) formParams.Add("_file", _apiInvoker.ToFileInfo(request.File, "File"));
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
@@ -274,12 +256,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 formParams);
 
             if (response != null)
-            {
                 return (FilesUploadResult) SerializationHelper.Deserialize(response, typeof(FilesUploadResult));
-            }
 
             return null;
-
         }
     }
 }

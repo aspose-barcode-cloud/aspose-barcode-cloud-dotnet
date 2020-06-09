@@ -28,6 +28,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
@@ -48,10 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (_configuration.DebugMode)
-            {
-                LogRequest(request, streamToSend);
-            }
+            if (_configuration.DebugMode) LogRequest(request, streamToSend);
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)

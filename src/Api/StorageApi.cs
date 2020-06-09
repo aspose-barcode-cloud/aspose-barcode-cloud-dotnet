@@ -31,16 +31,15 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
-    using Internal;
-    using Internal.RequestHandlers;
-    using Model;
-    using Model.Requests;
-
     /// <summary>
-    /// Aspose.BarCode for Cloud API.
+    ///     Aspose.BarCode for Cloud API.
     /// </summary>
     public class StorageApi : IStorageApi
     {
@@ -49,7 +48,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StorageApi"/> class.
+        ///     Initializes a new instance of the <see cref="StorageApi" /> class.
         /// </summary>
         /// <param name="configuration">Configuration settings</param>
         public StorageApi(Configuration configuration)
@@ -75,16 +74,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StorageApi"/> class.
+        ///     Initializes a new instance of the <see cref="StorageApi" /> class.
         /// </summary>
         /// <param name="apiKey">
-        /// The api Key.
+        ///     The api Key.
         /// </param>
         /// <param name="appSid">
-        /// The app Sid.
+        ///     The app Sid.
         /// </param>
         public StorageApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+            : this(new Configuration {AppKey = apiKey, AppSid = appSid})
         {
         }
 
@@ -94,10 +93,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         // }
 
         /// <summary>
-        /// Get disc usage 
+        ///     Get disc usage
         /// </summary>
         /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
-        /// <returns><see cref="DiscUsage"/></returns>
+        /// <returns>
+        ///     <see cref="DiscUsage" />
+        /// </returns>
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
             // create path and map variables
@@ -107,35 +108,28 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
-                "GET",
-                null,
-                null,
-                null);
+                "GET");
 
-            if (response != null)
-            {
-                return (DiscUsage) SerializationHelper.Deserialize(response, typeof(DiscUsage));
-            }
+            if (response != null) return (DiscUsage) SerializationHelper.Deserialize(response, typeof(DiscUsage));
 
             return null;
-
         }
 
         /// <summary>
-        /// Get file versions 
+        ///     Get file versions
         /// </summary>
         /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
-        /// <returns><see cref="FileVersions"/></returns>
+        /// <returns>
+        ///     <see cref="FileVersions" />
+        /// </returns>
         public FileVersions GetFileVersions(GetFileVersionsRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling GetFileVersions");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/version/{path}";
@@ -145,35 +139,28 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-            
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
-                "GET",
-                null,
-                null,
-                null);
+                "GET");
 
-            if (response != null)
-            {
-                return (FileVersions) SerializationHelper.Deserialize(response, typeof(FileVersions));
-            }
+            if (response != null) return (FileVersions) SerializationHelper.Deserialize(response, typeof(FileVersions));
 
             return null;
-
         }
 
         /// <summary>
-        /// Check if file or folder exists 
+        ///     Check if file or folder exists
         /// </summary>
         /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
-        /// <returns><see cref="ObjectExist"/></returns>
+        /// <returns>
+        ///     <see cref="ObjectExist" />
+        /// </returns>
         public ObjectExist ObjectExists(ObjectExistsRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling ObjectExists");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/exist/{path}";
@@ -184,35 +171,28 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-            
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
-                "GET",
-                null,
-                null,
-                null);
+                "GET");
 
-            if (response != null)
-            {
-                return (ObjectExist) SerializationHelper.Deserialize(response, typeof(ObjectExist));
-            }
+            if (response != null) return (ObjectExist) SerializationHelper.Deserialize(response, typeof(ObjectExist));
 
             return null;
-
         }
 
         /// <summary>
-        /// Check if storage exists 
+        ///     Check if storage exists
         /// </summary>
         /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
-        /// <returns><see cref="StorageExist"/></returns>
+        /// <returns>
+        ///     <see cref="StorageExist" />
+        /// </returns>
         public StorageExist StorageExists(StorageExistsRequest request)
         {
             // verify the required parameter 'storageName' is set
             if (request.storageName == null)
-            {
                 throw new ApiException(400, "Missing required parameter 'storageName' when calling StorageExists");
-            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/{storageName}/exist";
@@ -221,21 +201,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "storageName", request.storageName);
-            
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
-                "GET",
-                null,
-                null,
-                null);
+                "GET");
 
-            if (response != null)
-            {
-                return (StorageExist) SerializationHelper.Deserialize(response, typeof(StorageExist));
-            }
+            if (response != null) return (StorageExist) SerializationHelper.Deserialize(response, typeof(StorageExist));
 
             return null;
-
         }
     }
 }

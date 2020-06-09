@@ -26,6 +26,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Newtonsoft.Json;
 
@@ -33,8 +34,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 {
     internal class JwtRequestHandler : IRequestHandler
     {
-        private readonly Configuration _configuration;
         private readonly ApiInvoker _apiInvoker;
+        private readonly Configuration _configuration;
 
         private string _accessToken;
 
@@ -52,35 +53,23 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public string ProcessUrl(string url)
         {
-            if (_configuration.AuthType != AuthType.JWT)
-            {
-                return url;
-            }
+            if (_configuration.AuthType != AuthType.JWT) return url;
 
-            if (string.IsNullOrEmpty(_accessToken))
-            {
-                RequestToken();
-            }
+            if (string.IsNullOrEmpty(_accessToken)) RequestToken();
 
             return url;
         }
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (_configuration.AuthType != AuthType.JWT)
-            {
-                return;
-            }
+            if (_configuration.AuthType != AuthType.JWT) return;
 
             request.Headers.Add("Authorization", "Bearer " + _accessToken);
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (_configuration.AuthType != AuthType.JWT)
-            {
-                return;
-            }
+            if (_configuration.AuthType != AuthType.JWT) return;
 
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -105,7 +94,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 contentType: "application/x-www-form-urlencoded");
 
             var result =
-                (GetAccessTokenResult)SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
+                (GetAccessTokenResult) SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
             _accessToken = result.AccessToken;
         }

@@ -23,21 +23,21 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Aspose.BarCode.Cloud.Sdk.Internal
+namespace Aspose.BarCode.Cloud.Sdk.Api
 {
     /// <summary>
-    /// Supported types of authentication.
+    ///     Supported types of authentication.
     /// </summary>
-    internal enum AuthType
+    public enum AuthType
     {
         /// <summary>
-        /// JWT token authorization.
+        ///     JWT token authorization.
         /// </summary>
         JWT = 0,
 
         /// <summary>
-        /// Token for JWT provided by caller
+        ///     Token for JWT provided by caller
         /// </summary>
-        ExternalAuth = 1,
+        ExternalAuth = 1
     }
 }

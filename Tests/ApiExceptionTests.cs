@@ -1,5 +1,5 @@
 ﻿// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="BarCodeApi.cs">
+// <copyright company="Aspose" file="ApiExceptionTests.cs">
 //   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -23,28 +23,34 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-namespace Aspose.BarCode.Cloud.Sdk.Internal
+using Aspose.BarCode.Cloud.Sdk.Api;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+using NUnit.Framework;
+
+namespace Tests
 {
-    /// <summary>
-    /// The available api versions.
-    /// </summary>
-    internal class ApiVersion
+    [TestFixture]
+    public class ApiExceptionTests : TestsBase
     {
-        private string Version { get; }
-        private ApiVersion(string version)
+        [Test]
+        public void GetBarcodeGenerateTestThrows()
         {
-            Version = version;
-        }
+            // Arrange
+            var config = new Configuration();
+            var api = new BarcodeApi(config);
+            var request = new GetBarcodeGenerateRequest(
+                text: "Very sample text",
+                type: EncodeBarcodeType.Code128.ToString(),
+                format: "png"
+            );
 
-        //public static ApiVersion V1 = new ApiVersion("1.0");
-        //public static ApiVersion V1_1 = new ApiVersion("1.1");
+            // Act
+            var ex = Assert.Throws<ApiException>(
+                () => { api.GetBarcodeGenerate(request); });
 
-        public static readonly ApiVersion V3 = new ApiVersion("3.0");
-
-        public override string ToString()
-        {
-            return Version;
+            Assert.AreEqual(400, ex.ErrorCode);
+            Assert.AreEqual("Bad Request", ex.Message);
         }
     }
-
 }

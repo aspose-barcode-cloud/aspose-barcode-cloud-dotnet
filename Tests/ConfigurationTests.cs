@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using Aspose.BarCode.Cloud.Sdk;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
@@ -8,6 +8,56 @@ namespace Tests
     [TestFixture]
     public class ConfigurationTests
     {
+        [Test]
+        public void CanChangeApiBaseUrl()
+        {
+            var config = new Configuration
+            {
+                ApiBaseUrl = "http://localhost:12345"
+            };
+
+            Assert.AreEqual("http://localhost:12345/v3.0", config.GetApiRootUrl());
+        }
+
+        [Test]
+        public void CanChangeDefaultHeaders()
+        {
+            // ReSharper disable once UseObjectOrCollectionInitializer
+            var config = new Configuration();
+            config.DefaultHeaders["User-Agent"] = "Awesome SDK";
+
+            Assert.AreEqual("Awesome SDK", config.DefaultHeaders["User-Agent"]);
+        }
+
+
+        [Test]
+        public void CanSetAuthTypeAndTokenTest()
+        {
+            var config = new Configuration {JwtToken = "Test JWT token"};
+
+            Assert.AreEqual("Test JWT token", config.JwtToken);
+            Assert.AreEqual(AuthType.ExternalAuth, config.AuthType);
+        }
+
+        [Test]
+        public void CanSetDebugMode()
+        {
+            var config = new Configuration
+            {
+                DebugMode = true
+            };
+
+            Assert.AreEqual(true, config.DebugMode);
+        }
+
+        [Test]
+        public void CanSetDefaultHeaders()
+        {
+            var config = new Configuration {DefaultHeaders = {["User-Agent"] = "Awesome SDK"}};
+
+            Assert.AreEqual("Awesome SDK", config.DefaultHeaders["User-Agent"]);
+        }
+
         [Test]
         public void DefaultParamsTest()
         {
@@ -30,37 +80,7 @@ namespace Tests
 
             Assert.AreEqual("Test.AppKey", config.AppKey);
             Assert.AreEqual("Test.AppSid", config.AppSid);
-        }
-
-
-        [Test]
-        public void CanSetAuthTypeAndTokenTest()
-        {
-            var config = new Configuration {JwtToken = "Test JWT token"};
-
-            Assert.AreEqual("Test JWT token", config.JwtToken);
-        }
-
-        [Test]
-        public void CanChangeApiBaseUrl()
-        {
-            var config = new Configuration
-            {
-                ApiBaseUrl = "http://localhost:12345"
-            };
-
-            Assert.AreEqual("http://localhost:12345/v3.0", config.GetApiRootUrl());
-        }
-
-        [Test]
-        public void CanSetDebugMode()
-        {
-            var config = new Configuration
-            {
-                DebugMode = true
-            };
-
-            Assert.AreEqual(true, config.DebugMode);
+            Assert.AreEqual(AuthType.JWT, config.AuthType);
         }
     }
 }
