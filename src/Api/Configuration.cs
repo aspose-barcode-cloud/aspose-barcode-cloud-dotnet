@@ -72,7 +72,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             set
             {
                 if (string.IsNullOrEmpty(value))
+                {
                     return;
+                }
 
                 AuthType = AuthType.ExternalAuth;
                 _jwtToken = value;
@@ -93,12 +95,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         ///     Get or sets Cloud API Version.
         /// </summary>
-        private string ApiVersion { get; }
+        public string ApiVersion { get; }
 
         /// <summary>
         ///     Gets or sets HTTP headers
         /// </summary>
-        public Dictionary<string, string> DefaultHeaders { get; }
+        public Dictionary<string, string> DefaultHeaders { get; set; }
 
         public string GetApiRootUrl()
         {

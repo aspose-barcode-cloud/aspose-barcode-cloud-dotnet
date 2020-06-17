@@ -53,23 +53,35 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public string ProcessUrl(string url)
         {
-            if (_configuration.AuthType != AuthType.JWT) return url;
+            if (_configuration.AuthType != AuthType.JWT)
+            {
+                return url;
+            }
 
-            if (string.IsNullOrEmpty(_accessToken)) RequestToken();
+            if (string.IsNullOrEmpty(_accessToken))
+            {
+                RequestToken();
+            }
 
             return url;
         }
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (_configuration.AuthType != AuthType.JWT) return;
+            if (_configuration.AuthType != AuthType.JWT)
+            {
+                return;
+            }
 
             request.Headers.Add("Authorization", "Bearer " + _accessToken);
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)
         {
-            if (_configuration.AuthType != AuthType.JWT) return;
+            if (_configuration.AuthType != AuthType.JWT)
+            {
+                return;
+            }
 
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {

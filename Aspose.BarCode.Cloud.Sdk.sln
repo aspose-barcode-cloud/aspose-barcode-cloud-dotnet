@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspose.BarCode.Cloud.Sdk", "src\Aspose.BarCode.Cloud.Sdk.csproj", "{56EA21EC-6AB0-452A-9826-62856992A33C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0E1CE574-E3A4-4F78-A6B5-C94D90E8EDCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspose.BarCode.Cloud.Sdk.Tests", "Tests\Aspose.BarCode.Cloud.Sdk.Tests.csproj", "{0E1CE574-E3A4-4F78-A6B5-C94D90E8EDCB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -34,9 +34,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         public static string AddPathParameter(string url, string parameterName, object parameterValue)
         {
             if (parameterValue == null || string.IsNullOrEmpty(parameterValue.ToString()))
+            {
                 url = url.Replace("/{" + parameterName + "}", string.Empty);
+            }
             else
+            {
                 url = url.Replace("{" + parameterName + "}", parameterValue.ToString());
+            }
 
             return url;
         }
@@ -56,7 +60,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 return url;
             }
 
-            if (parameterValue == null) return url;
+            if (parameterValue == null)
+            {
+                return url;
+            }
 
             var uriBuilder = new UriBuilder(url);
             NameValueCollection query = HttpUtility.ParseQueryString(uriBuilder.Query);

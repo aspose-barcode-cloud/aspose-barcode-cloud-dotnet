@@ -20,6 +20,7 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <Version>20.6.0</Version>
     <Authors>asposecloud</Authors>
     <AssemblyVersion>20.6.0.0</AssemblyVersion>
+    <!-- <GenerateAssemblyInfo>true</GenerateAssemblyInfo> -->
   </PropertyGroup>
 
   <ItemGroup>
@@ -28,11 +29,17 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)'=='net20' OR '$(TargetFramework)'=='net45'">
     <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Aspose.BarCode.Cloud.Sdk.Tests</_Parameter1>
+    </AssemblyAttribute>
   </ItemGroup>
 
 </Project>

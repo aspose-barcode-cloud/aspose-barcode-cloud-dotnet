@@ -49,7 +49,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
-            if (_configuration.DebugMode) LogRequest(request, streamToSend);
+            if (_configuration.DebugMode)
+            {
+                LogRequest(request, streamToSend);
+            }
         }
 
         public void ProcessResponse(HttpWebResponse response, Stream resultStream)

@@ -39,7 +39,7 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
     /// <summary>
-    ///     Aspose.BarCode for Cloud API.
+    ///     StorageApi
     /// </summary>
     public class StorageApi : IStorageApi
     {
@@ -83,14 +83,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     The app Sid.
         /// </param>
         public StorageApi(string apiKey, string appSid)
-            : this(new Configuration {AppKey = apiKey, AppSid = appSid})
+            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
         {
         }
-
-        // public StorageApi(string jwtToken)
-        //     : this(new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V3, AuthType = AuthType.ExternalAuth })
-        // {
-        // }
 
         /// <summary>
         ///     Get disc usage
@@ -113,7 +108,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 resourcePath,
                 "GET");
 
-            if (response != null) return (DiscUsage) SerializationHelper.Deserialize(response, typeof(DiscUsage));
+            if (response != null)
+            {
+                return (DiscUsage) SerializationHelper.Deserialize(response, typeof(DiscUsage));
+            }
 
             return null;
         }
@@ -129,7 +127,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling GetFileVersions");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/version/{path}";
@@ -144,7 +144,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 resourcePath,
                 "GET");
 
-            if (response != null) return (FileVersions) SerializationHelper.Deserialize(response, typeof(FileVersions));
+            if (response != null)
+            {
+                return (FileVersions) SerializationHelper.Deserialize(response, typeof(FileVersions));
+            }
 
             return null;
         }
@@ -160,7 +163,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'path' when calling ObjectExists");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/exist/{path}";
@@ -176,7 +181,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 resourcePath,
                 "GET");
 
-            if (response != null) return (ObjectExist) SerializationHelper.Deserialize(response, typeof(ObjectExist));
+            if (response != null)
+            {
+                return (ObjectExist) SerializationHelper.Deserialize(response, typeof(ObjectExist));
+            }
 
             return null;
         }
@@ -192,7 +200,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'storageName' is set
             if (request.storageName == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'storageName' when calling StorageExists");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/{storageName}/exist";
@@ -206,7 +216,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 resourcePath,
                 "GET");
 
-            if (response != null) return (StorageExist) SerializationHelper.Deserialize(response, typeof(StorageExist));
+            if (response != null)
+            {
+                return (StorageExist) SerializationHelper.Deserialize(response, typeof(StorageExist));
+            }
 
             return null;
         }

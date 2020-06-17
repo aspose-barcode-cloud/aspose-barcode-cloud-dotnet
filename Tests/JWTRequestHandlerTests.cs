@@ -1,0 +1,113 @@
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Api;
+using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
+using Moq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using NUnit.Framework;
+
+namespace Aspose.BarCode.Cloud.Sdk.Tests
+{
+    public interface IHttpWebRequestFactory
+    {
+        HttpWebRequest Create(string uri);
+    }
+
+    [TestFixture]
+    internal class JWTRequestHandlerTests
+    {
+        [SetUp]
+        public void Init()
+        {
+            using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
+            {
+                var serializer = new JsonSerializer();
+                _config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
+            }
+
+            _requestFactory = RequestFactoryMock();
+        }
+
+        private Configuration _config;
+        private Mock<IHttpWebRequestFactory> _requestFactory;
+
+
+        [Test]
+        public void TestTokenFetched()
+        {
+            // arrange
+            var jwtHandler = new JwtRequestHandler(_config);
+            jwtHandler.ProcessUrl("http://some url/");
+
+            // act
+            HttpWebRequest request = _requestFactory.Object.Create("http://some url/");
+            jwtHandler.BeforeSend(request, new MemoryStream());
+
+            Assert.Contains("Authorization", request.Headers.Keys);
+            var auth = request.Headers["Authorization"];
+            Assert.Greater(auth.Length, "Bearer ".Length);
+            var token = auth.Substring("Bearer ".Length);
+            AssertTokenIsValid(token);
+        }
+
+
+        [Test]
+        public void TestTokenRefresh()
+        {
+            // arrange
+            HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
+            unauthorizedRequest.Method = WebRequestMethods.Http.Get;
+            var response401 = (HttpWebResponse) unauthorizedRequest.GetResponse();
+            Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
+
+            var jwtHandler = new JwtRequestHandler(_config);
+
+            // act
+            Assert.Throws<NeedRepeatRequestException>(
+                () =>
+                {
+                    // Should manage 401, fetch new token and store it
+                    // And throw NeedRepeatRequestException
+                    jwtHandler.ProcessResponse(response401, new MemoryStream());
+                });
+
+            HttpWebRequest request2 = _requestFactory.Object.Create("http://some url/");
+            jwtHandler.BeforeSend(request2, new MemoryStream());
+
+            Assert.Contains("Authorization", request2.Headers.Keys);
+            var auth = request2.Headers["Authorization"];
+            Assert.Greater(auth.Length, "Bearer ".Length);
+            var token = auth.Substring("Bearer ".Length);
+            AssertTokenIsValid(token);
+        }
+
+        private static Mock<IHttpWebRequestFactory> RequestFactoryMock()
+        {
+            var responseMock = new Mock<HttpWebResponse>();
+            responseMock.Setup(c => c.StatusCode).Returns(HttpStatusCode.Unauthorized);
+
+            var requestMock = new Mock<HttpWebRequest>();
+            requestMock.Setup(c => c.GetResponse()).Returns(responseMock.Object);
+            requestMock.Setup(c => c.Headers).Returns(new WebHeaderCollection());
+
+            var requestFactory = new Mock<IHttpWebRequestFactory>();
+            requestFactory.Setup(c => c.Create(It.IsAny<string>()))
+                .Returns(requestMock.Object);
+            return requestFactory;
+        }
+
+        private static void AssertTokenIsValid(string token)
+        {
+            var firstPartBeforeDot = new string(token.TakeWhile(c => c != '.').ToArray());
+            byte[] tokenBytes = Convert.FromBase64String(firstPartBeforeDot);
+            JObject tokenHeader = JObject.Parse(Encoding.UTF8.GetString(tokenBytes));
+
+            Assert.AreEqual("JWT", tokenHeader["typ"]?.ToString());
+        }
+    }
+}

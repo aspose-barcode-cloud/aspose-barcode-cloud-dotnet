@@ -47,7 +47,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
         public void BeforeSend(WebRequest request, Stream streamToSend)
         {
             if (_configuration.AuthType == AuthType.ExternalAuth && string.IsNullOrEmpty(_configuration.JwtToken))
+            {
                 throw new ApiException(401, "Authorization header value required");
+            }
 
             request.Headers.Add("Authorization", "Bearer " + _configuration.JwtToken);
         }
