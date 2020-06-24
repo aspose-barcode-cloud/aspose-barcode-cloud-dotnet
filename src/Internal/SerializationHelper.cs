@@ -40,7 +40,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 return obj != null
                     ? JsonConvert.SerializeObject(
                         obj,
-                        new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore})
+                        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
                     : null;
             }
             catch (Exception e)
@@ -53,7 +53,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         {
             try
             {
-                if (json.StartsWith("{") || json.StartsWith("[")) return JsonConvert.DeserializeObject(json, type);
+                if (json.StartsWith("{") || json.StartsWith("["))
+                {
+                    return JsonConvert.DeserializeObject(json, type);
+                }
 
                 var xmlDoc = new XmlDocument();
                 xmlDoc.LoadXml(json);

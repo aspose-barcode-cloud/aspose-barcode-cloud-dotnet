@@ -40,7 +40,7 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
     /// <summary>
-    ///     Aspose.BarCode for Cloud API.
+    ///     BarcodeApi
     /// </summary>
     public class BarcodeApi : IBarcodeApi
     {
@@ -84,14 +84,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     The app Sid.
         /// </param>
         public BarcodeApi(string apiKey, string appSid)
-            : this(new Configuration {AppKey = apiKey, AppSid = appSid})
+            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
         {
         }
-
-        // public BarcodeApi(string jwtToken)
-        //     : this(new Configuration { JwtToken = jwtToken, ApiVersion = ApiVersion.V3, AuthType = AuthType.ExternalAuth })
-        // {
-        // }
 
         /// <summary>
         ///     Generate barcode.
@@ -104,11 +99,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'type' is set
             if (request.Type == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'type' when calling GetBarcodeGenerate");
+            }
 
             // verify the required parameter 'text' is set
             if (request.Text == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'text' when calling GetBarcodeGenerate");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate";
@@ -170,7 +169,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'name' is set
             if (request.name == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'name' when calling GetBarcodeRecognize");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
@@ -236,7 +237,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 "GET");
 
             if (response != null)
+            {
                 return (BarcodeResponseList) SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
 
             return null;
         }
@@ -310,7 +313,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 
-            if (request.image != null) formParams.Add("image", _apiInvoker.ToFileInfo(request.image, "image"));
+            if (request.image != null)
+            {
+                formParams.Add("image", _apiInvoker.ToFileInfo(request.image, "image"));
+            }
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "POST",
@@ -319,7 +326,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 formParams);
 
             if (response != null)
+            {
                 return (BarcodeResponseList) SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
 
             return null;
         }
@@ -335,8 +344,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'generatorParamsList' is set
             if (request.generatorParamsList == null)
+            {
                 throw new ApiException(400,
                     "Missing required parameter 'generatorParamsList' when calling PostGenerateMultiple");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/generateMultiple";
@@ -365,15 +376,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'name' is set
             if (request.name == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'name' when calling PutBarcodeGenerateFile");
+            }
 
             // verify the required parameter 'type' is set
             if (request.Type == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'type' when calling PutBarcodeGenerateFile");
+            }
 
             // verify the required parameter 'text' is set
             if (request.Text == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'text' when calling PutBarcodeGenerateFile");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generate";
@@ -424,7 +441,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 "PUT");
 
             if (response != null)
+            {
                 return (ResultImageInfo) SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
+            }
 
             return null;
         }
@@ -440,13 +459,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'name' is set
             if (request.name == null)
+            {
                 throw new ApiException(400,
                     "Missing required parameter 'name' when calling PutBarcodeRecognizeFromBody");
+            }
 
             // verify the required parameter 'readerParams' is set
             if (request.readerParams == null)
+            {
                 throw new ApiException(400,
                     "Missing required parameter 'readerParams' when calling PutBarcodeRecognizeFromBody");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
@@ -465,7 +488,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 postBody);
 
             if (response != null)
+            {
                 return (BarcodeResponseList) SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
 
             return null;
         }
@@ -481,12 +506,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             // verify the required parameter 'name' is set
             if (request.name == null)
+            {
                 throw new ApiException(400, "Missing required parameter 'name' when calling PutGenerateMultiple");
+            }
 
             // verify the required parameter 'generatorParamsList' is set
             if (request.generatorParamsList == null)
+            {
                 throw new ApiException(400,
                     "Missing required parameter 'generatorParamsList' when calling PutGenerateMultiple");
+            }
 
             // create path and map variables
             var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generateMultiple";
@@ -505,7 +534,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 postBody);
 
             if (response != null)
+            {
                 return (ResultImageInfo) SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
+            }
 
             return null;
         }

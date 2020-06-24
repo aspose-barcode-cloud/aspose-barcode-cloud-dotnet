@@ -33,7 +33,7 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace Tests
+namespace Aspose.BarCode.Cloud.Sdk.Tests
 {
     /// <summary>
     ///     Class for testing BarcodeApi
