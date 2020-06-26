@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Moq;
@@ -32,6 +33,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void TestTokenFetched()
         {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unexpected TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
             // arrange
             var jwtHandler = new JwtRequestHandler(TestConfiguration);
             jwtHandler.ProcessUrl("http://some url/");
@@ -51,6 +57,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void TestTokenRefresh()
         {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unexpected TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
             // arrange
             HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
             unauthorizedRequest.Method = WebRequestMethods.Http.Get;
