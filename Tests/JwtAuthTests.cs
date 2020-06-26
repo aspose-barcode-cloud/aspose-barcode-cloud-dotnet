@@ -39,6 +39,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public async Task CanUseExternalToken()
         {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unexpected TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
             var configWithToken = new Configuration
             {
                 ApiBaseUrl = TestConfiguration.ApiBaseUrl,
