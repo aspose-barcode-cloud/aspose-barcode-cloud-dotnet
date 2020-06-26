@@ -16,10 +16,13 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 3.1.x
+        dotnet-version: 2.1.x
     - name: Install dependencies
       run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release --no-restore --framework netcoreapp2.1
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test --no-restore --verbosity normal --framework netcoreapp2.1
+      env:
+        TEST_CONFIGURATION_API_BASE_URL: ${{ secrets.TEST_CONFIGURATION_BASE_URL }}
+        TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

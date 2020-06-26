@@ -3,11 +3,9 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Moq;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -19,21 +17,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     }
 
     [TestFixture]
-    internal class JWTRequestHandlerTests
+    internal class JWTRequestHandlerTests : TestsBase
     {
         [SetUp]
         public void Init()
         {
-            using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
-            {
-                var serializer = new JsonSerializer();
-                _config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
-            }
-
             _requestFactory = RequestFactoryMock();
         }
 
-        private Configuration _config;
+
         private Mock<IHttpWebRequestFactory> _requestFactory;
 
 
@@ -41,7 +33,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void TestTokenFetched()
         {
             // arrange
-            var jwtHandler = new JwtRequestHandler(_config);
+            var jwtHandler = new JwtRequestHandler(TestConfiguration);
             jwtHandler.ProcessUrl("http://some url/");
 
             // act
@@ -65,7 +57,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var response401 = (HttpWebResponse) unauthorizedRequest.GetResponse();
             Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
 
-            var jwtHandler = new JwtRequestHandler(_config);
+            var jwtHandler = new JwtRequestHandler(TestConfiguration);
 
             // act
             Assert.Throws<NeedRepeatRequestException>(

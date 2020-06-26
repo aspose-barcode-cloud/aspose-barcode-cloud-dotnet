@@ -10,7 +10,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     public class ConfigurationTests
     {
         private readonly Dictionary<string, string> _headers = new Dictionary<string, string>
-            { ["User-Agent"] = "Awesome SDK" };
+            {["User-Agent"] = "Awesome SDK"};
 
         [Test]
         public void CanChangeApiBaseUrl()
@@ -37,7 +37,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void CanSetAuthTypeAndTokenTest()
         {
-            var config = new Configuration { JwtToken = "Test JWT token" };
+            var config = new Configuration {JwtToken = "Test JWT token"};
 
             Assert.AreEqual("Test JWT token", config.JwtToken);
             Assert.AreEqual(AuthType.ExternalAuth, config.AuthType);
@@ -96,6 +96,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var config = new Configuration();
 
             Assert.AreEqual("3.0", config.ApiVersion);
+        }
+
+        [Test]
+        public void SerializationTest()
+        {
+            var config = new Configuration();
+
+            Assert.AreEqual(
+                "{\"ApiBaseUrl\":\"https://api.aspose.cloud\"," +
+                "\"AppKey\":null,\"AppSid\":null,\"JwtToken\":null," +
+                "\"DebugMode\":false,\"AuthType\":\"JWT\",\"ApiVersion\":\"3.0\",\"DefaultHeaders\":{}}",
+                JsonConvert.SerializeObject(config));
         }
     }
 }
