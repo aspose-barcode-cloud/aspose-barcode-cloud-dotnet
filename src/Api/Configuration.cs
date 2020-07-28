@@ -28,6 +28,8 @@
 //
 
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
@@ -90,6 +92,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         ///     Authentication type.
         /// </summary>
+        [JsonConverter(typeof(StringEnumConverter))]
         public AuthType AuthType { get; private set; }
 
         /// <summary>
