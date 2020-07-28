@@ -306,6 +306,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public QrParams QR { get; set; }
 
         /// <summary>
+        ///     PatchCode params.
+        /// </summary>
+        public PatchCodeParams PatchCode { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -363,6 +368,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  Pdf417: ").Append(Pdf417).Append("\n");
             sb.Append("  Postal: ").Append(Postal).Append("\n");
             sb.Append("  QR: ").Append(QR).Append("\n");
+            sb.Append("  PatchCode: ").Append(PatchCode).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();

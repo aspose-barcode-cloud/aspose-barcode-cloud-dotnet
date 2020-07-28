@@ -183,7 +183,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public bool? AllowWhiteSpotsRemoving { get; set; }
 
         /// <summary>
-        ///     Sets threshold for detected regions that may contain barcodes.  Value 0.7 means that bottom 70% of possible regions
+        ///     Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions
         ///     are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values
         ///     for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may
         ///     lead to a bigger recognition time.
@@ -191,23 +191,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public double? RegionLikelihoodThresholdPercent { get; set; }
 
         /// <summary>
-        ///     Scan window sizes in pixels.  Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time
+        ///     Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time
         ///     and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can
         ///     improve detection quality.
         /// </summary>
         public List<int?> ScanWindowSizes { get; set; }
 
         /// <summary>
-        ///     Similarity coefficient depends on how homogeneous barcodes are.  Use high value for for clear barcodes. Use low
+        ///     Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low
         ///     values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between
         ///     [0.5, 0.9]
         /// </summary>
         public double? Similarity { get; set; }
 
         /// <summary>
-        ///     Allows detector to skip search for diagonal barcodes.  Setting it to false will increase detection time but allow
-        ///     to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection
-        ///     time.
+        ///     Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to
+        ///     find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time.
         /// </summary>
         public bool? SkipDiagonalSearch { get; set; }
 
