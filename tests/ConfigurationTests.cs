@@ -10,7 +10,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     public class ConfigurationTests
     {
         private readonly Dictionary<string, string> _headers = new Dictionary<string, string>
-            { ["User-Agent"] = "Awesome SDK" };
+        { ["User-Agent"] = "Awesome SDK" };
 
         [Test]
         public void CanChangeApiBaseUrl()
@@ -82,7 +82,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.template.json")))
             {
                 var serializer = new JsonSerializer();
-                config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
+                config = (Configuration)serializer.Deserialize(file, typeof(Configuration));
             }
 
             Assert.AreEqual("Test.AppKey", config.AppKey);

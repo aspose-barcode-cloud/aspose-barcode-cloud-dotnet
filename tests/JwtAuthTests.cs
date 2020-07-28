@@ -21,7 +21,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
             {
                 var serializer = new JsonSerializer();
-                _config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
+                _config = (Configuration)serializer.Deserialize(file, typeof(Configuration));
             }
         }
 

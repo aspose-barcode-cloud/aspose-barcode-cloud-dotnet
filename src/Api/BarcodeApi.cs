@@ -238,7 +238,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (BarcodeResponseList) SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
             }
 
             return null;
@@ -327,7 +327,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (BarcodeResponseList) SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
             }
 
             return null;
@@ -442,7 +442,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (ResultImageInfo) SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
+                return (ResultImageInfo)SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
             }
 
             return null;
@@ -489,7 +489,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (BarcodeResponseList) SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
             }
 
             return null;
@@ -535,7 +535,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (ResultImageInfo) SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
+                return (ResultImageInfo)SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
             }
 
             return null;

@@ -220,7 +220,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext
         ///     will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if
-        ///     codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingapurePost, Code39Extended,
+        ///     codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended,
         ///     Code93Extended, Code16K, Code128 symbology if codetext is incorrect.
         /// </summary>
         public bool? ValidateText { get; set; }

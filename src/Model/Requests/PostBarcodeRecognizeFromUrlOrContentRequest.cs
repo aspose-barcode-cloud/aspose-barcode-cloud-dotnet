@@ -41,7 +41,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="PostBarcodeRecognizeFromUrlOrContentRequest" /> class.
         /// </summary>
-        /// <param name="type">The type of barcode to read.             </param>
+        /// <param name="type">The type of barcode to read. </param>
         /// <param name="checksumValidation">
         ///     Enable checksum validation during recognition for 1D barcodes. Default is treated as
         ///     Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar
@@ -54,12 +54,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure
         ///     separate options. Default value of Preset is NormalQuality.
         /// </param>
-        /// <param name="rectX">Set X for area for recognition.             </param>
-        /// <param name="rectY">Set Y for area for recognition.             </param>
-        /// <param name="rectWidth">Set Width of area for recognition.             </param>
-        /// <param name="rectHeight">Set Height of area for recognition.             </param>
-        /// <param name="stripFNC">Value indicating whether FNC symbol strip must be done.             </param>
-        /// <param name="timeout">Timeout of recognition process.             </param>
+        /// <param name="rectX">Set X for area for recognition. </param>
+        /// <param name="rectY">Set Y for area for recognition. </param>
+        /// <param name="rectWidth">Set Width of area for recognition. </param>
+        /// <param name="rectHeight">Set Height of area for recognition. </param>
+        /// <param name="stripFNC">Value indicating whether FNC symbol strip must be done. </param>
+        /// <param name="timeout">Timeout of recognition process. </param>
         /// <param name="medianSmoothingWindowSize">
         ///     Window size for median smoothing. Typical values are 3 or 4. Default value is
         ///     3. AllowMedianSmoothing must be set.

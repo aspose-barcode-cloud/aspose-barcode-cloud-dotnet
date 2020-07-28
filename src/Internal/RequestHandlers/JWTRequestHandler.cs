@@ -106,7 +106,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 contentType: "application/x-www-form-urlencoded");
 
             var result =
-                (GetAccessTokenResult) SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
+                (GetAccessTokenResult)SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
             _accessToken = result.AccessToken;
         }

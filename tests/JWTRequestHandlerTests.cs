@@ -27,7 +27,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
             {
                 var serializer = new JsonSerializer();
-                _config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
+                _config = (Configuration)serializer.Deserialize(file, typeof(Configuration));
             }
 
             _requestFactory = RequestFactoryMock();
@@ -62,7 +62,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // arrange
             HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
             unauthorizedRequest.Method = WebRequestMethods.Http.Get;
-            var response401 = (HttpWebResponse) unauthorizedRequest.GetResponse();
+            var response401 = (HttpWebResponse)unauthorizedRequest.GetResponse();
             Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
 
             var jwtHandler = new JwtRequestHandler(_config);
