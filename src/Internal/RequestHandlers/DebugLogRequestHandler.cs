@@ -82,7 +82,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static void LogResponse(HttpWebResponse response, Stream resultStream)
         {
-            var header = $"\r\nResponse {(int) response.StatusCode}: {response.StatusCode}";
+            var header = $"\r\nResponse {(int)response.StatusCode}: {response.StatusCode}";
             var sb = new StringBuilder();
 
             FormatHeaders(sb, response.Headers);

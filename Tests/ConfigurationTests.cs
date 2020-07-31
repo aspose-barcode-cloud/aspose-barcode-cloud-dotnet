@@ -10,7 +10,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     public class ConfigurationTests
     {
         private readonly Dictionary<string, string> _headers = new Dictionary<string, string>
-            { ["User-Agent"] = "Awesome SDK" };
+        { ["User-Agent"] = "Awesome SDK" };
+
 
         [Test]
         public void CanChangeApiBaseUrl()
@@ -22,6 +23,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             Assert.AreEqual("http://localhost:12345/v3.0", config.GetApiRootUrl());
         }
+
 
         [Test]
         public void CanChangeDefaultHeaders()
@@ -43,6 +45,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(AuthType.ExternalAuth, config.AuthType);
         }
 
+
         [Test]
         public void CanSetDebugMode()
         {
@@ -53,6 +56,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             Assert.AreEqual(true, config.DebugMode);
         }
+
 
         [Test]
         public void CanSetDefaultHeaders()
@@ -65,6 +69,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual("Awesome SDK", config.DefaultHeaders["User-Agent"]);
         }
 
+
         [Test]
         public void DefaultParamsTest()
         {
@@ -75,6 +80,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(false, config.DebugMode);
         }
 
+
         [Test]
         public void DeserializeTest()
         {
@@ -82,7 +88,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.template.json")))
             {
                 var serializer = new JsonSerializer();
-                config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
+                config = (Configuration)serializer.Deserialize(file, typeof(Configuration));
             }
 
             Assert.AreEqual("Test.AppKey", config.AppKey);
@@ -90,12 +96,26 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(AuthType.JWT, config.AuthType);
         }
 
+
         [Test]
         public void GetApiVersionTest()
         {
             var config = new Configuration();
 
             Assert.AreEqual("3.0", config.ApiVersion);
+        }
+
+
+        [Test]
+        public void SerializationTest()
+        {
+            var config = new Configuration();
+
+            Assert.AreEqual(
+                "{\"ApiBaseUrl\":\"https://api.aspose.cloud\"," +
+                "\"AppKey\":null,\"AppSid\":null,\"JwtToken\":null," +
+                "\"DebugMode\":false,\"AuthType\":\"JWT\",\"ApiVersion\":\"3.0\",\"DefaultHeaders\":{}}",
+                JsonConvert.SerializeObject(config));
         }
     }
 }

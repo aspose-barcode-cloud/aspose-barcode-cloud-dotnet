@@ -30,7 +30,6 @@ using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using Newtonsoft.Json;
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -51,14 +50,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [SetUp]
         public void Init()
         {
-            Configuration config;
-            using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
-            {
-                var serializer = new JsonSerializer();
-                config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
-            }
-
-            _api = new BarcodeApi(config);
+            _api = new BarcodeApi(TestConfiguration);
         }
 
         /// <summary>

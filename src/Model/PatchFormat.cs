@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="DataMatrixEncodeMode.cs">
+// <copyright company="Aspose" file="PatchFormat.cs">
 //   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -35,46 +35,31 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum DataMatrixEncodeMode
+    public enum PatchFormat
     {
         /// <summary>
-        ///     Enum value Auto
+        ///     Enum value PatchOnly
         /// </summary>
-        Auto,
+        PatchOnly,
 
         /// <summary>
-        ///     Enum value ASCII
+        ///     Enum value A4
         /// </summary>
-        ASCII,
+        A4,
 
         /// <summary>
-        ///     Enum value Full
+        ///     Enum value A4_LANDSCAPE
         /// </summary>
-        Full,
+        A4_LANDSCAPE,
 
         /// <summary>
-        ///     Enum value Custom
+        ///     Enum value US_Letter
         /// </summary>
-        Custom,
+        US_Letter,
 
         /// <summary>
-        ///     Enum value C40
+        ///     Enum value US_Letter_LANDSCAPE
         /// </summary>
-        C40,
-
-        /// <summary>
-        ///     Enum value Text
-        /// </summary>
-        Text,
-
-        /// <summary>
-        ///     Enum value EDIFACT
-        /// </summary>
-        EDIFACT,
-
-        /// <summary>
-        ///     Enum value ANSIX12
-        /// </summary>
-        ANSIX12
+        US_Letter_LANDSCAPE
     }
 }

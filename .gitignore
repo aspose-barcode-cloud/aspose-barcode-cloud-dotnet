@@ -6,3 +6,4 @@ obj
 .vs
 Tests/Configuration*.json
 *.DotSettings
+*.binlog

@@ -7,7 +7,6 @@ using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Moq;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -19,29 +18,27 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     }
 
     [TestFixture]
-    internal class JWTRequestHandlerTests
+    public class JWTRequestHandlerTests : TestsBase
     {
         [SetUp]
         public void Init()
         {
-            using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
-            {
-                var serializer = new JsonSerializer();
-                _config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
-            }
-
             _requestFactory = RequestFactoryMock();
         }
 
-        private Configuration _config;
         private Mock<IHttpWebRequestFactory> _requestFactory;
 
 
         [Test]
         public void TestTokenFetched()
         {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unsupported TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
             // arrange
-            var jwtHandler = new JwtRequestHandler(_config);
+            var jwtHandler = new JwtRequestHandler(TestConfiguration);
             jwtHandler.ProcessUrl("http://some url/");
 
             // act
@@ -59,13 +56,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void TestTokenRefresh()
         {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unsupported TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
             // arrange
             HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
             unauthorizedRequest.Method = WebRequestMethods.Http.Get;
-            var response401 = (HttpWebResponse) unauthorizedRequest.GetResponse();
+            var response401 = (HttpWebResponse)unauthorizedRequest.GetResponse();
             Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
 
-            var jwtHandler = new JwtRequestHandler(_config);
+            var jwtHandler = new JwtRequestHandler(TestConfiguration);
 
             // act
             Assert.Throws<NeedRepeatRequestException>(

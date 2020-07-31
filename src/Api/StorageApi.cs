@@ -110,7 +110,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (DiscUsage) SerializationHelper.Deserialize(response, typeof(DiscUsage));
+                return (DiscUsage)SerializationHelper.Deserialize(response, typeof(DiscUsage));
             }
 
             return null;
@@ -146,7 +146,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (FileVersions) SerializationHelper.Deserialize(response, typeof(FileVersions));
+                return (FileVersions)SerializationHelper.Deserialize(response, typeof(FileVersions));
             }
 
             return null;
@@ -183,7 +183,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (ObjectExist) SerializationHelper.Deserialize(response, typeof(ObjectExist));
+                return (ObjectExist)SerializationHelper.Deserialize(response, typeof(ObjectExist));
             }
 
             return null;
@@ -218,7 +218,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (StorageExist) SerializationHelper.Deserialize(response, typeof(StorageExist));
+                return (StorageExist)SerializationHelper.Deserialize(response, typeof(StorageExist));
             }
 
             return null;

@@ -220,7 +220,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext
         ///     will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if
-        ///     codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingapurePost, Code39Extended,
+        ///     codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended,
         ///     Code93Extended, Code16K, Code128 symbology if codetext is incorrect.
         /// </summary>
         public bool? ValidateText { get; set; }
@@ -306,6 +306,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public QrParams QR { get; set; }
 
         /// <summary>
+        ///     PatchCode params.
+        /// </summary>
+        public PatchCodeParams PatchCode { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -363,6 +368,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  Pdf417: ").Append(Pdf417).Append("\n");
             sb.Append("  Postal: ").Append(Postal).Append("\n");
             sb.Append("  QR: ").Append(QR).Append("\n");
+            sb.Append("  PatchCode: ").Append(PatchCode).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();

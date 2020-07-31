@@ -204,7 +204,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (FilesList) SerializationHelper.Deserialize(response, typeof(FilesList));
+                return (FilesList)SerializationHelper.Deserialize(response, typeof(FilesList));
             }
 
             return null;

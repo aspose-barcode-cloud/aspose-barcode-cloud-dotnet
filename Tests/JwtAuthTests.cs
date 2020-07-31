@@ -6,35 +6,27 @@ using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
 {
     [TestFixture]
-    public class JwtAuthTests
+    public class JwtAuthTests : TestsBase
     {
         [SetUp]
         public void Init()
         {
-            using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.json")))
-            {
-                var serializer = new JsonSerializer();
-                _config = (Configuration) serializer.Deserialize(file, typeof(Configuration));
-            }
         }
-
-        private Configuration _config;
 
         private async Task<string> FetchToken()
         {
-            var url = $"{_config.ApiBaseUrl}/connect/token";
+            var url = $"{TestConfiguration.ApiBaseUrl}/connect/token";
             var formParams = new Dictionary<string, string>
             {
                 ["grant_type"] = "client_credentials",
-                ["client_id"] = _config.AppSid,
-                ["client_secret"] = _config.AppKey
+                ["client_id"] = TestConfiguration.AppSid,
+                ["client_secret"] = TestConfiguration.AppKey
             };
             var formContent = new FormUrlEncodedContent(formParams);
             HttpResponseMessage response = await new HttpClient().PostAsync(url, formContent);
@@ -47,9 +39,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public async Task CanUseExternalToken()
         {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unsupported TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
             var configWithToken = new Configuration
             {
-                ApiBaseUrl = _config.ApiBaseUrl,
+                ApiBaseUrl = TestConfiguration.ApiBaseUrl,
                 JwtToken = await FetchToken()
             };
 

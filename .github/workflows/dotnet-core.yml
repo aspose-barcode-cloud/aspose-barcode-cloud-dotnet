@@ -1,0 +1,27 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.1.x
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore --framework netcoreapp2.1
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal --framework netcoreapp2.1
+      env:
+        TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

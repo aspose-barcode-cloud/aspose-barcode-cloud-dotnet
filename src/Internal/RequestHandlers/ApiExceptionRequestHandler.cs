@@ -68,13 +68,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                         errorResponse.Error.Message = responseData;
                     }
 
-                    resultException = new ApiException((int) webResponse.StatusCode,
+                    resultException = new ApiException((int)webResponse.StatusCode,
                         $"{errorResponse.Error.Message}: {errorResponse.Error.Description}");
                 }
             }
             catch (Exception)
             {
-                throw new ApiException((int) webResponse.StatusCode, webResponse.StatusDescription);
+                throw new ApiException((int)webResponse.StatusCode, webResponse.StatusDescription);
             }
 
             throw resultException;

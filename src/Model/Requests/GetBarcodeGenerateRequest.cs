@@ -37,8 +37,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="GetBarcodeGenerateRequest" /> class.
         /// </summary>
-        /// <param name="type">Type of barcode to generate.             </param>
-        /// <param name="text">Text to encode.             </param>
+        /// <param name="type">Type of barcode to generate.</param>
+        /// <param name="text">Text to encode.</param>
         /// <param name="twoDDisplayText">
         ///     Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417,
         ///     DataMatrix, QR, MaxiCode, DotCode
@@ -47,7 +47,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default
         ///     value: CodeLocation.Below.
         /// </param>
-        /// <param name="textAlignment">Text alignment.             </param>
+        /// <param name="textAlignment">Text alignment.</param>
         /// <param name="textColor">Specify the displaying CodeText&#39;s Color. Default value: Color.Black.</param>
         /// <param name="fontSizeMode">
         ///     Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated
@@ -55,8 +55,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto.
         /// </param>
         /// <param name="resolution">Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi.</param>
-        /// <param name="resolutionX">DEPRECATED: Use &#39;Resolution&#39; instead.             </param>
-        /// <param name="resolutionY">DEPRECATED: Use &#39;Resolution&#39; instead.             </param>
+        /// <param name="resolutionX">DEPRECATED: Use &#39;Resolution&#39; instead.</param>
+        /// <param name="resolutionY">DEPRECATED: Use &#39;Resolution&#39; instead.</param>
         /// <param name="dimensionX">
         ///     The smallest width of the unit of BarCode bars or spaces. Increase this will increase the
         ///     whole barcode image width. Ignored if AutoSizeMode property is set to AutoSizeMode.Nearest or
@@ -66,11 +66,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Space between the CodeText and the BarCode in Unit value. Default value: 2pt. Ignored for EAN8,
         ///     EAN13, UPCE, UPCA, ISBN, ISMN, ISSN, UpcaGs1DatabarCoupon.
         /// </param>
-        /// <param name="units">Common Units for all measuring in query. Default units: pixel.             </param>
+        /// <param name="units">Common Units for all measuring in query. Default units: pixel.</param>
         /// <param name="sizeMode">Specifies the different types of automatic sizing modes. Default value: AutoSizeMode.None.</param>
-        /// <param name="barHeight">Height of the barcode in given units. Default units: pixel.             </param>
-        /// <param name="imageHeight">Height of the barcode image in given units. Default units: pixel.             </param>
-        /// <param name="imageWidth">Width of the barcode image in given units. Default units: pixel.             </param>
+        /// <param name="barHeight">Height of the barcode in given units. Default units: pixel.</param>
+        /// <param name="imageHeight">Height of the barcode image in given units. Default units: pixel.</param>
+        /// <param name="imageWidth">Width of the barcode image in given units. Default units: pixel.</param>
         /// <param name="rotationAngle">
         ///     BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or
         ///     RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the
@@ -111,7 +111,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be
         ///     thrown. Otherwise codetext will be corrected to match barcode&#39;s specification. Exception always will be thrown
         ///     for: Databar symbology if codetext is incorrect. Exception always will not be thrown for: AustraliaPost,
-        ///     SingapurePost, Code39Extended, Code93Extended, Code16K, Code128 symbology if codetext is incorrect.
+        ///     SingaporePost, Code39Extended, Code93Extended, Code16K, Code128 symbology if codetext is incorrect.
         /// </param>
         /// <param name="supplementData">
         ///     Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE,
@@ -328,7 +328,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Only for 1D barcodes. If codetext is incorrect and value set to true - exception will be thrown. Otherwise codetext
         ///     will be corrected to match barcode's specification. Exception always will be thrown for: Databar symbology if
-        ///     codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingapurePost, Code39Extended,
+        ///     codetext is incorrect. Exception always will not be thrown for: AustraliaPost, SingaporePost, Code39Extended,
         ///     Code93Extended, Code16K, Code128 symbology if codetext is incorrect.
         /// </summary>
         public bool? ValidateText { get; set; }

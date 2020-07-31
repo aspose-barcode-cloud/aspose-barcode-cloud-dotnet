@@ -76,7 +76,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             Dictionary<string, object> formParams,
             string contentType = "application/json")
         {
-            return (Stream) InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
+            return (Stream)InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
         }
 
         public FileInfo ToFileInfo(Stream stream, string paramName)
@@ -106,7 +106,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
                     if (param.Value is FileInfo)
                     {
-                        var fileInfo = (FileInfo) param.Value;
+                        var fileInfo = (FileInfo)param.Value;
                         var postData =
                             $"--{boundary}\r\nContent-Disposition: form-data;" +
                             $" name=\"{param.Key}\";" +
@@ -122,7 +122,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                         string stringData;
                         if (param.Value is string)
                         {
-                            stringData = (string) param.Value;
+                            stringData = (string)param.Value;
                         }
                         else
                         {
@@ -147,7 +147,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 {
                     if (param.Value is FileInfo)
                     {
-                        var fileInfo = (FileInfo) param.Value;
+                        var fileInfo = (FileInfo)param.Value;
 
                         // Write the file data directly to the Stream, rather than serializing it to a string.
                         formDataStream.Write(fileInfo.FileContent, 0, fileInfo.FileContent.Length);
@@ -161,7 +161,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                         }
                         else
                         {
-                            postData = (string) param.Value;
+                            postData = (string)param.Value;
                         }
 
                         formDataStream.Write(Encoding.UTF8.GetBytes(postData), 0, Encoding.UTF8.GetByteCount(postData));
@@ -313,7 +313,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
         private object ReadResponse(WebRequest client, bool binaryResponse)
         {
-            var webResponse = (HttpWebResponse) GetResponse(client);
+            var webResponse = (HttpWebResponse)GetResponse(client);
             var resultStream = new MemoryStream();
 
             StreamHelper.CopyTo(webResponse.GetResponseStream(), resultStream);

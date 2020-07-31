@@ -1,7 +1,7 @@
 # Aspose.BarCode Cloud SDK for .NET
 
 - API version: 3.0
-- SDK version: 20.6.1
+- SDK version: 20.8.0
 
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/cloud) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
@@ -86,13 +86,13 @@ All URIs are relative to *<https://api.aspose.cloud/v3.0>*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BarcodeApi* | [**GetBarcodeGenerate**](docs/BarcodeApi.md#getbarcodegenerate) | **GET** /barcode/generate | Generate barcode.             
-*BarcodeApi* | [**GetBarcodeRecognize**](docs/BarcodeApi.md#getbarcoderecognize) | **GET** /barcode/{name}/recognize | Recognize barcode from a file on server.             
-*BarcodeApi* | [**PostBarcodeRecognizeFromUrlOrContent**](docs/BarcodeApi.md#postbarcoderecognizefromurlorcontent) | **POST** /barcode/recognize | Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.             
-*BarcodeApi* | [**PostGenerateMultiple**](docs/BarcodeApi.md#postgeneratemultiple) | **POST** /barcode/generateMultiple | Generate multiple barcodes and return in response stream             
-*BarcodeApi* | [**PutBarcodeGenerateFile**](docs/BarcodeApi.md#putbarcodegeneratefile) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)             
-*BarcodeApi* | [**PutBarcodeRecognizeFromBody**](docs/BarcodeApi.md#putbarcoderecognizefrombody) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.             
-*BarcodeApi* | [**PutGenerateMultiple**](docs/BarcodeApi.md#putgeneratemultiple) | **PUT** /barcode/{name}/generateMultiple | Generate image with multiple barcodes and put new file on server             
+*BarcodeApi* | [**GetBarcodeGenerate**](docs/BarcodeApi.md#getbarcodegenerate) | **GET** /barcode/generate | Generate barcode.
+*BarcodeApi* | [**GetBarcodeRecognize**](docs/BarcodeApi.md#getbarcoderecognize) | **GET** /barcode/{name}/recognize | Recognize barcode from a file on server.
+*BarcodeApi* | [**PostBarcodeRecognizeFromUrlOrContent**](docs/BarcodeApi.md#postbarcoderecognizefromurlorcontent) | **POST** /barcode/recognize | Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
+*BarcodeApi* | [**PostGenerateMultiple**](docs/BarcodeApi.md#postgeneratemultiple) | **POST** /barcode/generateMultiple | Generate multiple barcodes and return in response stream
+*BarcodeApi* | [**PutBarcodeGenerateFile**](docs/BarcodeApi.md#putbarcodegeneratefile) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)
+*BarcodeApi* | [**PutBarcodeRecognizeFromBody**](docs/BarcodeApi.md#putbarcoderecognizefrombody) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.
+*BarcodeApi* | [**PutGenerateMultiple**](docs/BarcodeApi.md#putgeneratemultiple) | **PUT** /barcode/{name}/generateMultiple | Generate image with multiple barcodes and put new file on server
 *FileApi* | [**CopyFile**](docs/FileApi.md#copyfile) | **PUT** /barcode/storage/file/copy/{srcPath} | Copy file
 *FileApi* | [**DeleteFile**](docs/FileApi.md#deletefile) | **DELETE** /barcode/storage/file/{path} | Delete file
 *FileApi* | [**DownloadFile**](docs/FileApi.md#downloadfile) | **GET** /barcode/storage/file/{path} | Download file
@@ -154,6 +154,8 @@ Class | Method | HTTP request | Description
 - [Model.MaxiCodeParams](docs/MaxiCodeParams.md)
 - [Model.ObjectExist](docs/ObjectExist.md)
 - [Model.Padding](docs/Padding.md)
+- [Model.PatchCodeParams](docs/PatchCodeParams.md)
+- [Model.PatchFormat](docs/PatchFormat.md)
 - [Model.Pdf417CompactionMode](docs/Pdf417CompactionMode.md)
 - [Model.Pdf417ErrorLevel](docs/Pdf417ErrorLevel.md)
 - [Model.Pdf417Params](docs/Pdf417Params.md)
