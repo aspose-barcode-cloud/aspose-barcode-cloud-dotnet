@@ -32,6 +32,7 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
     ///     See QualitySettings allows to configure recognition quality and speed manually.
     /// </summary>
@@ -67,5 +68,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value MaxBarCodes
         /// </summary>
         MaxBarCodes
+
     }
 }

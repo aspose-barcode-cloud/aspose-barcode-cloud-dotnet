@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum CustomerInformationInterpretingType
@@ -51,5 +53,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Other
         /// </summary>
         Other
+
     }
 }

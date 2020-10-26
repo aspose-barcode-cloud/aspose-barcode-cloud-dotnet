@@ -32,6 +32,7 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
     ///     See DecodeType
     /// </summary>
@@ -372,5 +373,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value CodablockF
         /// </summary>
         CodablockF
+
     }
 }

@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ChecksumValidation
@@ -51,5 +53,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Off
         /// </summary>
         Off
+
     }
 }
