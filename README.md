@@ -75,7 +75,7 @@ All Aspose.BarCode for Cloud SDKs, helper scripts and templates are licensed und
 
 - [**Website**](https://www.aspose.cloud)
 - [**Product Home**](https://products.aspose.cloud/barcode/cloud)
-- [**Documentation**](https://docs.aspose.cloud/display/barcodecloud/Home)
+- [**Documentation**](https://docs.aspose.cloud/barcode/)
 - [**Free Support Forum**](https://forum.aspose.cloud/c/barcode)
 - [**Paid Support Helpdesk**](https://helpdesk.aspose.cloud/)
 - [**Blog**](https://blog.aspose.cloud/category/aspose-products/aspose-barcode-product-family/)
@@ -110,12 +110,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+- [Model.ApiError](docs/ApiError.md)
+- [Model.ApiErrorResponse](docs/ApiErrorResponse.md)
 - [Model.AustralianPostParams](docs/AustralianPostParams.md)
 - [Model.AutoSizeMode](docs/AutoSizeMode.md)
 - [Model.AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
 - [Model.AztecParams](docs/AztecParams.md)
 - [Model.AztecSymbolMode](docs/AztecSymbolMode.md)
-- [Model.BarCodeErrorResponse](docs/BarCodeErrorResponse.md)
 - [Model.BarcodeResponse](docs/BarcodeResponse.md)
 - [Model.BarcodeResponseList](docs/BarcodeResponseList.md)
 - [Model.BorderDashStyle](docs/BorderDashStyle.md)

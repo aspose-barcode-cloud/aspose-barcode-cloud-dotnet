@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum FontMode
@@ -46,5 +48,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Manual
         /// </summary>
         Manual
+
     }
 }

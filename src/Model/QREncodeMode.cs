@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum QREncodeMode
@@ -66,5 +68,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value ExtendedCodetext
         /// </summary>
         ExtendedCodetext
+
     }
 }

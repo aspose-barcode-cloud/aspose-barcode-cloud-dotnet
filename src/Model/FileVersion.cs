@@ -28,11 +28,14 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     public class FileVersion
     {

@@ -13,6 +13,8 @@ Name | Type | Description | Notes
 **MacroSegmentsCount** | **int?** | Macro Pdf417 barcode segments count. | [optional] 
 **Rows** | **int?** | Rows count. | [optional] 
 **Truncate** | **bool?** | Whether Pdf417 symbology type of BarCode is truncated (to reduce space). | [optional] 
+**Pdf417ECIEncoding** | **ECIEncodings** | Extended Channel Interpretation Identifiers. It is used to tell the barcode reader details about the used references for encoding the data in the symbol. Current implementation consists all well known charset encodings. | [optional] 
+**IsReaderInitialization** | **bool?** | Used to instruct the reader to interpret the data contained within the symbol as programming for reader initialization | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
