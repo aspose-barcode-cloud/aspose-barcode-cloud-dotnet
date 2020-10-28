@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum DataMatrixEncodeMode
@@ -76,5 +78,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value ANSIX12
         /// </summary>
         ANSIX12
+
     }
 }

@@ -28,10 +28,12 @@
 //
 
 using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
     ///     File or folder information
     /// </summary>

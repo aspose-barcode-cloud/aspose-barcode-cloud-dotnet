@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum DataMatrixEccType
@@ -71,5 +73,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Ecc200
         /// </summary>
         Ecc200
+
     }
 }
