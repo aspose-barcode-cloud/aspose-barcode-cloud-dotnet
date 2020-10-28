@@ -32,11 +32,18 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum ECIEncodings
     {
+        /// <summary>
+        ///     Enum value NONE
+        /// </summary>
+        NONE,
+
         /// <summary>
         ///     Enum value ISO_8859_1
         /// </summary>
@@ -166,5 +173,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value EUC_KR
         /// </summary>
         EUC_KR
+
     }
 }

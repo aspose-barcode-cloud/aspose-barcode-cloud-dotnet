@@ -1,7 +1,7 @@
 # Aspose.BarCode Cloud SDK for .NET
 
 - API version: 3.0
-- SDK version: 20.8.0
+- SDK version: 20.10.0
 
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/cloud) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
@@ -110,12 +110,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
+- [Model.ApiError](docs/ApiError.md)
+- [Model.ApiErrorResponse](docs/ApiErrorResponse.md)
 - [Model.AustralianPostParams](docs/AustralianPostParams.md)
 - [Model.AutoSizeMode](docs/AutoSizeMode.md)
 - [Model.AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
 - [Model.AztecParams](docs/AztecParams.md)
 - [Model.AztecSymbolMode](docs/AztecSymbolMode.md)
-- [Model.BarCodeErrorResponse](docs/BarCodeErrorResponse.md)
 - [Model.BarcodeResponse](docs/BarcodeResponse.md)
 - [Model.BarcodeResponseList](docs/BarcodeResponseList.md)
 - [Model.BorderDashStyle](docs/BorderDashStyle.md)

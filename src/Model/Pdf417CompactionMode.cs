@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum Pdf417CompactionMode
@@ -56,5 +58,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Binary
         /// </summary>
         Binary
+
     }
 }

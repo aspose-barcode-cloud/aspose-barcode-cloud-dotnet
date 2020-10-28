@@ -32,6 +32,7 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
     ///     Subset of GraphicsUnit.
     /// </summary>
@@ -57,5 +58,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Millimeter
         /// </summary>
         Millimeter
+
     }
 }

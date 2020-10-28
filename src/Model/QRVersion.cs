@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum QRVersion
@@ -261,5 +263,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value VersionM4
         /// </summary>
         VersionM4
+
     }
 }

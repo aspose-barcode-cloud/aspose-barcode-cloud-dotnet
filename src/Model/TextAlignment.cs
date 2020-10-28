@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum TextAlignment
@@ -51,5 +53,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Right
         /// </summary>
         Right
+
     }
 }

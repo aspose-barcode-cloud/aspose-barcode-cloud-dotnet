@@ -60,9 +60,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 using (var responseReader = new StreamReader(resultStream))
                 {
                     var responseData = responseReader.ReadToEnd();
-                    var errorResponse = (BarCodeErrorResponse)
+                    var errorResponse = (ApiErrorResponse)
                         SerializationHelper.Deserialize(responseData,
-                            typeof(BarCodeErrorResponse));
+                            typeof(ApiErrorResponse));
                     if (string.IsNullOrEmpty(errorResponse.Error.Code))
                     {
                         errorResponse.Error.Message = responseData;

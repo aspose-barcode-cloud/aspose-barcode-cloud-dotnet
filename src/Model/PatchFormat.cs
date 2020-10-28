@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum PatchFormat
@@ -61,5 +63,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value US_Letter_LANDSCAPE
         /// </summary>
         US_Letter_LANDSCAPE
+
     }
 }

@@ -32,7 +32,9 @@ using Newtonsoft.Json.Converters;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
+
     /// <summary>
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum FontStyle
@@ -61,5 +63,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Enum value Strikeout
         /// </summary>
         Strikeout
+
     }
 }
