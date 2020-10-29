@@ -10,3 +10,5 @@ git clean -dfx --exclude=Tests/Configuration*.json || EXIT /B 1
 
 REM Build and pack
 msbuild -restore -t:clean,rebuild,pack -p:Configuration=Release || EXIT /B 1
+
+copy src\bin\Release\*.nupkg .
