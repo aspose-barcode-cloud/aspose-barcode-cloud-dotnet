@@ -12,7 +12,7 @@ Aspose.BarCode Cloud SDK for .NET provides cross-platform bindings for:
 - .NET Standard 2.0
 - .NET Framework 2.0 and higher
 
-To use these SDKs, you will need Client Id and App Key which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
+To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
 
 ## How to use the SDK?
 
@@ -20,7 +20,7 @@ The complete source code is available in this repository folder. You can either 
 
 ## Prerequisites
 
-To use Aspose.BarCode Cloud SDK for .NET you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create App Key and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/applications). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+To use Aspose.BarCode Cloud SDK for .NET you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create Client Secret and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/applications). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation
 
@@ -50,9 +50,9 @@ The examples below show how you can generate Code128 barcode and save it into lo
 
 ```csharp
 const string clientId = "Client Id from https://dashboard.aspose.cloud/applications";
-const string appKey = "App Key from https://dashboard.aspose.cloud/applications";
+const string clientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
 
-var api = new BarcodeApi(appKey, clientId);
+var api = new BarcodeApi(clientSecret, clientId);
 
 using Stream response = api.GetBarcodeGenerate(
     new GetBarcodeGenerateRequest(

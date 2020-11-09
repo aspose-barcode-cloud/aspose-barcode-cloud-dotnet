@@ -26,7 +26,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             {
                 ["grant_type"] = "client_credentials",
                 ["client_id"] = TestConfiguration.ClientId,
-                ["client_secret"] = TestConfiguration.AppKey
+                ["client_secret"] = TestConfiguration.ClientSecret
             };
             var formContent = new FormUrlEncodedContent(formParams);
             HttpResponseMessage response = await new HttpClient().PostAsync(url, formContent);

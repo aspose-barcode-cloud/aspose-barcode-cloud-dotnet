@@ -1,4 +1,4 @@
 {
     "ClientId": "Client Id from https://dashboard.aspose.cloud/applications",
-    "AppKey": "Test.AppKey"
+    "ClientSecret": "Client Secret from https://dashboard.aspose.cloud/applications"
 }

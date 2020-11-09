@@ -55,9 +55,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public string ApiBaseUrl { get; set; }
 
         /// <summary>
-        ///     Gets or sets the app key.
+        ///     Gets or sets the Client Secret.
         /// </summary>
-        public string AppKey { get; set; }
+        public string ClientSecret { get; set; }
 
         /// <summary>
         ///     Gets or sets the Client Id.

@@ -76,14 +76,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         ///     Initializes a new instance of the <see cref="FileApi" /> class.
         /// </summary>
-        /// <param name="apiKey">
+        /// <param name="clientSecret">
         ///     The Client Secret.
         /// </param>
         /// <param name="clientId">
         ///     The Client Id.
         /// </param>
-        public FileApi(string apiKey, string clientId)
-            : this(new Configuration { AppKey = apiKey, ClientId = clientId })
+        public FileApi(string clientSecret, string clientId)
+            : this(new Configuration { ClientSecret = clientSecret, ClientId = clientId })
         {
         }
 

@@ -97,7 +97,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
             var postData = "grant_type=client_credentials";
             postData += "&client_id=" + _configuration.ClientId;
-            postData += "&client_secret=" + _configuration.AppKey;
+            postData += "&client_secret=" + _configuration.ClientSecret;
 
             var responseString = _apiInvoker.InvokeApi(
                 requestUrl,

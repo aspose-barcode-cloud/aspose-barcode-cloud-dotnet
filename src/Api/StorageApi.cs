@@ -76,14 +76,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         ///     Initializes a new instance of the <see cref="StorageApi" /> class.
         /// </summary>
-        /// <param name="apiKey">
+        /// <param name="clientSecret">
         ///     The Client Secret.
         /// </param>
         /// <param name="clientId">
         ///     The Client Id.
         /// </param>
-        public StorageApi(string apiKey, string clientId)
-            : this(new Configuration { AppKey = apiKey, ClientId = clientId })
+        public StorageApi(string clientSecret, string clientId)
+            : this(new Configuration { ClientSecret = clientSecret, ClientId = clientId })
         {
         }
 
