@@ -25,7 +25,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var formParams = new Dictionary<string, string>
             {
                 ["grant_type"] = "client_credentials",
-                ["client_id"] = TestConfiguration.AppSid,
+                ["client_id"] = TestConfiguration.ClientId,
                 ["client_secret"] = TestConfiguration.AppKey
             };
             var formContent = new FormUrlEncodedContent(formParams);

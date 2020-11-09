@@ -79,11 +79,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <param name="apiKey">
         ///     The api Key.
         /// </param>
-        /// <param name="appSid">
-        ///     The app Sid.
+        /// <param name="clientId">
+        ///     The Client Id.
         /// </param>
-        public BarcodeApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+        public BarcodeApi(string apiKey, string clientId)
+            : this(new Configuration { AppKey = apiKey, ClientId = clientId })
         {
         }
 

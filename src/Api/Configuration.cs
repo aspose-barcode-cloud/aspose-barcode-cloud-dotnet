@@ -60,9 +60,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public string AppKey { get; set; }
 
         /// <summary>
-        ///     Gets or sets the app sid.
+        ///     Gets or sets the Client Id.
         /// </summary>
-        public string AppSid { get; set; }
+        public string ClientId { get; set; }
 
         /// <summary>
         ///     Gets or sets the Jwt token.

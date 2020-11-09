@@ -92,7 +92,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             Assert.AreEqual("Test.AppKey", config.AppKey);
-            Assert.AreEqual("Test.AppSid", config.AppSid);
+            Assert.AreEqual("Client Id from https://dashboard.aspose.cloud/applications", config.ClientId);
             Assert.AreEqual(AuthType.JWT, config.AuthType);
         }
 
@@ -113,7 +113,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             Assert.AreEqual(
                 "{\"ApiBaseUrl\":\"https://api.aspose.cloud\"," +
-                "\"AppKey\":null,\"AppSid\":null,\"JwtToken\":null," +
+                "\"AppKey\":null,\"ClientId\":null,\"JwtToken\":null," +
                 "\"DebugMode\":false,\"AuthType\":\"JWT\",\"ApiVersion\":\"3.0\",\"DefaultHeaders\":{}}",
                 JsonConvert.SerializeObject(config));
         }
