@@ -76,14 +76,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         ///     Initializes a new instance of the <see cref="BarcodeApi" /> class.
         /// </summary>
-        /// <param name="apiKey">
-        ///     The api Key.
+        /// <param name="clientSecret">
+        ///     The Client Secret.
         /// </param>
-        /// <param name="appSid">
-        ///     The app Sid.
+        /// <param name="clientId">
+        ///     The Client Id.
         /// </param>
-        public BarcodeApi(string apiKey, string appSid)
-            : this(new Configuration { AppKey = apiKey, AppSid = appSid })
+        public BarcodeApi(string clientSecret, string clientId)
+            : this(new Configuration { ClientSecret = clientSecret, ClientId = clientId })
         {
         }
 

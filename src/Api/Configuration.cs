@@ -55,14 +55,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public string ApiBaseUrl { get; set; }
 
         /// <summary>
-        ///     Gets or sets the app key.
+        ///     Gets or sets the Client Secret.
         /// </summary>
-        public string AppKey { get; set; }
+        public string ClientSecret { get; set; }
 
         /// <summary>
-        ///     Gets or sets the app sid.
+        ///     Gets or sets the Client Id.
         /// </summary>
-        public string AppSid { get; set; }
+        public string ClientId { get; set; }
 
         /// <summary>
         ///     Gets or sets the Jwt token.
