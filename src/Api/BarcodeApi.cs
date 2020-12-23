@@ -119,6 +119,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textAlignment", request.TextAlignment);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", request.Resolution);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionX", request.ResolutionX);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionY", request.ResolutionY);
@@ -365,6 +366,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textAlignment", request.TextAlignment);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", request.Resolution);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionX", request.ResolutionX);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionY", request.ResolutionY);

@@ -77,7 +77,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value ANSIX12
         /// </summary>
-        ANSIX12
+        ANSIX12,
+
+        /// <summary>
+        ///     Enum value ExtendedCodetext
+        /// </summary>
+        ExtendedCodetext
 
     }
 }

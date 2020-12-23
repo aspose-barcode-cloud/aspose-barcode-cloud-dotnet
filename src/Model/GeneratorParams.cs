@@ -100,6 +100,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public FontParams Font { get; set; }
 
         /// <summary>
+        ///     Specify word wraps (line breaks) within text. Default value: false.
+        /// </summary>
+        public bool? NoWrap { get; set; }
+
+        /// <summary>
         ///     Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi.
         /// </summary>
         public double? Resolution { get; set; }
@@ -315,6 +320,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  TextColor: ").Append(TextColor).Append("\n");
             sb.Append("  Font: ").Append(Font).Append("\n");
             sb.Append("  FontSizeMode: ").Append(FontSizeMode).Append("\n");
+            sb.Append("  NoWrap: ").Append(NoWrap).Append("\n");
             sb.Append("  Resolution: ").Append(Resolution).Append("\n");
             sb.Append("  ResolutionX: ").Append(ResolutionX).Append("\n");
             sb.Append("  ResolutionY: ").Append(ResolutionY).Append("\n");
