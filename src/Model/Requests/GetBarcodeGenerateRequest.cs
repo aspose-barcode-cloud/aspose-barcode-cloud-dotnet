@@ -46,6 +46,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="textAlignment">Text alignment.</param>
         /// <param name="textColor">Specify the displaying CodeText&#39;s Color. Default value: Color.Black.</param>
         /// <param name="fontSizeMode">Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto.</param>
+        /// <param name="noWrap">Specify word wraps (line breaks) within text. Default value: false.</param>
         /// <param name="resolution">Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi.</param>
         /// <param name="resolutionX">DEPRECATED: Use &#39;Resolution&#39; instead.</param>
         /// <param name="resolutionY">DEPRECATED: Use &#39;Resolution&#39; instead.</param>
@@ -73,7 +74,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="supplementSpace">Space between main the BarCode and supplement BarCode.</param>
         /// <param name="barWidthReduction">Bars reduction value that is used to compensate ink spread while printing.</param>
         /// <param name="format">Result image format.</param>
-        public GetBarcodeGenerateRequest(string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string format = null)
+        public GetBarcodeGenerateRequest(string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string format = null)
         {
             this.Type = type;
             this.Text = text;
@@ -82,6 +83,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
             this.TextAlignment = textAlignment;
             this.TextColor = textColor;
             this.FontSizeMode = fontSizeMode;
+            this.NoWrap = noWrap;
             this.Resolution = resolution;
             this.ResolutionX = resolutionX;
             this.ResolutionY = resolutionY;
@@ -145,6 +147,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto.
         /// </summary>
         public string FontSizeMode { get; set; }
+
+        /// <summary>
+        ///     Specify word wraps (line breaks) within text. Default value: false.
+        /// </summary>
+        public bool? NoWrap { get; set; }
 
         /// <summary>
         ///     Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi.

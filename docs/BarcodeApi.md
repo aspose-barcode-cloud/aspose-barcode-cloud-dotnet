@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 <a name="getbarcodegenerate"></a>
 # **GetBarcodeGenerate**
-> System.IO.Stream GetBarcodeGenerate (string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string format = null)
+> System.IO.Stream GetBarcodeGenerate (string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string format = null)
 
 Generate barcode.
 
@@ -44,6 +44,7 @@ namespace Example
             var textAlignment = textAlignment_example;  // string | Text alignment. (optional) 
             var textColor = textColor_example;  // string | Specify the displaying CodeText's Color. Default value: Color.Black. (optional) 
             var fontSizeMode = fontSizeMode_example;  // string | Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. (optional) 
+            var noWrap = true;  // bool? | Specify word wraps (line breaks) within text. Default value: false. (optional) 
             var resolution = 1.2;  // double? | Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. (optional) 
             var resolutionX = 1.2;  // double? | DEPRECATED: Use 'Resolution' instead. (optional) 
             var resolutionY = 1.2;  // double? | DEPRECATED: Use 'Resolution' instead. (optional) 
@@ -75,7 +76,7 @@ namespace Example
             try
             {
                 // Generate barcode.
-                System.IO.Stream result = apiInstance.GetBarcodeGenerate(type, text, twoDDisplayText, textLocation, textAlignment, textColor, fontSizeMode, resolution, resolutionX, resolutionY, dimensionX, textSpace, units, sizeMode, barHeight, imageHeight, imageWidth, rotationAngle, backColor, barColor, borderColor, borderWidth, borderDashStyle, borderVisible, enableChecksum, enableEscape, filledBars, alwaysShowChecksum, wideNarrowRatio, validateText, supplementData, supplementSpace, barWidthReduction, format);
+                System.IO.Stream result = apiInstance.GetBarcodeGenerate(type, text, twoDDisplayText, textLocation, textAlignment, textColor, fontSizeMode, noWrap, resolution, resolutionX, resolutionY, dimensionX, textSpace, units, sizeMode, barHeight, imageHeight, imageWidth, rotationAngle, backColor, barColor, borderColor, borderWidth, borderDashStyle, borderVisible, enableChecksum, enableEscape, filledBars, alwaysShowChecksum, wideNarrowRatio, validateText, supplementData, supplementSpace, barWidthReduction, format);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -98,6 +99,7 @@ Name | Type | Description  | Notes
  **textAlignment** | **string**| Text alignment. | [optional] 
  **textColor** | **string**| Specify the displaying CodeText&#39;s Color. Default value: Color.Black. | [optional] 
  **fontSizeMode** | **string**| Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. | [optional] 
+ **noWrap** | **bool?**| Specify word wraps (line breaks) within text. Default value: false. | [optional] 
  **resolution** | **double?**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. | [optional] 
  **resolutionX** | **double?**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional] 
  **resolutionY** | **double?**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional] 
@@ -465,7 +467,7 @@ Name | Type | Description  | Notes
 
 <a name="putbarcodegeneratefile"></a>
 # **PutBarcodeGenerateFile**
-> ResultImageInfo PutBarcodeGenerateFile (string name, string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string storage = null, string folder = null, string format = null)
+> ResultImageInfo PutBarcodeGenerateFile (string name, string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string storage = null, string folder = null, string format = null)
 
 Generate barcode and save on server (from query params or from file with json or xml content)
 
@@ -495,6 +497,7 @@ namespace Example
             var textAlignment = textAlignment_example;  // string | Text alignment. (optional) 
             var textColor = textColor_example;  // string | Specify the displaying CodeText's Color. Default value: Color.Black. (optional) 
             var fontSizeMode = fontSizeMode_example;  // string | Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. (optional) 
+            var noWrap = true;  // bool? | Specify word wraps (line breaks) within text. Default value: false. (optional) 
             var resolution = 1.2;  // double? | Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. (optional) 
             var resolutionX = 1.2;  // double? | DEPRECATED: Use 'Resolution' instead. (optional) 
             var resolutionY = 1.2;  // double? | DEPRECATED: Use 'Resolution' instead. (optional) 
@@ -528,7 +531,7 @@ namespace Example
             try
             {
                 // Generate barcode and save on server (from query params or from file with json or xml content)
-                ResultImageInfo result = apiInstance.PutBarcodeGenerateFile(name, type, text, twoDDisplayText, textLocation, textAlignment, textColor, fontSizeMode, resolution, resolutionX, resolutionY, dimensionX, textSpace, units, sizeMode, barHeight, imageHeight, imageWidth, rotationAngle, backColor, barColor, borderColor, borderWidth, borderDashStyle, borderVisible, enableChecksum, enableEscape, filledBars, alwaysShowChecksum, wideNarrowRatio, validateText, supplementData, supplementSpace, barWidthReduction, storage, folder, format);
+                ResultImageInfo result = apiInstance.PutBarcodeGenerateFile(name, type, text, twoDDisplayText, textLocation, textAlignment, textColor, fontSizeMode, noWrap, resolution, resolutionX, resolutionY, dimensionX, textSpace, units, sizeMode, barHeight, imageHeight, imageWidth, rotationAngle, backColor, barColor, borderColor, borderWidth, borderDashStyle, borderVisible, enableChecksum, enableEscape, filledBars, alwaysShowChecksum, wideNarrowRatio, validateText, supplementData, supplementSpace, barWidthReduction, storage, folder, format);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -552,6 +555,7 @@ Name | Type | Description  | Notes
  **textAlignment** | **string**| Text alignment. | [optional] 
  **textColor** | **string**| Specify the displaying CodeText&#39;s Color. Default value: Color.Black. | [optional] 
  **fontSizeMode** | **string**| Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. | [optional] 
+ **noWrap** | **bool?**| Specify word wraps (line breaks) within text. Default value: false. | [optional] 
  **resolution** | **double?**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. | [optional] 
  **resolutionX** | **double?**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional] 
  **resolutionY** | **double?**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional] 

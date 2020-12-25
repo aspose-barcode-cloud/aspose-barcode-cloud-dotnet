@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="DataMatrixParams.cs">
+// <copyright company="Aspose" file="StructuredAppend.cs">
 //   Copyright (c) 2020 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -35,44 +35,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     DataMatrix parameters.
+    ///     QR structured append parameters.
     /// </summary>
-    public class DataMatrixParams
+    public class StructuredAppend
     {
         /// <summary>
-        ///     Datamatrix ECC type. Default value: DataMatrixEccType.Ecc200.
+        ///     The index of the QR structured append mode barcode. Index starts from 0.
         /// </summary>
-        public DataMatrixEccType? DataMatrixEcc { get; set; }
+        public int? SequenceIndicator { get; set; }
 
         /// <summary>
-        ///     Encode mode of Datamatrix barcode. Default value: DataMatrixEncodeMode.Auto.
+        ///     Gets or sets the QR structured append mode barcodes quantity. Max value is 16.
         /// </summary>
-        public DataMatrixEncodeMode? DataMatrixEncodeMode { get; set; }
+        public int? TotalCount { get; set; }
 
         /// <summary>
-        ///     Macro Characters 05 and 06 values are used to obtain more compact encoding in special modes. Can be used only with DataMatrixEccType.Ecc200 or DataMatrixEccType.EccAuto. Cannot be used with EncodeTypes.GS1DataMatrix Default value: MacroCharacters.None.
+        ///     Gets or sets the QR structured append mode parity data.
         /// </summary>
-        public MacroCharacter? MacroCharacters { get; set; }
-
-        /// <summary>
-        ///     Height/Width ratio of 2D BarCode module
-        /// </summary>
-        public double? AspectRatio { get; set; }
-
-        /// <summary>
-        ///     Encoding of codetext.
-        /// </summary>
-        public string TextEncoding { get; set; }
-
-        /// <summary>
-        ///     Columns count.
-        /// </summary>
-        public int? Columns { get; set; }
-
-        /// <summary>
-        ///     Rows count.
-        /// </summary>
-        public int? Rows { get; set; }
+        public int? ParityByte { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object
@@ -81,14 +61,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DataMatrixParams {\n");
-            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
-            sb.Append("  TextEncoding: ").Append(TextEncoding).Append("\n");
-            sb.Append("  Columns: ").Append(Columns).Append("\n");
-            sb.Append("  DataMatrixEcc: ").Append(DataMatrixEcc).Append("\n");
-            sb.Append("  DataMatrixEncodeMode: ").Append(DataMatrixEncodeMode).Append("\n");
-            sb.Append("  Rows: ").Append(Rows).Append("\n");
-            sb.Append("  MacroCharacters: ").Append(MacroCharacters).Append("\n");
+            sb.Append("class StructuredAppend {\n");
+            sb.Append("  SequenceIndicator: ").Append(SequenceIndicator).Append("\n");
+            sb.Append("  TotalCount: ").Append(TotalCount).Append("\n");
+            sb.Append("  ParityByte: ").Append(ParityByte).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();

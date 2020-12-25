@@ -75,6 +75,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public string TextEncoding { get; set; }
 
         /// <summary>
+        ///     QR structured append parameters.
+        /// </summary>
+        public StructuredAppend StructuredAppend { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -89,6 +94,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  EncodeMode: ").Append(EncodeMode).Append("\n");
             sb.Append("  ErrorLevel: ").Append(ErrorLevel).Append("\n");
             sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  StructuredAppend: ").Append(StructuredAppend).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();

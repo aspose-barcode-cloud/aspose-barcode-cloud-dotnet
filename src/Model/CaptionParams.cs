@@ -70,6 +70,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public Padding Padding { get; set; }
 
         /// <summary>
+        ///     Specify word wraps (line breaks) within text. Default value: false.
+        /// </summary>
+        public bool? NoWrap { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +88,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  Visible: ").Append(Visible).Append("\n");
             sb.Append("  Font: ").Append(Font).Append("\n");
             sb.Append("  Padding: ").Append(Padding).Append("\n");
+            sb.Append("  NoWrap: ").Append(NoWrap).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();
