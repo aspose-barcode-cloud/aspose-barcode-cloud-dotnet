@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="GeneratorParams.cs">
-//   Copyright (c) 2020 Aspose.BarCode for Cloud
+//   Copyright (c) 2021 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
