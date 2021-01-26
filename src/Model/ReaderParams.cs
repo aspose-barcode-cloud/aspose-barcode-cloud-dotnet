@@ -170,6 +170,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public bool? AllowWhiteSpotsRemoving { get; set; }
 
         /// <summary>
+        ///     Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False.
+        /// </summary>
+        public bool? CheckMore1DVariants { get; set; }
+
+        /// <summary>
         ///     Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
         /// </summary>
         public double? RegionLikelihoodThresholdPercent { get; set; }
@@ -227,6 +232,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  AllowRegularImage: ").Append(AllowRegularImage).Append("\n");
             sb.Append("  AllowSaltAndPepperFiltering: ").Append(AllowSaltAndPepperFiltering).Append("\n");
             sb.Append("  AllowWhiteSpotsRemoving: ").Append(AllowWhiteSpotsRemoving).Append("\n");
+            sb.Append("  CheckMore1DVariants: ").Append(CheckMore1DVariants).Append("\n");
             sb.Append("  RegionLikelihoodThresholdPercent: ").Append(RegionLikelihoodThresholdPercent).Append("\n");
             sb.Append("  ScanWindowSizes: ").Append(ScanWindowSizes).Append("\n");
             sb.Append("  Similarity: ").Append(Similarity).Append("\n");

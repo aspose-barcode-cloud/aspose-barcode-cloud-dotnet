@@ -45,12 +45,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public int? SequenceIndicator { get; set; }
 
         /// <summary>
-        ///     Gets or sets the QR structured append mode barcodes quantity. Max value is 16.
+        ///     QR structured append mode barcodes quantity. Max value is 16.
         /// </summary>
         public int? TotalCount { get; set; }
 
         /// <summary>
-        ///     Gets or sets the QR structured append mode parity data.
+        ///     QR structured append mode parity data.
         /// </summary>
         public int? ParityByte { get; set; }
 

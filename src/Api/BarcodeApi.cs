@@ -202,6 +202,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowRegularImage", request.AllowRegularImage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowSaltAndPepperFiltering", request.AllowSaltAndPepperFiltering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowWhiteSpotsRemoving", request.AllowWhiteSpotsRemoving);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checkMore1DVariants", request.CheckMore1DVariants);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "scanWindowSizes", request.ScanWindowSizes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "similarity", request.Similarity);
@@ -269,6 +270,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowRegularImage", request.AllowRegularImage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowSaltAndPepperFiltering", request.AllowSaltAndPepperFiltering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowWhiteSpotsRemoving", request.AllowWhiteSpotsRemoving);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checkMore1DVariants", request.CheckMore1DVariants);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "scanWindowSizes", request.ScanWindowSizes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "similarity", request.Similarity);

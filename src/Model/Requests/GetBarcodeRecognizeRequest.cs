@@ -65,6 +65,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="allowRegularImage">Allows engine to recognize regular image without any restorations as main scan. Mode to recognize image as is.</param>
         /// <param name="allowSaltAndPepperFiltering">Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots.</param>
         /// <param name="allowWhiteSpotsRemoving">Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering.</param>
+        /// <param name="checkMore1DVariants">Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False.</param>
         /// <param name="regionLikelihoodThresholdPercent">Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.</param>
         /// <param name="scanWindowSizes">Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality.</param>
         /// <param name="similarity">Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]</param>
@@ -74,7 +75,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="rectangleRegion"></param>
         /// <param name="storage">The image storage.</param>
         /// <param name="folder">The image folder.</param>
-        public GetBarcodeRecognizeRequest(string name, string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, string rectangleRegion = null, string storage = null, string folder = null)
+        public GetBarcodeRecognizeRequest(string name, string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, string rectangleRegion = null, string storage = null, string folder = null)
         {
             this.name = name;
             this.Type = type;
@@ -102,6 +103,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
             this.AllowRegularImage = allowRegularImage;
             this.AllowSaltAndPepperFiltering = allowSaltAndPepperFiltering;
             this.AllowWhiteSpotsRemoving = allowWhiteSpotsRemoving;
+            this.CheckMore1DVariants = checkMore1DVariants;
             this.RegionLikelihoodThresholdPercent = regionLikelihoodThresholdPercent;
             this.ScanWindowSizes = scanWindowSizes;
             this.Similarity = similarity;
@@ -242,6 +244,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering.
         /// </summary>
         public bool? AllowWhiteSpotsRemoving { get; set; }
+
+        /// <summary>
+        ///     Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False.
+        /// </summary>
+        public bool? CheckMore1DVariants { get; set; }
 
         /// <summary>
         ///     Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
