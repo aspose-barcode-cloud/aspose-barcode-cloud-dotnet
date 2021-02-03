@@ -55,6 +55,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public ECIEncodings? Pdf417ECIEncoding { get; set; }
 
         /// <summary>
+        ///     Extended Channel Interpretation Identifiers. Applies for Macro PDF417 text fields.
+        /// </summary>
+        public ECIEncodings? MacroECIEncoding { get; set; }
+
+        /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
@@ -100,6 +105,36 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public bool? IsReaderInitialization { get; set; }
 
         /// <summary>
+        ///     Macro Pdf417 barcode time stamp
+        /// </summary>
+        public DateTime? MacroTimeStamp { get; set; }
+
+        /// <summary>
+        ///     Macro Pdf417 barcode sender name
+        /// </summary>
+        public string MacroSender { get; set; }
+
+        /// <summary>
+        ///     Macro Pdf417 file size. The file size field contains the size in bytes of the entire source file
+        /// </summary>
+        public int? MacroFileSize { get; set; }
+
+        /// <summary>
+        ///     Macro Pdf417 barcode checksum. The checksum field contains the value of the 16-bit (2 bytes) CRC checksum using the CCITT-16 polynomial
+        /// </summary>
+        public int? MacroChecksum { get; set; }
+
+        /// <summary>
+        ///     Macro Pdf417 barcode file name
+        /// </summary>
+        public string MacroFileName { get; set; }
+
+        /// <summary>
+        ///     Macro Pdf417 barcode addressee name
+        /// </summary>
+        public string MacroAddressee { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -119,6 +154,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  Truncate: ").Append(Truncate).Append("\n");
             sb.Append("  Pdf417ECIEncoding: ").Append(Pdf417ECIEncoding).Append("\n");
             sb.Append("  IsReaderInitialization: ").Append(IsReaderInitialization).Append("\n");
+            sb.Append("  MacroTimeStamp: ").Append(MacroTimeStamp).Append("\n");
+            sb.Append("  MacroSender: ").Append(MacroSender).Append("\n");
+            sb.Append("  MacroFileSize: ").Append(MacroFileSize).Append("\n");
+            sb.Append("  MacroChecksum: ").Append(MacroChecksum).Append("\n");
+            sb.Append("  MacroFileName: ").Append(MacroFileName).Append("\n");
+            sb.Append("  MacroAddressee: ").Append(MacroAddressee).Append("\n");
+            sb.Append("  MacroECIEncoding: ").Append(MacroECIEncoding).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();
