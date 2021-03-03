@@ -60,6 +60,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public ECIEncodings? MacroECIEncoding { get; set; }
 
         /// <summary>
+        ///     Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.
+        /// </summary>
+        public Code128Emulation? Code128Emulation { get; set; }
+
+        /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
@@ -161,6 +166,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  MacroFileName: ").Append(MacroFileName).Append("\n");
             sb.Append("  MacroAddressee: ").Append(MacroAddressee).Append("\n");
             sb.Append("  MacroECIEncoding: ").Append(MacroECIEncoding).Append("\n");
+            sb.Append("  Code128Emulation: ").Append(Code128Emulation).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();
