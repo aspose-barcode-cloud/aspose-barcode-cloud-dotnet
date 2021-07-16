@@ -39,10 +39,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // arrange
             var jwtHandler = new JwtRequestHandler(TestConfiguration);
-            jwtHandler.ProcessUrl("https://example.com/");
+            jwtHandler.ProcessUrl("http://some url/");
 
             // act
-            HttpWebRequest request = _requestFactory.Object.Create("https://example.com/");
+            HttpWebRequest request = _requestFactory.Object.Create("http://some url/");
             jwtHandler.BeforeSend(request, new MemoryStream());
 
             Assert.Contains("Authorization", request.Headers.Keys);
@@ -62,7 +62,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             // arrange
-            HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("https://example.com/");
+            HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
             unauthorizedRequest.Method = WebRequestMethods.Http.Get;
             var response401 = (HttpWebResponse)unauthorizedRequest.GetResponse();
             Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
@@ -78,7 +78,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     jwtHandler.ProcessResponse(response401, new MemoryStream());
                 });
 
-            HttpWebRequest request2 = _requestFactory.Object.Create("https://example.com/");
+            HttpWebRequest request2 = _requestFactory.Object.Create("http://some url/");
             jwtHandler.BeforeSend(request2, new MemoryStream());
 
             Assert.Contains("Authorization", request2.Headers.Keys);
