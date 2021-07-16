@@ -11,10 +11,11 @@ URL_END_CHARS = r")\"'<>#\*\s\\"
 URL_REGEX = re.compile(r"(http[s]*://[^{%s}]+)[%s]" % (URL_END_CHARS, URL_END_CHARS))
 
 GOOD_URLS = set([
-    'https://www.aspose.cloud',
-    'https://api.aspose.cloud/v3.0',
     'http://localhost:12345',
     'http://localhost:12345/v3.0',
+    'http://some',
+    'https://api.aspose.cloud/v3.0',
+    'https://www.aspose.cloud',
 ])
 BROKEN_URLS = collections.defaultdict(list)
 
