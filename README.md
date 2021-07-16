@@ -30,7 +30,7 @@ The complete source code is available in this repository folder. You can either 
 
 ## Prerequisites
 
-To use Aspose.BarCode Cloud SDK for .NET you need to register an account with [Aspose Cloud](https://www.aspose.cloud/) and lookup/create Client Secret and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/applications). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
+To use Aspose.BarCode Cloud SDK for .NET you need to register an account with [Aspose Cloud](https://www.aspose.cloud) and lookup/create Client Secret and Client Id at [Cloud Dashboard](https://dashboard.aspose.cloud/applications). There is free quota available. For more details, see [Aspose Cloud Pricing](https://purchase.aspose.cloud/pricing).
 
 ## Installation
 
