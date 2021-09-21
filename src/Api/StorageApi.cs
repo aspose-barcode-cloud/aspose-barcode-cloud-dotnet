@@ -104,11 +104,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "GET",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -143,11 +145,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "GET",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -183,11 +187,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "GET",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -221,11 +227,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "storageName", request.storageName);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "GET",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
