@@ -1,5 +1,13 @@
 .PHONY: all
-all: update
+all: test
+
+.PHONY: format
+format:
+	dotnet format
+
+.PHONY: test
+test:
+	dotnet test
 
 .PHONY: update
 update:

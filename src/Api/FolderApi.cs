@@ -115,6 +115,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
+            var headerParams = new Dictionary<string, string>();
+
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
@@ -143,6 +145,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+
+            var headerParams = new Dictionary<string, string>();
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -173,6 +177,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
+
+            var headerParams = new Dictionary<string, string>();
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -205,11 +211,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "GET",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -248,6 +256,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
+
+            var headerParams = new Dictionary<string, string>();
 
             _apiInvoker.InvokeApi(
                 resourcePath,

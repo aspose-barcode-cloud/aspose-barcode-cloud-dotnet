@@ -148,6 +148,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barWidthReduction", request.BarWidthReduction);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
+            var headerParams = new Dictionary<string, string>();
+
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
                 "GET",
@@ -213,11 +215,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "GET",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -280,15 +284,19 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 
+            var headerParams = new Dictionary<string, string>();
+
             if (request.image != null)
             {
                 formParams.Add("image", _apiInvoker.ToFileInfo(request.image, "image"));
+                headerParams["Content-Type"] = "multipart/form-data";
+
             }
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "POST",
                 null,
-                null,
+                headerParams,
                 formParams);
 
             if (response != null)
@@ -321,6 +329,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
+
+            var headerParams = new Dictionary<string, string>();
             var postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
@@ -399,11 +409,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
+            var headerParams = new Dictionary<string, string>();
+
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
                 null,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -444,12 +456,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.type);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
+
+            var headerParams = new Dictionary<string, string>();
             var postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
                 postBody,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
@@ -490,12 +504,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
+
+            var headerParams = new Dictionary<string, string>();
             var postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             var response = _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
                 postBody,
-                null,
+                headerParams,
                 null);
 
             if (response != null)
