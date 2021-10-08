@@ -175,6 +175,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public bool? CheckMore1DVariants { get; set; }
 
         /// <summary>
+        ///     Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False.
+        /// </summary>
+        public bool? FastScanOnly { get; set; }
+
+        /// <summary>
         ///     Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
         /// </summary>
         public double? RegionLikelihoodThresholdPercent { get; set; }
@@ -198,6 +203,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False.
         /// </summary>
         public bool? ReadTinyBarcodes { get; set; }
+
+        /// <summary>
+        ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".
+        /// </summary>
+        public bool? IgnoreEndingFillingPatternsForCTable { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object
@@ -233,12 +243,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
             sb.Append("  AllowSaltAndPepperFiltering: ").Append(AllowSaltAndPepperFiltering).Append("\n");
             sb.Append("  AllowWhiteSpotsRemoving: ").Append(AllowWhiteSpotsRemoving).Append("\n");
             sb.Append("  CheckMore1DVariants: ").Append(CheckMore1DVariants).Append("\n");
+            sb.Append("  FastScanOnly: ").Append(FastScanOnly).Append("\n");
             sb.Append("  RegionLikelihoodThresholdPercent: ").Append(RegionLikelihoodThresholdPercent).Append("\n");
             sb.Append("  ScanWindowSizes: ").Append(ScanWindowSizes).Append("\n");
             sb.Append("  Similarity: ").Append(Similarity).Append("\n");
             sb.Append("  SkipDiagonalSearch: ").Append(SkipDiagonalSearch).Append("\n");
             sb.Append("  ReadTinyBarcodes: ").Append(ReadTinyBarcodes).Append("\n");
             sb.Append("  AustralianPostEncodingTable: ").Append(AustralianPostEncodingTable).Append("\n");
+            sb.Append("  IgnoreEndingFillingPatternsForCTable: ").Append(IgnoreEndingFillingPatternsForCTable).Append("\n");
             sb.Append("}\n");
 
             return sb.ToString();
