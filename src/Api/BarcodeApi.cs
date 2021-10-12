@@ -205,12 +205,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowSaltAndPepperFiltering", request.AllowSaltAndPepperFiltering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowWhiteSpotsRemoving", request.AllowWhiteSpotsRemoving);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checkMore1DVariants", request.CheckMore1DVariants);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fastScanOnly", request.FastScanOnly);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "scanWindowSizes", request.ScanWindowSizes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "similarity", request.Similarity);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "skipDiagonalSearch", request.SkipDiagonalSearch);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "readTinyBarcodes", request.ReadTinyBarcodes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
@@ -275,12 +277,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowSaltAndPepperFiltering", request.AllowSaltAndPepperFiltering);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowWhiteSpotsRemoving", request.AllowWhiteSpotsRemoving);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checkMore1DVariants", request.CheckMore1DVariants);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fastScanOnly", request.FastScanOnly);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "scanWindowSizes", request.ScanWindowSizes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "similarity", request.Similarity);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "skipDiagonalSearch", request.SkipDiagonalSearch);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "readTinyBarcodes", request.ReadTinyBarcodes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 

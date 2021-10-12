@@ -65,16 +65,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="allowSaltAndPepperFiltering">Allows engine to recognize barcodes with salt and pepper noise type. Mode can remove small noise with white and black dots.</param>
         /// <param name="allowWhiteSpotsRemoving">Allows engine to recognize image without small white spots as additional scan. Mode helps to recognize noised image as well as median smoothing filtering.</param>
         /// <param name="checkMore1DVariants">Allows engine to recognize 1D barcodes with checksum by checking more recognition variants. Default value: False.</param>
+        /// <param name="fastScanOnly">Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False.</param>
         /// <param name="regionLikelihoodThresholdPercent">Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.</param>
         /// <param name="scanWindowSizes">Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality.</param>
         /// <param name="similarity">Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]</param>
         /// <param name="skipDiagonalSearch">Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time.</param>
         /// <param name="readTinyBarcodes">Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False.</param>
         /// <param name="australianPostEncodingTable">Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.</param>
+        /// <param name="ignoreEndingFillingPatternsForCTable">The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \&quot;333\&quot; of filling paterns is decoded as letter \&quot;z\&quot;.</param>
         /// <param name="rectangleRegion"></param>
         /// <param name="url">The image file url.</param>
         /// <param name="image">Image data</param>
-        public PostBarcodeRecognizeFromUrlOrContentRequest(string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, string rectangleRegion = null, string url = null, System.IO.Stream image = null)
+        public PostBarcodeRecognizeFromUrlOrContentRequest(string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string rectangleRegion = null, string url = null, System.IO.Stream image = null)
         {
             this.Type = type;
             this.ChecksumValidation = checksumValidation;
@@ -102,12 +104,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
             this.AllowSaltAndPepperFiltering = allowSaltAndPepperFiltering;
             this.AllowWhiteSpotsRemoving = allowWhiteSpotsRemoving;
             this.CheckMore1DVariants = checkMore1DVariants;
+            this.FastScanOnly = fastScanOnly;
             this.RegionLikelihoodThresholdPercent = regionLikelihoodThresholdPercent;
             this.ScanWindowSizes = scanWindowSizes;
             this.Similarity = similarity;
             this.SkipDiagonalSearch = skipDiagonalSearch;
             this.ReadTinyBarcodes = readTinyBarcodes;
             this.AustralianPostEncodingTable = australianPostEncodingTable;
+            this.IgnoreEndingFillingPatternsForCTable = ignoreEndingFillingPatternsForCTable;
             this.RectangleRegion = rectangleRegion;
             this.url = url;
             this.image = image;
@@ -244,6 +248,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public bool? CheckMore1DVariants { get; set; }
 
         /// <summary>
+        ///     Allows engine for 1D barcodes to quickly recognize middle slice of an image and return result without using any time-consuming algorithms. Default value: False.
+        /// </summary>
+        public bool? FastScanOnly { get; set; }
+
+        /// <summary>
         ///     Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
         /// </summary>
         public double? RegionLikelihoodThresholdPercent { get; set; }
@@ -272,6 +281,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.
         /// </summary>
         public string AustralianPostEncodingTable { get; set; }
+
+        /// <summary>
+        ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".
+        /// </summary>
+        public bool? IgnoreEndingFillingPatternsForCTable { get; set; }
 
         /// <summary>
         ///     Gets or sets RectangleRegion
