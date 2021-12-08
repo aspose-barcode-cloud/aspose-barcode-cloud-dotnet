@@ -367,7 +367,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value GS1CodablockF
         /// </summary>
-        GS1CodablockF
+        GS1CodablockF,
+
+        /// <summary>
+        ///     Enum value Mailmark
+        /// </summary>
+        Mailmark
 
     }
 }
