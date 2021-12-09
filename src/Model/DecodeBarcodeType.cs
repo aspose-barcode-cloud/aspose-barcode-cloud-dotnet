@@ -372,7 +372,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value CodablockF
         /// </summary>
-        CodablockF
+        CodablockF,
+
+        /// <summary>
+        ///     Enum value Mailmark
+        /// </summary>
+        Mailmark
 
     }
 }
