@@ -35,10 +35,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         public string InvokeApi(
             string path,
             string method,
+            string contentType,
             string body = null,
             Dictionary<string, string> headerParams = null,
-            Dictionary<string, object> formParams = null,
-            string contentType = "application/json")
+            Dictionary<string, object> formParams = null)
         {
             return InvokeInternal(path, method, false, body, headerParams, formParams, contentType) as string;
         }

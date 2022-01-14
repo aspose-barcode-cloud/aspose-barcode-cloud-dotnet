@@ -77,8 +77,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             var responseString = _apiInvoker.InvokeApi(
                 requestUrl,
                 "POST",
-                postData,
-                contentType: "application/x-www-form-urlencoded");
+                "application/x-www-form-urlencoded",
+                postData);
 
             var result =
                 (GetAccessTokenResult)SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
