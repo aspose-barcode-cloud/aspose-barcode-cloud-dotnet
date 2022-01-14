@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="AustralianPostParams.cs">
-//   Copyright (c) 2021 Aspose.BarCode for Cloud
+//   Copyright (c) 2022 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
