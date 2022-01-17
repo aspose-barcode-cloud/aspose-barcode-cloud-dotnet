@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net462;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Company>Aspose</Company>
     <Title>Aspose.BarCode Cloud SDK for .NET</Title>
     <Description>Aspose.Barcode for Cloud is a REST API for barcode generation and recognition. It helps you generate barcode images from scratch in linear (1D), two dimensional (2D), and postal formats. Generate barcode images in a variety of image formats: JPEG, PNG, GIF, BMP, TIFF and SVG. Recognize barcodes from different image types.
@@ -29,11 +29,6 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)'=='net20' OR '$(TargetFramework)'=='net462'">
-    <Reference Include="System.Web" />
-    <Reference Include="System.Net.Http" />
   </ItemGroup>
 
   <ItemGroup>
