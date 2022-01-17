@@ -31,8 +31,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var formContent = new FormUrlEncodedContent(formParams);
             HttpResponseMessage response = await new HttpClient().PostAsync(url, formContent);
             response.EnsureSuccessStatusCode();
-            dynamic json = JObject.Parse(await response.Content.ReadAsStringAsync());
-            string accessToken = Convert.ToString(json.access_token);
+            var json = JObject.Parse(await response.Content.ReadAsStringAsync());
+            string accessToken = Convert.ToString(json["access_token"]);
             return accessToken;
         }
 
