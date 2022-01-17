@@ -1,0 +1,26 @@
+name: .NET Framework Test
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-and-test:
+    runs-on: [windows-latest]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.5
+
+    - name: Restore NuGet packages
+      run: nuget restore Aspose.BarCode.Cloud.Sdk.sln
+
+    - name: Build the Solution
+      run: msbuild Aspose.BarCode.Cloud.Sdk.sln /p:Configuration=Release

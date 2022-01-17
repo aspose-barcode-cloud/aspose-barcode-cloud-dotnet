@@ -1,4 +1,4 @@
-name: .NET Core
+name: .NET Core Test
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-and-test:
 
     runs-on: ubuntu-latest
 
@@ -17,10 +17,13 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 2.1.x
+
     - name: Install dependencies
       run: dotnet restore
+
     - name: Build
-      run: dotnet build --configuration Release --no-restore --framework netcoreapp2.1
+      run: dotnet build --no-restore --configuration Release --framework netcoreapp2.1
+
     - name: Test
       run: dotnet test --no-restore --verbosity normal --framework netcoreapp2.1
       env:
