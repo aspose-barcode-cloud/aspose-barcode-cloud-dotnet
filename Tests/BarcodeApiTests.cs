@@ -26,6 +26,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void Init()
         {
             _api = new BarcodeApi(TestConfiguration);
+            _fileApi = new FileApi(TestConfiguration);
         }
 
         /// <summary>
@@ -37,25 +38,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         private IBarcodeApi _api;
+        private IFileApi _fileApi;
 
-        private static string PutTestFile(IBarcodeApi api, string fileName, List<GeneratorParams> barcodes)
+        private string PutTestFile(string fileName)
         {
-            var generatorParamsList = new GeneratorParamsList
-            {
-                BarcodeBuilders = barcodes
-            };
-
-            string folder = TempFolderPath;
-            var request = new PutGenerateMultipleRequest(
-                fileName,
-                generatorParamsList,
-                folder: folder
+            using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
+            FilesUploadResult uploaded = _fileApi.UploadFile(
+                new UploadFileRequest(
+                    $"{TempFolderPath}/{fileName}",
+                    fileToUpload
+                )
             );
+            Assert.IsNotEmpty(uploaded.Uploaded);
 
-            ResultImageInfo response = api.PutGenerateMultiple(request);
-            Assert.IsTrue(response.FileSize > 0);
-
-            return folder;
+            return TempFolderPath;
         }
 
 
@@ -102,8 +98,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 }
             };
 
-            const string fileName = "Test_GetBarcodeRecognize.png";
-            string folder = PutTestFile(_api, fileName, barcodesToRecognize);
+            const string fileName = "Test_PostGenerateMultiple.png";
+            string folder = PutTestFile(fileName);
             var request = new GetBarcodeRecognizeRequest(
                 fileName,
                 folder: folder,
@@ -234,18 +230,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             {
                 new GeneratorParams
                 {
-                    TypeOfBarcode = EncodeBarcodeType.QR,
-                    Text = "PutBarcodeRecognizeFromBody QR"
-                },
-                new GeneratorParams
-                {
                     TypeOfBarcode = EncodeBarcodeType.Code128,
-                    Text = "PutBarcodeRecognizeFromBody Code128"
+                    Text = "Very sample text"
                 }
             };
 
-            const string fileName = "Test_PutBarcodeRecognizeFromBody.png";
-            string folder = PutTestFile(_api, fileName, barcodesToRecognize);
+            const string fileName = "Test_GetBarcodeGenerate.png";
+            string folder = PutTestFile(fileName);
 
             var request = new PutBarcodeRecognizeFromBodyRequest(
                 fileName,

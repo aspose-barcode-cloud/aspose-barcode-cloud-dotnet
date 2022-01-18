@@ -104,7 +104,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -148,7 +148,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -193,7 +193,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -236,7 +236,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "storageName", request.storageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 

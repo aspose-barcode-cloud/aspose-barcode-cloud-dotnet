@@ -115,7 +115,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -149,7 +149,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -184,7 +184,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -220,7 +220,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -269,7 +269,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 

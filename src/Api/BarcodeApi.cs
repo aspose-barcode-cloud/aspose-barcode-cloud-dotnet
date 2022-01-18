@@ -216,7 +216,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -290,7 +290,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -417,7 +417,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -468,7 +468,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
             string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
@@ -519,7 +519,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
 
-            string contentType = "application/json";
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter

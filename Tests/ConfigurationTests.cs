@@ -123,7 +123,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "ApiBaseUrl\":\"https://api.aspose.cloud\",\"" +
                 "TokenUrl\":\"https://api.aspose.cloud/connect/token\",\"" +
                 "ClientSecret\":null,\"" +
-                "ClientId\":null,\"JwtToken\":null,\"" +
+                "ClientId\":null,\"" +
+                "JwtToken\":null,\"" +
                 "DebugMode\":false,\"" +
                 "AuthType\":\"JWT\",\"" +
                 "ApiVersion\":\"3.0\",\"" +
