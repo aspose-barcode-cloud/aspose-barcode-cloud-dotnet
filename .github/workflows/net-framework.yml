@@ -22,7 +22,7 @@ jobs:
     - name: Build the Solution
       run: msbuild -restore -p:Configuration=Release
 
-    - name: Test net461
+    - name: Test with VSTest
       run: VSTest.Console.exe Tests\bin\Release\net461\Aspose.BarCode.Cloud.Sdk.Tests.dll
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
