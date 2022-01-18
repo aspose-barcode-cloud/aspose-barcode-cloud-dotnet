@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="FolderApi.cs">
-//   Copyright (c) 2021 Aspose.BarCode for Cloud
+//   Copyright (c) 2022 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -115,7 +115,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
+
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -146,7 +148,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
+
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -178,7 +182,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
 
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
+
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -211,14 +217,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
+
             var response = _apiInvoker.InvokeApi(
-                resourcePath,
-                "GET",
-                null,
-                headerParams,
-                null);
+                           resourcePath,
+                           "GET",
+                           contentType,
+                           null,
+                           headerParams,
+                           null);
 
             if (response != null)
             {
@@ -257,7 +266,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
+            var contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
+
 
             _apiInvoker.InvokeApi(
                 resourcePath,
