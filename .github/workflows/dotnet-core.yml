@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore
 
-    - name: Build
-      run: dotnet build --no-restore --configuration Release --framework netcoreapp2.1
-
     - name: Test
       run: dotnet test --no-restore --verbosity normal --framework netcoreapp2.1
       env:
