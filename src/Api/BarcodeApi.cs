@@ -216,7 +216,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            const string contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -225,7 +225,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                            "GET",
                            contentType,
                            null,
-                           headerParams);
+                           headerParams,
+                           null);
 
             if (response != null)
             {
@@ -289,7 +290,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 
-            var contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -372,7 +373,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'text' when calling PutBarcodeGenerateFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generate";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generate";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -416,7 +417,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
-            const string contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
@@ -425,7 +426,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                            "PUT",
                            contentType,
                            null,
-                           headerParams);
+                           headerParams,
+                           null);
 
             if (response != null)
             {
@@ -466,7 +468,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            const string contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
             string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
@@ -475,7 +477,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                            "PUT",
                            contentType,
                            postBody,
-                           headerParams);
+                           headerParams,
+                           null);
 
             if (response != null)
             {
@@ -516,7 +519,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
 
-            const string contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
@@ -525,7 +528,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                            "PUT",
                            contentType,
                            postBody,
-                           headerParams);
+                           headerParams,
+                           null);
 
             if (response != null)
             {

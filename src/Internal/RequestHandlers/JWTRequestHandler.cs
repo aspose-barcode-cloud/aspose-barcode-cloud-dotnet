@@ -88,7 +88,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 _configuration.TokenUrl,
                 "POST",
                 "application/x-www-form-urlencoded",
-                postData);
+                postData,
+                null,
+                null);
 
             var result = (GetAccessTokenResult)
                 SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));

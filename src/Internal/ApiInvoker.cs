@@ -36,9 +36,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             string path,
             string method,
             string contentType,
-            string body = null,
-            Dictionary<string, string> headerParams = null,
-            Dictionary<string, object> formParams = null)
+            string body,
+            Dictionary<string, string> headerParams,
+            Dictionary<string, object> formParams)
         {
             return InvokeInternal(path, method, false, body, headerParams, formParams, contentType) as string;
         }

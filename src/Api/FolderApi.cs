@@ -105,7 +105,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFolder");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/copy/{srcPath}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/copy/{srcPath}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -115,13 +115,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
-            var contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
+                contentType,
                 null,
                 null,
                 null);
@@ -140,7 +141,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling CreateFolder");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -148,13 +149,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            var contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
+                contentType,
                 null,
                 null,
                 null);
@@ -173,7 +175,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFolder");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -182,13 +184,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
 
-            var contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "DELETE",
+                contentType,
                 null,
                 null,
                 null);
@@ -209,7 +212,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling GetFilesList");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -217,11 +220,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            var contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
                            contentType,
@@ -256,7 +259,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFolder");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/move/{srcPath}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/move/{srcPath}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -266,13 +269,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
 
-            var contentType = "application/json";
+            string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
+                contentType,
                 null,
                 null,
                 null);
