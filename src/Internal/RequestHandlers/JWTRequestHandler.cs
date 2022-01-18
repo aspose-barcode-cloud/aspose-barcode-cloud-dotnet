@@ -68,20 +68,32 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private void RequestToken()
         {
-            var requestUrl = _configuration.ApiBaseUrl + "/connect/token";
-
             var postData = "grant_type=client_credentials";
+
+            if (string.IsNullOrEmpty(_configuration.ClientId))
+            {
+                throw new ApiException(403,
+                    "Missing required parameter 'ClientId'");
+            }
             postData += "&client_id=" + _configuration.ClientId;
+
+            if (string.IsNullOrEmpty(_configuration.ClientSecret))
+            {
+                throw new ApiException(403,
+                    "Missing required parameter 'ClientSecret'");
+            }
             postData += "&client_secret=" + _configuration.ClientSecret;
 
-            var responseString = _apiInvoker.InvokeApi(
-                requestUrl,
+            string responseString = _apiInvoker.InvokeApi(
+                _configuration.TokenUrl,
                 "POST",
                 "application/x-www-form-urlencoded",
-                postData);
+                postData,
+                null,
+                null);
 
-            var result =
-                (GetAccessTokenResult)SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
+            var result = (GetAccessTokenResult)
+                SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
             _accessToken = result.AccessToken;
         }

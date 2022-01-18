@@ -55,6 +55,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public string ApiBaseUrl { get; set; }
 
         /// <summary>
+        ///     Aspose Cloud API auth URL.
+        /// </summary>
+        public string TokenUrl
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(_tokenUrl))
+                {
+                    return _tokenUrl;
+                }
+                return ApiBaseUrl + "/connect/token";
+            }
+            set => _tokenUrl = value;
+        }
+
+        /// <summary>
         ///     Gets or sets the Client Secret.
         /// </summary>
         public string ClientSecret { get; set; }
@@ -107,9 +123,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         public string GetApiRootUrl()
         {
-            var result = ApiBaseUrl + "/v" + ApiVersion;
+            string result = ApiBaseUrl + "/v" + ApiVersion;
 
             return result.EndsWith("/") ? result.Substring(0, result.Length - 1) : result;
         }
+
+        private string _tokenUrl;
     }
 }

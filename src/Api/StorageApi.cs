@@ -97,7 +97,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/disc";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/disc";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -108,7 +108,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
                            contentType,
@@ -140,7 +140,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling GetFileVersions");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/version/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/version/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -152,7 +152,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
                            contentType,
@@ -184,7 +184,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling ObjectExists");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/exist/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/exist/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -197,7 +197,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
                            contentType,
@@ -229,7 +229,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'storageName' when calling StorageExists");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/{storageName}/exist";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/{storageName}/exist";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -240,7 +240,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
                            contentType,

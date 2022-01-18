@@ -5,12 +5,13 @@ using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
 {
     public class TestsBase
     {
-        private const string EnvNamePrefix = "TEST_CONFIGURATION_";
+        private const string ENV_NAME_PREFIX = "TEST_CONFIGURATION_";
 
         /// <summary>
         ///     Temp folder path
@@ -29,17 +30,26 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static Configuration LoadTestConfiguration()
         {
-            var configFilename = Path.Combine("..", "..", "..", "Configuration.json");
+            string configFilename = Path.GetFullPath(Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                "..", "..", "..",
+                "Configuration.json"));
             if (File.Exists(configFilename))
             {
-                using (StreamReader file = File.OpenText(configFilename))
-                {
-                    var serializer = new JsonSerializer();
-                    return (Configuration)serializer.Deserialize(file, typeof(Configuration));
-                }
+                using StreamReader file = File.OpenText(configFilename);
+                using var reader = new JsonTextReader(file);
+                var serializer = new JsonSerializer();
+                return serializer.Deserialize<Configuration>(reader);
             }
 
-            var jsonStr = JsonConvert.SerializeObject(new Configuration());
+            Configuration config = LoadFromEnv();
+            return config;
+        }
+
+        private static Configuration LoadFromEnv()
+        {
+
+            string jsonStr = JsonConvert.SerializeObject(new Configuration());
             JObject obj = JObject.Parse(jsonStr);
             foreach (KeyValuePair<string, JToken> i in obj)
             {
@@ -48,9 +58,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     continue;
                 }
 
-                var name = i.Key;
-                var envName = $"{EnvNamePrefix}{CamelCaseToUpper(name)}";
-                var envValue = Environment.GetEnvironmentVariable(envName);
+                string name = i.Key;
+                var envName = $"{ENV_NAME_PREFIX}{CamelCaseToUpper(name)}";
+                string envValue = Environment.GetEnvironmentVariable(envName);
                 if (!string.IsNullOrEmpty(envValue))
                 {
                     obj[name] = envValue;
@@ -64,7 +74,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             var result = new StringBuilder();
             var prevCharWasLower = false;
-            foreach (var c in name)
+            foreach (char c in name)
             {
                 if (char.IsUpper(c))
                 {
@@ -84,12 +94,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         protected static string TestFilePath(string fileName)
         {
-            return Path.Combine("..", "..", "..", "test_data", fileName);
+            return Path.GetFullPath(Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                "..", "..", "..",
+                "test_data",
+                fileName));
         }
 
         protected static Stream GetTestImage(string fileName)
         {
-            var filePath = TestFilePath(fileName);
+            string filePath = TestFilePath(fileName);
             return File.Open(filePath, FileMode.Open, FileAccess.Read);
         }
     }

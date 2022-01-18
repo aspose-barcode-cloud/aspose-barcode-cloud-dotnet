@@ -3,7 +3,7 @@ all: test
 
 .PHONY: format
 format:
-	dotnet format
+	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln
 
 .PHONY: test
 test:

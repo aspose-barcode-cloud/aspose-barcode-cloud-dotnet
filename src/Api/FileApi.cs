@@ -105,7 +105,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/copy/{srcPath}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/copy/{srcPath}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -123,6 +123,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
+                contentType,
                 null,
                 null,
                 null);
@@ -141,7 +142,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -157,6 +158,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "DELETE",
+                contentType,
                 null,
                 null,
                 null);
@@ -177,7 +179,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling DownloadFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -213,7 +215,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/move/{srcPath}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/move/{srcPath}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -231,6 +233,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
+                contentType,
                 null,
                 null,
                 null);
@@ -256,7 +259,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter '_file' when calling UploadFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -271,11 +274,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (request.File != null)
             {
-                formParams.Add("_file", _apiInvoker.ToFileInfo(request.File, "File"));
+                formParams.Add("_file", ApiInvoker.ToFileInfo(request.File, "File"));
                 contentType = "multipart/form-data";
 
             }
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
                            contentType,
