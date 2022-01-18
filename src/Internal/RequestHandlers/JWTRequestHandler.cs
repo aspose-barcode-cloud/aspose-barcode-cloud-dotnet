@@ -69,19 +69,29 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
         private void RequestToken()
         {
             var postData = "grant_type=client_credentials";
-            // ReSharper disable once RedundantToStringCall
-            postData += "&client_id=" + _configuration.ClientId.ToString();
-            // ReSharper disable once RedundantToStringCall
-            postData += "&client_secret=" + _configuration.ClientSecret.ToString();
 
-            var responseString = _apiInvoker.InvokeApi(
+            if (string.IsNullOrEmpty(_configuration.ClientId))
+            {
+                throw new ApiException(403,
+                    "Missing required parameter 'ClientId'");
+            }
+            postData += "&client_id=" + _configuration.ClientId;
+
+            if (string.IsNullOrEmpty(_configuration.ClientSecret))
+            {
+                throw new ApiException(403,
+                    "Missing required parameter 'ClientSecret'");
+            }
+            postData += "&client_secret=" + _configuration.ClientSecret;
+
+            string responseString = _apiInvoker.InvokeApi(
                 _configuration.TokenUrl,
                 "POST",
                 "application/x-www-form-urlencoded",
                 postData);
 
-            var result =
-                (GetAccessTokenResult)SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
+            var result = (GetAccessTokenResult)
+                SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
             _accessToken = result.AccessToken;
         }

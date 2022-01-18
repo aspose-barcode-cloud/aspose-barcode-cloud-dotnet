@@ -258,7 +258,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
                         break;
                     default:
-                        throw new ApiException(0, "unknown method type " + method);
+                        throw new ApiException(500, "unknown method type " + method);
                 }
 
                 _requestHandlers.ForEach(p => p.BeforeSend(request, streamToSend));
