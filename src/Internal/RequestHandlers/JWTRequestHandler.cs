@@ -68,14 +68,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private void RequestToken()
         {
-            var requestUrl = _configuration.ApiBaseUrl + "/connect/token";
-
             var postData = "grant_type=client_credentials";
-            postData += "&client_id=" + _configuration.ClientId;
-            postData += "&client_secret=" + _configuration.ClientSecret;
+            // ReSharper disable once RedundantToStringCall
+            postData += "&client_id=" + _configuration.ClientId.ToString();
+            // ReSharper disable once RedundantToStringCall
+            postData += "&client_secret=" + _configuration.ClientSecret.ToString();
 
             var responseString = _apiInvoker.InvokeApi(
-                requestUrl,
+                _configuration.TokenUrl,
                 "POST",
                 "application/x-www-form-urlencoded",
                 postData);

@@ -24,3 +24,6 @@ jobs:
 
     - name: Build the Solution
       run: msbuild Aspose.BarCode.Cloud.Sdk.sln /p:Configuration=Release
+
+    - name: Test net462
+      run: VSTest.Console.exe Tests\bin\Release\net462\Aspose.BarCode.Cloud.Sdk.Tests.dll

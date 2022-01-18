@@ -12,8 +12,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void GetBarcodeGenerateTestThrows()
         {
             // Arrange
-            var config = new Configuration();
-            var api = new BarcodeApi(config);
+            var api = new BarcodeApi(clientId: "client id", clientSecret: "client secret");
             var request = new GetBarcodeGenerateRequest(
                 text: "Very sample text",
                 type: EncodeBarcodeType.Code128.ToString(),

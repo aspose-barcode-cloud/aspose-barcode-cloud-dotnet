@@ -21,18 +21,19 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private async Task<string> FetchToken()
         {
-            var url = $"{TestConfiguration.ApiBaseUrl}/connect/token";
             var formParams = new Dictionary<string, string>
             {
                 ["grant_type"] = "client_credentials",
-                ["client_id"] = TestConfiguration.ClientId,
-                ["client_secret"] = TestConfiguration.ClientSecret
+                // ReSharper disable once RedundantToStringCall
+                ["client_id"] = TestConfiguration.ClientId.ToString(),
+                // ReSharper disable once RedundantToStringCall
+                ["client_secret"] = TestConfiguration.ClientSecret.ToString()
             };
             var formContent = new FormUrlEncodedContent(formParams);
-            HttpResponseMessage response = await new HttpClient().PostAsync(url, formContent);
+            HttpResponseMessage response = await new HttpClient().PostAsync(TestConfiguration.TokenUrl, formContent);
             response.EnsureSuccessStatusCode();
-            var json = JObject.Parse(await response.Content.ReadAsStringAsync());
-            string accessToken = Convert.ToString(json["access_token"]);
+            JObject json = JObject.Parse(await response.Content.ReadAsStringAsync());
+            var accessToken = Convert.ToString(json["access_token"]);
             return accessToken;
         }
 
@@ -47,15 +48,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var configWithToken = new Configuration
             {
                 ApiBaseUrl = TestConfiguration.ApiBaseUrl,
+                TokenUrl = TestConfiguration.TokenUrl,
                 JwtToken = await FetchToken()
             };
 
             var api = new BarcodeApi(configWithToken);
-            using (Stream generated = api.GetBarcodeGenerate(new GetBarcodeGenerateRequest(
-                EncodeBarcodeType.QR.ToString(), "Test")))
-            {
-                Assert.Greater(generated.Length, 0);
-            }
+            using Stream generated = api.GetBarcodeGenerate(
+                new GetBarcodeGenerateRequest(
+                EncodeBarcodeType.QR.ToString(), "Test")
+                );
+            Assert.Greater(generated.Length, 0);
         }
     }
 }

@@ -1,11 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2036
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspose.BarCode.Cloud.Sdk", "src\Aspose.BarCode.Cloud.Sdk.csproj", "{56EA21EC-6AB0-452A-9826-62856992A33C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aspose.BarCode.Cloud.Sdk.Tests", "Tests\Aspose.BarCode.Cloud.Sdk.Tests.csproj", "{0E1CE574-E3A4-4F78-A6B5-C94D90E8EDCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D6335D67-21AD-403D-9866-8A3356A8CB2A}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

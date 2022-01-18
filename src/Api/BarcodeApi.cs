@@ -107,7 +107,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'text' when calling GetBarcodeGenerate");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -172,7 +172,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'name' when calling GetBarcodeRecognize");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -216,17 +216,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            var contentType = "application/json";
+            const string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
                            contentType,
                            null,
-                           headerParams,
-                           null);
+                           headerParams);
 
             if (response != null)
             {
@@ -247,7 +246,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent(PostBarcodeRecognizeFromUrlOrContentRequest request)
         {
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -296,11 +295,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (request.image != null)
             {
-                formParams.Add("image", _apiInvoker.ToFileInfo(request.image, "image"));
+                formParams.Add("image", ApiInvoker.ToFileInfo(request.image, "image"));
                 contentType = "multipart/form-data";
 
             }
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "POST",
                            contentType,
@@ -332,14 +331,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'generatorParamsList' when calling PostGenerateMultiple");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/generateMultiple";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generateMultiple";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
-            var postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
+            string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
                 "POST",
@@ -417,17 +416,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
-            var contentType = "application/json";
+            const string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
 
-            var response = _apiInvoker.InvokeApi(
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
                            contentType,
                            null,
-                           headerParams,
-                           null);
+                           headerParams);
 
             if (response != null)
             {
@@ -458,7 +456,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'readerParams' when calling PutBarcodeRecognizeFromBody");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -468,17 +466,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            var contentType = "application/json";
+            const string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
-            var postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
-            var response = _apiInvoker.InvokeApi(
+            string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
                            contentType,
                            postBody,
-                           headerParams,
-                           null);
+                           headerParams);
 
             if (response != null)
             {
@@ -509,7 +506,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'generatorParamsList' when calling PutGenerateMultiple");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generateMultiple";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generateMultiple";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -519,17 +516,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
 
-            var contentType = "application/json";
+            const string contentType = "application/json";
             var headerParams = new Dictionary<string, string>();
 
-            var postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
-            var response = _apiInvoker.InvokeApi(
+            string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
+            string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
                            contentType,
                            postBody,
-                           headerParams,
-                           null);
+                           headerParams);
 
             if (response != null)
             {
