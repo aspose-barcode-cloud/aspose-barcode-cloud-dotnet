@@ -18,7 +18,7 @@ jobs:
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.5
-      
+
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1
 
@@ -30,3 +30,5 @@ jobs:
 
     - name: Test net462
       run: VSTest.Console.exe Tests\bin\Release\net462\Aspose.BarCode.Cloud.Sdk.Tests.dll
+      env:
+        TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
