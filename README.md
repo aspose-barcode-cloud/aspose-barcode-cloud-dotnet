@@ -19,12 +19,13 @@
 
 [Aspose.BarCode for Cloud](https://products.aspose.cloud/barcode/) is a REST API for Linear, 2D and postal barcode generation and recognition in the cloud. API recognizes and generates barcode images in a variety of formats. Barcode REST API allows to specify barcode image attributes like image width, height, border style and output image format in order to customize the generation process. Developers can also specify the barcode type and text attributes such as text location and font styles in order to suit the application requirements.
 
-This repository contains Aspose.BarCode Cloud SDK for .NET source code. This SDK allows you to work with Aspose.BarCode for Cloud REST APIs in your .NET Core or .NET Standard applications quickly and easily.
+This repository contains Aspose.BarCode Cloud SDK for .NET source code. This SDK allows you to work with Aspose.BarCode for Cloud REST APIs in your .NET Core or .NET Framework applications quickly and easily.
 
 Aspose.BarCode Cloud SDK for .NET provides cross-platform bindings for:
 
-- .NET Standard 2.0
-- .NET Framework 2.0 and higher
+- .NET Standard 2.0 and higher
+- .NET Core 2.1 and higher
+- .NET Framework 4.6.1 and higher
 
 To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
 
@@ -58,27 +59,142 @@ From within Visual Studio:
 4. Click on the *Browse* tab and search for "Aspose.BarCode-Cloud".
 5. Click on the Aspose.BarCode-Cloud package, select the appropriate version in the right-tab and click *Install*.
 
-## Sample usage
+## Recognize QR code
 
-The examples below show how you can generate Code128 barcode and save it into local file using Aspose.BarCode-Cloud library:
+The examples below show how you can recognize QR code from image:
 
 ```csharp
-const string clientId = "Client Id from https://dashboard.aspose.cloud/applications";
-const string clientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
+using Aspose.BarCode.Cloud.Sdk.Api;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+using System;
+using System.IO;
+using System.Reflection;
 
-var api = new BarcodeApi(clientSecret, clientId);
+namespace ReadQR
+{
+    class Program
+    {
+        static Configuration MakeConfiguration()
+        {
+            var config = new Configuration();
 
-using Stream response = api.GetBarcodeGenerate(
-    new GetBarcodeGenerateRequest(
-        EncodeBarcodeType.Code128.ToString(), "Sample text", format: "png")
-    );
-using FileStream stream = File.Create("out.png");
-response.CopyTo(stream);
+            var envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+            if (string.IsNullOrEmpty(envToken))
+            {
+                config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
+                config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
+            }
+            else
+            {
+                config.JwtToken = envToken;
+            }
+
+            return config;
+        }
+
+        static string ReadQR(IBarcodeApi api, string fileName)
+        {
+            using (FileStream imageStream = File.OpenRead(fileName))
+            {
+                BarcodeResponseList recognized = api.PostBarcodeRecognizeFromUrlOrContent(
+                    new PostBarcodeRecognizeFromUrlOrContentRequest(image: imageStream)
+                );
+
+                return recognized.Barcodes[0].BarcodeValue;
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            string fileName = Path.GetFullPath(Path.Join(
+                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
+                "..", "..", "..", "..",
+                "qr.png"
+                ));
+
+            var api = new BarcodeApi(MakeConfiguration());
+
+            string result = ReadQR(api, fileName);
+            Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");
+        }
+    }
+}
+
+```
+
+## Generate QR code
+
+The examples below show how you can generate QR code and save it into local file using Aspose.BarCode-Cloud library:
+
+```csharp
+using Aspose.BarCode.Cloud.Sdk.Api;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+using System;
+using System.IO;
+using System.Reflection;
+
+namespace GenerateQR
+{
+    class Program
+    {
+        static Configuration MakeConfiguration()
+        {
+            var config = new Configuration();
+
+            var envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+            if (string.IsNullOrEmpty(envToken))
+            {
+                config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
+                config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
+            }
+            else
+            {
+                config.JwtToken = envToken;
+            }
+
+            return config;
+        }
+
+        static void GenerateQR(IBarcodeApi api, string fileName)
+        {
+            using (Stream generated = api.GetBarcodeGenerate(
+                new GetBarcodeGenerateRequest(
+                    EncodeBarcodeType.QR.ToString(),
+                    "QR code text",
+                    textLocation: "None", format: "png"))
+            )
+            {
+                using (FileStream stream = File.Create(fileName))
+                {
+                    generated.CopyTo(stream);
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            string fileName = Path.GetFullPath(Path.Join(
+                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
+                "..", "..", "..", "..",
+                "qr.png"
+                ));
+
+            var api = new BarcodeApi(MakeConfiguration());
+
+            GenerateQR(api, fileName);
+            Console.WriteLine($"File '{fileName}' generated.");
+        }
+    }
+}
+
 ```
 
 ## Dependencies
 
-- .NET Framework 2.0 or later, .NET Standard 2.0
 - [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
 
 ## Licensing

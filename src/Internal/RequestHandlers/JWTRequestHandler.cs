@@ -48,6 +48,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 return;
             }
 
+            if (string.IsNullOrEmpty(_accessToken))
+            {
+                throw new ApiException(403,
+                    "Missing required parameter '_accessToken'");
+            }
+
             request.Headers.Add("Authorization", "Bearer " + _accessToken);
         }
 

@@ -3,7 +3,8 @@ all: test
 
 .PHONY: format
 format:
-	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln
+	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
+	~/.dotnet/tools/dotnet-format ./Aspose.BarCode.Cloud.Sdk.sln
 
 .PHONY: test
 test:
@@ -12,3 +13,10 @@ test:
 .PHONY: update
 update:
 	echo "Not implemented"
+
+.PHONY: insert-examples
+insert-examples:
+	./scripts/insert-examples.bash
+
+.PHONY: after-gen
+after-gen: insert-examples format
