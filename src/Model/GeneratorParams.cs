@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Represents extended BarcodeGenerator params.
     /// </summary>
-    public class GeneratorParams
+    public class GeneratorParams : IToString
     {
         /// <summary>
         ///     Type of barcode to generate.
@@ -310,64 +311,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class GeneratorParams {\n");
-            sb.Append("  TypeOfBarcode: ").Append(TypeOfBarcode).Append("\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
-            sb.Append("  TwoDDisplayText: ").Append(TwoDDisplayText).Append("\n");
-            sb.Append("  TextLocation: ").Append(TextLocation).Append("\n");
-            sb.Append("  TextAlignment: ").Append(TextAlignment).Append("\n");
-            sb.Append("  TextColor: ").Append(TextColor).Append("\n");
-            sb.Append("  Font: ").Append(Font).Append("\n");
-            sb.Append("  FontSizeMode: ").Append(FontSizeMode).Append("\n");
-            sb.Append("  NoWrap: ").Append(NoWrap).Append("\n");
-            sb.Append("  Resolution: ").Append(Resolution).Append("\n");
-            sb.Append("  ResolutionX: ").Append(ResolutionX).Append("\n");
-            sb.Append("  ResolutionY: ").Append(ResolutionY).Append("\n");
-            sb.Append("  DimensionX: ").Append(DimensionX).Append("\n");
-            sb.Append("  TextSpace: ").Append(TextSpace).Append("\n");
-            sb.Append("  Units: ").Append(Units).Append("\n");
-            sb.Append("  SizeMode: ").Append(SizeMode).Append("\n");
-            sb.Append("  BarHeight: ").Append(BarHeight).Append("\n");
-            sb.Append("  ImageHeight: ").Append(ImageHeight).Append("\n");
-            sb.Append("  ImageWidth: ").Append(ImageWidth).Append("\n");
-            sb.Append("  RotationAngle: ").Append(RotationAngle).Append("\n");
-            sb.Append("  Padding: ").Append(Padding).Append("\n");
-            sb.Append("  CaptionAbove: ").Append(CaptionAbove).Append("\n");
-            sb.Append("  CaptionBelow: ").Append(CaptionBelow).Append("\n");
-            sb.Append("  BackColor: ").Append(BackColor).Append("\n");
-            sb.Append("  BarColor: ").Append(BarColor).Append("\n");
-            sb.Append("  BorderColor: ").Append(BorderColor).Append("\n");
-            sb.Append("  BorderWidth: ").Append(BorderWidth).Append("\n");
-            sb.Append("  BorderDashStyle: ").Append(BorderDashStyle).Append("\n");
-            sb.Append("  BorderVisible: ").Append(BorderVisible).Append("\n");
-            sb.Append("  EnableChecksum: ").Append(EnableChecksum).Append("\n");
-            sb.Append("  EnableEscape: ").Append(EnableEscape).Append("\n");
-            sb.Append("  FilledBars: ").Append(FilledBars).Append("\n");
-            sb.Append("  AlwaysShowChecksum: ").Append(AlwaysShowChecksum).Append("\n");
-            sb.Append("  WideNarrowRatio: ").Append(WideNarrowRatio).Append("\n");
-            sb.Append("  ValidateText: ").Append(ValidateText).Append("\n");
-            sb.Append("  SupplementData: ").Append(SupplementData).Append("\n");
-            sb.Append("  SupplementSpace: ").Append(SupplementSpace).Append("\n");
-            sb.Append("  BarWidthReduction: ").Append(BarWidthReduction).Append("\n");
-            sb.Append("  AustralianPost: ").Append(AustralianPost).Append("\n");
-            sb.Append("  Aztec: ").Append(Aztec).Append("\n");
-            sb.Append("  Codabar: ").Append(Codabar).Append("\n");
-            sb.Append("  Codablock: ").Append(Codablock).Append("\n");
-            sb.Append("  Code16K: ").Append(Code16K).Append("\n");
-            sb.Append("  Coupon: ").Append(Coupon).Append("\n");
-            sb.Append("  DataBar: ").Append(DataBar).Append("\n");
-            sb.Append("  DataMatrix: ").Append(DataMatrix).Append("\n");
-            sb.Append("  DotCode: ").Append(DotCode).Append("\n");
-            sb.Append("  ITF: ").Append(ITF).Append("\n");
-            sb.Append("  MaxiCode: ").Append(MaxiCode).Append("\n");
-            sb.Append("  Pdf417: ").Append(Pdf417).Append("\n");
-            sb.Append("  Postal: ").Append(Postal).Append("\n");
-            sb.Append("  QR: ").Append(QR).Append("\n");
-            sb.Append("  PatchCode: ").Append(PatchCode).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

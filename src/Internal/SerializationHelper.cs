@@ -2,6 +2,7 @@
 using System.IO;
 using System.Xml;
 using Aspose.BarCode.Cloud.Sdk.Api;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Newtonsoft.Json;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal
@@ -15,7 +16,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 return obj != null
                     ? JsonConvert.SerializeObject(
                         obj,
-                        new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore })
+                        new JsonSerializerSettings
+                        {
+                            NullValueHandling = NullValueHandling.Ignore
+                        })
                     : null;
             }
             catch (Exception e)
@@ -30,12 +34,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             {
                 if (json.StartsWith("{") || json.StartsWith("["))
                 {
-                    return JsonConvert.DeserializeObject(json, type);
+                    object jObj = JsonConvert.DeserializeObject(json, type);
+                    if (jObj is IToString jToString)
+                    {
+                        jToString.SetSrcString(json);
+                    }
+                    return jObj;
                 }
 
-                var xmlDoc = new XmlDocument();
-                xmlDoc.LoadXml(json);
-                return JsonConvert.SerializeXmlNode(xmlDoc);
+                throw new ApiException(500, $"Unknown serialization format: {json}");
             }
             catch (IOException e)
             {

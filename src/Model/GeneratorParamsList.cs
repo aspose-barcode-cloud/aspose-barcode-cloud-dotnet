@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Represents list of barcode generators
     /// </summary>
-    public class GeneratorParamsList
+    public class GeneratorParamsList : IToString
     {
         /// <summary>
         ///     List of barcode generators
@@ -60,14 +61,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class GeneratorParamsList {\n");
-            sb.Append("  BarcodeBuilders: ").Append(BarcodeBuilders).Append("\n");
-            sb.Append("  XStep: ").Append(XStep).Append("\n");
-            sb.Append("  YStep: ").Append(YStep).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

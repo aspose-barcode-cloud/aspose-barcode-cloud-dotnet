@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Caption
     /// </summary>
-    public class CaptionParams
+    public class CaptionParams : IToString
     {
         /// <summary>
         ///     Text alignment.
@@ -80,18 +81,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class CaptionParams {\n");
-            sb.Append("  Text: ").Append(Text).Append("\n");
-            sb.Append("  Alignment: ").Append(Alignment).Append("\n");
-            sb.Append("  Color: ").Append(Color).Append("\n");
-            sb.Append("  Visible: ").Append(Visible).Append("\n");
-            sb.Append("  Font: ").Append(Font).Append("\n");
-            sb.Append("  Padding: ").Append(Padding).Append("\n");
-            sb.Append("  NoWrap: ").Append(NoWrap).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

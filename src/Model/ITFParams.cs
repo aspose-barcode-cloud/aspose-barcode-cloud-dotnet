@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     ITF parameters.
     /// </summary>
-    public class ITFParams
+    public class ITFParams : IToString
     {
         /// <summary>
         ///     Border type of ITF barcode. Default value: ITF14BorderType.Bar.
@@ -60,14 +61,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class ITFParams {\n");
-            sb.Append("  BorderThickness: ").Append(BorderThickness).Append("\n");
-            sb.Append("  BorderType: ").Append(BorderType).Append("\n");
-            sb.Append("  QuietZoneCoef: ").Append(QuietZoneCoef).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }
