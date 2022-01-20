@@ -10,7 +10,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     public class ConfigurationTests
     {
         private readonly Dictionary<string, string> _headers = new Dictionary<string, string>
-        { ["User-Agent"] = "Awesome SDK" };
+        {
+            ["User-Agent"] = "Awesome SDK"
+        };
 
 
         [Test]
@@ -39,7 +41,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void CanSetAuthTypeAndTokenTest()
         {
-            var config = new Configuration { JwtToken = "Test JWT token" };
+            var config = new Configuration
+            {
+                JwtToken = "Test JWT token"
+            };
 
             Assert.AreEqual("Test JWT token", config.JwtToken);
             Assert.AreEqual(AuthType.ExternalAuth, config.AuthType);
@@ -84,13 +89,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void DeserializeTest()
         {
-            Configuration config;
-            using (StreamReader file = File.OpenText(Path.Combine("..", "..", "..", "Configuration.template.json")))
-            {
-                var serializer = new JsonSerializer();
-                config = (Configuration)serializer.Deserialize(file, typeof(Configuration));
-            }
+            using StreamReader file = File.OpenText(Path.Combine(
+                TestContext.CurrentContext.TestDirectory,
+                "..", "..", "..",
+                "Configuration.template.json"));
+            var serializer = new JsonSerializer();
+            using var reader = new JsonTextReader(file);
+            var config = serializer.Deserialize<Configuration>(reader);
 
+            Assert.IsNotNull(config);
             Assert.AreEqual("Client Secret from https://dashboard.aspose.cloud/applications", config.ClientSecret);
             Assert.AreEqual("Client Id from https://dashboard.aspose.cloud/applications", config.ClientId);
             Assert.AreEqual(AuthType.JWT, config.AuthType);
@@ -112,9 +119,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var config = new Configuration();
 
             Assert.AreEqual(
-                "{\"ApiBaseUrl\":\"https://api.aspose.cloud\"," +
-                "\"ClientSecret\":null,\"ClientId\":null,\"JwtToken\":null," +
-                "\"DebugMode\":false,\"AuthType\":\"JWT\",\"ApiVersion\":\"3.0\",\"DefaultHeaders\":{}}",
+                "{\"" +
+                "ApiBaseUrl\":\"https://api.aspose.cloud\",\"" +
+                "TokenUrl\":\"https://api.aspose.cloud/connect/token\",\"" +
+                "ClientSecret\":null,\"" +
+                "ClientId\":null,\"" +
+                "JwtToken\":null,\"" +
+                "DebugMode\":false,\"" +
+                "AuthType\":\"JWT\",\"" +
+                "ApiVersion\":\"3.0\",\"" +
+                "DefaultHeaders\":{}" +
+                "}",
                 JsonConvert.SerializeObject(config));
         }
     }

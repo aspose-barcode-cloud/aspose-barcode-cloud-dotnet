@@ -107,7 +107,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'text' when calling GetBarcodeGenerate");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -173,7 +173,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'name' when calling GetBarcodeRecognize");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -219,12 +219,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             var headerParams = new Dictionary<string, string>();
 
-            var response = _apiInvoker.InvokeApi(
-                resourcePath,
+
+            string response = _apiInvoker.InvokeApi(
+                           resourcePath,
                 "GET",
                 null,
-                headerParams,
-                null);
+                           headerParams,
+                           null);
 
             if (response != null)
             {
@@ -245,7 +246,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent(PostBarcodeRecognizeFromUrlOrContentRequest request)
         {
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -292,16 +293,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (request.image != null)
             {
-                formParams.Add("image", _apiInvoker.ToFileInfo(request.image, "image"));
+                formParams.Add("image", ApiInvoker.ToFileInfo(request.image, "image"));
                 headerParams["Content-Type"] = "multipart/form-data";
 
             }
-            var response = _apiInvoker.InvokeApi(
-                resourcePath,
-                "POST",
+            string response = _apiInvoker.InvokeApi(
+                           resourcePath,
+                           "POST",
                 null,
                 headerParams,
-                formParams);
+                           formParams);
 
             if (response != null)
             {
@@ -327,7 +328,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'generatorParamsList' when calling PostGenerateMultiple");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/generateMultiple";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generateMultiple";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -369,7 +370,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'text' when calling PutBarcodeGenerateFile");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generate";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generate";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -415,12 +416,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             var headerParams = new Dictionary<string, string>();
 
-            var response = _apiInvoker.InvokeApi(
-                resourcePath,
-                "PUT",
+
+            string response = _apiInvoker.InvokeApi(
+                           resourcePath,
+                           "PUT",
                 null,
-                headerParams,
-                null);
+                           headerParams,
+                           null);
 
             if (response != null)
             {
@@ -451,7 +453,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'readerParams' when calling PutBarcodeRecognizeFromBody");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -462,13 +464,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
             var headerParams = new Dictionary<string, string>();
-            var postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
-            var response = _apiInvoker.InvokeApi(
-                resourcePath,
+
+            string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
+            string response = _apiInvoker.InvokeApi(
+                           resourcePath,
                 "PUT",
                 postBody,
                 headerParams,
-                null);
+                           null);
 
             if (response != null)
             {
@@ -499,7 +502,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'generatorParamsList' when calling PutGenerateMultiple");
             }
             // create path and map variables
-            var resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generateMultiple";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generateMultiple";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -510,13 +513,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
 
             var headerParams = new Dictionary<string, string>();
-            var postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
-            var response = _apiInvoker.InvokeApi(
-                resourcePath,
-                "PUT",
+
+            string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
+            string response = _apiInvoker.InvokeApi(
+                           resourcePath,
+                           "PUT",
                 postBody,
-                headerParams,
-                null);
+                           headerParams,
+                           null);
 
             if (response != null)
             {

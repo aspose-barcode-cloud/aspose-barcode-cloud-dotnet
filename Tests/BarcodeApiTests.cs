@@ -1,28 +1,3 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="BarcodeApi.cs">
-//   Copyright (c) 2021 Aspose.BarCode for Cloud
-// </copyright>
-// <summary>
-//   Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -51,6 +26,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void Init()
         {
             _api = new BarcodeApi(TestConfiguration);
+            _fileApi = new FileApi(TestConfiguration);
         }
 
         /// <summary>
@@ -62,25 +38,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         private IBarcodeApi _api;
+        private IFileApi _fileApi;
 
-        private static string PutTestFile(IBarcodeApi api, string fileName, List<GeneratorParams> barcodes)
+        private string PutTestFile(string fileName)
         {
-            var generatorParamsList = new GeneratorParamsList
-            {
-                BarcodeBuilders = barcodes
-            };
-
-            var folder = TempFolderPath;
-            var request = new PutGenerateMultipleRequest(
-                fileName,
-                generatorParamsList,
-                folder: folder
+            using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
+            FilesUploadResult uploaded = _fileApi.UploadFile(
+                new UploadFileRequest(
+                    $"{TempFolderPath}/{fileName}",
+                    fileToUpload
+                )
             );
+            Assert.IsNotEmpty(uploaded.Uploaded);
 
-            ResultImageInfo response = api.PutGenerateMultiple(request);
-            Assert.IsTrue(response.FileSize > 0);
-
-            return folder;
+            return TempFolderPath;
         }
 
 
@@ -98,16 +69,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             );
 
             // Act
-            using (Stream response = _api.GetBarcodeGenerate(request))
-            {
-                // Assert
-                Assert.IsTrue(response.Length > 0);
-                using (FileStream stream = File.Create(TestFilePath("Test_GetBarcodeGenerate.png")))
-                {
-                    response.CopyTo(stream);
-                }
-            }
+            using Stream response = _api.GetBarcodeGenerate(request);
+            // Assert
+            Assert.IsTrue(response.Length > 0);
+            using FileStream savedFileStream = File.Create(TestFilePath("Test_GetBarcodeGenerate.png"));
+            response.CopyTo(savedFileStream);
         }
+
 
         /// <summary>
         ///     Test GetBarcodeRecognize
@@ -130,8 +98,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 }
             };
 
-            const string fileName = "Test_GetBarcodeRecognize.png";
-            var folder = PutTestFile(_api, fileName, barcodesToRecognize);
+            const string fileName = "Test_PostGenerateMultiple.png";
+            string folder = PutTestFile(fileName);
             var request = new GetBarcodeRecognizeRequest(
                 fileName,
                 folder: folder,
@@ -153,6 +121,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
         }
 
+
         /// <summary>
         ///     Test an instance of BarcodeApi
         /// </summary>
@@ -161,6 +130,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             Assert.IsInstanceOf(typeof(IBarcodeApi), _api, "instance is a IBarcodeApi");
         }
+
 
         /// <summary>
         ///     Test PostBarcodeRecognizeFromUrlOrContent
@@ -187,6 +157,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(DecodeBarcodeType.Code11.ToString(), response.Barcodes[0].Type);
             Assert.AreEqual("1234567812", response.Barcodes[0].BarcodeValue);
         }
+
 
         /// <summary>
         ///     Test PostGenerateMultiple
@@ -215,17 +186,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             );
 
             // Act
-            using (Stream response = _api.PostGenerateMultiple(request))
-            {
-                // Assert
+            using Stream response = _api.PostGenerateMultiple(request);
+            // Assert
 
-                Assert.IsTrue(response.Length > 0);
-                using (FileStream stream = File.Create(TestFilePath("Test_PostGenerateMultiple.png")))
-                {
-                    response.CopyTo(stream);
-                }
-            }
+            Assert.IsTrue(response.Length > 0);
+            using FileStream savedFileStream = File.Create(TestFilePath("Test_PostGenerateMultiple.png"));
+            response.CopyTo(savedFileStream);
         }
+
 
         /// <summary>
         ///     Test PutBarcodeGenerateFile
@@ -250,6 +218,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.True(response.ImageHeight > 0);
         }
 
+
         /// <summary>
         ///     Test PutBarcodeRecognizeFromBody
         /// </summary>
@@ -261,18 +230,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             {
                 new GeneratorParams
                 {
-                    TypeOfBarcode = EncodeBarcodeType.QR,
-                    Text = "PutBarcodeRecognizeFromBody QR"
-                },
-                new GeneratorParams
-                {
                     TypeOfBarcode = EncodeBarcodeType.Code128,
-                    Text = "PutBarcodeRecognizeFromBody Code128"
+                    Text = "Very sample text"
                 }
             };
 
-            const string fileName = "Test_PutBarcodeRecognizeFromBody.png";
-            var folder = PutTestFile(_api, fileName, barcodesToRecognize);
+            const string fileName = "Test_GetBarcodeGenerate.png";
+            string folder = PutTestFile(fileName);
 
             var request = new PutBarcodeRecognizeFromBodyRequest(
                 fileName,
@@ -297,6 +261,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 Assert.AreEqual(generated.Text, recognized.BarcodeValue);
             }
         }
+
 
         /// <summary>
         ///     Test PutGenerateMultiple

@@ -1,28 +1,3 @@
-// --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="ApiInvoker.cs">
-//   Copyright (c) 2021 Aspose.BarCode for Cloud
-// </copyright>
-// <summary>
-//   Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
-// </summary>
-// --------------------------------------------------------------------------------------------------------------------
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -79,7 +54,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             return (Stream)InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
         }
 
-        public FileInfo ToFileInfo(Stream stream, string paramName)
+        public static FileInfo ToFileInfo(Stream stream, string paramName)
         {
             // TODO: add content type
             return new FileInfo { Name = paramName, FileContent = StreamHelper.ReadAsBytes(stream) };
@@ -107,8 +82,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                     if (param.Value is FileInfo)
                     {
                         var fileInfo = (FileInfo)param.Value;
-                        var postData =
-                            $"--{boundary}\r\nContent-Disposition: form-data;" +
+                        string postData =
+                            $"--{boundary}\r\n" +
+                            $"Content-Disposition: form-data;" +
                             $" name=\"{param.Key}\";" +
                             $" filename=\"{param.Key}\"\r\n" +
                             $"Content-Type: {fileInfo.MimeType}\r\n\r\n";
@@ -119,17 +95,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                     }
                     else
                     {
-                        string stringData;
-                        if (param.Value is string)
-                        {
-                            stringData = (string)param.Value;
-                        }
-                        else
+                        if (!(param.Value is string stringData))
                         {
                             stringData = SerializationHelper.Serialize(param.Value);
                         }
 
-                        var postData =
+                        string postData =
                             $"--{boundary}\r\nContent-Disposition: form-data;" +
                             $" name=\"{param.Key}\"\r\n\r\n" +
                             $"{stringData}";
@@ -138,7 +109,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 }
 
                 // Add the end of the request.  Start with a newline
-                var footer = "\r\n--" + boundary + "--\r\n";
+                string footer = $"\r\n--{boundary}--\r\n";
                 formDataStream.Write(Encoding.UTF8.GetBytes(footer), 0, Encoding.UTF8.GetByteCount(footer));
             }
             else
@@ -223,8 +194,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         private WebRequest PrepareRequest(string path, string method, Dictionary<string, object> formParams,
             Dictionary<string, string> headerParams, string body, string contentType)
         {
-            var client = WebRequest.Create(path);
-            client.Method = method;
+            var request = WebRequest.Create(path);
+            request.Method = method;
 
             byte[] formData = null;
             if (formParams.Count > 0)
@@ -232,32 +203,32 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 if (formParams.Count > 1)
                 {
                     var formDataBoundary = Guid.NewGuid().ToString();
-                    client.ContentType = "multipart/form-data; boundary=" + formDataBoundary;
+                    request.ContentType = "multipart/form-data; boundary=" + formDataBoundary;
                     formData = GetMultipartFormData(formParams, formDataBoundary);
                 }
                 else
                 {
-                    client.ContentType = "multipart/form-data";
+                    request.ContentType = "multipart/form-data";
                     formData = GetMultipartFormData(formParams, string.Empty);
                 }
 
-                client.ContentLength = formData.Length;
+                request.ContentLength = formData.Length;
             }
             else
             {
-                client.ContentType = contentType;
+                request.ContentType = contentType;
             }
 
             foreach (KeyValuePair<string, string> headerParamsItem in headerParams)
             {
-                client.Headers.Add(headerParamsItem.Key, headerParamsItem.Value);
+                request.Headers.Add(headerParamsItem.Key, headerParamsItem.Value);
             }
 
             foreach (KeyValuePair<string, string> defaultHeaderMapItem in _defaultHeaderMap)
             {
                 if (!headerParams.ContainsKey(defaultHeaderMapItem.Key))
                 {
-                    client.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
+                    request.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
                 }
             }
 
@@ -290,11 +261,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                         throw new ApiException(500, "unknown method type " + method);
                 }
 
-                _requestHandlers.ForEach(p => p.BeforeSend(client, streamToSend));
+                _requestHandlers.ForEach(p => p.BeforeSend(request, streamToSend));
 
                 if (streamToSend != null)
                 {
-                    using (Stream requestStream = client.GetRequestStream())
+                    using (Stream requestStream = request.GetRequestStream())
                     {
                         StreamHelper.CopyTo(streamToSend, requestStream);
                     }
@@ -302,13 +273,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             }
             finally
             {
-                if (streamToSend != null)
-                {
-                    streamToSend.Dispose();
-                }
+                streamToSend?.Dispose();
             }
 
-            return client;
+            return request;
         }
 
         private object ReadResponse(WebRequest client, bool binaryResponse)
@@ -329,7 +297,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
                 using (var responseReader = new StreamReader(resultStream))
                 {
-                    var responseData = responseReader.ReadToEnd();
+                    string responseData = responseReader.ReadToEnd();
                     resultStream.Dispose();
                     return responseData;
                 }

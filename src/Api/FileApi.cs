@@ -264,7 +264,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (request.File != null)
             {
-                formParams.Add("_file", _apiInvoker.ToFileInfo(request.File, "File"));
+                formParams.Add("_file", ApiInvoker.ToFileInfo(request.File, "File"));
                 headerParams["Content-Type"] = "multipart/form-data";
 
             }
