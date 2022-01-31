@@ -116,14 +116,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
-                contentType,
                 null,
                 null,
                 null);
@@ -151,14 +148,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "DELETE",
-                contentType,
                 null,
                 null,
                 null);
@@ -226,14 +220,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             _apiInvoker.InvokeApi(
                 resourcePath,
                 "PUT",
-                contentType,
                 null,
                 null,
                 null);
@@ -268,22 +259,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             if (request.File != null)
             {
                 formParams.Add("_file", ApiInvoker.ToFileInfo(request.File, "File"));
-                contentType = "multipart/form-data";
 
             }
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
-                           contentType,
                            null,
-                           headerParams,
+                           null,
                            formParams);
 
             if (response != null)

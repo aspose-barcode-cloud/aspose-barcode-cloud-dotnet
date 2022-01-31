@@ -34,7 +34,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 resultStream.Position = 0;
                 using (var responseReader = new StreamReader(resultStream))
                 {
-                    var responseData = responseReader.ReadToEnd();
+                    string responseData = responseReader.ReadToEnd();
                     var errorResponse = (ApiErrorResponse)
                         SerializationHelper.Deserialize(responseData,
                             typeof(ApiErrorResponse));

@@ -10,8 +10,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
     internal class ApiInvoker
     {
-        private const string AsposeClientHeaderName = "x-aspose-client";
-        private const string AsposeClientVersionHeaderName = "x-aspose-client-version";
+        private const string ASPOSE_CLIENT_HEADER_NAME = "x-aspose-client";
+        private const string ASPOSE_CLIENT_VERSION_HEADER_NAME = "x-aspose-client-version";
         private readonly Dictionary<string, string> _defaultHeaderMap = new Dictionary<string, string>();
         private readonly List<IRequestHandler> _requestHandlers;
 
@@ -27,18 +27,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             }
 
             Version sdkVersion = GetType().Assembly.GetName().Version;
-            AddDefaultHeader(AsposeClientHeaderName, ".net sdk");
-            AddDefaultHeader(AsposeClientVersionHeaderName, $"{sdkVersion.Major}.{sdkVersion.Minor}");
+            AddDefaultHeader(ASPOSE_CLIENT_HEADER_NAME, ".net sdk");
+            AddDefaultHeader(ASPOSE_CLIENT_VERSION_HEADER_NAME, $"{sdkVersion.Major}.{sdkVersion.Minor}");
             _requestHandlers = requestHandlers;
         }
 
         public string InvokeApi(
             string path,
             string method,
-            string contentType,
             string body,
             Dictionary<string, string> headerParams,
-            Dictionary<string, object> formParams)
+            Dictionary<string, object> formParams,
+            string contentType = "application/json")
         {
             return InvokeInternal(path, method, false, body, headerParams, formParams, contentType) as string;
         }
@@ -54,10 +54,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             return (Stream)InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
         }
 
-        public static FileInfo ToFileInfo(Stream stream, string paramName)
+        public static FileInfo ToFileInfo(Stream stream, string fileName)
         {
-            // TODO: add content type
-            return new FileInfo { Name = paramName, FileContent = StreamHelper.ReadAsBytes(stream) };
+            return new FileInfo(fileName, StreamHelper.ReadAsBytes(stream));
         }
 
         private static byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
@@ -66,7 +65,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             Stream formDataStream = new MemoryStream();
             var needsCrlf = false;
 
-            if (postParameters.Count > 1)
+            if (postParameters.Count > 0)
             {
                 foreach (KeyValuePair<string, object> param in postParameters)
                 {
@@ -79,14 +78,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
                     needsCrlf = true;
 
-                    if (param.Value is FileInfo)
+                    if (param.Value is FileInfo fileInfo)
                     {
-                        var fileInfo = (FileInfo)param.Value;
                         string postData =
                             $"--{boundary}\r\n" +
                             $"Content-Disposition: form-data;" +
                             $" name=\"{param.Key}\";" +
-                            $" filename=\"{param.Key}\"\r\n" +
+                            $" filename=\"{fileInfo.Name}\"\r\n" +
                             $"Content-Type: {fileInfo.MimeType}\r\n\r\n";
                         formDataStream.Write(Encoding.UTF8.GetBytes(postData), 0, Encoding.UTF8.GetByteCount(postData));
 
@@ -95,49 +93,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                     }
                     else
                     {
-                        if (!(param.Value is string stringData))
-                        {
-                            stringData = SerializationHelper.Serialize(param.Value);
-                        }
-
-                        string postData =
-                            $"--{boundary}\r\nContent-Disposition: form-data;" +
-                            $" name=\"{param.Key}\"\r\n\r\n" +
-                            $"{stringData}";
-                        formDataStream.Write(Encoding.UTF8.GetBytes(postData), 0, Encoding.UTF8.GetByteCount(postData));
+                        throw new ApiException(500, $"Unsupported type of parameter '{param.Key}'");
                     }
                 }
 
                 // Add the end of the request.  Start with a newline
                 string footer = $"\r\n--{boundary}--\r\n";
                 formDataStream.Write(Encoding.UTF8.GetBytes(footer), 0, Encoding.UTF8.GetByteCount(footer));
-            }
-            else
-            {
-                foreach (KeyValuePair<string, object> param in postParameters)
-                {
-                    if (param.Value is FileInfo)
-                    {
-                        var fileInfo = (FileInfo)param.Value;
-
-                        // Write the file data directly to the Stream, rather than serializing it to a string.
-                        formDataStream.Write(fileInfo.FileContent, 0, fileInfo.FileContent.Length);
-                    }
-                    else
-                    {
-                        string postData;
-                        if (!(param.Value is string))
-                        {
-                            postData = SerializationHelper.Serialize(param.Value);
-                        }
-                        else
-                        {
-                            postData = (string)param.Value;
-                        }
-
-                        formDataStream.Write(Encoding.UTF8.GetBytes(postData), 0, Encoding.UTF8.GetByteCount(postData));
-                    }
-                }
             }
 
             // Dump the Stream into a byte[]
@@ -200,17 +162,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             byte[] formData = null;
             if (formParams.Count > 0)
             {
-                if (formParams.Count > 1)
-                {
-                    var formDataBoundary = Guid.NewGuid().ToString();
-                    request.ContentType = "multipart/form-data; boundary=" + formDataBoundary;
-                    formData = GetMultipartFormData(formParams, formDataBoundary);
-                }
-                else
-                {
-                    request.ContentType = "multipart/form-data";
-                    formData = GetMultipartFormData(formParams, string.Empty);
-                }
+
+                var formDataBoundary = Guid.NewGuid().ToString();
+                request.ContentType = "multipart/form-data; boundary=" + formDataBoundary;
+                formData = GetMultipartFormData(formParams, formDataBoundary);
 
                 request.ContentLength = formData.Length;
             }
