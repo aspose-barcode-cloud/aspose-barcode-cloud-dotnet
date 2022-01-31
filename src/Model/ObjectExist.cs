@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Object exists
     /// </summary>
-    public class ObjectExist
+    public class ObjectExist : IToString
     {
         /// <summary>
         ///     Indicates that the file or folder exists.
@@ -55,13 +56,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class ObjectExist {\n");
-            sb.Append("  Exists: ").Append(Exists).Append("\n");
-            sb.Append("  IsFolder: ").Append(IsFolder).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

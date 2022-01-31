@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Padding around barcode.
     /// </summary>
-    public class Padding
+    public class Padding : IToString
     {
         /// <summary>
         ///     Left padding.
@@ -65,15 +66,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class Padding {\n");
-            sb.Append("  Left: ").Append(Left).Append("\n");
-            sb.Append("  Right: ").Append(Right).Append("\n");
-            sb.Append("  Top: ").Append(Top).Append("\n");
-            sb.Append("  Bottom: ").Append(Bottom).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

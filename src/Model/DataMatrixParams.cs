@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     DataMatrix parameters.
     /// </summary>
-    public class DataMatrixParams
+    public class DataMatrixParams : IToString
     {
         /// <summary>
         ///     Datamatrix ECC type. Default value: DataMatrixEccType.Ecc200.
@@ -80,18 +81,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class DataMatrixParams {\n");
-            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
-            sb.Append("  TextEncoding: ").Append(TextEncoding).Append("\n");
-            sb.Append("  Columns: ").Append(Columns).Append("\n");
-            sb.Append("  DataMatrixEcc: ").Append(DataMatrixEcc).Append("\n");
-            sb.Append("  DataMatrixEncodeMode: ").Append(DataMatrixEncodeMode).Append("\n");
-            sb.Append("  Rows: ").Append(Rows).Append("\n");
-            sb.Append("  MacroCharacters: ").Append(MacroCharacters).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

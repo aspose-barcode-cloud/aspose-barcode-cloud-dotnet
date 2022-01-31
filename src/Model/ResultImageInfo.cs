@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Created image info.
     /// </summary>
-    public class ResultImageInfo
+    public class ResultImageInfo : IToString
     {
         /// <summary>
         ///     Result file size.
@@ -60,14 +61,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class ResultImageInfo {\n");
-            sb.Append("  FileSize: ").Append(FileSize).Append("\n");
-            sb.Append("  ImageWidth: ").Append(ImageWidth).Append("\n");
-            sb.Append("  ImageHeight: ").Append(ImageHeight).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

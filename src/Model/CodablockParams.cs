@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Codablock parameters.
     /// </summary>
-    public class CodablockParams
+    public class CodablockParams : IToString
     {
         /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
@@ -60,14 +61,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class CodablockParams {\n");
-            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
-            sb.Append("  Columns: ").Append(Columns).Append("\n");
-            sb.Append("  Rows: ").Append(Rows).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

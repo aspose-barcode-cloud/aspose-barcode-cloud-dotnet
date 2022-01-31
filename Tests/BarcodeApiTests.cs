@@ -84,7 +84,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void GetBarcodeRecognizeTest()
         {
             // Arrange
-            var barcodesToRecognize = new List<GeneratorParams>
+            const string fileName = "Test_PostGenerateMultiple.png";
+
+            var expectedBarcodes = new List<GeneratorParams>
             {
                 new GeneratorParams
                 {
@@ -98,22 +100,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 }
             };
 
-            const string fileName = "Test_PostGenerateMultiple.png";
             string folder = PutTestFile(fileName);
-            var request = new GetBarcodeRecognizeRequest(
-                fileName,
-                folder: folder,
-                preset: PresetType.HighPerformance.ToString()
-            );
 
             // Act
-            BarcodeResponseList response = _api.GetBarcodeRecognize(request);
+            BarcodeResponseList response = _api.GetBarcodeRecognize(
+                new GetBarcodeRecognizeRequest(
+                    fileName,
+                    folder: folder,
+                    preset: PresetType.HighPerformance.ToString()
+                )
+            );
 
             // Assert
-            Assert.AreEqual(barcodesToRecognize.Count, response.Barcodes.Count);
+            Assert.AreEqual(expectedBarcodes.Count, response.Barcodes.Count);
 
             foreach ((GeneratorParams generated, BarcodeResponse recognized) in
-                barcodesToRecognize.Zip(response.Barcodes,
+                expectedBarcodes.Zip(response.Barcodes,
                     (generated, recognized) => (generated, recognized)))
             {
                 Assert.AreEqual(generated.TypeOfBarcode.ToString(), recognized.Type);
@@ -139,18 +141,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void PostBarcodeRecognizeFromUrlOrContentTest()
         {
             // Arrange
-            BarcodeResponseList response;
-            using (Stream image = GetTestImage("1.png"))
-            {
-                var request = new PostBarcodeRecognizeFromUrlOrContentRequest(
+            using Stream image = GetTestImage("1.png");
+
+            // Act
+            BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
+                new PostBarcodeRecognizeFromUrlOrContentRequest(
                     image: image,
                     checksumValidation: ChecksumValidation.Off.ToString(),
                     preset: PresetType.HighPerformance.ToString()
-                );
-
-                // Act
-                response = _api.PostBarcodeRecognizeFromUrlOrContent(request);
-            }
+                )
+            );
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
@@ -187,8 +187,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             using Stream response = _api.PostGenerateMultiple(request);
-            // Assert
 
+            // Assert
             Assert.IsTrue(response.Length > 0);
             using FileStream savedFileStream = File.Create(TestFilePath("Test_PostGenerateMultiple.png"));
             response.CopyTo(savedFileStream);
@@ -204,8 +204,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Arrange
             var request = new PutBarcodeGenerateFileRequest(
                 "Test_PutBarcodeGenerateFile.png",
-                EncodeBarcodeType.Code128.ToString(),
-                "Hello!",
+                type: EncodeBarcodeType.Code128.ToString(),
+                text: "Hello!",
                 folder: TempFolderPath
             );
 
@@ -238,17 +238,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             const string fileName = "Test_GetBarcodeGenerate.png";
             string folder = PutTestFile(fileName);
 
-            var request = new PutBarcodeRecognizeFromBodyRequest(
-                fileName,
-                new ReaderParams
-                {
-                    Preset = PresetType.HighPerformance
-                },
-                folder: folder
-            );
-
             // Act
-            BarcodeResponseList response = _api.PutBarcodeRecognizeFromBody(request);
+            BarcodeResponseList response = _api.PutBarcodeRecognizeFromBody(
+                new PutBarcodeRecognizeFromBodyRequest(
+                    fileName,
+                    readerParams: new ReaderParams
+                    {
+                        Preset = PresetType.HighPerformance
+                    },
+                    folder: folder
+                )
+            );
 
             // Assert
             Assert.AreEqual(barcodesToRecognize.Count, response.Barcodes.Count);

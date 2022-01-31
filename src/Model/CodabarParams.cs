@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Codabar parameters.
     /// </summary>
-    public class CodabarParams
+    public class CodabarParams : IToString
     {
         /// <summary>
         ///     Checksum algorithm for Codabar barcodes. Default value: CodabarChecksumMode.Mod16. To enable checksum calculation set value EnableChecksum.Yes to property EnableChecksum.
@@ -60,14 +61,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class CodabarParams {\n");
-            sb.Append("  ChecksumMode: ").Append(ChecksumMode).Append("\n");
-            sb.Append("  StartSymbol: ").Append(StartSymbol).Append("\n");
-            sb.Append("  StopSymbol: ").Append(StopSymbol).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

@@ -216,16 +216,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "GET",
-                           contentType,
                            null,
-                           headerParams,
+                           null,
                            null);
 
             if (response != null)
@@ -290,22 +287,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             if (request.image != null)
             {
                 formParams.Add("image", ApiInvoker.ToFileInfo(request.image, "image"));
-                contentType = "multipart/form-data";
 
             }
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "POST",
-                           contentType,
                            null,
-                           headerParams,
+                           null,
                            formParams);
 
             if (response != null)
@@ -417,16 +410,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
-                           contentType,
                            null,
-                           headerParams,
+                           null,
                            null);
 
             if (response != null)
@@ -468,16 +458,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
             string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
-                           contentType,
                            postBody,
-                           headerParams,
+                           null,
                            null);
 
             if (response != null)
@@ -519,16 +506,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
 
-            var contentType = "application/json";
-            var headerParams = new Dictionary<string, string>();
 
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
                            "PUT",
-                           contentType,
                            postBody,
-                           headerParams,
+                           null,
                            null);
 
             if (response != null)

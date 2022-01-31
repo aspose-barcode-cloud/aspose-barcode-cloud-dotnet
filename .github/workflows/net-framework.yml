@@ -23,6 +23,6 @@ jobs:
       run: msbuild -restore -p:Configuration=Release
 
     - name: Test with VSTest
-      run: VSTest.Console.exe Tests\bin\Release\net461\Aspose.BarCode.Cloud.Sdk.Tests.dll
+      run: VSTest.Console.exe /Framework:".NETFramework,Version=v4.6.1" Tests\bin\Release\net461\Aspose.BarCode.Cloud.Sdk.Tests.dll
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     File or folder information
     /// </summary>
-    public class StorageFile
+    public class StorageFile : IToString
     {
         /// <summary>
         ///     File or folder name.
@@ -70,16 +71,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class StorageFile {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  IsFolder: ").Append(IsFolder).Append("\n");
-            sb.Append("  ModifiedDate: ").Append(ModifiedDate).Append("\n");
-            sb.Append("  Size: ").Append(Size).Append("\n");
-            sb.Append("  Path: ").Append(Path).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

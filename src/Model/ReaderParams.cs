@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Represents BarcodeReader object.
     /// </summary>
-    public class ReaderParams
+    public class ReaderParams : IToString
     {
         /// <summary>
         ///     The type of barcode to read.
@@ -205,7 +206,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public bool? ReadTinyBarcodes { get; set; }
 
         /// <summary>
-        ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method.  CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".
+        ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".
         /// </summary>
         public bool? IgnoreEndingFillingPatternsForCTable { get; set; }
 
@@ -215,45 +216,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class ReaderParams {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  ChecksumValidation: ").Append(ChecksumValidation).Append("\n");
-            sb.Append("  DetectEncoding: ").Append(DetectEncoding).Append("\n");
-            sb.Append("  Preset: ").Append(Preset).Append("\n");
-            sb.Append("  RectX: ").Append(RectX).Append("\n");
-            sb.Append("  RectY: ").Append(RectY).Append("\n");
-            sb.Append("  RectWidth: ").Append(RectWidth).Append("\n");
-            sb.Append("  RectHeight: ").Append(RectHeight).Append("\n");
-            sb.Append("  StripFNC: ").Append(StripFNC).Append("\n");
-            sb.Append("  Timeout: ").Append(Timeout).Append("\n");
-            sb.Append("  MedianSmoothingWindowSize: ").Append(MedianSmoothingWindowSize).Append("\n");
-            sb.Append("  AllowMedianSmoothing: ").Append(AllowMedianSmoothing).Append("\n");
-            sb.Append("  AllowComplexBackground: ").Append(AllowComplexBackground).Append("\n");
-            sb.Append("  AllowDatamatrixIndustrialBarcodes: ").Append(AllowDatamatrixIndustrialBarcodes).Append("\n");
-            sb.Append("  AllowDecreasedImage: ").Append(AllowDecreasedImage).Append("\n");
-            sb.Append("  AllowDetectScanGap: ").Append(AllowDetectScanGap).Append("\n");
-            sb.Append("  AllowIncorrectBarcodes: ").Append(AllowIncorrectBarcodes).Append("\n");
-            sb.Append("  AllowInvertImage: ").Append(AllowInvertImage).Append("\n");
-            sb.Append("  AllowMicroWhiteSpotsRemoving: ").Append(AllowMicroWhiteSpotsRemoving).Append("\n");
-            sb.Append("  AllowOneDFastBarcodesDetector: ").Append(AllowOneDFastBarcodesDetector).Append("\n");
-            sb.Append("  AllowOneDWipedBarsRestoration: ").Append(AllowOneDWipedBarsRestoration).Append("\n");
-            sb.Append("  AllowQRMicroQrRestoration: ").Append(AllowQRMicroQrRestoration).Append("\n");
-            sb.Append("  AllowRegularImage: ").Append(AllowRegularImage).Append("\n");
-            sb.Append("  AllowSaltAndPepperFiltering: ").Append(AllowSaltAndPepperFiltering).Append("\n");
-            sb.Append("  AllowWhiteSpotsRemoving: ").Append(AllowWhiteSpotsRemoving).Append("\n");
-            sb.Append("  CheckMore1DVariants: ").Append(CheckMore1DVariants).Append("\n");
-            sb.Append("  FastScanOnly: ").Append(FastScanOnly).Append("\n");
-            sb.Append("  RegionLikelihoodThresholdPercent: ").Append(RegionLikelihoodThresholdPercent).Append("\n");
-            sb.Append("  ScanWindowSizes: ").Append(ScanWindowSizes).Append("\n");
-            sb.Append("  Similarity: ").Append(Similarity).Append("\n");
-            sb.Append("  SkipDiagonalSearch: ").Append(SkipDiagonalSearch).Append("\n");
-            sb.Append("  ReadTinyBarcodes: ").Append(ReadTinyBarcodes).Append("\n");
-            sb.Append("  AustralianPostEncodingTable: ").Append(AustralianPostEncodingTable).Append("\n");
-            sb.Append("  IgnoreEndingFillingPatternsForCTable: ").Append(IgnoreEndingFillingPatternsForCTable).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }

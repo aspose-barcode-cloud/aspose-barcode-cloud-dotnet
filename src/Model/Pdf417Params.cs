@@ -30,6 +30,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -37,7 +38,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     PDF417 parameters.
     /// </summary>
-    public class Pdf417Params
+    public class Pdf417Params : IToString
     {
         /// <summary>
         ///     Pdf417 symbology type of BarCode&#39;s compaction mode. Default value: Pdf417CompactionMode.Auto.
@@ -145,31 +146,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            var sb = new StringBuilder();
-            sb.Append("class Pdf417Params {\n");
-            sb.Append("  AspectRatio: ").Append(AspectRatio).Append("\n");
-            sb.Append("  TextEncoding: ").Append(TextEncoding).Append("\n");
-            sb.Append("  Columns: ").Append(Columns).Append("\n");
-            sb.Append("  CompactionMode: ").Append(CompactionMode).Append("\n");
-            sb.Append("  ErrorLevel: ").Append(ErrorLevel).Append("\n");
-            sb.Append("  MacroFileID: ").Append(MacroFileID).Append("\n");
-            sb.Append("  MacroSegmentID: ").Append(MacroSegmentID).Append("\n");
-            sb.Append("  MacroSegmentsCount: ").Append(MacroSegmentsCount).Append("\n");
-            sb.Append("  Rows: ").Append(Rows).Append("\n");
-            sb.Append("  Truncate: ").Append(Truncate).Append("\n");
-            sb.Append("  Pdf417ECIEncoding: ").Append(Pdf417ECIEncoding).Append("\n");
-            sb.Append("  IsReaderInitialization: ").Append(IsReaderInitialization).Append("\n");
-            sb.Append("  MacroTimeStamp: ").Append(MacroTimeStamp).Append("\n");
-            sb.Append("  MacroSender: ").Append(MacroSender).Append("\n");
-            sb.Append("  MacroFileSize: ").Append(MacroFileSize).Append("\n");
-            sb.Append("  MacroChecksum: ").Append(MacroChecksum).Append("\n");
-            sb.Append("  MacroFileName: ").Append(MacroFileName).Append("\n");
-            sb.Append("  MacroAddressee: ").Append(MacroAddressee).Append("\n");
-            sb.Append("  MacroECIEncoding: ").Append(MacroECIEncoding).Append("\n");
-            sb.Append("  Code128Emulation: ").Append(Code128Emulation).Append("\n");
-            sb.Append("}\n");
+            return _srcString;
+        }
 
-            return sb.ToString();
+        private string _srcString;
+
+        public void SetSrcString(string value)
+        {
+            _srcString = value;
         }
     }
 }
