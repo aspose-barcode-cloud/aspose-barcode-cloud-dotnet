@@ -14,9 +14,10 @@ GOOD_URLS = set([
     'http://localhost:12345',
     'http://localhost:12345/v3.0',
     'http://some',
-    'https://api.aspose.cloud/v3.0',
-    'https://www.aspose.cloud',
     'https://api.aspose.cloud/connect/token',
+    'https://api.aspose.cloud/v3.0',
+    'https://products.aspose.cloud/barcode/',
+    'https://www.aspose.cloud',
 ])
 BROKEN_URLS = collections.defaultdict(list)
 
