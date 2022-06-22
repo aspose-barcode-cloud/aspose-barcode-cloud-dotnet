@@ -82,6 +82,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             Assert.AreEqual("https://api.aspose.cloud", config.ApiBaseUrl);
             Assert.AreEqual("https://api.aspose.cloud/v3.0", config.GetApiRootUrl());
+            Assert.AreEqual("https://api.aspose.cloud/connect/token", config.TokenUrl);
             Assert.AreEqual(false, config.DebugMode);
         }
 

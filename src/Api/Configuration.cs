@@ -38,14 +38,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
     /// </summary>
     public class Configuration
     {
-        private string _jwtToken;
-
         public Configuration()
         {
             ApiBaseUrl = "https://api.aspose.cloud";
             DebugMode = false;
             ApiVersion = "3.0";
             AuthType = AuthType.JWT;
+            TokenUrl = "https://api.aspose.cloud/connect/token";
             DefaultHeaders = new Dictionary<string, string>();
         }
 
@@ -57,18 +56,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <summary>
         ///     Aspose Cloud API auth URL.
         /// </summary>
-        public string TokenUrl
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(_tokenUrl))
-                {
-                    return _tokenUrl;
-                }
-                return ApiBaseUrl + "/connect/token";
-            }
-            set => _tokenUrl = value;
-        }
+        public string TokenUrl { get; set; }
 
         /// <summary>
         ///     Gets or sets the Client Secret.
@@ -128,6 +116,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             return result.EndsWith("/") ? result.Substring(0, result.Length - 1) : result;
         }
 
-        private string _tokenUrl;
+        private string _jwtToken;
     }
 }
