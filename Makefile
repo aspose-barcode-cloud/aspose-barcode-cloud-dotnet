@@ -3,8 +3,9 @@ all: test
 
 .PHONY: format
 format:
-	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 	~/.dotnet/tools/dotnet-format ./Aspose.BarCode.Cloud.Sdk.sln
+	# Trim white space in comments
+	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 
 .PHONY: format-doc
 format-doc:
