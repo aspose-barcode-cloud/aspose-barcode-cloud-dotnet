@@ -45,6 +45,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             HttpWebRequest request = _requestFactory.Object.Create("http://some url/");
             jwtHandler.BeforeSend(request, new MemoryStream());
 
+            // assert
             Assert.Contains("Authorization", request.Headers.Keys);
             var auth = request.Headers["Authorization"];
             Assert.Greater(auth.Length, "Bearer ".Length);
