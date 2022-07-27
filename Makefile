@@ -15,13 +15,13 @@ format-doc:
 test:
 	dotnet test
 
-.PHONY: update
-update:
-	echo "Not implemented"
-
 .PHONY: insert-examples
 insert-examples:
 	./scripts/insert-examples.bash
 
 .PHONY: after-gen
 after-gen: insert-examples format format-doc
+
+.PHONY: update
+update:
+	echo "Not implemented"
