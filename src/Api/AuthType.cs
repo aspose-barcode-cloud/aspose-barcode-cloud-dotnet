@@ -1,4 +1,4 @@
-﻿namespace Aspose.BarCode.Cloud.Sdk.Api
+namespace Aspose.BarCode.Cloud.Sdk.Api
 {
     /// <summary>
     ///     Supported types of authentication.

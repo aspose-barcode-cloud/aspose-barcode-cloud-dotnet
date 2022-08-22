@@ -1,4 +1,4 @@
-﻿namespace Aspose.BarCode.Cloud.Sdk.Interfaces
+namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
     public interface IToString
     {

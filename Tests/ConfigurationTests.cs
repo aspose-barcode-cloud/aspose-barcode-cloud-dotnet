@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.IO;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
