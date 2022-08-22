@@ -1,6 +1,6 @@
 REM Check state
 git fetch origin || EXIT /B 1
-git diff origin/master --exit-code || (
+git diff origin/main --exit-code || (
     echo Unmerged state
     EXIT /B 1
 )
