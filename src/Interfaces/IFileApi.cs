@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
