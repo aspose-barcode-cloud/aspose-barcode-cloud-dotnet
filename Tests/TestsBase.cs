@@ -43,6 +43,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             Configuration config = LoadFromEnv();
+
             return config;
         }
 
