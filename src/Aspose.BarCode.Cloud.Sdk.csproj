@@ -21,11 +21,13 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <Version>22.8.0</Version>
     <Authors>asposecloud</Authors>
     <AssemblyVersion>22.8.0.0</AssemblyVersion>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="LICENSE.txt" Pack="true" PackagePath="" />
     <None Include="PackageIcon.png" Pack="true" PackagePath="" />
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
 
   <ItemGroup>
