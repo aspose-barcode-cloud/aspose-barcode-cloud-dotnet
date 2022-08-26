@@ -1,6 +1,10 @@
 .PHONY: all
 all: test
 
+.PHONY: init
+init: 
+	dotnet tool install -g dotnet-format
+	
 .PHONY: format
 format:
 	~/.dotnet/tools/dotnet-format ./Aspose.BarCode.Cloud.Sdk.sln
