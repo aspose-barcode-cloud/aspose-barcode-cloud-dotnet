@@ -12,9 +12,9 @@ using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
 {
-    public interface IHttpWebRequestFactory
+    public interface IWebRequestFactory
     {
-        HttpWebRequest Create(string uri);
+        WebRequest Create(string uri);
     }
 
     [TestFixture]
@@ -26,7 +26,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             _requestFactory = RequestFactoryMock();
         }
 
-        private Mock<IHttpWebRequestFactory> _requestFactory;
+        private Mock<IWebRequestFactory> _requestFactory;
 
 
         [Test]
@@ -42,7 +42,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             jwtHandler.ProcessUrl("http://some url/");
 
             // act
-            HttpWebRequest request = _requestFactory.Object.Create("http://some url/");
+            WebRequest request = _requestFactory.Object.Create("http://some url/");
             jwtHandler.BeforeSend(request, new MemoryStream());
 
             // assert
@@ -63,7 +63,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             // arrange
-            HttpWebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
+            WebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
             unauthorizedRequest.Method = WebRequestMethods.Http.Get;
             var response401 = (HttpWebResponse)unauthorizedRequest.GetResponse();
             Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
@@ -79,7 +79,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     jwtHandler.ProcessResponse(response401, new MemoryStream());
                 });
 
-            HttpWebRequest request2 = _requestFactory.Object.Create("http://some url/");
+            WebRequest request2 = _requestFactory.Object.Create("http://some url/");
             jwtHandler.BeforeSend(request2, new MemoryStream());
 
             Assert.Contains("Authorization", request2.Headers.Keys);
@@ -89,16 +89,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             AssertTokenIsValid(token);
         }
 
-        private static Mock<IHttpWebRequestFactory> RequestFactoryMock()
+        private static Mock<IWebRequestFactory> RequestFactoryMock()
         {
             var responseMock = new Mock<HttpWebResponse>();
             responseMock.Setup(c => c.StatusCode).Returns(HttpStatusCode.Unauthorized);
 
-            var requestMock = new Mock<HttpWebRequest>();
+            var requestMock = new Mock<WebRequest>();
             requestMock.Setup(c => c.GetResponse()).Returns(responseMock.Object);
             requestMock.Setup(c => c.Headers).Returns(new WebHeaderCollection());
 
-            var requestFactory = new Mock<IHttpWebRequestFactory>();
+            var requestFactory = new Mock<IWebRequestFactory>();
             requestFactory.Setup(c => c.Create(It.IsAny<string>()))
                 .Returns(requestMock.Object);
             return requestFactory;
