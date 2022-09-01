@@ -308,4 +308,3 @@ Class | Method | HTTP request | Description
 - [Model.StructuredAppend](docs/StructuredAppend.md)
 - [Model.TextAlignment](docs/TextAlignment.md)
 - [Model.FileVersion](docs/FileVersion.md)
-
