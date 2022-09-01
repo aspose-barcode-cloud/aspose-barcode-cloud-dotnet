@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/github/license/aspose-barcode-cloud/aspose-barcode-cloud-dotnet)](LICENSE)
 [![.NET Core](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/actions/workflows/dotnet-core.yml/badge.svg)](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/actions/workflows/dotnet-core.yml)
+[![.NET 6](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/actions/workflows/dotnet-net6.yml/badge.svg)](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/actions/workflows/dotnet-net6.yml)
 [![.NET Framework](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/actions/workflows/net-framework.yml/badge.svg)](https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/actions/workflows/net-framework.yml)
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
@@ -22,6 +23,7 @@ This repository contains Aspose.BarCode Cloud SDK for .NET source code. This SDK
 
 Aspose.BarCode Cloud SDK for .NET provides cross-platform bindings for:
 
+- .NET 5 and higher
 - .NET Standard 2.0 and higher
 - .NET Core 2.1 and higher
 - .NET Framework 4.6.1 and higher
@@ -306,4 +308,3 @@ Class | Method | HTTP request | Description
 - [Model.StructuredAppend](docs/StructuredAppend.md)
 - [Model.TextAlignment](docs/TextAlignment.md)
 - [Model.FileVersion](docs/FileVersion.md)
-
