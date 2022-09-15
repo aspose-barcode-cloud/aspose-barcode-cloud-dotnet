@@ -1,4 +1,4 @@
-name: .NET Core Linux
+name: .NET 6
 
 on:
   push:
@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - dotnet-version: 3.1.x
-            framework: netcoreapp3.1
+          - dotnet-version: 6.0.x
+            framework: net6.0
     steps:
     - uses: actions/checkout@v3
     - name: Setup .NET ${{ matrix.dotnet-version }}
