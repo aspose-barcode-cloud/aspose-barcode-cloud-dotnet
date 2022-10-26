@@ -17,7 +17,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     ///     Please update the test case below to test the API endpoint.
     /// </remarks>
     [TestFixture]
-    public class BarcodeApiTests : TestsBase
+    public class BarcodeApiTests: TestsBase
     {
         /// <summary>
         ///     Setup before each unit test
@@ -115,8 +115,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(expectedBarcodes.Count, response.Barcodes.Count);
 
             foreach ((GeneratorParams generated, BarcodeResponse recognized) in
-                expectedBarcodes.Zip(response.Barcodes,
-                    (generated, recognized) => (generated, recognized)))
+                     expectedBarcodes.Zip(response.Barcodes,
+                         (generated, recognized) => (generated, recognized)))
             {
                 Assert.AreEqual(generated.TypeOfBarcode.ToString(), recognized.Type);
                 Assert.AreEqual(generated.Text, recognized.BarcodeValue);
@@ -154,6 +154,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(response.Barcodes[0].ToString()),
+                message: $"Empty BarcodeResponse.ToString()");
             Assert.AreEqual(DecodeBarcodeType.Code11.ToString(), response.Barcodes[0].Type);
             Assert.AreEqual("1234567812", response.Barcodes[0].BarcodeValue);
         }
@@ -254,8 +256,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(barcodesToRecognize.Count, response.Barcodes.Count);
 
             foreach ((GeneratorParams generated, BarcodeResponse recognized) in
-                barcodesToRecognize.Zip(response.Barcodes,
-                    (generated, recognized) => (generated, recognized)))
+                     barcodesToRecognize.Zip(response.Barcodes,
+                         (generated, recognized) => (generated, recognized)))
             {
                 Assert.AreEqual(generated.TypeOfBarcode.ToString(), recognized.Type);
                 Assert.AreEqual(generated.Text, recognized.BarcodeValue);

@@ -31,6 +31,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Internal;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -61,7 +62,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
-            return _srcString;
+            return _srcString ?? SerializationHelper.Serialize(this);
         }
 
         private string _srcString;
