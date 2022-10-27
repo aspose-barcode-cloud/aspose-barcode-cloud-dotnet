@@ -24,4 +24,5 @@ Name | Type | Description | Notes
 **MacroAddressee** | **string** | Macro Pdf417 barcode addressee name | [optional]
 **MacroECIEncoding** | **ECIEncodings** | Extended Channel Interpretation Identifiers. Applies for Macro PDF417 text fields. | [optional]
 **Code128Emulation** | **Code128Emulation** | Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes. | [optional]
+**Pdf417MacroTerminator** | **Pdf417MacroTerminator** | Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417. | [optional]
 

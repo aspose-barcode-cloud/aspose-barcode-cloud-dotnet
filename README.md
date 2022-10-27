@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 22.9.0
+- SDK version: 22.10.0
 
 ## Demo applications
 
@@ -292,6 +292,7 @@ Class | Method | HTTP request | Description
 - [Model.PatchFormat](docs/PatchFormat.md)
 - [Model.Pdf417CompactionMode](docs/Pdf417CompactionMode.md)
 - [Model.Pdf417ErrorLevel](docs/Pdf417ErrorLevel.md)
+- [Model.Pdf417MacroTerminator](docs/Pdf417MacroTerminator.md)
 - [Model.Pdf417Params](docs/Pdf417Params.md)
 - [Model.PostalParams](docs/PostalParams.md)
 - [Model.PresetType](docs/PresetType.md)
@@ -308,3 +309,4 @@ Class | Method | HTTP request | Description
 - [Model.StructuredAppend](docs/StructuredAppend.md)
 - [Model.TextAlignment](docs/TextAlignment.md)
 - [Model.FileVersion](docs/FileVersion.md)
+

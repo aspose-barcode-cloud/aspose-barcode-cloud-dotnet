@@ -31,7 +31,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Aspose.BarCode.Cloud.Sdk.Internal;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -65,6 +64,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.
         /// </summary>
         public Code128Emulation? Code128Emulation { get; set; }
+
+        /// <summary>
+        ///     Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417.
+        /// </summary>
+        public Pdf417MacroTerminator? Pdf417MacroTerminator { get; set; }
 
         /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
