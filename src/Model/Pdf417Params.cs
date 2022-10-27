@@ -31,6 +31,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Internal;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
