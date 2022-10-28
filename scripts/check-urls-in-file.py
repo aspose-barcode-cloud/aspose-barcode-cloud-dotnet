@@ -18,15 +18,14 @@ GOOD_URLS = set([
     'https://api.aspose.cloud/v3.0',
     'https://products.aspose.cloud/barcode/',
     'https://www.aspose.cloud',
+    'https://blog.aspose.cloud/categories/aspose.barcode-cloud-product-family/',
 ])
 BROKEN_URLS = collections.defaultdict(list)
 
 
 def check_url(url):
     with open(os.devnull, 'w') as devnull:
-        ret_code = subprocess.call(['curl', '-sSf', '--output', '-', '--user-agent',
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36 Edg/106.0.1370.52',
-        url], stdout=devnull)
+        ret_code = subprocess.call(['curl', '-sSf', '--output', '-', '--user-agent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', url], stdout=devnull)
     return ret_code == 0
 
 
