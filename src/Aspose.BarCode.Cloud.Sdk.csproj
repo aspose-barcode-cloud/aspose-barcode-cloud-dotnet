@@ -18,9 +18,9 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <PackageId>Aspose.BarCode-Cloud</PackageId>
     <Product>Aspose.BarCode Cloud SDK for .NET</Product>
     <PackageIcon>PackageIcon.png</PackageIcon>
-    <Version>22.9.0</Version>
+    <Version>22.10.0</Version>
     <Authors>asposecloud</Authors>
-    <AssemblyVersion>22.9.0.0</AssemblyVersion>
+    <AssemblyVersion>22.10.0.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 

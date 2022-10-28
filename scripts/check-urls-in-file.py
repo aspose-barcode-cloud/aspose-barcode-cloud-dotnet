@@ -18,6 +18,7 @@ GOOD_URLS = set([
     'https://api.aspose.cloud/v3.0',
     'https://products.aspose.cloud/barcode/',
     'https://www.aspose.cloud',
+    'https://blog.aspose.cloud/categories/aspose.barcode-cloud-product-family/',
 ])
 BROKEN_URLS = collections.defaultdict(list)
 

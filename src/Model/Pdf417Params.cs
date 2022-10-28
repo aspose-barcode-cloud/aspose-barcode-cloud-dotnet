@@ -67,6 +67,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public Code128Emulation? Code128Emulation { get; set; }
 
         /// <summary>
+        ///     Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417.
+        /// </summary>
+        public Pdf417MacroTerminator? Pdf417MacroTerminator { get; set; }
+
+        /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
