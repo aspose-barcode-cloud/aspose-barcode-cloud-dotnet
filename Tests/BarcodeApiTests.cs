@@ -17,7 +17,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     ///     Please update the test case below to test the API endpoint.
     /// </remarks>
     [TestFixture]
-    public class BarcodeApiTests: TestsBase
+    public class BarcodeApiTests : TestsBase
     {
         /// <summary>
         ///     Setup before each unit test
