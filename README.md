@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 22.10.0
+- SDK version: 22.11.0
 
 ## Demo applications
 
@@ -285,6 +285,7 @@ Class | Method | HTTP request | Description
 - [Model.ITF14BorderType](docs/ITF14BorderType.md)
 - [Model.ITFParams](docs/ITFParams.md)
 - [Model.MacroCharacter](docs/MacroCharacter.md)
+- [Model.MaxiCodeMode](docs/MaxiCodeMode.md)
 - [Model.MaxiCodeParams](docs/MaxiCodeParams.md)
 - [Model.ObjectExist](docs/ObjectExist.md)
 - [Model.Padding](docs/Padding.md)
