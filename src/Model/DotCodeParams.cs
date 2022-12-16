@@ -47,7 +47,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public double? AspectRatio { get; set; }
 
         /// <summary>
-        ///     Mask of Dotcode barcode. Default value: -1.
+        ///     DEPRECATED: DotCodeMask is now calculated automatically
         /// </summary>
         public int? DotCodeMask { get; set; }
 

@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 22.11.0
+- SDK version: 22.12.0
 
 ## Demo applications
 
@@ -216,7 +216,7 @@ All Aspose.BarCode for Cloud SDKs, helper scripts and templates are licensed und
 All URIs are relative to *<https://api.aspose.cloud/v3.0>*
 
 Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
+----- | ------ | ------------ | -----------
 *BarcodeApi* | [**GetBarcodeGenerate**](docs/BarcodeApi.md#getbarcodegenerate) | **GET** /barcode/generate | Generate barcode.
 *BarcodeApi* | [**GetBarcodeRecognize**](docs/BarcodeApi.md#getbarcoderecognize) | **GET** /barcode/{name}/recognize | Recognize barcode from a file on server.
 *BarcodeApi* | [**PostBarcodeRecognizeFromUrlOrContent**](docs/BarcodeApi.md#postbarcoderecognizefromurlorcontent) | **POST** /barcode/recognize | Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded with base64.
