@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="Configuration.cs">
-//   Copyright (c) 2022 Aspose.BarCode for Cloud
+//   Copyright (c) 2023 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -44,7 +44,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             DebugMode = false;
             ApiVersion = "3.0";
             AuthType = AuthType.JWT;
-            TokenUrl = "https://api.aspose.cloud/connect/token";
+            TokenUrl = "https://barcode.qa.aspose.cloud/connect/token";
             DefaultHeaders = new Dictionary<string, string>();
         }
 

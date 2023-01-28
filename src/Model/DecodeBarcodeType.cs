@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="DecodeBarcodeType.cs">
-//   Copyright (c) 2022 Aspose.BarCode for Cloud
+//   Copyright (c) 2023 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -377,7 +377,62 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value Mailmark
         /// </summary>
-        Mailmark
+        Mailmark,
+
+        /// <summary>
+        ///     Enum value GS1DotCode
+        /// </summary>
+        GS1DotCode,
+
+        /// <summary>
+        ///     Enum value HIBCCode39LIC
+        /// </summary>
+        HIBCCode39LIC,
+
+        /// <summary>
+        ///     Enum value HIBCCode128LIC
+        /// </summary>
+        HIBCCode128LIC,
+
+        /// <summary>
+        ///     Enum value HIBCAztecLIC
+        /// </summary>
+        HIBCAztecLIC,
+
+        /// <summary>
+        ///     Enum value HIBCDataMatrixLIC
+        /// </summary>
+        HIBCDataMatrixLIC,
+
+        /// <summary>
+        ///     Enum value HIBCQRLIC
+        /// </summary>
+        HIBCQRLIC,
+
+        /// <summary>
+        ///     Enum value HIBCCode39PAS
+        /// </summary>
+        HIBCCode39PAS,
+
+        /// <summary>
+        ///     Enum value HIBCCode128PAS
+        /// </summary>
+        HIBCCode128PAS,
+
+        /// <summary>
+        ///     Enum value HIBCAztecPAS
+        /// </summary>
+        HIBCAztecPAS,
+
+        /// <summary>
+        ///     Enum value HIBCDataMatrixPAS
+        /// </summary>
+        HIBCDataMatrixPAS,
+
+        /// <summary>
+        ///     Enum value HIBCQRPAS
+        /// </summary>
+        HIBCQRPAS
 
     }
 }

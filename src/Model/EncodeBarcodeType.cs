@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="EncodeBarcodeType.cs">
-//   Copyright (c) 2022 Aspose.BarCode for Cloud
+//   Copyright (c) 2023 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -372,7 +372,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value Mailmark
         /// </summary>
-        Mailmark
+        Mailmark,
+
+        /// <summary>
+        ///     Enum value GS1DotCode
+        /// </summary>
+        GS1DotCode
 
     }
 }
