@@ -44,7 +44,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             DebugMode = false;
             ApiVersion = "3.0";
             AuthType = AuthType.JWT;
-            TokenUrl = "https://barcode.qa.aspose.cloud/connect/token";
+            TokenUrl = "https://api.aspose.cloud/connect/token";
             DefaultHeaders = new Dictionary<string, string>();
         }
 
