@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="DotCodeParams.cs">
-//   Copyright (c) 2022 Aspose.BarCode for Cloud
+//   Copyright (c) 2023 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,14 +42,34 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     public class DotCodeParams : IToString
     {
         /// <summary>
+        ///     Identifies DotCode encode mode. Default value: Auto.
+        /// </summary>
+        public DotCodeEncodeMode? EncodeMode { get; set; }
+
+        /// <summary>
+        ///     Identifies ECI encoding. Used when DotCodeEncodeMode is Auto. Default value: ISO-8859-1.
+        /// </summary>
+        public ECIEncodings? ECIEncoding { get; set; }
+
+        /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
         /// </summary>
         public double? AspectRatio { get; set; }
 
         /// <summary>
-        ///     DEPRECATED: DotCodeMask is now calculated automatically
+        ///     Identifies columns count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of columns must be at least 5.
         /// </summary>
-        public int? DotCodeMask { get; set; }
+        public int? Columns { get; set; }
+
+        /// <summary>
+        ///     Indicates whether code is used for instruct reader to interpret the following data as instructions for initialization or reprogramming of the bar code reader. Default value is false.
+        /// </summary>
+        public bool? IsReaderInitialization { get; set; }
+
+        /// <summary>
+        ///     Identifies rows count. Sum of the number of rows plus the number of columns of a DotCode symbol must be odd. Number of rows must be at least 5.
+        /// </summary>
+        public int? Rows { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object

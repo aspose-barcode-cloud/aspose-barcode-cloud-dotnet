@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="MaxiCodeParams.cs">
-//   Copyright (c) 2022 Aspose.BarCode for Cloud
+//   Copyright (c) 2023 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -42,9 +42,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     public class MaxiCodeParams : IToString
     {
         /// <summary>
-        ///     Encoding mode for MaxiCode barcodes.
+        ///     Mode for MaxiCode barcodes.
         /// </summary>
         public MaxiCodeMode? Mode { get; set; }
+
+        /// <summary>
+        ///     Encoding mode for MaxiCode barcodes.
+        /// </summary>
+        public MaxiCodeEncodeMode? EncodeMode { get; set; }
 
         /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
