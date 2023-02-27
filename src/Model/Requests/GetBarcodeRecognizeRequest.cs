@@ -49,7 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="rectWidth">Set Width of area for recognition.</param>
         /// <param name="rectHeight">Set Height of area for recognition.</param>
         /// <param name="stripFNC">Value indicating whether FNC symbol strip must be done.</param>
-        /// <param name="timeout">Timeout of recognition process.</param>
+        /// <param name="timeout">Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.</param>
         /// <param name="medianSmoothingWindowSize">Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set.</param>
         /// <param name="allowMedianSmoothing">Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes.</param>
         /// <param name="allowComplexBackground">Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode.</param>
@@ -73,7 +73,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="skipDiagonalSearch">Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time.</param>
         /// <param name="readTinyBarcodes">Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False.</param>
         /// <param name="australianPostEncodingTable">Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.</param>
-        /// <param name="ignoreEndingFillingPatternsForCTable">The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \&quot;333\&quot; of filling paterns is decoded as letter \&quot;z\&quot;.</param>
+        /// <param name="ignoreEndingFillingPatternsForCTable">The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \&quot;333\&quot; of filling patterns is decoded as letter \&quot;z\&quot;.</param>
         /// <param name="rectangleRegion"></param>
         /// <param name="storage">The image storage.</param>
         /// <param name="folder">The image folder.</param>
@@ -170,7 +170,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public bool? StripFNC { get; set; }
 
         /// <summary>
-        ///     Timeout of recognition process.
+        ///     Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.
         /// </summary>
         public int? Timeout { get; set; }
 
@@ -290,7 +290,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public string AustralianPostEncodingTable { get; set; }
 
         /// <summary>
-        ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequnce \"333\" of filling paterns is decoded as letter \"z\".
+        ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\".
         /// </summary>
         public bool? IgnoreEndingFillingPatternsForCTable { get; set; }
 
