@@ -8,13 +8,11 @@
     <Description>Aspose.Barcode for Cloud is a REST API for barcode generation and recognition. It helps you generate barcode images from scratch in linear (1D), two dimensional (2D), and postal formats. Generate barcode images in a variety of image formats: JPEG, PNG, GIF, BMP, TIFF and SVG. Recognize barcodes from different image types.
 
 Aspose.Barcode for Cloud allows you to control all aspects of the image and barcode when generating barcode images. Specify image width, height, border style, output image format and more. You can also set barcode attributes like font style, font color, background color, barcode type and the barcode text location.</Description>
-    <PackageProjectUrl>https://products.aspose.cloud/barcode/net/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet</RepositoryUrl>
     <PackageTags>Barcode Scan Recognize Generate QR DataMatrix AustraliaPost VIN MSI Aztec ISBN OPC Postnet Aspose Aspose.BarCode Aspose.BarCode-Cloud EAN13 ISSN PZN SingaporePost UPCA UPCE Code11 Code128 Code32 DotCode EAN14 EAN8 GS1DataMatrix</PackageTags>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <Copyright>© Aspose 2001-2023. All Rights Reserved.</Copyright>
     <RepositoryType>Git</RepositoryType>
-    <PackageProjectUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet</PackageProjectUrl>
+    <PackageProjectUrl>https://products.aspose.cloud/barcode/net/</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Aspose.BarCode-Cloud</PackageId>
     <Product>Aspose.BarCode Cloud SDK for .NET</Product>
@@ -25,7 +23,9 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.2.0</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>

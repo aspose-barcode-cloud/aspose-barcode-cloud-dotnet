@@ -4,6 +4,9 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
 namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
+    /// <summary>
+    ///     BarcodeApi interface
+    /// </summary>
     public interface IBarcodeApi
     {
         /// <summary>
