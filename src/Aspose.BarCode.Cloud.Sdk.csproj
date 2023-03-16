@@ -23,7 +23,7 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.2.0</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	  <PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
@@ -31,7 +31,7 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
   <ItemGroup>
     <None Include="LICENSE.txt" Pack="true" PackagePath="" />
     <None Include="PackageIcon.png" Pack="true" PackagePath="" />
-    <None Include="..\README.md" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
