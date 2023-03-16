@@ -8,10 +8,11 @@
     <Description>Aspose.Barcode for Cloud is a REST API for barcode generation and recognition. It helps you generate barcode images from scratch in linear (1D), two dimensional (2D), and postal formats. Generate barcode images in a variety of image formats: JPEG, PNG, GIF, BMP, TIFF and SVG. Recognize barcodes from different image types.
 
 Aspose.Barcode for Cloud allows you to control all aspects of the image and barcode when generating barcode images. Specify image width, height, border style, output image format and more. You can also set barcode attributes like font style, font color, background color, barcode type and the barcode text location.</Description>
+    <PackageProjectUrl>https://products.aspose.cloud/barcode/net/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet</RepositoryUrl>
-    <PackageTags>Barcode-Scan QR DataMatrix Barcode AustraliaPost VIN MSI Aztec ISBN OPC Postnet 2D-Barcode EAN13 ISSN PZN SingaporePost Symbology UPCA UPCE 1D-Barcode Code11 Code128 Code32 Codetext DotCode EAN14 EAN8 GS1DataMatrix Interleaved2of5 ISMN MaxiCode OneCode Pdf417 Pharmacode Postal-Barcode RM4SCC SCC14 SSCC18 Code39Standard GS1QR MacroPdf417 JPEG TIFF PNG BMP GIF EXIF EMF SVG Aspose.BarCode Aspose.BarCode-Cloud Aspose.Total-Cloud Cloud REST API Generate-Barcode Barcode-Generation Barcode-Formatting Format-Barcode Barcode-Recognition Recognize-Barcode CodablockF Checksum Optimize-Barcode Barcode-Optimization cURL .NET C# dotnet CSharp Java PHP Python Node.js Golang Scan-Barcode barcode generation recognition Alpha-Numeric AI-8102-Coupon AustralianPosteParcel Codabar Code16K Code39Extended Code93Extended Code93Standard DatabarExpanded DatabarExpandedStacked DatabarLimited DatabarOmniDirectional DatabarStacked DatabarStackedOmniDirectional DatabarTruncated DataLogic2of5 DeutschePostIdentcode DeutschePostLeitcode DutchKIX GS1CodablockF GS1Code128 IATA2of5 ItalianPost25 ITF14 ITF6 Matrix2of5 MicroPdf417 MICR PatchCode Planet Standard2of5 SwissPostParcel UpcaGs1Code128Coupon UpcaGs1DatabarCoupon</PackageTags>
+    <PackageTags>Barcode Scan Recognize Generate QR DataMatrix AustraliaPost VIN MSI Aztec ISBN OPC Postnet Aspose Aspose.BarCode Aspose.BarCode-Cloud EAN13 ISSN PZN SingaporePost UPCA UPCE Code11 Code128 Code32 DotCode EAN14 EAN8 GS1DataMatrix</PackageTags>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <Copyright>© Aspose 2002-2023. All Rights Reserved.</Copyright>
+    <Copyright>© Aspose 2001-2023. All Rights Reserved.</Copyright>
     <RepositoryType>Git</RepositoryType>
     <PackageProjectUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -19,9 +20,12 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <Product>Aspose.BarCode Cloud SDK for .NET</Product>
     <PackageIcon>PackageIcon.png</PackageIcon>
     <Version>23.2.0</Version>
-    <Authors>asposecloud</Authors>
+    <Authors>Aspose asposecloud</Authors>
     <AssemblyVersion>23.2.0.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.2.0</PackageReleaseNotes>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
