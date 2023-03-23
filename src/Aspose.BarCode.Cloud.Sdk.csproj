@@ -17,13 +17,13 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <PackageId>Aspose.BarCode-Cloud</PackageId>
     <Product>Aspose.BarCode Cloud SDK for .NET</Product>
     <PackageIcon>PackageIcon.png</PackageIcon>
-    <Version>23.2.0</Version>
+    <Version>23.3.0</Version>
     <Authors>Aspose asposecloud</Authors>
-    <AssemblyVersion>23.2.0.0</AssemblyVersion>
+    <AssemblyVersion>23.3.0.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.2.0</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.3.0</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
