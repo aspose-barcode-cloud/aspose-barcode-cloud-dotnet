@@ -23,6 +23,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
         }
 
+
         [Test]
         public void RecognizeQrTest()
         {
@@ -42,6 +43,31 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(1, response.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
             Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
+        }
+
+
+        [Test]
+        public void RecognizeWithTimeoutTest()
+        {
+            // Arrange
+            using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
+
+            // Act
+            var apiException = Assert.Throws<ApiException>(() =>
+            {
+                _api.PostBarcodeRecognizeFromUrlOrContent(
+                    new PostBarcodeRecognizeFromUrlOrContentRequest(
+                        image: image,
+                        preset: PresetType.HighPerformance.ToString(),
+                        type: DecodeBarcodeType.QR.ToString(),
+                        timeout: 1
+                    )
+                );
+            });
+
+            // Assert
+            Assert.IsNotNull(apiException);
+            Assert.AreEqual(408, apiException.ErrorCode);
         }
     }
 }
