@@ -28,4 +28,4 @@ jobs:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
 
     - name: Build NuGet package
-      run: cmd scripts\build_package.cmd
+      run: msbuild Aspose.BarCode.Cloud.Sdk.sln -restore -t:clean,rebuild,pack -p:Configuration=Release
