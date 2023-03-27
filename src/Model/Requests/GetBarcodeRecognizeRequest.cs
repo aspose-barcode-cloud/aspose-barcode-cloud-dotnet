@@ -49,7 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="rectWidth">Set Width of area for recognition.</param>
         /// <param name="rectHeight">Set Height of area for recognition.</param>
         /// <param name="stripFNC">Value indicating whether FNC symbol strip must be done.</param>
-        /// <param name="timeout">Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.</param>
+        /// <param name="timeout">Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.</param>
         /// <param name="medianSmoothingWindowSize">Window size for median smoothing. Typical values are 3 or 4. Default value is 3. AllowMedianSmoothing must be set.</param>
         /// <param name="allowMedianSmoothing">Allows engine to enable median smoothing as additional scan. Mode helps to recognize noised barcodes.</param>
         /// <param name="allowComplexBackground">Allows engine to recognize color barcodes on color background as additional scan. Extremely slow mode.</param>
@@ -170,7 +170,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public bool? StripFNC { get; set; }
 
         /// <summary>
-        ///     Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.
+        ///     Timeout of recognition process in milliseconds. Default value is 15_000 (15 seconds). Maximum value is 60_000 (1 minute). In case of a timeout RequestTimeout (408) status will be returned. Try reducing the image size to avoid timeout.
         /// </summary>
         public int? Timeout { get; set; }
 

@@ -156,7 +156,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         }
 
         private string _srcString;
-
+        /// <summary>
+        ///   Set the string presentation of the object
+        /// </summary>
         public void SetSrcString(string value)
         {
             _srcString = value;

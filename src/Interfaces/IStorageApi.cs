@@ -3,6 +3,9 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 
 namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
+    /// <summary>
+    ///     StorageApi interface
+    /// </summary>
     public interface IStorageApi
     {
         /// <summary>

@@ -38,6 +38,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
     /// </summary>
     public class Configuration
     {
+        /// <summary>
+        ///     Default constructor
+        /// </summary>
         public Configuration()
         {
             ApiBaseUrl = "https://api.aspose.cloud";
@@ -109,6 +112,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         public Dictionary<string, string> DefaultHeaders { get; set; }
 
+        /// <summary>
+        ///     Get API root url
+        /// </summary>
         public string GetApiRootUrl()
         {
             string result = ApiBaseUrl + "/v" + ApiVersion;
