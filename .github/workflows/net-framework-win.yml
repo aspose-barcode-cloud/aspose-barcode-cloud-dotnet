@@ -26,3 +26,6 @@ jobs:
       run: VSTest.Console.exe /Framework:".NETFramework,Version=v4.6.1" Tests\bin\Release\net461\Aspose.BarCode.Cloud.Sdk.Tests.dll
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
+
+    - name: Build NuGet package
+      run: cmd scripts\build_package.cmd
