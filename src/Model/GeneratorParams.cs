@@ -232,6 +232,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public double? BarWidthReduction { get; set; }
 
         /// <summary>
+        ///     Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing.
+        /// </summary>
+        public bool? UseAntiAlias { get; set; }
+
+        /// <summary>
         ///     AustralianPost params.
         /// </summary>
         public AustralianPostParams AustralianPost { get; set; }

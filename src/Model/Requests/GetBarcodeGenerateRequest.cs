@@ -73,8 +73,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="supplementData">Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN.</param>
         /// <param name="supplementSpace">Space between main the BarCode and supplement BarCode.</param>
         /// <param name="barWidthReduction">Bars reduction value that is used to compensate ink spread while printing.</param>
+        /// <param name="useAntiAlias">Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing.</param>
         /// <param name="format">Result image format.</param>
-        public GetBarcodeGenerateRequest(string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string format = null)
+        public GetBarcodeGenerateRequest(string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string format = null)
         {
             this.Type = type;
             this.Text = text;
@@ -110,6 +111,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
             this.SupplementData = supplementData;
             this.SupplementSpace = supplementSpace;
             this.BarWidthReduction = barWidthReduction;
+            this.UseAntiAlias = useAntiAlias;
             this.format = format;
         }
 
@@ -282,6 +284,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Bars reduction value that is used to compensate ink spread while printing.
         /// </summary>
         public double? BarWidthReduction { get; set; }
+
+        /// <summary>
+        ///     Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing.
+        /// </summary>
+        public bool? UseAntiAlias { get; set; }
 
         /// <summary>
         ///     Result image format.

@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.3.0
+- SDK version: 23.4.0
 
 ## Demo applications
 
@@ -275,6 +275,7 @@ Class | Method | HTTP request | Description
 - [Model.EncodeBarcodeType](docs/EncodeBarcodeType.md)
 - [Model.Error](docs/Error.md)
 - [Model.ErrorDetails](docs/ErrorDetails.md)
+- [Model.FileVersion](docs/FileVersion.md)
 - [Model.FileVersions](docs/FileVersions.md)
 - [Model.FilesList](docs/FilesList.md)
 - [Model.FilesUploadResult](docs/FilesUploadResult.md)
@@ -311,5 +312,4 @@ Class | Method | HTTP request | Description
 - [Model.StorageFile](docs/StorageFile.md)
 - [Model.StructuredAppend](docs/StructuredAppend.md)
 - [Model.TextAlignment](docs/TextAlignment.md)
-- [Model.FileVersion](docs/FileVersion.md)
 
