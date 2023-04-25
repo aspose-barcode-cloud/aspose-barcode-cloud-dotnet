@@ -39,34 +39,26 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///
     /// </summary>
-    public class FileVersion : StorageFile : IToString
+    public class FileVersion : StorageFile
     {
         /// <summary>
         ///     File Version ID.
         /// </summary>
         public string VersionId { get; set; }
 
-    /// <summary>
-    ///     Specifies whether the file is (true) or is not (false) the latest version of an file.
-    /// </summary>
-    public bool? IsLatest { get; set; }
+        /// <summary>
+        ///     Specifies whether the file is (true) or is not (false) the latest version of an file.
+        /// </summary>
+        public bool? IsLatest { get; set; }
 
-    /// <summary>
-    ///     Get the string presentation of the object
-    /// </summary>
-    /// <returns>String presentation of the object</returns>
-    public override string ToString()
-    {
-        return _srcString ?? SerializationHelper.Serialize(this);
-    }
+        /// <summary>
+        ///     Get the string presentation of the object
+        /// </summary>
+        /// <returns>String presentation of the object</returns>
+        public override string ToString()
+        {
+            return SerializationHelper.Serialize(this);
+        }
 
-    private string _srcString;
-    /// <summary>
-    ///   Set the string presentation of the object
-    /// </summary>
-    public void SetSrcString(string value)
-    {
-        _srcString = value;
     }
-}
 }
