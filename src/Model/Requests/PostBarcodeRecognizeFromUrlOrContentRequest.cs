@@ -43,8 +43,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="checksumValidation">Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies</param>
         /// <param name="detectEncoding">A flag which force engine to detect codetext encoding for Unicode.</param>
         /// <param name="preset">Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality.</param>
-        /// <param name="rectX">Set X for area for recognition.</param>
-        /// <param name="rectY">Set Y for area for recognition.</param>
+        /// <param name="rectX">Set X of top left corner of area for recognition.</param>
+        /// <param name="rectY">Set Y of top left corner of area for recognition.</param>
         /// <param name="rectWidth">Set Width of area for recognition.</param>
         /// <param name="rectHeight">Set Height of area for recognition.</param>
         /// <param name="stripFNC">Value indicating whether FNC symbol strip must be done.</param>
@@ -73,10 +73,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="readTinyBarcodes">Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False.</param>
         /// <param name="australianPostEncodingTable">Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.</param>
         /// <param name="ignoreEndingFillingPatternsForCTable">The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \&quot;333\&quot; of filling patterns is decoded as letter \&quot;z\&quot;.</param>
-        /// <param name="rectangleRegion"></param>
         /// <param name="url">The image file url.</param>
         /// <param name="image">Image data</param>
-        public PostBarcodeRecognizeFromUrlOrContentRequest(string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string rectangleRegion = null, string url = null, System.IO.Stream image = null)
+        public PostBarcodeRecognizeFromUrlOrContentRequest(string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string url = null, System.IO.Stream image = null)
         {
             this.Type = type;
             this.ChecksumValidation = checksumValidation;
@@ -112,7 +111,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
             this.ReadTinyBarcodes = readTinyBarcodes;
             this.AustralianPostEncodingTable = australianPostEncodingTable;
             this.IgnoreEndingFillingPatternsForCTable = ignoreEndingFillingPatternsForCTable;
-            this.RectangleRegion = rectangleRegion;
             this.url = url;
             this.image = image;
         }
@@ -138,12 +136,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public string Preset { get; set; }
 
         /// <summary>
-        ///     Set X for area for recognition.
+        ///     Set X of top left corner of area for recognition.
         /// </summary>
         public int? RectX { get; set; }
 
         /// <summary>
-        ///     Set Y for area for recognition.
+        ///     Set Y of top left corner of area for recognition.
         /// </summary>
         public int? RectY { get; set; }
 
@@ -286,11 +284,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \"333\" of filling patterns is decoded as letter \"z\".
         /// </summary>
         public bool? IgnoreEndingFillingPatternsForCTable { get; set; }
-
-        /// <summary>
-        ///     Gets or sets RectangleRegion
-        /// </summary>
-        public string RectangleRegion { get; set; }
 
         /// <summary>
         ///     The image file url.
