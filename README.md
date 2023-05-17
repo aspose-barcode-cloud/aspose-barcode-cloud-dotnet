@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.3.0
+- SDK version: 23.4.0
 
 ## Demo applications
 
@@ -26,7 +26,7 @@ Aspose.BarCode Cloud SDK for .NET provides cross-platform bindings for:
 - .NET 5 and higher
 - .NET Standard 2.0 and higher
 - .NET Core 2.1 and higher
-- .NET Framework 4.6.1 and higher
+- .NET Framework 4.6.2 and higher
 
 To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).
 

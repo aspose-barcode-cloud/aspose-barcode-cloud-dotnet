@@ -146,6 +146,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementData", request.SupplementData);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementSpace", request.SupplementSpace);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barWidthReduction", request.BarWidthReduction);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "useAntiAlias", request.UseAntiAlias);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
 
@@ -212,7 +213,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "readTinyBarcodes", request.ReadTinyBarcodes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
 
@@ -284,7 +284,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "readTinyBarcodes", request.ReadTinyBarcodes);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectangleRegion", request.RectangleRegion);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
 
 
@@ -406,6 +405,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementData", request.SupplementData);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementSpace", request.SupplementSpace);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barWidthReduction", request.BarWidthReduction);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "useAntiAlias", request.UseAntiAlias);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
