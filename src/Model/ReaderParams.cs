@@ -67,12 +67,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public bool? DetectEncoding { get; set; }
 
         /// <summary>
-        ///     Set X for area for recognition.
+        ///     Set X of top left corner of area for recognition.
         /// </summary>
         public int? RectX { get; set; }
 
         /// <summary>
-        ///     Set Y for area for recognition.
+        ///     Set Y of top left corner of area for recognition.
         /// </summary>
         public int? RectY { get; set; }
 

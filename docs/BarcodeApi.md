@@ -16,7 +16,7 @@ Method | HTTP request | Description
 ## **GetBarcodeGenerate**
 
 ```csharp
-System.IO.Stream GetBarcodeGenerate (string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string format = null)
+System.IO.Stream GetBarcodeGenerate (string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string format = null)
 ```
 
 Generate barcode.
@@ -59,6 +59,7 @@ Name | Type | Description  | Notes
  **supplementData** | **string**| Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. | [optional]
  **supplementSpace** | **double?**| Space between main the BarCode and supplement BarCode. | [optional]
  **barWidthReduction** | **double?**| Bars reduction value that is used to compensate ink spread while printing. | [optional]
+ **useAntiAlias** | **bool?**| Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing. | [optional]
  **format** | **string**| Result image format. | [optional]
 
 ### Return type
@@ -74,7 +75,7 @@ System.IO.Stream
 ## **GetBarcodeRecognize**
 
 ```csharp
-BarcodeResponseList GetBarcodeRecognize (string name, string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string rectangleRegion = null, string storage = null, string folder = null)
+BarcodeResponseList GetBarcodeRecognize (string name, string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string storage = null, string folder = null)
 ```
 
 Recognize barcode from a file on server.
@@ -88,8 +89,8 @@ Name | Type | Description  | Notes
  **checksumValidation** | **string**| Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies | [optional]
  **detectEncoding** | **bool?**| A flag which force engine to detect codetext encoding for Unicode. | [optional]
  **preset** | **string**| Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. | [optional]
- **rectX** | **int?**| Set X for area for recognition. | [optional]
- **rectY** | **int?**| Set Y for area for recognition. | [optional]
+ **rectX** | **int?**| Set X of top left corner of area for recognition. | [optional]
+ **rectY** | **int?**| Set Y of top left corner of area for recognition. | [optional]
  **rectWidth** | **int?**| Set Width of area for recognition. | [optional]
  **rectHeight** | **int?**| Set Height of area for recognition. | [optional]
  **stripFNC** | **bool?**| Value indicating whether FNC symbol strip must be done. | [optional]
@@ -118,7 +119,6 @@ Name | Type | Description  | Notes
  **readTinyBarcodes** | **bool?**| Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional]
  **australianPostEncodingTable** | **string**| Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional]
  **ignoreEndingFillingPatternsForCTable** | **bool?**| The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \&quot;333\&quot; of filling patterns is decoded as letter \&quot;z\&quot;. | [optional]
- **rectangleRegion** | **string**|  | [optional]
  **storage** | **string**| The image storage. | [optional]
  **folder** | **string**| The image folder. | [optional]
 
@@ -135,7 +135,7 @@ Name | Type | Description  | Notes
 ## **PostBarcodeRecognizeFromUrlOrContent**
 
 ```csharp
-BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent (string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string rectangleRegion = null, string url = null, System.IO.Stream image = null)
+BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent (string type = null, string checksumValidation = null, bool? detectEncoding = null, string preset = null, int? rectX = null, int? rectY = null, int? rectWidth = null, int? rectHeight = null, bool? stripFNC = null, int? timeout = null, int? medianSmoothingWindowSize = null, bool? allowMedianSmoothing = null, bool? allowComplexBackground = null, bool? allowDatamatrixIndustrialBarcodes = null, bool? allowDecreasedImage = null, bool? allowDetectScanGap = null, bool? allowIncorrectBarcodes = null, bool? allowInvertImage = null, bool? allowMicroWhiteSpotsRemoving = null, bool? allowOneDFastBarcodesDetector = null, bool? allowOneDWipedBarsRestoration = null, bool? allowQRMicroQrRestoration = null, bool? allowRegularImage = null, bool? allowSaltAndPepperFiltering = null, bool? allowWhiteSpotsRemoving = null, bool? checkMore1DVariants = null, bool? fastScanOnly = null, double? regionLikelihoodThresholdPercent = null, List<int?> scanWindowSizes = null, double? similarity = null, bool? skipDiagonalSearch = null, bool? readTinyBarcodes = null, string australianPostEncodingTable = null, bool? ignoreEndingFillingPatternsForCTable = null, string url = null, System.IO.Stream image = null)
 ```
 
 Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \"application/octet-stream\". An image can also be passed as a form field.
@@ -148,8 +148,8 @@ Name | Type | Description  | Notes
  **checksumValidation** | **string**| Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies | [optional]
  **detectEncoding** | **bool?**| A flag which force engine to detect codetext encoding for Unicode. | [optional]
  **preset** | **string**| Preset allows to configure recognition quality and speed manually. You can quickly set up Preset by embedded presets: HighPerformance, NormalQuality, HighQuality, MaxBarCodes or you can manually configure separate options. Default value of Preset is NormalQuality. | [optional]
- **rectX** | **int?**| Set X for area for recognition. | [optional]
- **rectY** | **int?**| Set Y for area for recognition. | [optional]
+ **rectX** | **int?**| Set X of top left corner of area for recognition. | [optional]
+ **rectY** | **int?**| Set Y of top left corner of area for recognition. | [optional]
  **rectWidth** | **int?**| Set Width of area for recognition. | [optional]
  **rectHeight** | **int?**| Set Height of area for recognition. | [optional]
  **stripFNC** | **bool?**| Value indicating whether FNC symbol strip must be done. | [optional]
@@ -178,7 +178,6 @@ Name | Type | Description  | Notes
  **readTinyBarcodes** | **bool?**| Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional]
  **australianPostEncodingTable** | **string**| Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional]
  **ignoreEndingFillingPatternsForCTable** | **bool?**| The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \&quot;333\&quot; of filling patterns is decoded as letter \&quot;z\&quot;. | [optional]
- **rectangleRegion** | **string**|  | [optional]
  **url** | **string**| The image file url. | [optional]
  **image** | **System.IO.Stream**| Image data | [optional]
 
@@ -220,7 +219,7 @@ System.IO.Stream
 ## **PutBarcodeGenerateFile**
 
 ```csharp
-ResultImageInfo PutBarcodeGenerateFile (string name, string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, string storage = null, string folder = null, string format = null)
+ResultImageInfo PutBarcodeGenerateFile (string name, string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string storage = null, string folder = null, string format = null)
 ```
 
 Generate barcode and save on server (from query params or from file with json or xml content)
@@ -264,6 +263,7 @@ Name | Type | Description  | Notes
  **supplementData** | **string**| Supplement parameters. Used for Interleaved2of5, Standard2of5, EAN13, EAN8, UPCA, UPCE, ISBN, ISSN, ISMN. | [optional]
  **supplementSpace** | **double?**| Space between main the BarCode and supplement BarCode. | [optional]
  **barWidthReduction** | **double?**| Bars reduction value that is used to compensate ink spread while printing. | [optional]
+ **useAntiAlias** | **bool?**| Indicates whether is used anti-aliasing mode to render image. Anti-aliasing mode is applied to barcode and text drawing. | [optional]
  **storage** | **string**| Image&#39;s storage. | [optional]
  **folder** | **string**| Image&#39;s folder. | [optional]
  **format** | **string**| The image format. | [optional]

@@ -29,3 +29,7 @@ after-gen: insert-examples format format-doc
 .PHONY: update
 update:
 	echo "Not implemented"
+
+.PHONY: clean
+clean:
+	find . -depth -type d \( -name obj -o -name bin -o -name TestResults \) -exec rm -rf "{}" \; || true
