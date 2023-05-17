@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.4.0
+- SDK version: 23.5.0
 
 ## Demo applications
 
@@ -258,6 +258,8 @@ Class | Method | HTTP request | Description
 - [Model.CodabarSymbol](docs/CodabarSymbol.md)
 - [Model.CodablockParams](docs/CodablockParams.md)
 - [Model.Code128Emulation](docs/Code128Emulation.md)
+- [Model.Code128EncodeMode](docs/Code128EncodeMode.md)
+- [Model.Code128Params](docs/Code128Params.md)
 - [Model.Code16KParams](docs/Code16KParams.md)
 - [Model.CodeLocation](docs/CodeLocation.md)
 - [Model.CouponParams](docs/CouponParams.md)
