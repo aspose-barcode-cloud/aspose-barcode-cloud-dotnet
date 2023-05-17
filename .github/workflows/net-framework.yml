@@ -26,7 +26,7 @@ jobs:
       run: |
           $ErrorActionPreference = "Stop" 
           VSTest.Console.exe /Framework:".NETFramework,Version=v4.6.2" /ResultsDirectory:Tests\Results /Logger:"trx;LogFileName=test.log" Tests\bin\Release\net462\Aspose.BarCode.Cloud.Sdk.Tests.dll
-          if( ([xml](Get-Content Tests\Results\test.log)).TestRun.ResultSummary.Counters.total -lt 24 ){ throw "Not all tests were run" }
+          if( ([xml](Get-Content Tests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 24 ){ throw "Not all tests were explored or added new tests" }
 
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
