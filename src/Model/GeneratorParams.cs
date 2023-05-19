@@ -312,6 +312,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public PatchCodeParams PatchCode { get; set; }
 
         /// <summary>
+        ///     Code128 params.
+        /// </summary>
+        public Code128Params Code128 { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
