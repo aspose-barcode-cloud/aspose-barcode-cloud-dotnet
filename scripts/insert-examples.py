@@ -23,15 +23,11 @@ def format_text(text: str, **kwargs) -> str:
 
 
 def main(template: typing.TextIO, destination: typing.TextIO) -> None:
-    generate_qr_example = read_text(
-        os.path.join("examples", "GenerateQR", "Program.cs")
-    )
+    generate_qr_example = read_text(os.path.join("examples", "GenerateQR", "Program.cs"))
     read_qr_example = read_text(os.path.join("examples", "ReadQR", "Program.cs"))
 
     text = template.read()
-    formatted = format_text(
-        text, GenerateQRExample=generate_qr_example, ReadQRExample=read_qr_example
-    )
+    formatted = format_text(text, GenerateQRExample=generate_qr_example, ReadQRExample=read_qr_example)
     save_text(destination, formatted)
 
 
