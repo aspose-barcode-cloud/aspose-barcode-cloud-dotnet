@@ -317,6 +317,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public Code128Params Code128 { get; set; }
 
         /// <summary>
+        ///     HanXin params.
+        /// </summary>
+        public HanXinParams HanXin { get; set; }
+
+        /// <summary>
         ///     Get the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
