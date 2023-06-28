@@ -8,8 +8,8 @@ on:
 
 jobs:
   build-and-test:
-
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
         # See https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-and-net-core
@@ -19,20 +19,24 @@ jobs:
             framework: netcoreapp3.1
           - dotnet-version: 6.0.x
             framework: net6.0
+          - dotnet-version: 7.0.x
+            framework: net7.0
 
     continue-on-error: true
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET ${{ matrix.dotnet-version }}
-      uses: actions/setup-dotnet@v2
+    - name: Setup latest version of dotnet
+      uses: actions/setup-dotnet@v3
+    - name: Build with latest version
+      run: dotnet build
+
+    - name: Setup ${{ matrix.dotnet-version }} version of dotnet
+      uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
 
-    - name: Install dependencies
-      run: dotnet restore
-
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal --framework ${{ matrix.framework }}
+    - name: Test with ${{ matrix.dotnet-version }}
+      run: dotnet test --no-build --verbosity normal --framework ${{ matrix.framework }}
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
