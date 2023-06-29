@@ -18,6 +18,10 @@ jobs:
         include:
           - net-version: v4.6.2
             framework: net462
+          - net-version: v4.8.1
+            framework: net481
+
+    continue-on-error: true
 
     steps:
     - uses: actions/checkout@v3
