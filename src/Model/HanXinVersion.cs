@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="DecodeBarcodeType.cs">
+// <copyright company="Aspose" file="HanXinVersion.cs">
 //   Copyright (c) 2023 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -34,415 +34,435 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     See DecodeType
+    ///
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum DecodeBarcodeType
+    public enum HanXinVersion
     {
         /// <summary>
-        ///     Enum value all
+        ///     Enum value Auto
         /// </summary>
-        all,
+        Auto,
 
         /// <summary>
-        ///     Enum value AustraliaPost
+        ///     Enum value Version01
         /// </summary>
-        AustraliaPost,
+        Version01,
 
         /// <summary>
-        ///     Enum value Aztec
+        ///     Enum value Version02
         /// </summary>
-        Aztec,
+        Version02,
 
         /// <summary>
-        ///     Enum value ISBN
+        ///     Enum value Version03
         /// </summary>
-        ISBN,
+        Version03,
 
         /// <summary>
-        ///     Enum value Codabar
+        ///     Enum value Version04
         /// </summary>
-        Codabar,
+        Version04,
 
         /// <summary>
-        ///     Enum value Code11
+        ///     Enum value Version05
         /// </summary>
-        Code11,
+        Version05,
 
         /// <summary>
-        ///     Enum value Code128
+        ///     Enum value Version06
         /// </summary>
-        Code128,
+        Version06,
 
         /// <summary>
-        ///     Enum value GS1Code128
+        ///     Enum value Version07
         /// </summary>
-        GS1Code128,
+        Version07,
 
         /// <summary>
-        ///     Enum value Code39Extended
+        ///     Enum value Version08
         /// </summary>
-        Code39Extended,
+        Version08,
 
         /// <summary>
-        ///     Enum value Code39Standard
+        ///     Enum value Version09
         /// </summary>
-        Code39Standard,
+        Version09,
 
         /// <summary>
-        ///     Enum value Code93Extended
+        ///     Enum value Version10
         /// </summary>
-        Code93Extended,
+        Version10,
 
         /// <summary>
-        ///     Enum value Code93Standard
+        ///     Enum value Version11
         /// </summary>
-        Code93Standard,
+        Version11,
 
         /// <summary>
-        ///     Enum value DataMatrix
+        ///     Enum value Version12
         /// </summary>
-        DataMatrix,
+        Version12,
 
         /// <summary>
-        ///     Enum value DeutschePostIdentcode
+        ///     Enum value Version13
         /// </summary>
-        DeutschePostIdentcode,
+        Version13,
 
         /// <summary>
-        ///     Enum value DeutschePostLeitcode
+        ///     Enum value Version14
         /// </summary>
-        DeutschePostLeitcode,
+        Version14,
 
         /// <summary>
-        ///     Enum value EAN13
+        ///     Enum value Version15
         /// </summary>
-        EAN13,
+        Version15,
 
         /// <summary>
-        ///     Enum value EAN14
+        ///     Enum value Version16
         /// </summary>
-        EAN14,
+        Version16,
 
         /// <summary>
-        ///     Enum value EAN8
+        ///     Enum value Version17
         /// </summary>
-        EAN8,
+        Version17,
 
         /// <summary>
-        ///     Enum value IATA2of5
+        ///     Enum value Version18
         /// </summary>
-        IATA2of5,
+        Version18,
 
         /// <summary>
-        ///     Enum value Interleaved2of5
+        ///     Enum value Version19
         /// </summary>
-        Interleaved2of5,
+        Version19,
 
         /// <summary>
-        ///     Enum value ISSN
+        ///     Enum value Version20
         /// </summary>
-        ISSN,
+        Version20,
 
         /// <summary>
-        ///     Enum value ISMN
+        ///     Enum value Version21
         /// </summary>
-        ISMN,
+        Version21,
 
         /// <summary>
-        ///     Enum value ItalianPost25
+        ///     Enum value Version22
         /// </summary>
-        ItalianPost25,
+        Version22,
 
         /// <summary>
-        ///     Enum value ITF14
+        ///     Enum value Version23
         /// </summary>
-        ITF14,
+        Version23,
 
         /// <summary>
-        ///     Enum value ITF6
+        ///     Enum value Version24
         /// </summary>
-        ITF6,
+        Version24,
 
         /// <summary>
-        ///     Enum value MacroPdf417
+        ///     Enum value Version25
         /// </summary>
-        MacroPdf417,
+        Version25,
 
         /// <summary>
-        ///     Enum value Matrix2of5
+        ///     Enum value Version26
         /// </summary>
-        Matrix2of5,
+        Version26,
 
         /// <summary>
-        ///     Enum value MSI
+        ///     Enum value Version27
         /// </summary>
-        MSI,
+        Version27,
 
         /// <summary>
-        ///     Enum value OneCode
+        ///     Enum value Version28
         /// </summary>
-        OneCode,
+        Version28,
 
         /// <summary>
-        ///     Enum value OPC
+        ///     Enum value Version29
         /// </summary>
-        OPC,
+        Version29,
 
         /// <summary>
-        ///     Enum value PatchCode
+        ///     Enum value Version30
         /// </summary>
-        PatchCode,
+        Version30,
 
         /// <summary>
-        ///     Enum value Pdf417
+        ///     Enum value Version31
         /// </summary>
-        Pdf417,
+        Version31,
 
         /// <summary>
-        ///     Enum value MicroPdf417
+        ///     Enum value Version32
         /// </summary>
-        MicroPdf417,
+        Version32,
 
         /// <summary>
-        ///     Enum value Planet
+        ///     Enum value Version33
         /// </summary>
-        Planet,
+        Version33,
 
         /// <summary>
-        ///     Enum value Postnet
+        ///     Enum value Version34
         /// </summary>
-        Postnet,
+        Version34,
 
         /// <summary>
-        ///     Enum value PZN
+        ///     Enum value Version35
         /// </summary>
-        PZN,
+        Version35,
 
         /// <summary>
-        ///     Enum value QR
+        ///     Enum value Version36
         /// </summary>
-        QR,
+        Version36,
 
         /// <summary>
-        ///     Enum value MicroQR
+        ///     Enum value Version37
         /// </summary>
-        MicroQR,
+        Version37,
 
         /// <summary>
-        ///     Enum value RM4SCC
+        ///     Enum value Version38
         /// </summary>
-        RM4SCC,
+        Version38,
 
         /// <summary>
-        ///     Enum value SCC14
+        ///     Enum value Version39
         /// </summary>
-        SCC14,
+        Version39,
 
         /// <summary>
-        ///     Enum value SSCC18
+        ///     Enum value Version40
         /// </summary>
-        SSCC18,
+        Version40,
 
         /// <summary>
-        ///     Enum value Standard2of5
+        ///     Enum value Version41
         /// </summary>
-        Standard2of5,
+        Version41,
 
         /// <summary>
-        ///     Enum value Supplement
+        ///     Enum value Version42
         /// </summary>
-        Supplement,
+        Version42,
 
         /// <summary>
-        ///     Enum value UPCA
+        ///     Enum value Version43
         /// </summary>
-        UPCA,
+        Version43,
 
         /// <summary>
-        ///     Enum value UPCE
+        ///     Enum value Version44
         /// </summary>
-        UPCE,
+        Version44,
 
         /// <summary>
-        ///     Enum value VIN
+        ///     Enum value Version45
         /// </summary>
-        VIN,
+        Version45,
 
         /// <summary>
-        ///     Enum value Pharmacode
+        ///     Enum value Version46
         /// </summary>
-        Pharmacode,
+        Version46,
 
         /// <summary>
-        ///     Enum value GS1DataMatrix
+        ///     Enum value Version47
         /// </summary>
-        GS1DataMatrix,
+        Version47,
 
         /// <summary>
-        ///     Enum value DatabarOmniDirectional
+        ///     Enum value Version48
         /// </summary>
-        DatabarOmniDirectional,
+        Version48,
 
         /// <summary>
-        ///     Enum value DatabarTruncated
+        ///     Enum value Version49
         /// </summary>
-        DatabarTruncated,
+        Version49,
 
         /// <summary>
-        ///     Enum value DatabarLimited
+        ///     Enum value Version50
         /// </summary>
-        DatabarLimited,
+        Version50,
 
         /// <summary>
-        ///     Enum value DatabarExpanded
+        ///     Enum value Version51
         /// </summary>
-        DatabarExpanded,
+        Version51,
 
         /// <summary>
-        ///     Enum value SwissPostParcel
+        ///     Enum value Version52
         /// </summary>
-        SwissPostParcel,
+        Version52,
 
         /// <summary>
-        ///     Enum value AustralianPosteParcel
+        ///     Enum value Version53
         /// </summary>
-        AustralianPosteParcel,
+        Version53,
 
         /// <summary>
-        ///     Enum value Code16K
+        ///     Enum value Version54
         /// </summary>
-        Code16K,
+        Version54,
 
         /// <summary>
-        ///     Enum value DatabarStackedOmniDirectional
+        ///     Enum value Version55
         /// </summary>
-        DatabarStackedOmniDirectional,
+        Version55,
 
         /// <summary>
-        ///     Enum value DatabarStacked
+        ///     Enum value Version56
         /// </summary>
-        DatabarStacked,
+        Version56,
 
         /// <summary>
-        ///     Enum value DatabarExpandedStacked
+        ///     Enum value Version57
         /// </summary>
-        DatabarExpandedStacked,
+        Version57,
 
         /// <summary>
-        ///     Enum value CompactPdf417
+        ///     Enum value Version58
         /// </summary>
-        CompactPdf417,
+        Version58,
 
         /// <summary>
-        ///     Enum value GS1QR
+        ///     Enum value Version59
         /// </summary>
-        GS1QR,
+        Version59,
 
         /// <summary>
-        ///     Enum value MaxiCode
+        ///     Enum value Version60
         /// </summary>
-        MaxiCode,
+        Version60,
 
         /// <summary>
-        ///     Enum value MicrE13B
+        ///     Enum value Version61
         /// </summary>
-        MicrE13B,
+        Version61,
 
         /// <summary>
-        ///     Enum value Code32
+        ///     Enum value Version62
         /// </summary>
-        Code32,
+        Version62,
 
         /// <summary>
-        ///     Enum value DataLogic2of5
+        ///     Enum value Version63
         /// </summary>
-        DataLogic2of5,
+        Version63,
 
         /// <summary>
-        ///     Enum value DotCode
+        ///     Enum value Version64
         /// </summary>
-        DotCode,
+        Version64,
 
         /// <summary>
-        ///     Enum value DutchKIX
+        ///     Enum value Version65
         /// </summary>
-        DutchKIX,
+        Version65,
 
         /// <summary>
-        ///     Enum value CodablockF
+        ///     Enum value Version66
         /// </summary>
-        CodablockF,
+        Version66,
 
         /// <summary>
-        ///     Enum value Mailmark
+        ///     Enum value Version67
         /// </summary>
-        Mailmark,
+        Version67,
 
         /// <summary>
-        ///     Enum value GS1DotCode
+        ///     Enum value Version68
         /// </summary>
-        GS1DotCode,
+        Version68,
 
         /// <summary>
-        ///     Enum value HIBCCode39LIC
+        ///     Enum value Version69
         /// </summary>
-        HIBCCode39LIC,
+        Version69,
 
         /// <summary>
-        ///     Enum value HIBCCode128LIC
+        ///     Enum value Version70
         /// </summary>
-        HIBCCode128LIC,
+        Version70,
 
         /// <summary>
-        ///     Enum value HIBCAztecLIC
+        ///     Enum value Version71
         /// </summary>
-        HIBCAztecLIC,
+        Version71,
 
         /// <summary>
-        ///     Enum value HIBCDataMatrixLIC
+        ///     Enum value Version72
         /// </summary>
-        HIBCDataMatrixLIC,
+        Version72,
 
         /// <summary>
-        ///     Enum value HIBCQRLIC
+        ///     Enum value Version73
         /// </summary>
-        HIBCQRLIC,
+        Version73,
 
         /// <summary>
-        ///     Enum value HIBCCode39PAS
+        ///     Enum value Version74
         /// </summary>
-        HIBCCode39PAS,
+        Version74,
 
         /// <summary>
-        ///     Enum value HIBCCode128PAS
+        ///     Enum value Version75
         /// </summary>
-        HIBCCode128PAS,
+        Version75,
 
         /// <summary>
-        ///     Enum value HIBCAztecPAS
+        ///     Enum value Version76
         /// </summary>
-        HIBCAztecPAS,
+        Version76,
 
         /// <summary>
-        ///     Enum value HIBCDataMatrixPAS
+        ///     Enum value Version77
         /// </summary>
-        HIBCDataMatrixPAS,
+        Version77,
 
         /// <summary>
-        ///     Enum value HIBCQRPAS
+        ///     Enum value Version78
         /// </summary>
-        HIBCQRPAS,
+        Version78,
 
         /// <summary>
-        ///     Enum value HanXin
+        ///     Enum value Version79
         /// </summary>
-        HanXin,
+        Version79,
 
         /// <summary>
-        ///     Enum value GS1HanXin
+        ///     Enum value Version80
         /// </summary>
-        GS1HanXin
+        Version80,
+
+        /// <summary>
+        ///     Enum value Version81
+        /// </summary>
+        Version81,
+
+        /// <summary>
+        ///     Enum value Version82
+        /// </summary>
+        Version82,
+
+        /// <summary>
+        ///     Enum value Version83
+        /// </summary>
+        Version83,
+
+        /// <summary>
+        ///     Enum value Version84
+        /// </summary>
+        Version84
 
     }
 }

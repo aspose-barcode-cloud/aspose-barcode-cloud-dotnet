@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.5.0
+- SDK version: 23.6.0
 
 ## Demo applications
 
@@ -285,6 +285,10 @@ Class | Method | HTTP request | Description
 - [Model.FontStyle](docs/FontStyle.md)
 - [Model.GeneratorParams](docs/GeneratorParams.md)
 - [Model.GeneratorParamsList](docs/GeneratorParamsList.md)
+- [Model.HanXinEncodeMode](docs/HanXinEncodeMode.md)
+- [Model.HanXinErrorLevel](docs/HanXinErrorLevel.md)
+- [Model.HanXinParams](docs/HanXinParams.md)
+- [Model.HanXinVersion](docs/HanXinVersion.md)
 - [Model.ITF14BorderType](docs/ITF14BorderType.md)
 - [Model.ITFParams](docs/ITFParams.md)
 - [Model.MacroCharacter](docs/MacroCharacter.md)

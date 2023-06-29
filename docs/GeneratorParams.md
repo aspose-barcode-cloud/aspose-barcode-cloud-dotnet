@@ -59,4 +59,5 @@ Name | Type | Description | Notes
 **QR** | [**QrParams**](QrParams.md) | QR params. | [optional]
 **PatchCode** | [**PatchCodeParams**](PatchCodeParams.md) | PatchCode params. | [optional]
 **Code128** | [**Code128Params**](Code128Params.md) | Code128 params. | [optional]
+**HanXin** | [**HanXinParams**](HanXinParams.md) | HanXin params. | [optional]
 

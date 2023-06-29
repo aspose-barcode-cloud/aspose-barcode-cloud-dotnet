@@ -377,7 +377,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value GS1DotCode
         /// </summary>
-        GS1DotCode
+        GS1DotCode,
+
+        /// <summary>
+        ///     Enum value HanXin
+        /// </summary>
+        HanXin,
+
+        /// <summary>
+        ///     Enum value GS1HanXin
+        /// </summary>
+        GS1HanXin
 
     }
 }
