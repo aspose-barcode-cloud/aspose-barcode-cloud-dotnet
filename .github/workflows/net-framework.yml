@@ -10,6 +10,15 @@ jobs:
   build-and-test:
     runs-on: [windows-latest]
 
+    strategy:
+      matrix:
+        # Test with .NET Framework
+        # See https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-framework
+        # For active versions
+        include:
+          - net-version: v4.6.2
+            framework: net462
+
     steps:
     - uses: actions/checkout@v3
 
@@ -23,12 +32,9 @@ jobs:
       run: msbuild -restore -p:Configuration=Release
 
     - name: Test with VSTest
-    # Test with .NET Framework 4.6.2
-    # See https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-framework
-    # For active versions
       run: |
           $ErrorActionPreference = "Stop"
-          VSTest.Console.exe /Framework:".NETFramework,Version=v4.6.2" /ResultsDirectory:Tests\Results /Logger:"trx;LogFileName=test.log" Tests\bin\Release\net462\Aspose.BarCode.Cloud.Sdk.Tests.dll
+          VSTest.Console.exe /Framework:".NETFramework,Version=${{ matrix.net-version }}" /ResultsDirectory:Tests\Results /Logger:"trx;LogFileName=test.log" Tests\bin\Release\${{ matrix.framework }}\Aspose.BarCode.Cloud.Sdk.Tests.dll
           if( ([xml](Get-Content Tests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 24 ){ throw "Not all tests were explored or added new tests" }
 
       env:
