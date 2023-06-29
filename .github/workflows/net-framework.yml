@@ -18,6 +18,8 @@ jobs:
         include:
           - net-version: v4.6.2
             framework: net462
+          - net-version: v4.8.0
+            framework: net480
           - net-version: v4.8.1
             framework: net481
 
