@@ -163,11 +163,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     DEPRECATED: Use 'Resolution' instead.
         /// </summary>
+        [Obsolete("Use 'Resolution' instead.", false)]
         public double? ResolutionX { get; set; }
 
         /// <summary>
         ///     DEPRECATED: Use 'Resolution' instead.
         /// </summary>
+        [Obsolete("Use 'Resolution' instead.", false)]
         public double? ResolutionY { get; set; }
 
         /// <summary>

@@ -25,6 +25,7 @@ insert-examples:
 
 .PHONY: after-gen
 after-gen: insert-examples format format-doc
+	./scripts/annotate-obsolete.bash
 
 .PHONY: update
 update:

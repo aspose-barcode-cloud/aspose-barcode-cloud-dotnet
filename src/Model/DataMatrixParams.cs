@@ -69,11 +69,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Columns count.
         /// </summary>
+        [Obsolete("Will be replaced with 'DataMatrix.Version' in the next release  Columns count.", false)]
         public int? Columns { get; set; }
 
         /// <summary>
         ///     DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Rows count.
         /// </summary>
+        [Obsolete("Will be replaced with 'DataMatrix.Version' in the next release  Rows count.", false)]
         public int? Rows { get; set; }
 
         /// <summary>
