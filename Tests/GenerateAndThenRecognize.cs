@@ -26,9 +26,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 EncodeBarcodeType.QR.ToString(), "Test"));
 
             BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(
-                    image: generated
-                ));
+                new PostBarcodeRecognizeFromUrlOrContentRequest
+                {
+                    image = generated
+                });
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);

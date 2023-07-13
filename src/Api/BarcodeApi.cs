@@ -112,6 +112,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "text", request.Text);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "twoDDisplayText", request.TwoDDisplayText);
@@ -148,7 +149,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barWidthReduction", request.BarWidthReduction);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "useAntiAlias", request.UseAntiAlias);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
@@ -179,6 +180,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "detectEncoding", request.DetectEncoding);
@@ -215,8 +217,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
@@ -250,6 +251,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             var formParams = new Dictionary<string, object>();
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "detectEncoding", request.DetectEncoding);
@@ -285,8 +287,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             if (request.image != null)
             {
@@ -329,8 +330,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
-
+#pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
@@ -371,6 +373,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "text", request.Text);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "twoDDisplayText", request.TwoDDisplayText);
@@ -409,8 +412,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
@@ -454,11 +456,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.type);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
@@ -502,11 +504,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             string response = _apiInvoker.InvokeApi(
                            resourcePath,

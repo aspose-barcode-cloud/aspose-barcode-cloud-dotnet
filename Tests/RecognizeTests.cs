@@ -32,11 +32,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(
-                    image: image,
-                    preset: PresetType.HighPerformance.ToString(),
-                    type: DecodeBarcodeType.QR.ToString()
-                )
+                new PostBarcodeRecognizeFromUrlOrContentRequest
+                {
+                    image = image,
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Type = DecodeBarcodeType.QR.ToString()
+                }
             );
 
             // Assert
@@ -56,12 +57,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var apiException = Assert.Throws<ApiException>(() =>
             {
                 _api.PostBarcodeRecognizeFromUrlOrContent(
-                    new PostBarcodeRecognizeFromUrlOrContentRequest(
-                        image: image,
-                        preset: PresetType.HighPerformance.ToString(),
-                        type: DecodeBarcodeType.QR.ToString(),
-                        timeout: 1
-                    )
+                    new PostBarcodeRecognizeFromUrlOrContentRequest
+                    {
+                        image = image,
+                        Preset = PresetType.HighPerformance.ToString(),
+                        Type = DecodeBarcodeType.QR.ToString(),
+                        Timeout = 1
+                    }
                 );
             });
 

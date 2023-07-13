@@ -102,9 +102,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
@@ -143,9 +143,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
@@ -184,10 +184,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,
@@ -226,8 +226,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "storageName", request.storageName);
-
-
+#pragma warning disable CS0618 // Type or member is obsolete
+#pragma warning restore CS0618 // Type or member is obsolete
 
             string response = _apiInvoker.InvokeApi(
                            resourcePath,

@@ -15,9 +15,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var api = new BarcodeApi(clientId: "client id", clientSecret: "client secret");
             var request = new GetBarcodeGenerateRequest(
                 text: "Very sample text",
-                type: EncodeBarcodeType.Code128.ToString(),
-                format: "png"
-            );
+                type: EncodeBarcodeType.Code128.ToString()
+            )
+            {
+                format = "png"
+            };
 
             // Act
             var ex = Assert.Throws<ApiException>(

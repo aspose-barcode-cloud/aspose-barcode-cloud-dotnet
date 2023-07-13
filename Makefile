@@ -31,6 +31,10 @@ after-gen: insert-examples format format-doc
 update:
 	echo "Not implemented"
 
+.PHONY: lint
+lint:
+	dotnet build
+
 .PHONY: clean
 clean:
 	find . -depth -type d \( -name obj -o -name bin -o -name TestResults \) -exec rm -rf "{}" \; || true

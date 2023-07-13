@@ -111,12 +111,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -145,10 +145,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -179,9 +179,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             return _apiInvoker.InvokeBinaryApi(
                 resourcePath,
@@ -215,12 +216,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             _apiInvoker.InvokeApi(
                 resourcePath,
@@ -257,9 +258,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             var formParams = new Dictionary<string, object>();
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
-
-
+#pragma warning restore CS0618 // Type or member is obsolete
 
             if (request.File != null)
             {
