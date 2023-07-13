@@ -67,12 +67,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public string TextEncoding { get; set; }
 
         /// <summary>
-        ///     Columns count.
+        ///     DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Columns count.
         /// </summary>
         public int? Columns { get; set; }
 
         /// <summary>
-        ///     Rows count.
+        ///     DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Rows count.
         /// </summary>
         public int? Rows { get; set; }
 
