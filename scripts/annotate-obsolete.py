@@ -21,13 +21,13 @@ def main(input_file):
             deprecated_match = DEPRECATED_RE.match(line)
             if indent is not None and deprecated_match:
                 # deprecation message found
-                obsolete_message = f"{indent}[Obsolete(\"{deprecated_match.groupdict()['message']}\", false)]"
+                obsolete_message = f"{indent}[System.Obsolete(\"{deprecated_match.groupdict()['message']}\", false)]"
 
             if indent is not None and not COMMENT_RE.match(line):
                 # comment section ended
                 indent = None
                 if obsolete_message:
-                    if not line.lstrip().startswith("[Obsolete"):
+                    if not line.lstrip().startswith(obsolete_message.lstrip()):
                         result.write(obsolete_message + "\n")
                     obsolete_message = None
 
