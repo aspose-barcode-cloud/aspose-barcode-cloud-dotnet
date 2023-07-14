@@ -40,7 +40,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="GetDiscUsageRequest"/> class.
         /// </summary>
-        public GetDiscUsageRequest(string storageName)
+        public GetDiscUsageRequest(string storageName = null)
         {
             this.storageName = storageName;
         }
