@@ -149,9 +149,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-                new PostBarcodeRecognizeFromUrlOrContentRequest
+                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
-                    image = image,
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
                     Preset = PresetType.HighPerformance.ToString()
                 }

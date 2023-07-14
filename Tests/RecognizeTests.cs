@@ -32,9 +32,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-                new PostBarcodeRecognizeFromUrlOrContentRequest
+                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
-                    image = image,
                     Preset = PresetType.HighPerformance.ToString(),
                     Type = DecodeBarcodeType.QR.ToString()
                 }
@@ -57,9 +56,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var apiException = Assert.Throws<ApiException>(() =>
             {
                 _api.PostBarcodeRecognizeFromUrlOrContent(
-                    new PostBarcodeRecognizeFromUrlOrContentRequest
+                    new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                     {
-                        image = image,
                         Preset = PresetType.HighPerformance.ToString(),
                         Type = DecodeBarcodeType.QR.ToString(),
                         Timeout = 1

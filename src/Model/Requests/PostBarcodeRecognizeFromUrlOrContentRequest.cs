@@ -40,8 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="PostBarcodeRecognizeFromUrlOrContentRequest"/> class.
         /// </summary>
-        public PostBarcodeRecognizeFromUrlOrContentRequest()
+        public PostBarcodeRecognizeFromUrlOrContentRequest(System.IO.Stream image)
         {
+            this.image = image;
         }
 
         /// <summary>
