@@ -40,11 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="CreateFolderRequest"/> class.
         /// </summary>
         /// <param name="path">Folder path to create e.g. &#39;folder_1/folder_2/&#39;</param>
-        /// <param name="storageName">Storage name</param>
-        public CreateFolderRequest(string path, string storageName = null)
+        public CreateFolderRequest(string path)
         {
             this.path = path;
-            this.storageName = storageName;
         }
 
         /// <summary>

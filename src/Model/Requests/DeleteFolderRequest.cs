@@ -40,13 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="DeleteFolderRequest"/> class.
         /// </summary>
         /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
-        /// <param name="storageName">Storage name</param>
-        /// <param name="recursive">Enable to delete folders, subfolders and files</param>
-        public DeleteFolderRequest(string path, string storageName = null, bool? recursive = null)
+        public DeleteFolderRequest(string path)
         {
             this.path = path;
-            this.storageName = storageName;
-            this.recursive = recursive;
         }
 
         /// <summary>

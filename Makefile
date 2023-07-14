@@ -7,7 +7,7 @@ init:
 
 .PHONY: format
 format:
-	~/.dotnet/tools/dotnet-format ./Aspose.BarCode.Cloud.Sdk.sln
+	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln
 	# Trim white space in comments
 	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 
@@ -25,10 +25,15 @@ insert-examples:
 
 .PHONY: after-gen
 after-gen: insert-examples format format-doc
+	./scripts/annotate-obsolete.bash
 
 .PHONY: update
 update:
 	echo "Not implemented"
+
+.PHONY: lint
+lint:
+	dotnet build
 
 .PHONY: clean
 clean:

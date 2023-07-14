@@ -40,11 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="GetFilesListRequest"/> class.
         /// </summary>
         /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
-        /// <param name="storageName">Storage name</param>
-        public GetFilesListRequest(string path, string storageName = null)
+        public GetFilesListRequest(string path)
         {
             this.path = path;
-            this.storageName = storageName;
         }
 
         /// <summary>

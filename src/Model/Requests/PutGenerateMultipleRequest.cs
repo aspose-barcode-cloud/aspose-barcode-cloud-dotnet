@@ -41,16 +41,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// </summary>
         /// <param name="name">New filename</param>
         /// <param name="generatorParamsList">List of barcodes</param>
-        /// <param name="format">Format of file</param>
-        /// <param name="folder">Folder to place file to</param>
-        /// <param name="storage">The storage name</param>
-        public PutGenerateMultipleRequest(string name, GeneratorParamsList generatorParamsList, string format = null, string folder = null, string storage = null)
+        public PutGenerateMultipleRequest(string name, GeneratorParamsList generatorParamsList)
         {
             this.name = name;
             this.generatorParamsList = generatorParamsList;
-            this.format = format;
-            this.folder = folder;
-            this.storage = storage;
         }
 
         /// <summary>

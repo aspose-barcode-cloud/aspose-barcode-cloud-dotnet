@@ -41,16 +41,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// </summary>
         /// <param name="name">The image file name.</param>
         /// <param name="readerParams">BarcodeReader object with parameters.</param>
-        /// <param name="type"></param>
-        /// <param name="storage">The storage name</param>
-        /// <param name="folder">The image folder.</param>
-        public PutBarcodeRecognizeFromBodyRequest(string name, ReaderParams readerParams, string type = null, string storage = null, string folder = null)
+        public PutBarcodeRecognizeFromBodyRequest(string name, ReaderParams readerParams)
         {
             this.name = name;
             this.readerParams = readerParams;
-            this.type = type;
-            this.storage = storage;
-            this.folder = folder;
         }
 
         /// <summary>

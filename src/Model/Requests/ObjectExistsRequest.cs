@@ -40,13 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="ObjectExistsRequest"/> class.
         /// </summary>
         /// <param name="path">File or folder path e.g. &#39;/file.ext&#39; or &#39;/folder&#39;</param>
-        /// <param name="storageName">Storage name</param>
-        /// <param name="versionId">File version ID</param>
-        public ObjectExistsRequest(string path, string storageName = null, string versionId = null)
+        public ObjectExistsRequest(string path)
         {
             this.path = path;
-            this.storageName = storageName;
-            this.versionId = versionId;
         }
 
         /// <summary>
