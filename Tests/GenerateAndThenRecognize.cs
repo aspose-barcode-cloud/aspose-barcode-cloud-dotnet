@@ -22,13 +22,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void GenerateAndThenRecognizeTest()
         {
-            Stream generated = _api.GetBarcodeGenerate(new GetBarcodeGenerateRequest(
+            Stream generatedImage = _api.GetBarcodeGenerate(new GetBarcodeGenerateRequest(
                 EncodeBarcodeType.QR.ToString(), "Test"));
 
             BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(
-                    image: generated
-                ));
+                new PostBarcodeRecognizeFromUrlOrContentRequest(generatedImage)
+            );
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);

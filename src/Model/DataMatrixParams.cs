@@ -29,7 +29,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 
@@ -67,13 +66,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public string TextEncoding { get; set; }
 
         /// <summary>
-        ///     Columns count.
+        ///     DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Columns count.
         /// </summary>
+        [System.Obsolete("Will be replaced with 'DataMatrix.Version' in the next release  Columns count.", false)]
         public int? Columns { get; set; }
 
         /// <summary>
-        ///     Rows count.
+        ///     DEPRECATED: Will be replaced with 'DataMatrix.Version' in the next release  Rows count.
         /// </summary>
+        [System.Obsolete("Will be replaced with 'DataMatrix.Version' in the next release  Rows count.", false)]
         public int? Rows { get; set; }
 
         /// <summary>

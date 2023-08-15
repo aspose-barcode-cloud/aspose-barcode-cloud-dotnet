@@ -64,9 +64,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Arrange
             var request = new GetBarcodeGenerateRequest(
                 text: "Very sample text",
-                type: EncodeBarcodeType.Code128.ToString(),
-                format: "png"
-            );
+                type: EncodeBarcodeType.Code128.ToString()
+            )
+            {
+                format = "png"
+            };
 
             // Act
             using Stream response = _api.GetBarcodeGenerate(request);
@@ -105,10 +107,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Act
             BarcodeResponseList response = _api.GetBarcodeRecognize(
                 new GetBarcodeRecognizeRequest(
-                    fileName,
-                    folder: folder,
-                    preset: PresetType.HighPerformance.ToString()
+                    fileName
                 )
+                {
+                    folder = folder,
+                    Preset = PresetType.HighPerformance.ToString()
+                }
             );
 
             // Assert
@@ -145,11 +149,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(
-                    image: image,
-                    checksumValidation: ChecksumValidation.Off.ToString(),
-                    preset: PresetType.HighPerformance.ToString()
-                )
+                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
+                {
+                    ChecksumValidation = ChecksumValidation.Off.ToString(),
+                    Preset = PresetType.HighPerformance.ToString()
+                }
             );
 
             // Assert
@@ -207,9 +211,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var request = new PutBarcodeGenerateFileRequest(
                 "Test_PutBarcodeGenerateFile.png",
                 type: EncodeBarcodeType.Code128.ToString(),
-                text: "Hello!",
-                folder: TempFolderPath
-            );
+                text: "Hello!"
+            )
+            {
+                folder = TempFolderPath
+            };
 
             // Act
             ResultImageInfo response = _api.PutBarcodeGenerateFile(request);
@@ -247,9 +253,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     readerParams: new ReaderParams
                     {
                         Preset = PresetType.HighPerformance
-                    },
-                    folder: folder
+                    }
                 )
+                {
+                    folder = folder
+                }
             );
 
             // Assert
@@ -286,9 +294,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             var request = new PutGenerateMultipleRequest(
                 "Test_PutGenerateMultiple.png",
-                generatorParamsList,
-                folder: TempFolderPath
-            );
+                generatorParamsList
+            )
+            {
+                folder = TempFolderPath
+            };
 
             // Act
             ResultImageInfo response = _api.PutGenerateMultiple(request);

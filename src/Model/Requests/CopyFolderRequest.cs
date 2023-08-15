@@ -41,14 +41,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// </summary>
         /// <param name="srcPath">Source folder path e.g. &#39;/src&#39;</param>
         /// <param name="destPath">Destination folder path e.g. &#39;/dst&#39;</param>
-        /// <param name="srcStorageName">Source storage name</param>
-        /// <param name="destStorageName">Destination storage name</param>
-        public CopyFolderRequest(string srcPath, string destPath, string srcStorageName = null, string destStorageName = null)
+        public CopyFolderRequest(string srcPath, string destPath)
         {
             this.srcPath = srcPath;
             this.destPath = destPath;
-            this.srcStorageName = srcStorageName;
-            this.destStorageName = destStorageName;
         }
 
         /// <summary>

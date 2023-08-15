@@ -40,13 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="DownloadFileRequest"/> class.
         /// </summary>
         /// <param name="path">File path e.g. &#39;/folder/file.ext&#39;</param>
-        /// <param name="storageName">Storage name</param>
-        /// <param name="versionId">File version ID to download</param>
-        public DownloadFileRequest(string path, string storageName = null, string versionId = null)
+        public DownloadFileRequest(string path)
         {
             this.path = path;
-            this.storageName = storageName;
-            this.versionId = versionId;
         }
 
         /// <summary>

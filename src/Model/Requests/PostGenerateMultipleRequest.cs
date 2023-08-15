@@ -40,11 +40,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="PostGenerateMultipleRequest"/> class.
         /// </summary>
         /// <param name="generatorParamsList">List of barcodes</param>
-        /// <param name="format">Format to return stream in</param>
-        public PostGenerateMultipleRequest(GeneratorParamsList generatorParamsList, string format = null)
+        public PostGenerateMultipleRequest(GeneratorParamsList generatorParamsList)
         {
             this.generatorParamsList = generatorParamsList;
-            this.format = format;
         }
 
         /// <summary>

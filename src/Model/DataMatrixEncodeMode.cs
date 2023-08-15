@@ -34,7 +34,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///
+    ///     DataMatrix encoder&#39;s encoding mode, default to Auto
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum DataMatrixEncodeMode
