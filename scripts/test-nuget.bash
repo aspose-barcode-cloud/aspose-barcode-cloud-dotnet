@@ -12,6 +12,8 @@ dotnet tool install -g sourcelink || true
 
 echo "Testing ${nupkg}..."
 ~/.dotnet/tools/sourcelink test "${nupkg}" || (
+    echo
     echo "Check commit exists on remote!"
+    echo
     exit 1
 )

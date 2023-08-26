@@ -33,7 +33,7 @@ update:
 
 .PHONY: lint
 lint:
-	dotnet build
+	dotnet build --warnaserror
 
 .PHONY: clean
 clean:

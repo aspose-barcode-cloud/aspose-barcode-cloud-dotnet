@@ -12,6 +12,6 @@ SRC_DIR="$( cd "${SCRIPT_DIR}/../src" &> /dev/null && pwd )"
 
 pushd "${SRC_DIR}"
 export RELEASE_BUILD=true
-dotnet build --configuration=Release Aspose.BarCode.Cloud.Sdk.csproj
+dotnet build --warnaserror --configuration=Release Aspose.BarCode.Cloud.Sdk.csproj
 dotnet pack --configuration=Release Aspose.BarCode.Cloud.Sdk.csproj --output="${output_dir}"
 popd
