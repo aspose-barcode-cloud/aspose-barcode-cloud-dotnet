@@ -5,7 +5,7 @@ WORKDIR /src
 RUN dotnet tool install -g sourcelink
 COPY . .
 RUN ./scripts/pack-nuget.bash /package
-RUN ./scripts/test-nuget.bash $(ls /package/Aspose.BarCode-Cloud.*.nupkg)
+RUN ./scripts/test-nuget.bash "$(ls /package/Aspose.BarCode-Cloud.*.nupkg)"
 
 FROM sdk AS final
 WORKDIR /packed

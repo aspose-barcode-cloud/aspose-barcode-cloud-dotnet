@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  make-nuget:
+  pack-nuget:
     runs-on: ubuntu-latest
 
     steps:
