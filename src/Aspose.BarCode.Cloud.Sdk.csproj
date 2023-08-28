@@ -10,33 +10,42 @@
 Aspose.Barcode for Cloud allows you to control all aspects of the image and barcode when generating barcode images. Specify image width, height, border style, output image format and more. You can also set barcode attributes like font style, font color, background color, barcode type and the barcode text location.</Description>
     <PackageProjectUrl>https://products.aspose.cloud/barcode/net/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
     <PackageTags>Barcode Scan Recognize Generate QR DataMatrix AustraliaPost VIN MSI Aztec ISBN OPC Postnet Aspose Aspose.BarCode Aspose.BarCode-Cloud EAN13 ISSN PZN SingaporePost UPCA UPCE Code11 Code128 Code32 DotCode EAN14 EAN8 GS1DataMatrix</PackageTags>
-    <Copyright>© Aspose 2001-2023. All Rights Reserved.</Copyright>
-    <RepositoryType>Git</RepositoryType>
+    <Copyright>© Aspose Pty Ltd 2001-2023. All Rights Reserved.</Copyright>
     <PackageProjectUrl>https://products.aspose.cloud/barcode/net/</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Aspose.BarCode-Cloud</PackageId>
     <Product>Aspose.BarCode Cloud SDK for .NET</Product>
     <PackageIcon>PackageIcon.png</PackageIcon>
-    <Version>23.7.0</Version>
-    <Authors>asposecloud</Authors>
-    <AssemblyVersion>23.7.0.0</AssemblyVersion>
+    <Version>23.7.1</Version>
+    <Authors>Aspose</Authors>
+    <AssemblyVersion>23.7.1.0</AssemblyVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.7.0</PackageReleaseNotes>
+    <PackageReleaseNotes>https://github.com/aspose-barcode-cloud/aspose-barcode-cloud-dotnet/releases/tag/v23.7.1</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- Set RELEASE_BUILD=true to make ContinuousIntegrationBuild -->
+  <PropertyGroup Condition="'$(RELEASE_BUILD)' == 'true'">
+    <!-- These should not be enabled during local dev or the debugger won’t be able to find the local source files. -->
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="LICENSE.txt" Pack="true" PackagePath="" />
     <None Include="PackageIcon.png" Pack="true" PackagePath="" />
-    <None Include="..\README.md" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>

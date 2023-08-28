@@ -33,8 +33,13 @@ update:
 
 .PHONY: lint
 lint:
-	dotnet build
+	dotnet build --warnaserror
 
 .PHONY: clean
 clean:
 	find . -depth -type d \( -name obj -o -name bin -o -name TestResults \) -exec rm -rf "{}" \; || true
+
+.PHONY: nuget
+nuget:
+	./scripts/pack-nuget.bash
+	./scripts/test-nuget.bash

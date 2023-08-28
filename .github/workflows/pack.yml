@@ -1,4 +1,4 @@
-name: Check badges in README.md
+name: Pack into Nuget package
 
 on:
   push:
@@ -7,11 +7,10 @@ on:
     branches: [ main ]
 
 jobs:
-  check-badges:
+  pack-nuget:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Check badges in README.md
-      run: ./scripts/check-badges.bash "README.md"
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile

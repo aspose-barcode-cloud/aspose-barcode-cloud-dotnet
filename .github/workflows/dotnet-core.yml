@@ -29,7 +29,7 @@ jobs:
     - name: Setup latest version of dotnet
       uses: actions/setup-dotnet@v3
     - name: Build with latest version
-      run: dotnet build
+      run: dotnet build --warnaserror
 
     - name: Setup ${{ matrix.dotnet-version }} version of dotnet
       uses: actions/setup-dotnet@v3
@@ -40,13 +40,3 @@ jobs:
       run: dotnet test --no-build --verbosity normal --framework ${{ matrix.framework }}
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
-
-  docker-build:
-    needs: [ build-and-test ]
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile
