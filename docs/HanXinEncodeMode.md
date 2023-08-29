@@ -1,7 +1,10 @@
 # Aspose.BarCode.Cloud.Sdk.Model.HanXinEncodeMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* Binary
+* ECI
+* Unicode
+* URI
+* Extended

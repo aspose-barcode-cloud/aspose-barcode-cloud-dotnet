@@ -1,7 +1,9 @@
 # Aspose.BarCode.Cloud.Sdk.Model.BorderDashStyle
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Solid**
+* Dash
+* Dot
+* DashDot
+* DashDotDot

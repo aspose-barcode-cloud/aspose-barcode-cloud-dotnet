@@ -1,5 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.GeneratorParams
 
+Represents extended BarcodeGenerator params.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -60,4 +62,3 @@ Name | Type | Description | Notes
 **PatchCode** | [**PatchCodeParams**](PatchCodeParams.md) | PatchCode params. | [optional]
 **Code128** | [**Code128Params**](Code128Params.md) | Code128 params. | [optional]
 **HanXin** | [**HanXinParams**](HanXinParams.md) | HanXin params. | [optional]
-

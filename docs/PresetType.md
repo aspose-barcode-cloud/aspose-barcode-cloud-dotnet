@@ -1,7 +1,12 @@
 # Aspose.BarCode.Cloud.Sdk.Model.PresetType
 
-## Properties
+See QualitySettings allows to configure recognition quality and speed manually.
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
+## Allowable values
 
+* **HighPerformance**
+* NormalQuality
+* HighQualityDetection
+* MaxQualityDetection
+* HighQuality
+* MaxBarCodes

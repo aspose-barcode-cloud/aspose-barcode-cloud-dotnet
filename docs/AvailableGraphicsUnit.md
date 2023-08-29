@@ -1,7 +1,10 @@
 # Aspose.BarCode.Cloud.Sdk.Model.AvailableGraphicsUnit
 
-## Properties
+Subset of GraphicsUnit.
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
+## Allowable values
 
+* **Pixel**
+* Point
+* Inch
+* Millimeter

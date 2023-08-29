@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.CodeLocation
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Below**
+* Above
+* None

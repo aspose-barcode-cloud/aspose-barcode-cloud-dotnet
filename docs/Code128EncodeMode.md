@@ -1,7 +1,11 @@
 # Aspose.BarCode.Cloud.Sdk.Model.Code128EncodeMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* CodeA
+* CodeB
+* CodeAB
+* CodeC
+* CodeAC
+* CodeBC

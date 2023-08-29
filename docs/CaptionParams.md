@@ -1,5 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.CaptionParams
 
+Caption
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -11,4 +13,3 @@ Name | Type | Description | Notes
 **Font** | [**FontParams**](FontParams.md) | Font. | [optional]
 **Padding** | [**Padding**](Padding.md) | Padding. | [optional]
 **NoWrap** | **bool?** | Specify word wraps (line breaks) within text. Default value: false. | [optional]
-

@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.MacroCharacter
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **None**
+* Macro05
+* Macro06

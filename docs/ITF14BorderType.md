@@ -1,7 +1,9 @@
 # Aspose.BarCode.Cloud.Sdk.Model.ITF14BorderType
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **None**
+* Frame
+* Bar
+* FrameOut
+* BarOut

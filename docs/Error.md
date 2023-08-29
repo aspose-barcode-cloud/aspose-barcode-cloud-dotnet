@@ -1,5 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.Error
 
+Error
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -8,4 +10,3 @@ Name | Type | Description | Notes
 **Message** | **string** | Message | [optional]
 **Description** | **string** | Description | [optional]
 **InnerError** | [**ErrorDetails**](ErrorDetails.md) | Inner Error | [optional]
-

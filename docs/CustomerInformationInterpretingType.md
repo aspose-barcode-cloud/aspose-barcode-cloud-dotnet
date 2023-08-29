@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.CustomerInformationInterpretingType
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **CTable**
+* NTable
+* Other

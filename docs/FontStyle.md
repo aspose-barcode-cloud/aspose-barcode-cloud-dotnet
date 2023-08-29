@@ -1,7 +1,9 @@
 # Aspose.BarCode.Cloud.Sdk.Model.FontStyle
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Regular**
+* Bold
+* Italic
+* Underline
+* Strikeout

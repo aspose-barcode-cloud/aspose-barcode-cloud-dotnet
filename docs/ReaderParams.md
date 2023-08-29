@@ -1,5 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.ReaderParams
 
+Represents BarcodeReader object.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -39,4 +41,3 @@ Name | Type | Description | Notes
 **ReadTinyBarcodes** | **bool?** | Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional]
 **AustralianPostEncodingTable** | **CustomerInformationInterpretingType** | Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional]
 **IgnoreEndingFillingPatternsForCTable** | **bool?** | The flag which force AustraliaPost decoder to ignore last filling patterns in Customer Information Field during decoding as CTable method. CTable encoding method does not have any gaps in encoding table and sequence \&quot;333\&quot; of filling patterns is decoded as letter \&quot;z\&quot;. | [optional]
-

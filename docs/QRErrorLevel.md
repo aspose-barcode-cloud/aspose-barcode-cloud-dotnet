@@ -1,7 +1,8 @@
 # Aspose.BarCode.Cloud.Sdk.Model.QRErrorLevel
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **LevelL**
+* LevelM
+* LevelQ
+* LevelH

@@ -1,5 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.StorageFile
 
+File or folder information
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -9,4 +11,3 @@ Name | Type | Description | Notes
 **ModifiedDate** | **DateTime?** | File or folder last modified DateTime. | [optional]
 **Size** | **long?** | File or folder size. |
 **Path** | **string** | File or folder path. | [optional]
-

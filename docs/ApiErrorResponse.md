@@ -6,4 +6,3 @@ Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
 **RequestId** | **string** |  | [optional]
 **Error** | [**ApiError**](ApiError.md) |  | [optional]
-

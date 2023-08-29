@@ -9,4 +9,3 @@ Name | Type | Description | Notes
 **Description** | **string** |  | [optional]
 **DateTime** | **DateTime?** |  | [optional]
 **InnerError** | [**ApiError**](ApiError.md) |  | [optional]
-

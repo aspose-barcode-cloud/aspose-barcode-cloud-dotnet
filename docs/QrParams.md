@@ -1,5 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.QrParams
 
+QR parameters.
+
 ## Properties
 
 Name | Type | Description | Notes
@@ -12,4 +14,3 @@ Name | Type | Description | Notes
 **ErrorLevel** | **QRErrorLevel** | Level of Reed-Solomon error correction for QR barcode. From low to high: LevelL, LevelM, LevelQ, LevelH. see QRErrorLevel. | [optional]
 **Version** | **QRVersion** | Version of QR Code. From Version1 to Version40 for QR code and from M1 to M4 for MicroQr. Default value is QRVersion.Auto. | [optional]
 **StructuredAppend** | [**StructuredAppend**](StructuredAppend.md) | QR structured append parameters. | [optional]
-

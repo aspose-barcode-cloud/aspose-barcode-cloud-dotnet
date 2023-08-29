@@ -1,7 +1,6 @@
 # Aspose.BarCode.Cloud.Sdk.Model.FontMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* Manual
