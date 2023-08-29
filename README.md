@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.7.1
+- SDK version: 23.8.0
 
 ## Demo applications
 
@@ -267,6 +267,7 @@ Class | Method | HTTP request | Description
 - [Model.DataMatrixEccType](docs/DataMatrixEccType.md)
 - [Model.DataMatrixEncodeMode](docs/DataMatrixEncodeMode.md)
 - [Model.DataMatrixParams](docs/DataMatrixParams.md)
+- [Model.DataMatrixVersion](docs/DataMatrixVersion.md)
 - [Model.DecodeBarcodeType](docs/DecodeBarcodeType.md)
 - [Model.DiscUsage](docs/DiscUsage.md)
 - [Model.DotCodeEncodeMode](docs/DotCodeEncodeMode.md)

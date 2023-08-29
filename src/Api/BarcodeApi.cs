@@ -331,6 +331,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fastScanOnly", request.FastScanOnly);
 
 
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowAdditionalRestorations", request.AllowAdditionalRestorations);
+
+
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
 
 
@@ -470,6 +473,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fastScanOnly", request.FastScanOnly);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowAdditionalRestorations", request.AllowAdditionalRestorations);
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
