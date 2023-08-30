@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.DotCodeEncodeMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* Bytes
+* ExtendedCodetext

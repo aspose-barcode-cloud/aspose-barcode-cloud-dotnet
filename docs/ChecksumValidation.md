@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.ChecksumValidation
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Default**
+* On
+* Off

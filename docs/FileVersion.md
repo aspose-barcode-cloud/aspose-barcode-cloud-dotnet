@@ -11,4 +11,3 @@ Name | Type | Description | Notes
 **Path** | **string** | File or folder path. | [optional]
 **VersionId** | **string** | File Version ID. | [optional]
 **IsLatest** | **bool?** | Specifies whether the file is (true) or is not (false) the latest version of an file. |
-

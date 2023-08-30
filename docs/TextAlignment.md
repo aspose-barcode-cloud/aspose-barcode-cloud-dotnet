@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.TextAlignment
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Left**
+* Center
+* Right

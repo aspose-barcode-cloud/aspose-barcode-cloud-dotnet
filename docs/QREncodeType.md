@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.QREncodeType
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* ForceQR
+* ForceMicroQR

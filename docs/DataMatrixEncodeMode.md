@@ -1,7 +1,15 @@
 # Aspose.BarCode.Cloud.Sdk.Model.DataMatrixEncodeMode
 
-## Properties
+DataMatrix encoder&#39;s encoding mode, default to Auto
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
+## Allowable values
 
+* **Auto**
+* ASCII
+* Full
+* Custom
+* C40
+* Text
+* EDIFACT
+* ANSIX12
+* ExtendedCodetext

@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.AutoSizeMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **None**
+* Nearest
+* Interpolation

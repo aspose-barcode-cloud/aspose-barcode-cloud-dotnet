@@ -1,7 +1,8 @@
 # Aspose.BarCode.Cloud.Sdk.Model.AztecSymbolMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* Compact
+* FullRange
+* Rune

@@ -1,7 +1,8 @@
 # Aspose.BarCode.Cloud.Sdk.Model.Code128Emulation
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **None**
+* Code903
+* Code904
+* Code905

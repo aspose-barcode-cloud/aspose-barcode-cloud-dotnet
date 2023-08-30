@@ -1,7 +1,10 @@
 # Aspose.BarCode.Cloud.Sdk.Model.QREncodeMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* Bytes
+* Utf8BOM
+* Utf16BEBOM
+* ECIEncoding
+* ExtendedCodetext

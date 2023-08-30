@@ -1,7 +1,8 @@
 # Aspose.BarCode.Cloud.Sdk.Model.Pdf417CompactionMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* Text
+* Numeric
+* Binary

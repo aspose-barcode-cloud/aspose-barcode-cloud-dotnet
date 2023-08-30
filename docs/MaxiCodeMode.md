@@ -1,7 +1,9 @@
 # Aspose.BarCode.Cloud.Sdk.Model.MaxiCodeMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Mode2**
+* Mode3
+* Mode4
+* Mode5
+* Mode6

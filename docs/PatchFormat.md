@@ -1,7 +1,9 @@
 # Aspose.BarCode.Cloud.Sdk.Model.PatchFormat
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **PatchOnly**
+* A4
+* A4_LANDSCAPE
+* US_Letter
+* US_Letter_LANDSCAPE

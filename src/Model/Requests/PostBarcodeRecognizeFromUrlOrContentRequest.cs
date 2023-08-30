@@ -180,6 +180,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public bool? FastScanOnly { get; set; }
 
         /// <summary>
+        ///     Allows engine using additional image restorations to recognize corrupted barcodes. At this time, it is used only in MicroPdf417 barcode type. Default value: False.
+        /// </summary>
+        public bool? AllowAdditionalRestorations { get; set; }
+
+        /// <summary>
         ///     Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time.
         /// </summary>
         public double? RegionLikelihoodThresholdPercent { get; set; }

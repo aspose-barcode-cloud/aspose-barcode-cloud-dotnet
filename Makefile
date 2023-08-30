@@ -7,7 +7,8 @@ init:
 
 .PHONY: format
 format:
-	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln
+	dotnet restore ./Aspose.BarCode.Cloud.Sdk.sln
+	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln --no-restore
 	# Trim white space in comments
 	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 

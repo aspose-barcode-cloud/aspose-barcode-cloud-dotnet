@@ -56,6 +56,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public MacroCharacter? MacroCharacters { get; set; }
 
         /// <summary>
+        ///     Sets a Datamatrix symbol size. Default value: DataMatrixVersion.Auto.
+        /// </summary>
+        public DataMatrixVersion? Version { get; set; }
+
+        /// <summary>
         ///     Height/Width ratio of 2D BarCode module
         /// </summary>
         public double? AspectRatio { get; set; }

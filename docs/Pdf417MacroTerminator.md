@@ -1,7 +1,7 @@
 # Aspose.BarCode.Cloud.Sdk.Model.Pdf417MacroTerminator
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Auto**
+* None
+* Set

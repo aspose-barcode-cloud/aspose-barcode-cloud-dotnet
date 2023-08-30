@@ -1,7 +1,6 @@
 # Aspose.BarCode.Cloud.Sdk.Model.CodabarChecksumMode
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **Mod10**
+* Mod16

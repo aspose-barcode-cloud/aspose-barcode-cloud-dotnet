@@ -1,7 +1,8 @@
 # Aspose.BarCode.Cloud.Sdk.Model.CodabarSymbol
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **A**
+* B
+* C
+* D

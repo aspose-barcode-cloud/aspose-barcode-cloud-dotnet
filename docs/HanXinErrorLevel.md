@@ -1,7 +1,8 @@
 # Aspose.BarCode.Cloud.Sdk.Model.HanXinErrorLevel
 
-## Properties
+## Allowable values
 
-Name | Type | Description | Notes
----- | ---- | ----------- | -----
-
+* **L1**
+* L2
+* L3
+* L4
