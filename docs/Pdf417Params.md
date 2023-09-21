@@ -7,7 +7,7 @@ PDF417 parameters.
 Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
 **AspectRatio** | **double?** | Height/Width ratio of 2D BarCode module. | [optional]
-**TextEncoding** | **string** | Encoding of codetext. | [optional]
+**TextEncoding** | **string** | DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext. | [optional]
 **Columns** | **int?** | Columns count. | [optional]
 **CompactionMode** | **Pdf417CompactionMode** | Pdf417 symbology type of BarCode&#39;s compaction mode. Default value: Pdf417CompactionMode.Auto. | [optional]
 **ErrorLevel** | **Pdf417ErrorLevel** | Pdf417 symbology type of BarCode&#39;s error correction level ranging from level0 to level8, level0 means no error correction info, level8 means best error correction which means a larger picture. | [optional]

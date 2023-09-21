@@ -74,3 +74,4 @@ See EncodeTypes
 * GS1DotCode
 * HanXin
 * GS1HanXin
+* GS1Aztec

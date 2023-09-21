@@ -76,8 +76,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public double? AspectRatio { get; set; }
 
         /// <summary>
-        ///     Encoding of codetext.
+        ///     DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.
         /// </summary>
+        [System.Obsolete("This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext.", false)]
         public string TextEncoding { get; set; }
 
         /// <summary>
