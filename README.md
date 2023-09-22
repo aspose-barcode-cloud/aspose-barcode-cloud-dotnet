@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.8.0
+- SDK version: 23.9.0
 
 ## Demo applications
 
@@ -245,6 +245,7 @@ Class | Method | HTTP request | Description
 - [Model.AustralianPostParams](docs/AustralianPostParams.md)
 - [Model.AutoSizeMode](docs/AutoSizeMode.md)
 - [Model.AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
+- [Model.AztecEncodeMode](docs/AztecEncodeMode.md)
 - [Model.AztecParams](docs/AztecParams.md)
 - [Model.AztecSymbolMode](docs/AztecSymbolMode.md)
 - [Model.BarcodeResponse](docs/BarcodeResponse.md)

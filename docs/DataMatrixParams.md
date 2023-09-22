@@ -7,7 +7,7 @@ DataMatrix parameters.
 Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
 **AspectRatio** | **double?** | Height/Width ratio of 2D BarCode module | [optional]
-**TextEncoding** | **string** | Encoding of codetext. | [optional]
+**TextEncoding** | **string** | DEPRECATED: This property is obsolete and will be removed in future releases. Unicode symbols detection and encoding will be processed in Auto mode with Extended Channel Interpretation charset designator. Using of own encodings requires manual CodeText encoding into byte[] array.  Sets the encoding of codetext. | [optional]
 **Columns** | **int?** | DEPRECATED: Will be replaced with &#39;DataMatrix.Version&#39; in the next release  Columns count. | [optional]
 **DataMatrixEcc** | **DataMatrixEccType** | Datamatrix ECC type. Default value: DataMatrixEccType.Ecc200. | [optional]
 **DataMatrixEncodeMode** | **DataMatrixEncodeMode** | Encode mode of Datamatrix barcode. Default value: DataMatrixEncodeMode.Auto. | [optional]

@@ -85,3 +85,5 @@ See DecodeType
 * HIBCQRPAS
 * HanXin
 * GS1HanXin
+* GS1Aztec
+* GS1CompositeBar
