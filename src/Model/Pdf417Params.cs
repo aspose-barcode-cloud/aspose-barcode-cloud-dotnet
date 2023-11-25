@@ -61,14 +61,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public ECIEncodings? MacroECIEncoding { get; set; }
 
         /// <summary>
-        ///     Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.
+        ///     DEPRECATED: This property is obsolete and will be removed in future releases. See samples of using new parameters on https://releases.aspose.com/barcode/net/release-notes/2023/aspose-barcode-for-net-23-10-release-notes/ Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.
         /// </summary>
+        [System.Obsolete("This property is obsolete and will be removed in future releases. See samples of using new parameters on https://releases.aspose.com/barcode/net/release-notes/2023/aspose-barcode-for-net-23-10-release-notes/ Function codeword for Code 128 emulation. Applied for MicroPDF417 only. Ignored for PDF417 and MacroPDF417 barcodes.", false)]
         public Code128Emulation? Code128Emulation { get; set; }
 
         /// <summary>
         ///     Used to tell the encoder whether to add Macro PDF417 Terminator (codeword 922) to the segment. Applied only for Macro PDF417.
         /// </summary>
         public Pdf417MacroTerminator? Pdf417MacroTerminator { get; set; }
+
+        /// <summary>
+        ///     Macro Characters 05 and 06 values are used to obtain more compact encoding in special modes. Can be used only with MicroPdf417 and encodes 916 and 917 MicroPdf417 modes. Default value: MacroCharacters.None.
+        /// </summary>
+        public MacroCharacter? MacroCharacters { get; set; }
 
         /// <summary>
         ///     Height/Width ratio of 2D BarCode module.
@@ -145,6 +151,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Macro Pdf417 barcode addressee name
         /// </summary>
         public string MacroAddressee { get; set; }
+
+        /// <summary>
+        ///     Can be used only with MicroPdf417 and encodes Code 128 emulation modes. Can encode FNC1 in second position modes 908 and 909, also can encode 910 and 911 which just indicate that recognized MicroPdf417 can be interpret as Code 128.
+        /// </summary>
+        public bool? IsCode128Emulation { get; set; }
+
+        /// <summary>
+        ///     Defines linked modes with GS1MicroPdf417, MicroPdf417 and Pdf417 barcodes. With GS1MicroPdf417 symbology encodes 906, 907, 912, 913, 914, 915 “Linked” UCC/EAN-128 modes. With MicroPdf417 and Pdf417 symbologies encodes 918 linkage flag to associated linear component other than an EAN.UCC.
+        /// </summary>
+        public bool? IsLinked { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object
