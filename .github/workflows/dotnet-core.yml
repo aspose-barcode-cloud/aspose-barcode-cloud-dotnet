@@ -39,6 +39,6 @@ jobs:
         dotnet-version: ${{ matrix.dotnet-version }}
 
     - name: Test with ${{ matrix.dotnet-version }}
-      run: dotnet test --no-build --verbosity normal --framework ${{ matrix.framework }}
+      run: dotnet test --verbosity normal --framework ${{ matrix.framework }}
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
