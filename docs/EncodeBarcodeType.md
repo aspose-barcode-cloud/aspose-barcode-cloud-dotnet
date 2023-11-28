@@ -75,3 +75,4 @@ See EncodeTypes
 * HanXin
 * GS1HanXin
 * GS1Aztec
+* GS1MicroPdf417

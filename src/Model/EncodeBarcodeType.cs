@@ -392,7 +392,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value GS1Aztec
         /// </summary>
-        GS1Aztec
+        GS1Aztec,
+
+        /// <summary>
+        ///     Enum value GS1MicroPdf417
+        /// </summary>
+        GS1MicroPdf417
 
     }
 }

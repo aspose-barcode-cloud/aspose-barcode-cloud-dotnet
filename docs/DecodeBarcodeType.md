@@ -87,3 +87,4 @@ See DecodeType
 * GS1HanXin
 * GS1Aztec
 * GS1CompositeBar
+* GS1MicroPdf417
