@@ -14,11 +14,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     [TestFixture]
     public class JwtAuthTests : TestsBase
     {
-        [SetUp]
-        public void Init()
-        {
-        }
-
         private async Task<string> FetchToken()
         {
             var formParams = new Dictionary<string, string>
@@ -36,6 +31,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var accessToken = Convert.ToString(json["access_token"]);
             return accessToken;
         }
+
 
         [Test]
         public async Task CanUseExternalToken()
