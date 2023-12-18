@@ -13,7 +13,8 @@ jobs:
     strategy:
       matrix:
         # See https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-and-net-core
-        # For versions
+        # and https://github.com/dotnet/core/blob/main/releases.md
+        # for versions
         include:
           - dotnet-version: 3.1.x
             framework: netcoreapp3.1
