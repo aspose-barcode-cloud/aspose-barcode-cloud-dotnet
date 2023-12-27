@@ -36,7 +36,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "{\"barcodes\":[{" +
                 "\"barcodeValue\":\"Test\"," +
                 "\"type\":\"QR\"," +
-                "\"region\":[{\"x\":7,\"y\":7},{\"x\":49,\"y\":7},{\"x\":49,\"y\":49},{\"x\":7,\"y\":49}]}]}",
+                "\"region\":[{\"x\":7,\"y\":7},{\"x\":49,\"y\":6},{\"x\":48,\"y\":48},{\"x\":6,\"y\":49}]}]}",
                 recognized.ToString()
             );
         }
