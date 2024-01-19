@@ -28,7 +28,9 @@
 //
 
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
@@ -228,6 +230,143 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null);
         }
 
+        /// <inheritdoc />
+        public async Task<Stream> GetBarcodeGenerateAsync(GetBarcodeGenerateRequest request)
+        {
+            // verify the required parameter 'type' is set
+            if (request.Type == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'type' when calling GetBarcodeGenerate");
+            }
+            // verify the required parameter 'text' is set
+            if (request.Text == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'text' when calling GetBarcodeGenerate");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "text", request.Text);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "twoDDisplayText", request.TwoDDisplayText);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textLocation", request.TextLocation);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textAlignment", request.TextAlignment);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", request.Resolution);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionX", request.ResolutionX);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionY", request.ResolutionY);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "dimensionX", request.DimensionX);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textSpace", request.TextSpace);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "units", request.Units);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "sizeMode", request.SizeMode);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barHeight", request.BarHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageHeight", request.ImageHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageWidth", request.ImageWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", request.RotationAngle);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "backColor", request.BackColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barColor", request.BarColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderColor", request.BorderColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderWidth", request.BorderWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderDashStyle", request.BorderDashStyle);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderVisible", request.BorderVisible);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableChecksum", request.EnableChecksum);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableEscape", request.EnableEscape);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filledBars", request.FilledBars);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "alwaysShowChecksum", request.AlwaysShowChecksum);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "wideNarrowRatio", request.WideNarrowRatio);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "validateText", request.ValidateText);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementData", request.SupplementData);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementSpace", request.SupplementSpace);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barWidthReduction", request.BarWidthReduction);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "useAntiAlias", request.UseAntiAlias);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            return await _apiInvoker.InvokeBinaryApiAsync(
+                resourcePath,
+                "GET",
+                null,
+                null,
+                null);
+        }
+
+
         /// <summary>
         ///     Recognize barcode from a file on server.
         /// </summary>
@@ -377,6 +516,148 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
+        /// <inheritdoc />
+        public async Task<BarcodeResponseList> GetBarcodeRecognizeAsync(GetBarcodeRecognizeRequest request)
+        {
+            // verify the required parameter 'name' is set
+            if (request.name == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'name' when calling GetBarcodeRecognize");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "detectEncoding", request.DetectEncoding);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "preset", request.Preset);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectX", request.RectX);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectY", request.RectY);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectWidth", request.RectWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectHeight", request.RectHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "stripFNC", request.StripFNC);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "timeout", request.Timeout);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "medianSmoothingWindowSize", request.MedianSmoothingWindowSize);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowMedianSmoothing", request.AllowMedianSmoothing);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowComplexBackground", request.AllowComplexBackground);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowDatamatrixIndustrialBarcodes", request.AllowDatamatrixIndustrialBarcodes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowDecreasedImage", request.AllowDecreasedImage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowDetectScanGap", request.AllowDetectScanGap);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowIncorrectBarcodes", request.AllowIncorrectBarcodes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowInvertImage", request.AllowInvertImage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowMicroWhiteSpotsRemoving", request.AllowMicroWhiteSpotsRemoving);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowOneDFastBarcodesDetector", request.AllowOneDFastBarcodesDetector);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowOneDWipedBarsRestoration", request.AllowOneDWipedBarsRestoration);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowQRMicroQrRestoration", request.AllowQRMicroQrRestoration);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowRegularImage", request.AllowRegularImage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowSaltAndPepperFiltering", request.AllowSaltAndPepperFiltering);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowWhiteSpotsRemoving", request.AllowWhiteSpotsRemoving);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checkMore1DVariants", request.CheckMore1DVariants);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fastScanOnly", request.FastScanOnly);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowAdditionalRestorations", request.AllowAdditionalRestorations);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "scanWindowSizes", request.ScanWindowSizes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "similarity", request.Similarity);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "skipDiagonalSearch", request.SkipDiagonalSearch);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "readTinyBarcodes", request.ReadTinyBarcodes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+        }
+
         /// <summary>
         ///     Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \&quot;application/octet-stream\&quot;. An image can also be passed as a form field.
         /// </summary>
@@ -523,6 +804,145 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
+        /// <inheritdoc />
+        public async Task<BarcodeResponseList> PostBarcodeRecognizeFromUrlOrContentAsync(PostBarcodeRecognizeFromUrlOrContentRequest request)
+        {
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            var formParams = new Dictionary<string, object>();
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "detectEncoding", request.DetectEncoding);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "preset", request.Preset);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectX", request.RectX);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectY", request.RectY);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectWidth", request.RectWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rectHeight", request.RectHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "stripFNC", request.StripFNC);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "timeout", request.Timeout);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "medianSmoothingWindowSize", request.MedianSmoothingWindowSize);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowMedianSmoothing", request.AllowMedianSmoothing);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowComplexBackground", request.AllowComplexBackground);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowDatamatrixIndustrialBarcodes", request.AllowDatamatrixIndustrialBarcodes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowDecreasedImage", request.AllowDecreasedImage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowDetectScanGap", request.AllowDetectScanGap);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowIncorrectBarcodes", request.AllowIncorrectBarcodes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowInvertImage", request.AllowInvertImage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowMicroWhiteSpotsRemoving", request.AllowMicroWhiteSpotsRemoving);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowOneDFastBarcodesDetector", request.AllowOneDFastBarcodesDetector);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowOneDWipedBarsRestoration", request.AllowOneDWipedBarsRestoration);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowQRMicroQrRestoration", request.AllowQRMicroQrRestoration);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowRegularImage", request.AllowRegularImage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowSaltAndPepperFiltering", request.AllowSaltAndPepperFiltering);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowWhiteSpotsRemoving", request.AllowWhiteSpotsRemoving);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checkMore1DVariants", request.CheckMore1DVariants);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fastScanOnly", request.FastScanOnly);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "allowAdditionalRestorations", request.AllowAdditionalRestorations);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "regionLikelihoodThresholdPercent", request.RegionLikelihoodThresholdPercent);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "scanWindowSizes", request.ScanWindowSizes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "similarity", request.Similarity);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "skipDiagonalSearch", request.SkipDiagonalSearch);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "readTinyBarcodes", request.ReadTinyBarcodes);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "australianPostEncodingTable", request.AustralianPostEncodingTable);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "ignoreEndingFillingPatternsForCTable", request.IgnoreEndingFillingPatternsForCTable);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            if (request.image != null)
+            {
+                formParams.Add("image", ApiInvoker.ToFileInfo(request.image, "image"));
+
+            }
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "POST",
+                           null,
+                           null,
+                           formParams);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+        }
+
         /// <summary>
         ///     Generate multiple barcodes and return in response stream
         /// </summary>
@@ -548,6 +968,32 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             return _apiInvoker.InvokeBinaryApi(
+                resourcePath,
+                "POST",
+                postBody,
+                null,
+                null);
+        }
+
+        /// <inheritdoc />
+        public async Task<Stream> PostGenerateMultipleAsync(PostGenerateMultipleRequest request)
+        {
+            // verify the required parameter 'generatorParamsList' is set
+            if (request.generatorParamsList == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'generatorParamsList' when calling PostGenerateMultiple");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generateMultiple";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
+#pragma warning restore CS0618 // Type or member is obsolete
+            string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
+            return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
                 "POST",
                 postBody,
@@ -717,6 +1163,161 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
+        /// <inheritdoc />
+        public async Task<ResultImageInfo> PutBarcodeGenerateFileAsync(PutBarcodeGenerateFileRequest request)
+        {
+            // verify the required parameter 'name' is set
+            if (request.name == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'name' when calling PutBarcodeGenerateFile");
+            }
+            // verify the required parameter 'type' is set
+            if (request.Type == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'type' when calling PutBarcodeGenerateFile");
+            }
+            // verify the required parameter 'text' is set
+            if (request.Text == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'text' when calling PutBarcodeGenerateFile");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generate";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "text", request.Text);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "twoDDisplayText", request.TwoDDisplayText);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textLocation", request.TextLocation);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textAlignment", request.TextAlignment);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", request.Resolution);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionX", request.ResolutionX);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolutionY", request.ResolutionY);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "dimensionX", request.DimensionX);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textSpace", request.TextSpace);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "units", request.Units);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "sizeMode", request.SizeMode);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barHeight", request.BarHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageHeight", request.ImageHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageWidth", request.ImageWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", request.RotationAngle);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "backColor", request.BackColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barColor", request.BarColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderColor", request.BorderColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderWidth", request.BorderWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderDashStyle", request.BorderDashStyle);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "borderVisible", request.BorderVisible);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableChecksum", request.EnableChecksum);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "enableEscape", request.EnableEscape);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "filledBars", request.FilledBars);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "alwaysShowChecksum", request.AlwaysShowChecksum);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "wideNarrowRatio", request.WideNarrowRatio);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "validateText", request.ValidateText);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementData", request.SupplementData);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "supplementSpace", request.SupplementSpace);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barWidthReduction", request.BarWidthReduction);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "useAntiAlias", request.UseAntiAlias);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "PUT",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (ResultImageInfo)SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
+            }
+
+            return null;
+        }
+
         /// <summary>
         ///     Recognition of a barcode from file on server with parameters in body.
         /// </summary>
@@ -769,6 +1370,52 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
+        /// <inheritdoc />
+        public async Task<BarcodeResponseList> PutBarcodeRecognizeFromBodyAsync(PutBarcodeRecognizeFromBodyRequest request)
+        {
+
+            // verify the required parameter 'name' is set
+            if (request.name == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'name' when calling PutBarcodeRecognizeFromBody");
+            }
+            // verify the required parameter 'readerParams' is set
+            if (request.readerParams == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'readerParams' when calling PutBarcodeRecognizeFromBody");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/recognize";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.type);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
+#pragma warning restore CS0618 // Type or member is obsolete
+            string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "PUT",
+                           postBody,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+        }
+
         /// <summary>
         ///     Generate image with multiple barcodes and put new file on server
         /// </summary>
@@ -806,6 +1453,53 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             string response = _apiInvoker.InvokeApi(
+                           resourcePath,
+                           "PUT",
+                           postBody,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (ResultImageInfo)SerializationHelper.Deserialize(response, typeof(ResultImageInfo));
+            }
+
+            return null;
+
+        }
+
+        /// <inheritdoc />
+        public async Task<ResultImageInfo> PutGenerateMultipleAsync(PutGenerateMultipleRequest request)
+        {
+
+            // verify the required parameter 'name' is set
+            if (request.name == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'name' when calling PutGenerateMultiple");
+            }
+            // verify the required parameter 'generatorParamsList' is set
+            if (request.generatorParamsList == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'generatorParamsList' when calling PutGenerateMultiple");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/{name}/generateMultiple";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
+#pragma warning restore CS0618 // Type or member is obsolete
+            string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
+            string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "PUT",
                            postBody,

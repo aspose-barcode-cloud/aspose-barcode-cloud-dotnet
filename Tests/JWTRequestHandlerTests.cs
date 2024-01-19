@@ -39,7 +39,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // arrange
             var jwtHandler = new JwtRequestHandler(TestConfiguration);
-            jwtHandler.ProcessUrl("http://some url/");
+            jwtHandler.Preparing();
 
             // act
             WebRequest request = _requestFactory.Object.Create("http://some url/");
