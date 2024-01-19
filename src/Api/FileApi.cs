@@ -29,6 +29,7 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
@@ -132,6 +133,50 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        ///     Copy file
+        /// </summary>
+        /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
+        public async Task CopyFileAsync(CopyFileRequest request)
+        {
+            // verify the required parameter 'srcPath' is set
+            if (request.srcPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'srcPath' when calling CopyFile");
+            }
+            // verify the required parameter 'destPath' is set
+            if (request.destPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFile");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/copy/{srcPath}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            await _apiInvoker.InvokeApiAsync(
+                 resourcePath,
+                 "PUT",
+                 null,
+                 null,
+                 null);
+        }
+
+        /// <summary>
         ///     Delete file
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
@@ -158,6 +203,39 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
 
             _apiInvoker.InvokeApi(
+                resourcePath,
+                "DELETE",
+                null,
+                null,
+                null);
+        }
+
+        /// <summary>
+        ///     Delete file
+        /// </summary>
+        /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
+        public async Task DeleteFileAsync(DeleteFileRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFile");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            await _apiInvoker.InvokeApiAsync(
                 resourcePath,
                 "DELETE",
                 null,
@@ -194,6 +272,42 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
 
             return _apiInvoker.InvokeBinaryApi(
+                resourcePath,
+                "GET",
+                null,
+                null,
+                null);
+        }
+
+        /// <summary>
+        ///     Download file
+        /// </summary>
+        /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
+        /// <returns>
+        ///     <see cref="System.IO.Stream" />
+        /// </returns>
+        public async Task<System.IO.Stream> DownloadFileAsync(DownloadFileRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling DownloadFile");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
                 "GET",
                 null,
@@ -247,6 +361,50 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        ///     Move file
+        /// </summary>
+        /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
+        public async Task MoveFileAsync(MoveFileRequest request)
+        {
+            // verify the required parameter 'srcPath' is set
+            if (request.srcPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'srcPath' when calling MoveFile");
+            }
+            // verify the required parameter 'destPath' is set
+            if (request.destPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFile");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/move/{srcPath}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            await _apiInvoker.InvokeApiAsync(
+                 resourcePath,
+                 "PUT",
+                 null,
+                 null,
+                 null);
+        }
+
+        /// <summary>
         ///     Upload file
         /// </summary>
         /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
@@ -296,6 +454,57 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             return null;
 
+        }
+
+        /// <summary>
+        ///     Upload file
+        /// </summary>
+        /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
+        /// <returns>
+        ///     <see cref="FilesUploadResult" />
+        /// </returns>
+        public async Task<FilesUploadResult> UploadFileAsync(UploadFileRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling UploadFile");
+            }
+            // verify the required parameter '_file' is set
+            if (request.File == null)
+            {
+                throw new ApiException(400, "Missing required parameter '_file' when calling UploadFile");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            var formParams = new Dictionary<string, object>();
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            if (request.File != null)
+            {
+                formParams.Add("_file", ApiInvoker.ToFileInfo(request.File, "File"));
+
+            }
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "PUT",
+                           null,
+                           null,
+                           formParams);
+
+            if (response != null)
+            {
+                return (FilesUploadResult)SerializationHelper.Deserialize(response, typeof(FilesUploadResult));
+            }
+
+            return null;
         }
     }
 }

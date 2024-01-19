@@ -55,6 +55,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             return TempFolderPath;
         }
 
+        private async Task<string> PutTestFileAsync(string fileName)
+        {
+            using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
+            FilesUploadResult uploaded = await _fileApi.UploadFileAsync(
+                new UploadFileRequest(
+                    $"{TempFolderPath}/{fileName}",
+                    fileToUpload
+                )
+            );
+            Assert.IsNotEmpty(uploaded.Uploaded);
+
+            return TempFolderPath;
+        }
+
 
         /// <summary>
         ///     Test GetBarcodeGenerate
@@ -359,7 +373,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 }
             };
 
-            string folder = PutTestFile(fileName);
+            string folder = await PutTestFileAsync(fileName);
 
             // Act
             BarcodeResponseList response = await _api.GetBarcodeRecognizeAsync(
@@ -389,6 +403,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         ///     Test PostBarcodeRecognizeFromUrlOrContentAsync
         /// </summary>
         [Test]
+        [Category("AsyncTests")]
         public async Task PostBarcodeRecognizeFromUrlOrContentAsyncTest()
         {
             // Arrange
@@ -416,6 +431,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         ///     Test PostGenerateMultipleAsync
         /// </summary>
         [Test]
+        [Category("AsyncTests")]
         public async Task PostGenerateMultipleAsyncTest()
         {
             // Arrange
@@ -452,6 +468,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         ///     Test PutBarcodeGenerateFile
         /// </summary>
         [Test]
+        [Category("AsyncTests")]
         public async Task PutBarcodeGenerateFileAsyncTest()
         {
             // Arrange
@@ -478,6 +495,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         ///     Test PutBarcodeRecognizeFromBodyAsync
         /// </summary>
         [Test]
+        [Category("AsyncTests")]
         public async Task PutBarcodeRecognizeFromBodyAsyncTest()
         {
             // Arrange
@@ -491,7 +509,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             const string fileName = "Test_GetBarcodeGenerate.png";
-            string folder = PutTestFile(fileName);
+            string folder = await PutTestFileAsync(fileName);
 
             // Act
             BarcodeResponseList response = await _api.PutBarcodeRecognizeFromBodyAsync(
@@ -524,6 +542,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         ///     Test PutGenerateMultipleAsync
         /// </summary>
         [Test]
+        [Category("AsyncTests")]
         public async Task PutGenerateMultipleAsyncTest()
         {
             // Arrange

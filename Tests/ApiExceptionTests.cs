@@ -32,7 +32,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task GetBarcodeGenerateAsyncTestThrows()
+        [Category("AsyncTests")]
+        public void GetBarcodeGenerateAsyncTestThrows()
         {
             // Arrange
             var api = new BarcodeApi(clientId: "client id", clientSecret: "client secret");
