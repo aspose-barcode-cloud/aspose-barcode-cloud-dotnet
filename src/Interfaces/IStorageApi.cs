@@ -44,7 +44,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         ///     <see cref="StorageExist" />
         /// </returns>
         StorageExist StorageExists(StorageExistsRequest request);
-        
+
         /// <summary>
         /// Get disc usage
         /// </summary>

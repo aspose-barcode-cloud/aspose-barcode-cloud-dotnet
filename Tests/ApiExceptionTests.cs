@@ -53,6 +53,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual(400, ex.ErrorCode);
             Assert.AreEqual("Bad Request", ex.Message);
 
-         }
+        }
     }
 }

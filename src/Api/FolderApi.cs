@@ -230,12 +230,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null,
                 null);
         }
-            /// <summary>
-            ///     Delete folder
-            /// </summary>
-            /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+        /// <summary>
+        ///     Delete folder
+        /// </summary>
+        /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
 
-            public void DeleteFolder(DeleteFolderRequest request)
+        public void DeleteFolder(DeleteFolderRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
