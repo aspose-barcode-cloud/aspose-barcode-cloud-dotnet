@@ -29,6 +29,7 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
@@ -129,6 +130,47 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        ///     Copy folder
+        /// </summary>
+        /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
+        public async Task CopyFolderAsync(CopyFolderRequest request)
+        {
+            // verify the required parameter 'srcPath' is set
+            if (request.srcPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'srcPath' when calling CopyFolder");
+            }
+            // verify the required parameter 'destPath' is set
+            if (request.destPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFolder");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/copy/{srcPath}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            await _apiInvoker.InvokeApiAsync(
+                resourcePath,
+                "PUT",
+                null,
+                null,
+                null);
+        }
+
+        /// <summary>
         ///     Create the folder
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
@@ -160,11 +202,40 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        ///     Delete folder
+        ///     Create the folder
         /// </summary>
-        /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+        /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
+        public async Task CreateFolderAsync(CreateFolderRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling CreateFolder");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+#pragma warning restore CS0618 // Type or member is obsolete
 
-        public void DeleteFolder(DeleteFolderRequest request)
+            await _apiInvoker.InvokeApiAsync(
+                resourcePath,
+                "PUT",
+                null,
+                null,
+                null);
+        }
+            /// <summary>
+            ///     Delete folder
+            /// </summary>
+            /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+
+            public void DeleteFolder(DeleteFolderRequest request)
         {
             // verify the required parameter 'path' is set
             if (request.path == null)
@@ -186,6 +257,39 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
 
             _apiInvoker.InvokeApi(
+                resourcePath,
+                "DELETE",
+                null,
+                null,
+                null);
+        }
+
+        /// <summary>
+        ///     Delete folder
+        /// </summary>
+        /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+        public async Task DeleteFolderAsync(DeleteFolderRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFolder");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recursive", request.recursive);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            await _apiInvoker.InvokeApiAsync(
                 resourcePath,
                 "DELETE",
                 null,
@@ -235,6 +339,46 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        ///     Get all files and folders within a folder
+        /// </summary>
+        /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
+        /// <returns>
+        ///     <see cref="FilesList" />
+        /// </returns>
+        public async Task<FilesList> GetFilesListAsync(GetFilesListRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling GetFilesList");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (FilesList)SerializationHelper.Deserialize(response, typeof(FilesList));
+            }
+
+            return null;
+        }
+
+        /// <summary>
         ///     Move folder
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
@@ -269,6 +413,47 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
 
             _apiInvoker.InvokeApi(
+                resourcePath,
+                "PUT",
+                null,
+                null,
+                null);
+        }
+
+        /// <summary>
+        ///     Move folder
+        /// </summary>
+        /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
+        public async Task MoveFolderAsync(MoveFolderRequest request)
+        {
+            // verify the required parameter 'srcPath' is set
+            if (request.srcPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'srcPath' when calling MoveFolder");
+            }
+            // verify the required parameter 'destPath' is set
+            if (request.destPath == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFolder");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/folder/move/{srcPath}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "srcPath", request.srcPath);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destPath", request.destPath);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "srcStorageName", request.srcStorageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "destStorageName", request.destStorageName);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            await _apiInvoker.InvokeApiAsync(
                 resourcePath,
                 "PUT",
                 null,

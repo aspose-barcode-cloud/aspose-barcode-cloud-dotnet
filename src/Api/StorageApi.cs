@@ -29,6 +29,7 @@
 
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
@@ -122,6 +123,40 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        ///     Get disc usage
+        /// </summary>
+        /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
+        /// <returns>
+        ///     <see cref="DiscUsage" />
+        /// </returns>
+        public async Task<DiscUsage> GetDiscUsageAsync(GetDiscUsageRequest request)
+        {
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/disc";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (DiscUsage)SerializationHelper.Deserialize(response, typeof(DiscUsage));
+            }
+
+            return null;
+        }
+
+        /// <summary>
         ///     Get file versions
         /// </summary>
         /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
@@ -160,6 +195,46 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             return null;
 
+        }
+
+        /// <summary>
+        ///     Get file versions
+        /// </summary>
+        /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
+        /// <returns>
+        ///     <see cref="FileVersions" />
+        /// </returns>
+        public async Task<FileVersions> GetFileVersionsAsync(GetFileVersionsRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling GetFileVersions");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/version/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (FileVersions)SerializationHelper.Deserialize(response, typeof(FileVersions));
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -207,6 +282,49 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        ///     Check if file or folder exists
+        /// </summary>
+        /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
+        /// <returns>
+        ///     <see cref="ObjectExist" />
+        /// </returns>
+        public async Task<ObjectExist> ObjectExistsAsync(ObjectExistsRequest request)
+        {
+            // verify the required parameter 'path' is set
+            if (request.path == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'path' when calling ObjectExists");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/exist/{path}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "versionId", request.versionId);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (ObjectExist)SerializationHelper.Deserialize(response, typeof(ObjectExist));
+            }
+
+            return null;
+        }
+
+        /// <summary>
         ///     Check if storage exists
         /// </summary>
         /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
@@ -242,6 +360,43 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             return null;
 
+        }
+
+        /// <summary>
+        ///     Check if storage exists
+        /// </summary>
+        /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
+        /// <returns>
+        ///     <see cref="StorageExist" />
+        /// </returns>
+        public async Task<StorageExist> StorageExistsAsync(StorageExistsRequest request)
+        {
+            // verify the required parameter 'storageName' is set
+            if (request.storageName == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'storageName' when calling StorageExists");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/{storageName}/exist";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "storageName", request.storageName);
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (StorageExist)SerializationHelper.Deserialize(response, typeof(StorageExist));
+            }
+
+            return null;
         }
     }
 }
