@@ -10,39 +10,47 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
     public interface IStorageApi
     {
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetDiscUsageAsync" /> instead.
         ///     Get disc usage
         /// </summary>
         /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
         /// <returns>
         ///     <see cref="DiscUsage" />
         /// </returns>
+        [System.Obsolete]
         DiscUsage GetDiscUsage(GetDiscUsageRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetFileVersionsAsync" /> instead.
         ///     Get file versions
         /// </summary>
         /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
         /// <returns>
         ///     <see cref="FileVersions" />
         /// </returns>
+        [System.Obsolete]
         FileVersions GetFileVersions(GetFileVersionsRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="ObjectExistsAsync" /> instead.
         ///     Check if file or folder exists
         /// </summary>
         /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
         /// <returns>
         ///     <see cref="ObjectExist" />
         /// </returns>
+        [System.Obsolete]
         ObjectExist ObjectExists(ObjectExistsRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="StorageExistsAsync" /> instead.
         ///     Check if storage exists
         /// </summary>
         /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
         /// <returns>
         ///     <see cref="StorageExist" />
         /// </returns>
+        [System.Obsolete]
         StorageExist StorageExists(StorageExistsRequest request);
 
         /// <summary>

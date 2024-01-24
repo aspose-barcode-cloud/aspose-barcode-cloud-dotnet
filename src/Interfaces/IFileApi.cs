@@ -11,39 +11,52 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
     public interface IFileApi
     {
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="CopyFileAsync" /> instead.
         ///     Copy file
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
+
+        [System.Obsolete]
         void CopyFile(CopyFileRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="DeleteFileAsync" /> instead.
         ///     Delete file
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
+
+        [System.Obsolete]
         void DeleteFile(DeleteFileRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="DownloadFileAsync" /> instead.
         ///     Download file
         /// </summary>
         /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
+        [System.Obsolete]
         Stream DownloadFile(DownloadFileRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="MoveFileAsync" /> instead.
         ///     Move file
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
+
+        [System.Obsolete]
         void MoveFile(MoveFileRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="UploadFileAsync" /> instead.
         ///     Upload file
         /// </summary>
         /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
         /// <returns>
         ///     <see cref="FilesUploadResult" />
         /// </returns>
+        [System.Obsolete]
         FilesUploadResult UploadFile(UploadFileRequest request);
 
         /// <summary>

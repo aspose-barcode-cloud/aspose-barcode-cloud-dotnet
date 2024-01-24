@@ -49,10 +49,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             var api = new BarcodeApi(configWithToken);
+#pragma warning disable CS0612 // Method is obsolete
             using Stream generated = api.GetBarcodeGenerate(
                 new GetBarcodeGenerateRequest(
                 EncodeBarcodeType.QR.ToString(), "Test")
                 );
+#pragma warning restore CS0612 // Method is obsolete
             Assert.Greater(generated.Length, 0);
         }
 

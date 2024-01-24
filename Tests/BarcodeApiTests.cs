@@ -44,12 +44,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         private string PutTestFile(string fileName)
         {
             using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
+#pragma warning disable CS0612 // Method is obsolete
             FilesUploadResult uploaded = _fileApi.UploadFile(
                 new UploadFileRequest(
                     $"{TempFolderPath}/{fileName}",
                     fileToUpload
                 )
             );
+#pragma warning restore CS0612 // Method is obsolete
             Assert.IsNotEmpty(uploaded.Uploaded);
 
             return TempFolderPath;
@@ -84,9 +86,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             {
                 format = "png"
             };
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             using Stream response = _api.GetBarcodeGenerate(request);
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.IsTrue(response.Length > 0);
             using FileStream savedFileStream = File.Create(TestFilePath("Test_GetBarcodeGenerate.png"));
@@ -118,7 +121,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             string folder = PutTestFile(fileName);
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             BarcodeResponseList response = _api.GetBarcodeRecognize(
                 new GetBarcodeRecognizeRequest(
@@ -129,7 +132,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     Preset = PresetType.HighPerformance.ToString()
                 }
             );
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.AreEqual(expectedBarcodes.Count, response.Barcodes.Count);
 
@@ -161,7 +164,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             // Arrange
             using Stream image = GetTestImage("1.png");
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
@@ -170,7 +173,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     Preset = PresetType.HighPerformance.ToString()
                 }
             );
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
             Assert.IsFalse(string.IsNullOrWhiteSpace(response.Barcodes[0].ToString()),
@@ -205,10 +208,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     }
                 }
             );
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             using Stream response = _api.PostGenerateMultiple(request);
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.IsTrue(response.Length > 0);
             using FileStream savedFileStream = File.Create(TestFilePath("Test_PostGenerateMultiple.png"));
@@ -231,10 +234,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             {
                 folder = TempFolderPath
             };
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             ResultImageInfo response = _api.PutBarcodeGenerateFile(request);
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.True(response.FileSize > 0);
             Assert.True(response.ImageWidth > 0);
@@ -261,6 +264,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             const string fileName = "Test_GetBarcodeGenerate.png";
             string folder = PutTestFile(fileName);
 
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             BarcodeResponseList response = _api.PutBarcodeRecognizeFromBody(
                 new PutBarcodeRecognizeFromBodyRequest(
@@ -274,7 +278,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     folder = folder
                 }
             );
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.AreEqual(barcodesToRecognize.Count, response.Barcodes.Count);
 
@@ -314,10 +318,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             {
                 folder = TempFolderPath
             };
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             ResultImageInfo response = _api.PutGenerateMultiple(request);
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.True(response.FileSize > 0);
             Assert.True(response.ImageWidth > 0);

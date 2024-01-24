@@ -88,12 +88,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetDiscUsageAsync" /> instead.
         ///     Get disc usage
         /// </summary>
         /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
         /// <returns>
         ///     <see cref="DiscUsage" />
         /// </returns>
+        [System.Obsolete]
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
             // create path and map variables
@@ -127,7 +129,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="GetDiscUsageRequest" /></param>
         /// <returns>
-        ///     <see cref="DiscUsage" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="DiscUsage" />
         /// </returns>
         public async Task<DiscUsage> GetDiscUsageAsync(GetDiscUsageRequest request)
         {
@@ -154,15 +156,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetFileVersionsAsync" /> instead.
         ///     Get file versions
         /// </summary>
         /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
         /// <returns>
         ///     <see cref="FileVersions" />
         /// </returns>
+        [System.Obsolete]
         public FileVersions GetFileVersions(GetFileVersionsRequest request)
         {
             // verify the required parameter 'path' is set
@@ -202,7 +207,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="GetFileVersionsRequest" /></param>
         /// <returns>
-        ///     <see cref="FileVersions" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="FileVersions" />
         /// </returns>
         public async Task<FileVersions> GetFileVersionsAsync(GetFileVersionsRequest request)
         {
@@ -235,15 +240,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="ObjectExistsAsync" /> instead.
         ///     Check if file or folder exists
         /// </summary>
         /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
         /// <returns>
         ///     <see cref="ObjectExist" />
         /// </returns>
+        [System.Obsolete]
         public ObjectExist ObjectExists(ObjectExistsRequest request)
         {
             // verify the required parameter 'path' is set
@@ -286,7 +294,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="ObjectExistsRequest" /></param>
         /// <returns>
-        ///     <see cref="ObjectExist" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="ObjectExist" />
         /// </returns>
         public async Task<ObjectExist> ObjectExistsAsync(ObjectExistsRequest request)
         {
@@ -322,15 +330,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="StorageExistsAsync" /> instead.
         ///     Check if storage exists
         /// </summary>
         /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
         /// <returns>
         ///     <see cref="StorageExist" />
         /// </returns>
+        [System.Obsolete]
         public StorageExist StorageExists(StorageExistsRequest request)
         {
             // verify the required parameter 'storageName' is set
@@ -367,7 +378,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="StorageExistsRequest" /></param>
         /// <returns>
-        ///     <see cref="StorageExist" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="StorageExist" />
         /// </returns>
         public async Task<StorageExist> StorageExistsAsync(StorageExistsRequest request)
         {
@@ -397,6 +408,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
     }
 }

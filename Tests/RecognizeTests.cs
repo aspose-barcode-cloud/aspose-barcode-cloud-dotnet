@@ -30,7 +30,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
-
+#pragma warning disable CS0612 // Method is obsolete
             // Act
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
@@ -39,7 +39,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     Type = DecodeBarcodeType.QR.ToString()
                 }
             );
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
@@ -56,6 +56,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Act
             var apiException = Assert.Throws<ApiException>(() =>
             {
+#pragma warning disable CS0612 // Method is obsolete
                 _api.PostBarcodeRecognizeFromUrlOrContent(
                     new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                     {
@@ -65,7 +66,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     }
                 );
             });
-
+#pragma warning restore CS0612 // Method is obsolete
             // Assert
             Assert.IsNotNull(apiException);
             Assert.AreEqual(408, apiException.ErrorCode);

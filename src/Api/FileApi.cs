@@ -88,10 +88,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="CopyFileAsync" /> instead.
         ///     Copy file
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
 
+        [System.Obsolete]
         public void CopyFile(CopyFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -136,6 +138,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Copy file
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task CopyFileAsync(CopyFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -169,18 +174,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
 
             await _apiInvoker.InvokeApiAsync(
-                 resourcePath,
-                 "PUT",
-                 null,
-                 null,
-                 null);
+                resourcePath,
+                "PUT",
+                null,
+                null,
+                null);
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="DeleteFileAsync" /> instead.
         ///     Delete file
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
 
+        [System.Obsolete]
         public void DeleteFile(DeleteFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -214,6 +221,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Delete file
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task DeleteFileAsync(DeleteFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -244,12 +254,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="DownloadFileAsync" /> instead.
         ///     Download file
         /// </summary>
         /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
+        [System.Obsolete]
         public System.IO.Stream DownloadFile(DownloadFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -284,7 +296,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
         /// <returns>
-        ///     <see cref="System.IO.Stream" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
         public async Task<System.IO.Stream> DownloadFileAsync(DownloadFileRequest request)
         {
@@ -316,10 +328,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="MoveFileAsync" /> instead.
         ///     Move file
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
 
+        [System.Obsolete]
         public void MoveFile(MoveFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -364,6 +378,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Move file
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task MoveFileAsync(MoveFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -397,20 +414,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning restore CS0618 // Type or member is obsolete
 
             await _apiInvoker.InvokeApiAsync(
-                 resourcePath,
-                 "PUT",
-                 null,
-                 null,
-                 null);
+                resourcePath,
+                "PUT",
+                null,
+                null,
+                null);
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="UploadFileAsync" /> instead.
         ///     Upload file
         /// </summary>
         /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
         /// <returns>
         ///     <see cref="FilesUploadResult" />
         /// </returns>
+        [System.Obsolete]
         public FilesUploadResult UploadFile(UploadFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -461,7 +480,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="UploadFileRequest" /></param>
         /// <returns>
-        ///     <see cref="FilesUploadResult" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="FilesUploadResult" />
         /// </returns>
         public async Task<FilesUploadResult> UploadFileAsync(UploadFileRequest request)
         {
@@ -505,6 +524,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
     }
 }

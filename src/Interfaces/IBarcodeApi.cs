@@ -11,67 +11,81 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
     public interface IBarcodeApi
     {
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetBarcodeGenerateAsync" /> instead.
         ///     Generate barcode.
         /// </summary>
         /// <param name="request">Request. <see cref="GetBarcodeGenerateRequest" /></param>
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
+        [System.Obsolete]
         Stream GetBarcodeGenerate(GetBarcodeGenerateRequest request);
 
+
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetBarcodeRecognizeAsync" /> instead.
         ///     Recognize barcode from a file on server.
         /// </summary>
         /// <param name="request">Request. <see cref="GetBarcodeRecognizeRequest" /></param>
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
+        [System.Obsolete]
         BarcodeResponseList GetBarcodeRecognize(GetBarcodeRecognizeRequest request);
 
         /// <summary>
-        ///     Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image or encoded
-        ///     with base64.
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PostBarcodeRecognizeFromUrlOrContentAsync" /> instead.
+        ///     Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \&quot;application/octet-stream\&quot;. An image can also be passed as a form field.
         /// </summary>
         /// <param name="request">Request. <see cref="PostBarcodeRecognizeFromUrlOrContentRequest" /></param>
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
+        [System.Obsolete]
         BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent(PostBarcodeRecognizeFromUrlOrContentRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PostGenerateMultipleAsync" /> instead.
         ///     Generate multiple barcodes and return in response stream
         /// </summary>
         /// <param name="request">Request. <see cref="PostGenerateMultipleRequest" /></param>
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
+        [System.Obsolete]
         Stream PostGenerateMultiple(PostGenerateMultipleRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PutBarcodeGenerateFileAsync" /> instead.
         ///     Generate barcode and save on server (from query params or from file with json or xml content)
         /// </summary>
         /// <param name="request">Request. <see cref="PutBarcodeGenerateFileRequest" /></param>
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
+        [System.Obsolete]
         ResultImageInfo PutBarcodeGenerateFile(PutBarcodeGenerateFileRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PutBarcodeRecognizeFromBodyAsync" /> instead.
         ///     Recognition of a barcode from file on server with parameters in body.
         /// </summary>
         /// <param name="request">Request. <see cref="PutBarcodeRecognizeFromBodyRequest" /></param>
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
+        [System.Obsolete]
         BarcodeResponseList PutBarcodeRecognizeFromBody(PutBarcodeRecognizeFromBodyRequest request);
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PutGenerateMultipleAsync" /> instead.
         ///     Generate image with multiple barcodes and put new file on server
         /// </summary>
         /// <param name="request">Request. <see cref="PutGenerateMultipleRequest" /></param>
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
+        [System.Obsolete]
         ResultImageInfo PutGenerateMultiple(PutGenerateMultipleRequest request);
 
 

@@ -88,10 +88,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="CopyFolderAsync" /> instead.
         ///     Copy folder
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
 
+        [System.Obsolete]
         public void CopyFolder(CopyFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -133,6 +135,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Copy folder
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task CopyFolderAsync(CopyFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -171,10 +176,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="CreateFolderAsync" /> instead.
         ///     Create the folder
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
 
+        [System.Obsolete]
         public void CreateFolder(CreateFolderRequest request)
         {
             // verify the required parameter 'path' is set
@@ -205,6 +212,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Create the folder
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task CreateFolderAsync(CreateFolderRequest request)
         {
             // verify the required parameter 'path' is set
@@ -230,11 +240,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null,
                 null);
         }
+
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="DeleteFolderAsync" /> instead.
         ///     Delete folder
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
 
+        [System.Obsolete]
         public void DeleteFolder(DeleteFolderRequest request)
         {
             // verify the required parameter 'path' is set
@@ -268,6 +281,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Delete folder
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task DeleteFolderAsync(DeleteFolderRequest request)
         {
             // verify the required parameter 'path' is set
@@ -298,12 +314,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetFilesListAsync" /> instead.
         ///     Get all files and folders within a folder
         /// </summary>
         /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
         /// <returns>
         ///     <see cref="FilesList" />
         /// </returns>
+        [System.Obsolete]
         public FilesList GetFilesList(GetFilesListRequest request)
         {
             // verify the required parameter 'path' is set
@@ -343,7 +361,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="GetFilesListRequest" /></param>
         /// <returns>
-        ///     <see cref="FilesList" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="FilesList" />
         /// </returns>
         public async Task<FilesList> GetFilesListAsync(GetFilesListRequest request)
         {
@@ -376,13 +394,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="MoveFolderAsync" /> instead.
         ///     Move folder
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
 
+        [System.Obsolete]
         public void MoveFolder(MoveFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -424,6 +445,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         ///     Move folder
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation.
+        /// </returns>
         public async Task MoveFolderAsync(MoveFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set

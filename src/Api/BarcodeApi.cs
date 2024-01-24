@@ -28,7 +28,6 @@
 //
 
 using System.Collections.Generic;
-using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
@@ -89,12 +88,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetBarcodeGenerateAsync" /> instead.
         ///     Generate barcode.
         /// </summary>
         /// <param name="request">Request. <see cref="GetBarcodeGenerateRequest" /></param>
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
+        [System.Obsolete]
         public System.IO.Stream GetBarcodeGenerate(GetBarcodeGenerateRequest request)
         {
             // verify the required parameter 'type' is set
@@ -230,8 +231,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null);
         }
 
-        /// <inheritdoc />
-        public async Task<Stream> GetBarcodeGenerateAsync(GetBarcodeGenerateRequest request)
+        /// <summary>
+        ///     Generate barcode.
+        /// </summary>
+        /// <param name="request">Request. <see cref="GetBarcodeGenerateRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
+        /// </returns>
+        public async Task<System.IO.Stream> GetBarcodeGenerateAsync(GetBarcodeGenerateRequest request)
         {
             // verify the required parameter 'type' is set
             if (request.Type == null)
@@ -366,14 +373,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null);
         }
 
-
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="GetBarcodeRecognizeAsync" /> instead.
         ///     Recognize barcode from a file on server.
         /// </summary>
         /// <param name="request">Request. <see cref="GetBarcodeRecognizeRequest" /></param>
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
+        [System.Obsolete]
         public BarcodeResponseList GetBarcodeRecognize(GetBarcodeRecognizeRequest request)
         {
             // verify the required parameter 'name' is set
@@ -516,7 +524,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///     Recognize barcode from a file on server.
+        /// </summary>
+        /// <param name="request">Request. <see cref="GetBarcodeRecognizeRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
         public async Task<BarcodeResponseList> GetBarcodeRecognizeAsync(GetBarcodeRecognizeRequest request)
         {
             // verify the required parameter 'name' is set
@@ -656,15 +670,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PostBarcodeRecognizeFromUrlOrContentAsync" /> instead.
         ///     Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \&quot;application/octet-stream\&quot;. An image can also be passed as a form field.
         /// </summary>
         /// <param name="request">Request. <see cref="PostBarcodeRecognizeFromUrlOrContentRequest" /></param>
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
+        [System.Obsolete]
         public BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent(PostBarcodeRecognizeFromUrlOrContentRequest request)
         {
             // create path and map variables
@@ -804,7 +821,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///     Recognize barcode from an url or from request body. Request body can contain raw data bytes of the image with content-type \&quot;application/octet-stream\&quot;. An image can also be passed as a form field.
+        /// </summary>
+        /// <param name="request">Request. <see cref="PostBarcodeRecognizeFromUrlOrContentRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
         public async Task<BarcodeResponseList> PostBarcodeRecognizeFromUrlOrContentAsync(PostBarcodeRecognizeFromUrlOrContentRequest request)
         {
             // create path and map variables
@@ -941,15 +964,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PostGenerateMultipleAsync" /> instead.
         ///     Generate multiple barcodes and return in response stream
         /// </summary>
         /// <param name="request">Request. <see cref="PostGenerateMultipleRequest" /></param>
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
+        [System.Obsolete]
         public System.IO.Stream PostGenerateMultiple(PostGenerateMultipleRequest request)
         {
             // verify the required parameter 'generatorParamsList' is set
@@ -975,8 +1001,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null);
         }
 
-        /// <inheritdoc />
-        public async Task<Stream> PostGenerateMultipleAsync(PostGenerateMultipleRequest request)
+        /// <summary>
+        ///     Generate multiple barcodes and return in response stream
+        /// </summary>
+        /// <param name="request">Request. <see cref="PostGenerateMultipleRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
+        /// </returns>
+        public async Task<System.IO.Stream> PostGenerateMultipleAsync(PostGenerateMultipleRequest request)
         {
             // verify the required parameter 'generatorParamsList' is set
             if (request.generatorParamsList == null)
@@ -1002,12 +1034,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PutBarcodeGenerateFileAsync" /> instead.
         ///     Generate barcode and save on server (from query params or from file with json or xml content)
         /// </summary>
         /// <param name="request">Request. <see cref="PutBarcodeGenerateFileRequest" /></param>
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
+        [System.Obsolete]
         public ResultImageInfo PutBarcodeGenerateFile(PutBarcodeGenerateFileRequest request)
         {
             // verify the required parameter 'name' is set
@@ -1163,7 +1197,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///     Generate barcode and save on server (from query params or from file with json or xml content)
+        /// </summary>
+        /// <param name="request">Request. <see cref="PutBarcodeGenerateFileRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="ResultImageInfo" />
+        /// </returns>
         public async Task<ResultImageInfo> PutBarcodeGenerateFileAsync(PutBarcodeGenerateFileRequest request)
         {
             // verify the required parameter 'name' is set
@@ -1316,15 +1356,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PutBarcodeRecognizeFromBodyAsync" /> instead.
         ///     Recognition of a barcode from file on server with parameters in body.
         /// </summary>
         /// <param name="request">Request. <see cref="PutBarcodeRecognizeFromBodyRequest" /></param>
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
+        [System.Obsolete]
         public BarcodeResponseList PutBarcodeRecognizeFromBody(PutBarcodeRecognizeFromBodyRequest request)
         {
             // verify the required parameter 'name' is set
@@ -1370,10 +1413,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///     Recognition of a barcode from file on server with parameters in body.
+        /// </summary>
+        /// <param name="request">Request. <see cref="PutBarcodeRecognizeFromBodyRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
         public async Task<BarcodeResponseList> PutBarcodeRecognizeFromBodyAsync(PutBarcodeRecognizeFromBodyRequest request)
         {
-
             // verify the required parameter 'name' is set
             if (request.name == null)
             {
@@ -1414,15 +1462,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
 
             return null;
+
         }
 
         /// <summary>
+        /// This method is obsolete and will be removed in next releases. Use new async method <see cref="PutGenerateMultipleAsync" /> instead.
         ///     Generate image with multiple barcodes and put new file on server
         /// </summary>
         /// <param name="request">Request. <see cref="PutGenerateMultipleRequest" /></param>
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
+        [System.Obsolete]
         public ResultImageInfo PutGenerateMultiple(PutGenerateMultipleRequest request)
         {
             // verify the required parameter 'name' is set
@@ -1468,10 +1519,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        ///     Generate image with multiple barcodes and put new file on server
+        /// </summary>
+        /// <param name="request">Request. <see cref="PutGenerateMultipleRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="ResultImageInfo" />
+        /// </returns>
         public async Task<ResultImageInfo> PutGenerateMultipleAsync(PutGenerateMultipleRequest request)
         {
-
             // verify the required parameter 'name' is set
             if (request.name == null)
             {
