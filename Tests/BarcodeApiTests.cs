@@ -283,7 +283,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     fileName,
                     readerParams: new ReaderParams
                     {
-                        Preset = PresetType.HighPerformance
+                        Preset = PresetType.HighPerformance,
+                        Timeout = 30_000
                     }
                 )
                 {
@@ -400,7 +401,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 )
                 {
                     folder = folder,
-                    Preset = PresetType.HighPerformance.ToString()
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Timeout = 30_000
                 }
             );
 
@@ -536,7 +538,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     fileName,
                     readerParams: new ReaderParams
                     {
-                        Preset = PresetType.HighPerformance
+                        Preset = PresetType.HighPerformance,
+                        Timeout = 30_000
                     }
                 )
                 {

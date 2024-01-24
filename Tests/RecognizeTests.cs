@@ -38,7 +38,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     Preset = PresetType.HighPerformance.ToString(),
-                    Type = DecodeBarcodeType.QR.ToString()
+                    Type = DecodeBarcodeType.QR.ToString(),
+                    Timeout = 30_000
                 }
             );
 
@@ -86,7 +87,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     Preset = PresetType.HighPerformance.ToString(),
-                    Type = DecodeBarcodeType.QR.ToString()
+                    Type = DecodeBarcodeType.QR.ToString(),
+                    Timeout = 30_000
                 }
             );
 
