@@ -24,13 +24,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void GenerateAndThenRecognizeTest()
         {
 #pragma warning disable CS0612 // Method is obsolete
-            Stream generatedImage = _api.GetBarcodeGenerate(new GetBarcodeGenerateRequest(
-                EncodeBarcodeType.QR.ToString(), "Test"));
+            Stream generatedImage = _api.GetBarcodeGenerate(
+#pragma warning restore CS0612 // Method is obsolete
+                new GetBarcodeGenerateRequest(EncodeBarcodeType.QR.ToString(), "Test"));
 
+#pragma warning disable CS0612 // Type or member is obsolete
             BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(
+#pragma warning restore CS0612 // Type or member is obsolete
                 new PostBarcodeRecognizeFromUrlOrContentRequest(generatedImage)
             );
-#pragma warning restore CS0612 // Method is obsolete
+
             Assert.AreEqual(1, recognized.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);
             Assert.AreEqual("Test", recognized.Barcodes.First().BarcodeValue);

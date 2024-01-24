@@ -24,11 +24,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
             var ex = Assert.Throws<ApiException>(
-                () => { api.GetBarcodeGenerate(request); });
+                () =>
+                {
+#pragma warning disable CS0612 // Method is obsolete
+                    api.GetBarcodeGenerate(request);
 #pragma warning restore CS0612 // Method is obsolete
-            Assert.AreEqual(400, ex.ErrorCode);
+                });
+
+            // Assert
+            Assert.AreEqual(400, ex!.ErrorCode);
             Assert.AreEqual("Bad Request", ex.Message);
         }
 
@@ -50,10 +55,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var ex = Assert.ThrowsAsync<ApiException>(
                 async () => { await api.GetBarcodeGenerateAsync(request); });
 
-
-            Assert.AreEqual(400, ex.ErrorCode);
+            Assert.AreEqual(400, ex!.ErrorCode);
             Assert.AreEqual("Bad Request", ex.Message);
-
         }
     }
 }
