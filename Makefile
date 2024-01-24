@@ -34,7 +34,8 @@ update:
 
 .PHONY: lint
 lint:
-	dotnet build --warnaserror
+	dotnet build --warnaserror Aspose.BarCode.Cloud.Sdk.sln
+	dotnet build --warnaserror examples/examples.sln
 
 .PHONY: clean
 clean:

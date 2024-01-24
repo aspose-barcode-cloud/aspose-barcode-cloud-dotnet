@@ -152,7 +152,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
-                    Preset = PresetType.HighPerformance.ToString()
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Timeout = 30_000
                 }
             );
 
