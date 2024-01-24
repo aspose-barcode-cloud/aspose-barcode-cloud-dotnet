@@ -132,7 +132,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 )
                 {
                     folder = folder,
-                    Preset = PresetType.HighPerformance.ToString()
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Timeout = 30_000
                 }
             );
 
