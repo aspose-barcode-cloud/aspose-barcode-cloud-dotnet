@@ -93,7 +93,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"CopyFolderAsync\" instead.")]
         public void CopyFolder(CopyFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -181,7 +181,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"CreateFolderAsync\" instead.")]
         public void CreateFolder(CreateFolderRequest request)
         {
             // verify the required parameter 'path' is set
@@ -247,7 +247,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"DeleteFolderAsync\" instead.")]
         public void DeleteFolder(DeleteFolderRequest request)
         {
             // verify the required parameter 'path' is set
@@ -321,7 +321,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="FilesList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetFilesListAsync\" instead.")]
         public FilesList GetFilesList(GetFilesListRequest request)
         {
             // verify the required parameter 'path' is set
@@ -403,7 +403,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"MoveFolderAsync\" instead.")]
         public void MoveFolder(MoveFolderRequest request)
         {
             // verify the required parameter 'srcPath' is set

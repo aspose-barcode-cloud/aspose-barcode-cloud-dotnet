@@ -27,9 +27,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var ex = Assert.Throws<ApiException>(
                 () =>
                 {
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
                     api.GetBarcodeGenerate(request);
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                 });
 
             // Assert

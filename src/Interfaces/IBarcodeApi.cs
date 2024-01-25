@@ -18,7 +18,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetBarcodeGenerateAsync\" instead.")]
         Stream GetBarcodeGenerate(GetBarcodeGenerateRequest request);
 
 
@@ -30,7 +30,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetBarcodeRecognizeAsync\" instead.")]
         BarcodeResponseList GetBarcodeRecognize(GetBarcodeRecognizeRequest request);
 
         /// <summary>
@@ -41,7 +41,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PostBarcodeRecognizeFromUrlOrContentAsync\" instead.")]
         BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent(PostBarcodeRecognizeFromUrlOrContentRequest request);
 
         /// <summary>
@@ -52,7 +52,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete(" This method is obsolete and will be removed in next releases. Use new async method \"PostGenerateMultipleAsync\" instead.")]
         Stream PostGenerateMultiple(PostGenerateMultipleRequest request);
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PutBarcodeGenerateFileAsync\" instead.")]
         ResultImageInfo PutBarcodeGenerateFile(PutBarcodeGenerateFileRequest request);
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PutBarcodeRecognizeFromBodyAsync\" instead.")]
         BarcodeResponseList PutBarcodeRecognizeFromBody(PutBarcodeRecognizeFromBodyRequest request);
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PutGenerateMultipleAsync\" instead.")]
         ResultImageInfo PutGenerateMultiple(PutGenerateMultipleRequest request);
 
 

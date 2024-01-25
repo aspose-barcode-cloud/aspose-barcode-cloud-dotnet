@@ -95,7 +95,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="DiscUsage" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetDiscUsageAsync\" instead.")]
         public DiscUsage GetDiscUsage(GetDiscUsageRequest request)
         {
             // create path and map variables
@@ -167,7 +167,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="FileVersions" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetFileVersionsAsync\" instead.")]
         public FileVersions GetFileVersions(GetFileVersionsRequest request)
         {
             // verify the required parameter 'path' is set
@@ -251,7 +251,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="ObjectExist" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"ObjectExistsAsync\" instead.")]
         public ObjectExist ObjectExists(ObjectExistsRequest request)
         {
             // verify the required parameter 'path' is set
@@ -341,7 +341,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="StorageExist" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"StorageExistsAsync\" instead.")]
         public StorageExist StorageExists(StorageExistsRequest request)
         {
             // verify the required parameter 'storageName' is set

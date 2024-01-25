@@ -16,7 +16,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"CopyFileAsync\" instead.")]
         void CopyFile(CopyFileRequest request);
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"DeleteFileAsync\" instead.")]
         void DeleteFile(DeleteFileRequest request);
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"DownloadFileAsync\" instead.")]
         Stream DownloadFile(DownloadFileRequest request);
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"MoveFileAsync\" instead.")]
         void MoveFile(MoveFileRequest request);
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="FilesUploadResult" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"UploadFileAsync\" instead.")]
         FilesUploadResult UploadFile(UploadFileRequest request);
 
         /// <summary>

@@ -93,7 +93,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFileRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"CopyFileAsync\" instead.")]
         public void CopyFile(CopyFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -187,7 +187,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFileRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"DeleteFileAsync\" instead.")]
         public void DeleteFile(DeleteFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -261,7 +261,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"DownloadFileAsync\" instead.")]
         public System.IO.Stream DownloadFile(DownloadFileRequest request)
         {
             // verify the required parameter 'path' is set
@@ -333,7 +333,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFileRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"MoveFileAsync\" instead.")]
         public void MoveFile(MoveFileRequest request)
         {
             // verify the required parameter 'srcPath' is set
@@ -429,7 +429,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="FilesUploadResult" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"UploadFileAsync\" instead.")]
         public FilesUploadResult UploadFile(UploadFileRequest request)
         {
             // verify the required parameter 'path' is set

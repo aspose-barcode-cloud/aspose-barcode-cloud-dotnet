@@ -95,7 +95,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetBarcodeGenerateAsync\" instead.")]
         public System.IO.Stream GetBarcodeGenerate(GetBarcodeGenerateRequest request)
         {
             // verify the required parameter 'type' is set
@@ -381,7 +381,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetBarcodeRecognizeAsync\" instead.")]
         public BarcodeResponseList GetBarcodeRecognize(GetBarcodeRecognizeRequest request)
         {
             // verify the required parameter 'name' is set
@@ -681,7 +681,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PostBarcodeRecognizeFromUrlOrContentAsync\" instead.")]
         public BarcodeResponseList PostBarcodeRecognizeFromUrlOrContent(PostBarcodeRecognizeFromUrlOrContentRequest request)
         {
             // create path and map variables
@@ -975,7 +975,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="System.IO.Stream" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PostGenerateMultipleAsync\" instead.")]
         public System.IO.Stream PostGenerateMultiple(PostGenerateMultipleRequest request)
         {
             // verify the required parameter 'generatorParamsList' is set
@@ -1041,7 +1041,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PutBarcodeGenerateFileAsync\" instead.")]
         public ResultImageInfo PutBarcodeGenerateFile(PutBarcodeGenerateFileRequest request)
         {
             // verify the required parameter 'name' is set
@@ -1367,7 +1367,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="BarcodeResponseList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PutBarcodeRecognizeFromBodyAsync\" instead.")]
         public BarcodeResponseList PutBarcodeRecognizeFromBody(PutBarcodeRecognizeFromBodyRequest request)
         {
             // verify the required parameter 'name' is set
@@ -1473,7 +1473,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// <returns>
         ///     <see cref="ResultImageInfo" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"PutGenerateMultipleAsync\" instead.")]
         public ResultImageInfo PutGenerateMultiple(PutGenerateMultipleRequest request)
         {
             // verify the required parameter 'name' is set

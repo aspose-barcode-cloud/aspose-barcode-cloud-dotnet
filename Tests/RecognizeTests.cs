@@ -32,9 +32,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     Preset = PresetType.HighPerformance.ToString(),
@@ -59,9 +59,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Act
             var apiException = Assert.Throws<ApiException>(() =>
             {
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
                 _api.PostBarcodeRecognizeFromUrlOrContent(
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                     new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                     {
                         Preset = PresetType.HighPerformance.ToString(),

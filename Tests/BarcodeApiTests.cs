@@ -44,9 +44,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         private string PutTestFile(string fileName)
         {
             using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             FilesUploadResult uploaded = _fileApi.UploadFile(
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                 new UploadFileRequest(
                     $"{TempFolderPath}/{fileName}",
                     fileToUpload
@@ -88,9 +88,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             using Stream response = _api.GetBarcodeGenerate(request);
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
             // Assert
             Assert.IsTrue(response.Length > 0);
             using FileStream savedFileStream = File.Create(TestFilePath("Test_GetBarcodeGenerate.png"));
@@ -124,9 +124,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             string folder = PutTestFile(fileName);
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.GetBarcodeRecognize(
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                 new GetBarcodeRecognizeRequest(
                     fileName
                 )
@@ -170,9 +170,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using Stream image = GetTestImage("1.png");
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
@@ -217,9 +217,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             );
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             using Stream response = _api.PostGenerateMultiple(request);
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
 
             // Assert
             Assert.IsTrue(response.Length > 0);
@@ -245,9 +245,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             ResultImageInfo response = _api.PutBarcodeGenerateFile(request);
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
 
             // Assert
             Assert.True(response.FileSize > 0);
@@ -276,9 +276,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             string folder = PutTestFile(fileName);
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.PutBarcodeRecognizeFromBody(
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
                 new PutBarcodeRecognizeFromBodyRequest(
                     fileName,
                     readerParams: new ReaderParams
@@ -333,9 +333,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
-#pragma warning disable CS0612 // Method is obsolete
+#pragma warning disable CS0618 // Method is obsolete
             ResultImageInfo response = _api.PutGenerateMultiple(request);
-#pragma warning restore CS0612 // Method is obsolete
+#pragma warning restore CS0618 // Method is obsolete
 
             // Assert
             Assert.True(response.FileSize > 0);

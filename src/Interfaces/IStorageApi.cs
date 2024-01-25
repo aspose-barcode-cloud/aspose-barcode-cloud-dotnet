@@ -17,7 +17,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="DiscUsage" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetDiscUsageAsync\" instead.")]
         DiscUsage GetDiscUsage(GetDiscUsageRequest request);
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="FileVersions" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetFileVersionsAsync\" instead.")]
         FileVersions GetFileVersions(GetFileVersionsRequest request);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="ObjectExist" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"ObjectExistsAsync\" instead")]
         ObjectExist ObjectExists(ObjectExistsRequest request);
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="StorageExist" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"StorageExistsAsync\" instead.")]
         StorageExist StorageExists(StorageExistsRequest request);
 
         /// <summary>

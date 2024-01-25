@@ -15,7 +15,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="CopyFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"CopyFolderAsync\" instead.")]
         void CopyFolder(CopyFolderRequest request);
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="CreateFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"CreateFolderAsync\" instead.")]
         void CreateFolder(CreateFolderRequest request);
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="DeleteFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"DeleteFolderAsync\" instead.")]
         void DeleteFolder(DeleteFolderRequest request);
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <returns>
         ///     <see cref="FilesList" />
         /// </returns>
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"GetFilesListAsync\" instead.")]
         FilesList GetFilesList(GetFilesListRequest request);
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="MoveFolderRequest" /></param>
 
-        [System.Obsolete]
+        [System.Obsolete("This method is obsolete and will be removed in next releases. Use new async method \"MoveFolderAsync\" instead.")]
         void MoveFolder(MoveFolderRequest request);
 
         /// <summary>
