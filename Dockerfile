@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:7.0-bullseye-slim AS sdk
+FROM mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim AS sdk
 
 FROM sdk AS pack
 WORKDIR /src
