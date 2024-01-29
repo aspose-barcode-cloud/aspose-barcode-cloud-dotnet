@@ -56,6 +56,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public string Type { get; set; }
 
         /// <summary>
+        ///     Multiple barcode types to read.
+        /// </summary>
+        public List<DecodeBarcodeType> Types { get; set; }
+
+        /// <summary>
         ///     Enable checksum validation during recognition for 1D barcodes. Default is treated as Yes for symbologies which must contain checksum, as No where checksum only possible. Checksum never used: Codabar Checksum is possible: Code39 Standard/Extended, Standard2of5, Interleaved2of5, Matrix2of5, ItalianPost25, DeutschePostIdentcode, DeutschePostLeitcode, VIN Checksum always used: Rest symbologies
         /// </summary>
         public string ChecksumValidation { get; set; }

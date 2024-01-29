@@ -457,7 +457,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value GS1MicroPdf417
         /// </summary>
-        GS1MicroPdf417
+        GS1MicroPdf417,
+
+        /// <summary>
+        ///     Enum value mostCommonlyUsed
+        /// </summary>
+        mostCommonlyUsed
 
     }
 }

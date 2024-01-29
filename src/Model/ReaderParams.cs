@@ -61,6 +61,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public CustomerInformationInterpretingType? AustralianPostEncodingTable { get; set; }
 
         /// <summary>
+        ///     Multiple barcode types to read.
+        /// </summary>
+        public List<DecodeBarcodeType> Types { get; set; }
+
+        /// <summary>
         ///     A flag which force engine to detect codetext encoding for Unicode.
         /// </summary>
         public bool? DetectEncoding { get; set; }

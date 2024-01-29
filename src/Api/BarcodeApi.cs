@@ -400,6 +400,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
 
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "types", request.Types);
+
+
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
 
 
@@ -549,6 +552,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
 
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "types", request.Types);
+
+
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
 
 
@@ -695,6 +701,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
 
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "types", request.Types);
+
+
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
 
 
@@ -839,6 +848,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             var formParams = new Dictionary<string, object>();
 #pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "types", request.Types);
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "checksumValidation", request.ChecksumValidation);
