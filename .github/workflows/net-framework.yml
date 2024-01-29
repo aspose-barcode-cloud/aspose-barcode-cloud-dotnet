@@ -29,10 +29,10 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
+      uses: microsoft/setup-msbuild@v1.1
 
     - name: Setup VSTest
-      uses: darenm/Setup-VSTest@v1
+      uses: darenm/Setup-VSTest@v1.2
 
     - name: Build the Solution
       run: msbuild -restore -p:Configuration=Release
@@ -41,7 +41,7 @@ jobs:
       run: |
           $ErrorActionPreference = "Stop"
           VSTest.Console.exe /Framework:".NETFramework,Version=${{ matrix.net-version }}" /ResultsDirectory:Tests\Results /Logger:"trx;LogFileName=test.log" Tests\bin\Release\${{ matrix.framework }}\Aspose.BarCode.Cloud.Sdk.Tests.dll
-          if( ([xml](Get-Content Tests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 24 ){ throw "Not all tests were explored or added new tests" }
+          if( ([xml](Get-Content Tests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 38 ){ throw "Not all tests were explored or added new tests" }
 
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

@@ -74,13 +74,13 @@ using System.Reflection;
 
 namespace ReadQR
 {
-    class Program
+    internal static class Program
     {
-        static Configuration MakeConfiguration()
+        private static Configuration MakeConfiguration()
         {
             var config = new Configuration();
 
-            var envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+            string envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
             if (string.IsNullOrEmpty(envToken))
             {
                 config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
@@ -94,7 +94,7 @@ namespace ReadQR
             return config;
         }
 
-        static string ReadQR(IBarcodeApi api, string fileName)
+        private static string ReadQR(IBarcodeApi api, string fileName)
         {
             using (FileStream imageStream = File.OpenRead(fileName))
             {
@@ -109,10 +109,10 @@ namespace ReadQR
         static void Main(string[] args)
         {
             string fileName = Path.GetFullPath(Path.Join(
-                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
+                Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
                 "..", "..", "..", "..",
                 "qr.png"
-                ));
+            ));
 
             var api = new BarcodeApi(MakeConfiguration());
 
@@ -159,14 +159,17 @@ namespace GenerateQR
             return config;
         }
 
-        static void GenerateQR(IBarcodeApi api, string fileName)
+        private static void GenerateQR(IBarcodeApi api, string fileName)
         {
             using (Stream generated = api.GetBarcodeGenerate(
-                new GetBarcodeGenerateRequest(
-                    EncodeBarcodeType.QR.ToString(),
-                    "QR code text",
-                    textLocation: "None", format: "png"))
-            )
+                       new GetBarcodeGenerateRequest(
+                           EncodeBarcodeType.QR.ToString(),
+                           "QR code text")
+                       {
+                           TextLocation = "None",
+                           format = "png"
+                       })
+                  )
             {
                 using (FileStream stream = File.Create(fileName))
                 {
@@ -178,10 +181,10 @@ namespace GenerateQR
         static void Main(string[] args)
         {
             string fileName = Path.GetFullPath(Path.Join(
-                Path.GetDirectoryName(Assembly.GetEntryAssembly().Location),
+                Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
                 "..", "..", "..", "..",
                 "qr.png"
-                ));
+            ));
 
             var api = new BarcodeApi(MakeConfiguration());
 

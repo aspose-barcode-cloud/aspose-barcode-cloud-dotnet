@@ -2,9 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http.Headers;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using System.Linq;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
@@ -138,7 +142,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 headerParams = new Dictionary<string, string>();
             }
 
-            _requestHandlers.ForEach(p => path = p.ProcessUrl(path));
+            _requestHandlers.ForEach(p => p.Preparing());
 
             WebRequest request;
             try
@@ -280,5 +284,115 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 throw;
             }
         }
+
+        public async Task<Stream> InvokeBinaryApiAsync(string path,
+            string method,
+            string body,
+            Dictionary<string, string> headerParams,
+            Dictionary<string, object> formParams,
+            string contentType = "application/json")
+        {
+            return (Stream)(await InvokeInternalAsync(path, method, true, body, headerParams, formParams, contentType));
+        }
+
+        public async Task<string> InvokeApiAsync(string path,
+            string method,
+            string body,
+            Dictionary<string, string> headerParams,
+            Dictionary<string, object> formParams,
+            string contentType = "application/json")
+        {
+            return (await InvokeInternalAsync(path, method, false, body, headerParams, formParams, contentType)) as string;
+        }
+
+        private async Task<object> InvokeInternalAsync(string path,
+            string method,
+            bool binaryResponse,
+            string body,
+            Dictionary<string, string> headerParams,
+            Dictionary<string, object> formParams,
+            string contentType)
+        {
+            if (formParams == null)
+            {
+                formParams = new Dictionary<string, object>();
+            }
+
+            if (headerParams == null)
+            {
+                headerParams = new Dictionary<string, string>();
+            }
+            await Task.WhenAll(_requestHandlers.Select(p => p.PreparingAsync()).ToArray());
+
+            using (HttpClient client = new HttpClient())
+            {
+                using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), path))
+                {
+                    if (formParams.Count > 0)
+                    {
+                        var formDataBoundary = Guid.NewGuid().ToString();
+                        request.Content = new MultipartFormDataContent(formDataBoundary);
+
+                        foreach (var param in formParams)
+                        {
+                            if (param.Value is FileInfo fileInfo)
+                            {
+                                var streamToSend = new MemoryStream(fileInfo.FileContent);
+                                var streamContent = new StreamContent(streamToSend);
+                                streamContent.Headers.ContentType = new MediaTypeHeaderValue(fileInfo.MimeType);
+                                ((MultipartFormDataContent)request.Content).Add(streamContent, param.Key, fileInfo.Name);
+                            }
+                            else
+                            {
+                                ((MultipartFormDataContent)request.Content).Add(new StringContent(param.Value.ToString()), param.Key);
+                            }
+                        }
+                    }
+                    else if (body != null)
+                    {
+                        request.Content = new StringContent(body, Encoding.UTF8, contentType);
+                    }
+
+                    foreach (KeyValuePair<string, string> headerParamsItem in headerParams)
+                    {
+                        request.Headers.Add(headerParamsItem.Key, headerParamsItem.Value);
+                    }
+
+                    foreach (KeyValuePair<string, string> defaultHeaderMapItem in _defaultHeaderMap)
+                    {
+                        if (!headerParams.ContainsKey(defaultHeaderMapItem.Key))
+                        {
+                            request.Headers.Add(defaultHeaderMapItem.Key, defaultHeaderMapItem.Value);
+                        }
+                    }
+
+                    await Task.WhenAll(_requestHandlers.Select(p => p.BeforeSendAsync(request)).ToArray());
+
+                    using (HttpResponseMessage response = await client.SendAsync(request))
+                    {
+                        await Task.WhenAll(_requestHandlers.Select(p => p.ProcessResponseAsync(response)).ToArray());
+
+                        if (response.Content != null)
+                        {
+                            if (binaryResponse)
+                            {
+                                Stream resultStream = new MemoryStream();
+                                await response.Content.CopyToAsync(resultStream);
+                                resultStream.Position = 0;
+                                return resultStream;
+                            }
+                            else
+                            {
+                                return await response.Content.ReadAsStringAsync();
+                            }
+                        }
+                    }
+                }
+            }
+
+            return null;
+        }
+
+
     }
 }

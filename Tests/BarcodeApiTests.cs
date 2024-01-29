@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
@@ -43,7 +44,23 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         private string PutTestFile(string fileName)
         {
             using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
+#pragma warning disable CS0618 // Method is obsolete
             FilesUploadResult uploaded = _fileApi.UploadFile(
+#pragma warning restore CS0618 // Method is obsolete
+                new UploadFileRequest(
+                    $"{TempFolderPath}/{fileName}",
+                    fileToUpload
+                )
+            );
+            Assert.IsNotEmpty(uploaded.Uploaded);
+
+            return TempFolderPath;
+        }
+
+        private async Task<string> PutTestFileAsync(string fileName)
+        {
+            using FileStream fileToUpload = File.Open(TestFilePath(fileName), FileMode.Open, FileAccess.Read);
+            FilesUploadResult uploaded = await _fileApi.UploadFileAsync(
                 new UploadFileRequest(
                     $"{TempFolderPath}/{fileName}",
                     fileToUpload
@@ -71,7 +88,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             using Stream response = _api.GetBarcodeGenerate(request);
+#pragma warning restore CS0618 // Method is obsolete
             // Assert
             Assert.IsTrue(response.Length > 0);
             using FileStream savedFileStream = File.Create(TestFilePath("Test_GetBarcodeGenerate.png"));
@@ -105,13 +124,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             string folder = PutTestFile(fileName);
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.GetBarcodeRecognize(
+#pragma warning restore CS0618 // Method is obsolete
                 new GetBarcodeRecognizeRequest(
                     fileName
                 )
                 {
                     folder = folder,
-                    Preset = PresetType.HighPerformance.ToString()
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Timeout = 30_000
                 }
             );
 
@@ -148,7 +170,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using Stream image = GetTestImage("1.png");
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
+#pragma warning restore CS0618 // Method is obsolete
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
@@ -193,7 +217,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             );
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             using Stream response = _api.PostGenerateMultiple(request);
+#pragma warning restore CS0618 // Method is obsolete
 
             // Assert
             Assert.IsTrue(response.Length > 0);
@@ -219,7 +245,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             ResultImageInfo response = _api.PutBarcodeGenerateFile(request);
+#pragma warning restore CS0618 // Method is obsolete
 
             // Assert
             Assert.True(response.FileSize > 0);
@@ -248,12 +276,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             string folder = PutTestFile(fileName);
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             BarcodeResponseList response = _api.PutBarcodeRecognizeFromBody(
+#pragma warning restore CS0618 // Method is obsolete
                 new PutBarcodeRecognizeFromBodyRequest(
                     fileName,
                     readerParams: new ReaderParams
                     {
-                        Preset = PresetType.HighPerformance
+                        Preset = PresetType.HighPerformance,
+                        Timeout = 30_000
                     }
                 )
                 {
@@ -302,7 +333,263 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             // Act
+#pragma warning disable CS0618 // Method is obsolete
             ResultImageInfo response = _api.PutGenerateMultiple(request);
+#pragma warning restore CS0618 // Method is obsolete
+
+            // Assert
+            Assert.True(response.FileSize > 0);
+            Assert.True(response.ImageWidth > 0);
+            Assert.True(response.ImageHeight > 0);
+        }
+
+        /// <summary>
+        ///     Test GetBarcodeGenerateAsync
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task GetBarcodeGenerateAsyncTest()
+        {
+            // Arrange
+            var request = new GetBarcodeGenerateRequest(
+                text: "Very sample text",
+                type: EncodeBarcodeType.Code128.ToString()
+            )
+            {
+                format = "png"
+            };
+
+            // Act
+            using Stream response = await _api.GetBarcodeGenerateAsync(request);
+            // Assert
+            Assert.IsTrue(response.Length > 0);
+            using FileStream savedFileStream = File.Create(TestFilePath("Test_GetBarcodeGenerate.png"));
+            await response.CopyToAsync(savedFileStream);
+        }
+
+
+        /// <summary>
+        ///     Test GetBarcodeRecognizeAsync
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task GetBarcodeRecognizeAsyncTest()
+        {
+            // Arrange
+            const string fileName = "Test_PostGenerateMultiple.png";
+
+            var expectedBarcodes = new List<GeneratorParams>
+            {
+                new GeneratorParams
+                {
+                    TypeOfBarcode = EncodeBarcodeType.QR,
+                    Text = "Hello world!"
+                },
+                new GeneratorParams
+                {
+                    TypeOfBarcode = EncodeBarcodeType.Code128,
+                    Text = "Hello world!"
+                }
+            };
+
+            string folder = await PutTestFileAsync(fileName);
+
+            // Act
+            BarcodeResponseList response = await _api.GetBarcodeRecognizeAsync(
+                new GetBarcodeRecognizeRequest(
+                    fileName
+                )
+                {
+                    folder = folder,
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Timeout = 30_000
+                }
+            );
+
+            // Assert
+            Assert.AreEqual(expectedBarcodes.Count, response.Barcodes.Count);
+
+            foreach ((GeneratorParams generated, BarcodeResponse recognized) in
+                     expectedBarcodes.Zip(response.Barcodes,
+                         (generated, recognized) => (generated, recognized)))
+            {
+                Assert.AreEqual(generated.TypeOfBarcode.ToString(), recognized.Type);
+                Assert.AreEqual(generated.Text, recognized.BarcodeValue);
+            }
+        }
+
+
+        /// <summary>
+        ///     Test PostBarcodeRecognizeFromUrlOrContentAsync
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task PostBarcodeRecognizeFromUrlOrContentAsyncTest()
+        {
+            // Arrange
+            using Stream image = GetTestImage("1.png");
+
+            // Act
+            BarcodeResponseList response = await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
+                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
+                {
+                    ChecksumValidation = ChecksumValidation.Off.ToString(),
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Timeout = 30_000
+                }
+            );
+
+            // Assert
+            Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(response.Barcodes[0].ToString()),
+                message: $"Empty BarcodeResponse.ToString()");
+            Assert.AreEqual(DecodeBarcodeType.Code11.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual("1234567812", response.Barcodes[0].BarcodeValue);
+        }
+
+
+        /// <summary>
+        ///     Test PostGenerateMultipleAsync
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task PostGenerateMultipleAsyncTest()
+        {
+            // Arrange
+            var request = new PostGenerateMultipleRequest(
+                new GeneratorParamsList
+                {
+                    BarcodeBuilders = new List<GeneratorParams>
+                    {
+                        new GeneratorParams
+                        {
+                            TypeOfBarcode = EncodeBarcodeType.QR,
+                            Text = "Hello world!"
+                        },
+                        new GeneratorParams
+                        {
+                            TypeOfBarcode = EncodeBarcodeType.Code128,
+                            Text = "Hello world!"
+                        }
+                    }
+                }
+            );
+
+            // Act
+            using Stream response = await _api.PostGenerateMultipleAsync(request);
+
+            // Assert
+            Assert.IsTrue(response.Length > 0);
+            using FileStream savedFileStream = File.Create(TestFilePath("Test_PostGenerateMultiple.png"));
+            response.CopyTo(savedFileStream);
+        }
+
+
+        /// <summary>
+        ///     Test PutBarcodeGenerateFile
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task PutBarcodeGenerateFileAsyncTest()
+        {
+            // Arrange
+            var request = new PutBarcodeGenerateFileRequest(
+                "Test_PutBarcodeGenerateFile.png",
+                type: EncodeBarcodeType.Code128.ToString(),
+                text: "Hello!"
+            )
+            {
+                folder = TempFolderPath
+            };
+
+            // Act
+            ResultImageInfo response = await _api.PutBarcodeGenerateFileAsync(request);
+
+            // Assert
+            Assert.True(response.FileSize > 0);
+            Assert.True(response.ImageWidth > 0);
+            Assert.True(response.ImageHeight > 0);
+        }
+
+
+        /// <summary>
+        ///     Test PutBarcodeRecognizeFromBodyAsync
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task PutBarcodeRecognizeFromBodyAsyncTest()
+        {
+            // Arrange
+            var barcodesToRecognize = new List<GeneratorParams>
+            {
+                new GeneratorParams
+                {
+                    TypeOfBarcode = EncodeBarcodeType.Code128,
+                    Text = "Very sample text"
+                }
+            };
+
+            const string fileName = "Test_GetBarcodeGenerate.png";
+            string folder = await PutTestFileAsync(fileName);
+
+            // Act
+            BarcodeResponseList response = await _api.PutBarcodeRecognizeFromBodyAsync(
+                new PutBarcodeRecognizeFromBodyRequest(
+                    fileName,
+                    readerParams: new ReaderParams
+                    {
+                        Preset = PresetType.HighPerformance,
+                        Timeout = 30_000
+                    }
+                )
+                {
+                    folder = folder
+                }
+            );
+
+            // Assert
+            Assert.AreEqual(barcodesToRecognize.Count, response.Barcodes.Count);
+
+            foreach ((GeneratorParams generated, BarcodeResponse recognized) in
+                     barcodesToRecognize.Zip(response.Barcodes,
+                         (generated, recognized) => (generated, recognized)))
+            {
+                Assert.AreEqual(generated.TypeOfBarcode.ToString(), recognized.Type);
+                Assert.AreEqual(generated.Text, recognized.BarcodeValue);
+            }
+        }
+
+
+        /// <summary>
+        ///     Test PutGenerateMultipleAsync
+        /// </summary>
+        [Test]
+        [Category("AsyncTests")]
+        public async Task PutGenerateMultipleAsyncTest()
+        {
+            // Arrange
+            var generatorParamsList = new GeneratorParamsList
+            {
+                BarcodeBuilders = new List<GeneratorParams>
+                {
+                    new GeneratorParams
+                    {
+                        TypeOfBarcode = EncodeBarcodeType.Code128,
+                        Text = "Hello world!"
+                    }
+                }
+            };
+
+            var request = new PutGenerateMultipleRequest(
+                "Test_PutGenerateMultiple.png",
+                generatorParamsList
+            )
+            {
+                folder = TempFolderPath
+            };
+
+            // Act
+            ResultImageInfo response = await _api.PutGenerateMultipleAsync(request);
 
             // Assert
             Assert.True(response.FileSize > 0);

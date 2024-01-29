@@ -49,7 +49,32 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             var api = new BarcodeApi(configWithToken);
+#pragma warning disable CS0618 // Method is obsolete
             using Stream generated = api.GetBarcodeGenerate(
+#pragma warning restore CS0618 // Method is obsolete
+                new GetBarcodeGenerateRequest(
+                EncodeBarcodeType.QR.ToString(), "Test")
+                );
+            Assert.Greater(generated.Length, 0);
+        }
+
+        [Test]
+        public async Task CanUseExternalTokenWithAsync()
+        {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unsupported TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
+            var configWithToken = new Configuration
+            {
+                ApiBaseUrl = TestConfiguration.ApiBaseUrl,
+                TokenUrl = TestConfiguration.TokenUrl,
+                JwtToken = await FetchToken()
+            };
+
+            var api = new BarcodeApi(configWithToken);
+            using Stream generated = await api.GetBarcodeGenerateAsync(
                 new GetBarcodeGenerateRequest(
                 EncodeBarcodeType.QR.ToString(), "Test")
                 );

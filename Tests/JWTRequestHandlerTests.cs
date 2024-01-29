@@ -2,7 +2,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
@@ -39,7 +41,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // arrange
             var jwtHandler = new JwtRequestHandler(TestConfiguration);
-            jwtHandler.ProcessUrl("http://some url/");
+            jwtHandler.Preparing();
 
             // act
             WebRequest request = _requestFactory.Object.Create("http://some url/");
@@ -89,6 +91,65 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             AssertTokenIsValid(token);
         }
 
+        [Test]
+        public async Task TestTokenFetchedAsync()
+        {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unsupported TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
+            // arrange
+            var jwtHandler = new JwtRequestHandler(TestConfiguration);
+            await jwtHandler.PreparingAsync();
+
+            // act
+            var request = new HttpRequestMessage();
+            await jwtHandler.BeforeSendAsync(request);
+
+            // assert
+            Assert.IsTrue(request.Headers.Contains("Authorization"));
+            var auth = request.Headers.Authorization.ToString();
+            Assert.Greater(auth.Length, "Bearer ".Length);
+            var token = auth.Substring("Bearer ".Length);
+            AssertTokenIsValid(token);
+        }
+
+
+        [Test]
+        public async Task TestTokenRefreshAsync()
+        {
+            if (TestConfiguration.AuthType != AuthType.JWT)
+            {
+                Assert.Ignore($"Unsupported TestConfiguration.AuthType={TestConfiguration.AuthType}");
+            }
+
+            // arrange
+            HttpResponseMessage response401 = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+
+            var jwtHandler = new JwtRequestHandler(TestConfiguration);
+
+            // act
+            Assert.ThrowsAsync<NeedRepeatRequestException>(
+                async () =>
+                {
+                    // Should manage 401, fetch new token and store it
+                    // And throw NeedRepeatRequestException
+                    await jwtHandler.ProcessResponseAsync(response401);
+                });
+
+            // arrange
+            var request2 = new HttpRequestMessage();
+            await jwtHandler.BeforeSendAsync(request2);
+
+            // assert
+            Assert.IsTrue(request2.Headers.Contains("Authorization"));
+            var auth = request2.Headers.Authorization.ToString();
+            Assert.Greater(auth.Length, "Bearer ".Length);
+            var token = auth.Substring("Bearer ".Length);
+            AssertTokenIsValid(token);
+        }
+
         private static Mock<IWebRequestFactory> RequestFactoryMock()
         {
             var responseMock = new Mock<HttpWebResponse>();
@@ -112,5 +173,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             Assert.AreEqual("JWT", tokenHeader["typ"]?.ToString());
         }
+
     }
 }
