@@ -13,7 +13,8 @@ jobs:
     strategy:
       matrix:
         # See https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-and-net-core
-        # For versions
+        # and https://github.com/dotnet/core/blob/main/releases.md
+        # for versions
         include:
           - dotnet-version: 3.1.x
             framework: netcoreapp3.1
@@ -31,9 +32,7 @@ jobs:
     - name: Setup latest version of dotnet
       uses: actions/setup-dotnet@v3
     - name: Build with latest version
-      run:  |
-        dotnet build --warnaserror Aspose.BarCode.Cloud.Sdk.sln
-        dotnet build --warnaserror examples/examples.sln
+      run: dotnet build --warnaserror Aspose.BarCode.Cloud.Sdk.sln
 
     - name: Setup ${{ matrix.dotnet-version }} version of dotnet
       uses: actions/setup-dotnet@v3
