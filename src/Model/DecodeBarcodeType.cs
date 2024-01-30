@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="DecodeBarcodeType.cs">
-//   Copyright (c) 2023 Aspose.BarCode for Cloud
+//   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -457,7 +457,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Enum value GS1MicroPdf417
         /// </summary>
-        GS1MicroPdf417
+        GS1MicroPdf417,
+
+        /// <summary>
+        ///     Enum value mostCommonlyUsed
+        /// </summary>
+        mostCommonlyUsed
 
     }
 }

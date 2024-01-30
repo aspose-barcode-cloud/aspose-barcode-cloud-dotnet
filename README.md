@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 23.12.0
+- SDK version: 24.1.0
 
 ## Demo applications
 
@@ -71,54 +71,58 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
-namespace ReadQR
+namespace ReadQR;
+
+internal static class Program
 {
-    internal static class Program
+    private static Configuration MakeConfiguration()
     {
-        private static Configuration MakeConfiguration()
+        Configuration config = new Configuration();
+
+        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+        if (string.IsNullOrEmpty(envToken))
         {
-            var config = new Configuration();
-
-            string envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-            if (string.IsNullOrEmpty(envToken))
-            {
-                config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-                config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-            }
-            else
-            {
-                config.JwtToken = envToken;
-            }
-
-            return config;
+            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
+            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
+        }
+        else
+        {
+            config.JwtToken = envToken;
         }
 
-        private static string ReadQR(IBarcodeApi api, string fileName)
+        return config;
+    }
+
+    private static async Task<string> ReadQR(IBarcodeApi api, string fileName)
+    {
+        await using (FileStream imageStream = File.OpenRead(fileName))
         {
-            using (FileStream imageStream = File.OpenRead(fileName))
-            {
-                BarcodeResponseList recognized = api.PostBarcodeRecognizeFromUrlOrContent(
-                    new PostBarcodeRecognizeFromUrlOrContentRequest(image: imageStream)
-                );
+            BarcodeResponseList recognized = await api.PostBarcodeRecognizeFromUrlOrContentAsync(
+                new PostBarcodeRecognizeFromUrlOrContentRequest(image: imageStream)
+                {
+                    Type = DecodeBarcodeType.QR.ToString(),
+                    Preset = PresetType.HighPerformance.ToString(),
+                }
+            );
 
-                return recognized.Barcodes[0].BarcodeValue;
-            }
+            return recognized.Barcodes[0].BarcodeValue;
         }
+    }
 
-        static void Main(string[] args)
-        {
-            string fileName = Path.GetFullPath(Path.Join(
-                Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-                "..", "..", "..", "..",
-                "qr.png"
-            ));
+    public static async Task Main(string[] args)
+    {
+        string fileName = Path.GetFullPath(Path.Join(
+            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
+            "..", "..", "..", "..",
+            "qr.png"
+        ));
 
-            var api = new BarcodeApi(MakeConfiguration());
+        BarcodeApi api = new BarcodeApi(MakeConfiguration());
 
-            string result = ReadQR(api, fileName);
-            Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");
-        }
+        string result = await ReadQR(api, fileName);
+        Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");
     }
 }
 
@@ -136,61 +140,61 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
-namespace GenerateQR
+namespace GenerateQR;
+
+internal static class Program
 {
-    class Program
+    private static Configuration MakeConfiguration()
     {
-        static Configuration MakeConfiguration()
+        Configuration config = new Configuration();
+
+        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+        if (string.IsNullOrEmpty(envToken))
         {
-            var config = new Configuration();
-
-            var envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-            if (string.IsNullOrEmpty(envToken))
-            {
-                config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-                config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-            }
-            else
-            {
-                config.JwtToken = envToken;
-            }
-
-            return config;
+            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
+            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
+        }
+        else
+        {
+            config.JwtToken = envToken;
         }
 
-        private static void GenerateQR(IBarcodeApi api, string fileName)
+        return config;
+    }
+
+    private static async Task GenerateQR(IBarcodeApi api, string fileName)
+    {
+        await using (Stream generated = await api.GetBarcodeGenerateAsync(
+                         new GetBarcodeGenerateRequest(
+                             EncodeBarcodeType.QR.ToString(),
+                             "QR code text")
+                         {
+                             TextLocation = "None",
+                             format = "png"
+                         })
+                    )
         {
-            using (Stream generated = api.GetBarcodeGenerate(
-                       new GetBarcodeGenerateRequest(
-                           EncodeBarcodeType.QR.ToString(),
-                           "QR code text")
-                       {
-                           TextLocation = "None",
-                           format = "png"
-                       })
-                  )
+            await using (FileStream stream = File.Create(fileName))
             {
-                using (FileStream stream = File.Create(fileName))
-                {
-                    generated.CopyTo(stream);
-                }
+                await generated.CopyToAsync(stream);
             }
         }
+    }
 
-        static void Main(string[] args)
-        {
-            string fileName = Path.GetFullPath(Path.Join(
-                Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-                "..", "..", "..", "..",
-                "qr.png"
-            ));
+    public static async Task Main(string[] args)
+    {
+        string fileName = Path.GetFullPath(Path.Join(
+            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
+            "..", "..", "..", "..",
+            "qr.png"
+        ));
 
-            var api = new BarcodeApi(MakeConfiguration());
+        BarcodeApi api = new BarcodeApi(MakeConfiguration());
 
-            GenerateQR(api, fileName);
-            Console.WriteLine($"File '{fileName}' generated.");
-        }
+        await GenerateQR(api, fileName);
+        Console.WriteLine($"File '{fileName}' generated.");
     }
 }
 

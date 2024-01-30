@@ -88,3 +88,4 @@ See DecodeType
 * GS1Aztec
 * GS1CompositeBar
 * GS1MicroPdf417
+* mostCommonlyUsed

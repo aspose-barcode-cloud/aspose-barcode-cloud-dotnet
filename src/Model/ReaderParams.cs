@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="ReaderParams.cs">
-//   Copyright (c) 2023 Aspose.BarCode for Cloud
+//   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -59,6 +59,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         ///     Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other.
         /// </summary>
         public CustomerInformationInterpretingType? AustralianPostEncodingTable { get; set; }
+
+        /// <summary>
+        ///     Multiple barcode types to read.
+        /// </summary>
+        public List<DecodeBarcodeType> Types { get; set; }
 
         /// <summary>
         ///     A flag which force engine to detect codetext encoding for Unicode.
