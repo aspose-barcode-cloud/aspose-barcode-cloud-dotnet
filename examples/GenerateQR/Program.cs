@@ -5,60 +5,60 @@ using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 
-namespace GenerateQR
+namespace GenerateQR;
+
+internal static class Program
 {
-    class Program
+    private static Configuration MakeConfiguration()
     {
-        static Configuration MakeConfiguration()
+        Configuration config = new Configuration();
+
+        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+        if (string.IsNullOrEmpty(envToken))
         {
-            var config = new Configuration();
-
-            var envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
-            if (string.IsNullOrEmpty(envToken))
-            {
-                config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
-                config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-            }
-            else
-            {
-                config.JwtToken = envToken;
-            }
-
-            return config;
+            config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
+            config.ClientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
+        }
+        else
+        {
+            config.JwtToken = envToken;
         }
 
-        private static void GenerateQR(IBarcodeApi api, string fileName)
+        return config;
+    }
+
+    private static async Task GenerateQR(IBarcodeApi api, string fileName)
+    {
+        await using (Stream generated = await api.GetBarcodeGenerateAsync(
+                         new GetBarcodeGenerateRequest(
+                             EncodeBarcodeType.QR.ToString(),
+                             "QR code text")
+                         {
+                             TextLocation = "None",
+                             format = "png"
+                         })
+                    )
         {
-            using (Stream generated = api.GetBarcodeGenerate(
-                       new GetBarcodeGenerateRequest(
-                           EncodeBarcodeType.QR.ToString(),
-                           "QR code text")
-                       {
-                           TextLocation = "None",
-                           format = "png"
-                       })
-                  )
+            await using (FileStream stream = File.Create(fileName))
             {
-                using (FileStream stream = File.Create(fileName))
-                {
-                    generated.CopyTo(stream);
-                }
+                await generated.CopyToAsync(stream);
             }
         }
+    }
 
-        static void Main(string[] args)
-        {
-            string fileName = Path.GetFullPath(Path.Join(
-                Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-                "..", "..", "..", "..",
-                "qr.png"
-            ));
+    public static async Task Main(string[] args)
+    {
+        string fileName = Path.GetFullPath(Path.Join(
+            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
+            "..", "..", "..", "..",
+            "qr.png"
+        ));
 
-            var api = new BarcodeApi(MakeConfiguration());
+        BarcodeApi api = new BarcodeApi(MakeConfiguration());
 
-            GenerateQR(api, fileName);
-            Console.WriteLine($"File '{fileName}' generated.");
-        }
+        await GenerateQR(api, fileName);
+        Console.WriteLine($"File '{fileName}' generated.");
     }
 }

@@ -4,7 +4,7 @@ set -euo pipefail
 if [ $# -ge 1 ]; then
     output_dir="$(realpath "$1")"
 else
-    output_dir="$(realpath ..)"
+    output_dir="$(realpath .)"
 fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
