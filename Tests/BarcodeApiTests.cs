@@ -133,7 +133,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 {
                     folder = folder,
                     Preset = PresetType.HighPerformance.ToString(),
-                    Timeout = 30_000
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR, DecodeBarcodeType.Code128 }
                 }
             );
 
@@ -177,7 +177,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 {
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
                     Preset = PresetType.HighPerformance.ToString(),
-                    Timeout = 30_000
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.Code11 }
                 }
             );
 
@@ -284,7 +284,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     readerParams: new ReaderParams
                     {
                         Preset = PresetType.HighPerformance,
-                        Timeout = 30_000
+                        Types = new List<DecodeBarcodeType> { DecodeBarcodeType.Code128 }
                     }
                 )
                 {
@@ -402,7 +402,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 {
                     folder = folder,
                     Preset = PresetType.HighPerformance.ToString(),
-                    Timeout = 30_000
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR, DecodeBarcodeType.Code128 }
                 }
             );
 
@@ -435,7 +435,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 {
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
                     Preset = PresetType.HighPerformance.ToString(),
-                    Timeout = 30_000
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.Code11 },
                 }
             );
 
@@ -481,7 +481,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Assert
             Assert.IsTrue(response.Length > 0);
             using FileStream savedFileStream = File.Create(TestFilePath("Test_PostGenerateMultiple.png"));
-            response.CopyTo(savedFileStream);
+            await response.CopyToAsync(savedFileStream);
         }
 
 
@@ -539,7 +539,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                     readerParams: new ReaderParams
                     {
                         Preset = PresetType.HighPerformance,
-                        Timeout = 30_000
+                        Types = new List<DecodeBarcodeType> { DecodeBarcodeType.Code128 }
                     }
                 )
                 {
