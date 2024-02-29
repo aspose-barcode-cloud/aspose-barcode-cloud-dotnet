@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
@@ -38,8 +39,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     Preset = PresetType.HighPerformance.ToString(),
-                    Type = DecodeBarcodeType.QR.ToString(),
-                    Timeout = 30_000
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
                 }
             );
 
@@ -64,8 +64,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 #pragma warning restore CS0618 // Method is obsolete
                     new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                     {
-                        Preset = PresetType.HighPerformance.ToString(),
-                        Type = DecodeBarcodeType.QR.ToString(),
                         Timeout = 1
                     }
                 );
@@ -87,8 +85,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     Preset = PresetType.HighPerformance.ToString(),
-                    Type = DecodeBarcodeType.QR.ToString(),
-                    Timeout = 30_000
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
                 }
             );
 
@@ -111,8 +108,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
                     new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                     {
-                        Preset = PresetType.HighPerformance.ToString(),
-                        Type = DecodeBarcodeType.QR.ToString(),
                         Timeout = 1
                     }
                 );

@@ -28,7 +28,7 @@ jobs:
     continue-on-error: true
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup latest version of dotnet
       uses: actions/setup-dotnet@v3
     - name: Build with latest version

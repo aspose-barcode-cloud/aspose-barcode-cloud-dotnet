@@ -85,9 +85,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             jwtHandler.BeforeSend(request2, new MemoryStream());
 
             Assert.Contains("Authorization", request2.Headers.Keys);
-            var auth = request2.Headers["Authorization"];
+            string auth = request2.Headers["Authorization"];
             Assert.Greater(auth.Length, "Bearer ".Length);
-            var token = auth.Substring("Bearer ".Length);
+            string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
         }
 
@@ -111,7 +111,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.IsTrue(request.Headers.Contains("Authorization"));
             var auth = request.Headers.Authorization.ToString();
             Assert.Greater(auth.Length, "Bearer ".Length);
-            var token = auth.Substring("Bearer ".Length);
+            string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
         }
 
@@ -125,7 +125,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             // arrange
-            HttpResponseMessage response401 = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+            var response401 = new HttpResponseMessage(HttpStatusCode.Unauthorized);
 
             var jwtHandler = new JwtRequestHandler(TestConfiguration);
 
@@ -146,7 +146,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.IsTrue(request2.Headers.Contains("Authorization"));
             var auth = request2.Headers.Authorization.ToString();
             Assert.Greater(auth.Length, "Bearer ".Length);
-            var token = auth.Substring("Bearer ".Length);
+            string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
         }
 
@@ -173,6 +173,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             Assert.AreEqual("JWT", tokenHeader["typ"]?.ToString());
         }
-
     }
 }

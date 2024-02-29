@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Specialized;
 using System.Web;
 
@@ -42,7 +43,23 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
             var uriBuilder = new UriBuilder(url);
             NameValueCollection query = HttpUtility.ParseQueryString(uriBuilder.Query);
-            query.Add(parameterName, parameterValue.ToString());
+
+            if (parameterValue is string stringValue)
+            {
+                query.Add(parameterName, stringValue);
+            }
+            else if (parameterValue is ICollection collection)
+            {
+                foreach (object item in collection)
+                {
+                    query.Add(parameterName, item.ToString());
+                }
+            }
+            else
+            {
+                query.Add(parameterName, parameterValue.ToString());
+            }
+
             uriBuilder.Query = query.ToString();
 
             return uriBuilder.ToString();

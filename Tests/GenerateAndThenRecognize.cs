@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,6 +33,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(
 #pragma warning restore CS0618 // Type or member is obsolete
                 new PostBarcodeRecognizeFromUrlOrContentRequest(generatedImage)
+                {
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Types = new List<DecodeBarcodeType>
+                    {
+                        DecodeBarcodeType.QR
+                    }
+                }
             );
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
@@ -55,6 +63,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             BarcodeResponseList recognized = await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
                 new PostBarcodeRecognizeFromUrlOrContentRequest(generatedImage)
+                {
+                    Preset = PresetType.HighPerformance.ToString(),
+                    Types = new List<DecodeBarcodeType>
+                    {
+                        DecodeBarcodeType.QR
+                    }
+                }
             );
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
