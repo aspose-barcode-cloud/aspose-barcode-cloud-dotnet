@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.DeleteFile" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.DeleteFileAsync" /> operation.
     /// </summary>
     public class DeleteFileRequest
     {

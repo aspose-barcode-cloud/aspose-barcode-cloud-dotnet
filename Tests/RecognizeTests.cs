@@ -25,55 +25,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
         }
 
-
-        [Test]
-        public void RecognizeQrTest()
-        {
-            // Arrange
-            using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
-
-            // Act
-#pragma warning disable CS0618 // Method is obsolete
-            BarcodeResponseList response = _api.PostBarcodeRecognizeFromUrlOrContent(
-#pragma warning restore CS0618 // Method is obsolete
-                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
-                {
-                    Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
-                }
-            );
-
-            // Assert
-            Assert.AreEqual(1, response.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
-            Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
-        }
-
-
-        [Test]
-        public void RecognizeWithTimeoutTest()
-        {
-            // Arrange
-            using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
-
-            // Act
-            var apiException = Assert.Throws<ApiException>(() =>
-            {
-#pragma warning disable CS0618 // Method is obsolete
-                _api.PostBarcodeRecognizeFromUrlOrContent(
-#pragma warning restore CS0618 // Method is obsolete
-                    new PostBarcodeRecognizeFromUrlOrContentRequest(image)
-                    {
-                        Timeout = 1
-                    }
-                );
-            });
-
-            // Assert
-            Assert.IsNotNull(apiException);
-            Assert.AreEqual(408, apiException.ErrorCode);
-        }
-
         [Test]
         public async Task RecognizeQrAsyncTest()
         {
