@@ -22,39 +22,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         private IBarcodeApi _api;
 
         [Test]
-        public void GenerateAndThenRecognizeTest()
-        {
-#pragma warning disable CS0618 // Method is obsolete
-            Stream generatedImage = _api.GetBarcodeGenerate(
-#pragma warning restore CS0618 // Method is obsolete
-                new GetBarcodeGenerateRequest(EncodeBarcodeType.QR.ToString(), "Test"));
-
-#pragma warning disable CS0618 // Type or member is obsolete
-            BarcodeResponseList recognized = _api.PostBarcodeRecognizeFromUrlOrContent(
-#pragma warning restore CS0618 // Type or member is obsolete
-                new PostBarcodeRecognizeFromUrlOrContentRequest(generatedImage)
-                {
-                    Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType>
-                    {
-                        DecodeBarcodeType.QR
-                    }
-                }
-            );
-
-            Assert.AreEqual(1, recognized.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);
-            Assert.AreEqual("Test", recognized.Barcodes.First().BarcodeValue);
-            Assert.AreEqual(
-                "{\"barcodes\":[{" +
-                "\"barcodeValue\":\"Test\"," +
-                "\"type\":\"QR\"," +
-                "\"region\":[{\"x\":7,\"y\":7},{\"x\":49,\"y\":6},{\"x\":48,\"y\":48},{\"x\":6,\"y\":49}]}]}",
-                recognized.ToString()
-            );
-        }
-
-        [Test]
         [Category("AsyncTests")]
         public async Task GenerateAndThenRecognizeAsyncTest()
         {

@@ -32,7 +32,7 @@ using System.Collections.Generic;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.DownloadFile" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FileApi.DownloadFileAsync" /> operation.
     /// </summary>
     public class DownloadFileRequest
     {
