@@ -36,7 +36,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 new PostBarcodeRecognizeFromUrlOrContentRequest(image)
                 {
                     Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
                 }
             );
 

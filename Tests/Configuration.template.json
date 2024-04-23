@@ -1,6 +1,6 @@
 {
-    "ClientId": "Client Id from https://dashboard.aspose.cloud/applications",
-    "ClientSecret": "Client Secret from https://dashboard.aspose.cloud/applications",
-    "ApiBaseUrl": "https://api.aspose.cloud",
-    "TokenUrl":"https://api.aspose.cloud/connect/token"
+  "ClientId": "Client Id from https://dashboard.aspose.cloud/applications",
+  "ClientSecret": "Client Secret from https://dashboard.aspose.cloud/applications",
+  "ApiBaseUrl": "https://api.aspose.cloud",
+  "TokenUrl": "https://api.aspose.cloud/connect/token"
 }

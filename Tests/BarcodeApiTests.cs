@@ -157,7 +157,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 {
                     ChecksumValidation = ChecksumValidation.Off.ToString(),
                     Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.Code11 },
+                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.Code11 }
                 }
             );
 
