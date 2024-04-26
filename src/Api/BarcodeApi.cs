@@ -23,8 +23,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
@@ -393,7 +393,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new Dictionary<string, object>();
+            var formParams = new MultipartFormDataContent();
 #pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
@@ -508,8 +508,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (request.image != null)
             {
-                formParams.Add("image", ApiInvoker.ToFileInfo(request.image, "image"));
-
+                formParams.Add(new StreamContent(request.image), "image", "image.png");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
@@ -845,22 +844,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new Dictionary<string, object>();
+            var formParams = new MultipartFormDataContent();
 
 
 
             if (request.imageFile != null)
             {
-                formParams.Add("imageFile", ApiInvoker.ToFileInfo(request.imageFile, "imageFile"));
-
+                formParams.Add(new StreamContent(request.imageFile), "imageFile", "imageFile.png");
             }
             if (request.decodeTypes != null)
             {
-                formParams.Add("decodeTypes", request.decodeTypes); // form parameter
+                foreach (var oneParam in request.decodeTypes)
+                {
+                    formParams.Add(new StringContent(oneParam.ToString()), "decodeTypes");
+                }
             }
             if (request.timeout != null)
             {
-                formParams.Add("timeout", request.timeout); // form parameter
+                formParams.Add(new StringContent(request.timeout.ToString()), "timeout");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

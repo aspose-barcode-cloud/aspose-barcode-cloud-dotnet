@@ -25,12 +25,14 @@
 
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
     ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.StorageApi.GetDiscUsageAsync" /> operation.
     /// </summary>
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     public class GetDiscUsageRequest
     {
         /// <summary>

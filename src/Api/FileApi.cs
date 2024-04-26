@@ -23,8 +23,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
@@ -275,7 +275,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new Dictionary<string, object>();
+            var formParams = new MultipartFormDataContent();
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "path", request.path);
 #pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storageName", request.storageName);
@@ -283,8 +283,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (request.File != null)
             {
-                formParams.Add("_file", ApiInvoker.ToFileInfo(request.File, "File"));
-
+                formParams.Add(new StreamContent(request.File), "File", "_file.png");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

@@ -25,12 +25,14 @@
 
 
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
     ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.PostBarcodeRecognizeFromUrlOrContentAsync" /> operation.
     /// </summary>
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     public class PostBarcodeRecognizeFromUrlOrContentRequest
     {
         /// <summary>
@@ -197,7 +199,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public List<int?> ScanWindowSizes { get; set; }
 
         /// <summary>
-        ///     Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]
+        ///     Similarity coefficient depends on how homogeneous barcodes are. Use high value for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9]
         /// </summary>
         public double? Similarity { get; set; }
 

@@ -23,8 +23,8 @@
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 using System.Collections.Generic;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
