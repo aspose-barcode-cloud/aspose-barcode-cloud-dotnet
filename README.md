@@ -69,6 +69,7 @@ using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -79,7 +80,7 @@ internal static class Program
 {
     private static Configuration MakeConfiguration()
     {
-        Configuration config = new Configuration();
+        var config = new Configuration();
 
         string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
         if (string.IsNullOrEmpty(envToken))
@@ -97,18 +98,15 @@ internal static class Program
 
     private static async Task<string> ReadQR(IBarcodeApi api, string fileName)
     {
-        await using (FileStream imageStream = File.OpenRead(fileName))
-        {
-            BarcodeResponseList recognized = await api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(image: imageStream)
-                {
-                    Type = DecodeBarcodeType.QR.ToString(),
-                    Preset = PresetType.HighPerformance.ToString(),
-                }
-            );
+        await using FileStream imageStream = File.OpenRead(fileName);
+        BarcodeResponseList recognized = await api.ScanBarcodeAsync(
+            new ScanBarcodeRequest(imageStream)
+            {
+                decodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
+            }
+        );
 
-            return recognized.Barcodes[0].BarcodeValue;
-        }
+        return recognized.Barcodes[0].BarcodeValue;
     }
 
     public static async Task Main(string[] args)
@@ -119,7 +117,7 @@ internal static class Program
             "qr.png"
         ));
 
-        BarcodeApi api = new BarcodeApi(MakeConfiguration());
+        var api = new BarcodeApi(MakeConfiguration());
 
         string result = await ReadQR(api, fileName);
         Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");
@@ -148,7 +146,7 @@ internal static class Program
 {
     private static Configuration MakeConfiguration()
     {
-        Configuration config = new Configuration();
+        var config = new Configuration();
 
         string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
         if (string.IsNullOrEmpty(envToken))
@@ -166,21 +164,16 @@ internal static class Program
 
     private static async Task GenerateQR(IBarcodeApi api, string fileName)
     {
-        await using (Stream generated = await api.GetBarcodeGenerateAsync(
-                         new GetBarcodeGenerateRequest(
-                             EncodeBarcodeType.QR.ToString(),
-                             "QR code text")
-                         {
-                             TextLocation = "None",
-                             format = "png"
-                         })
-                    )
-        {
-            await using (FileStream stream = File.Create(fileName))
+        await using Stream generated = await api.GetBarcodeGenerateAsync(
+            new GetBarcodeGenerateRequest(
+                EncodeBarcodeType.QR.ToString(),
+                "QR code text")
             {
-                await generated.CopyToAsync(stream);
-            }
-        }
+                TextLocation = CodeLocation.None.ToString(),
+                format = "png"
+            });
+        await using FileStream stream = File.Create(fileName);
+        await generated.CopyToAsync(stream);
     }
 
     public static async Task Main(string[] args)

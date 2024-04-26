@@ -13,7 +13,7 @@ internal static class Program
 {
     private static Configuration MakeConfiguration()
     {
-        Configuration config = new Configuration();
+        var config = new Configuration();
 
         string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
         if (string.IsNullOrEmpty(envToken))
@@ -31,21 +31,16 @@ internal static class Program
 
     private static async Task GenerateQR(IBarcodeApi api, string fileName)
     {
-        await using (Stream generated = await api.GetBarcodeGenerateAsync(
-                         new GetBarcodeGenerateRequest(
-                             EncodeBarcodeType.QR.ToString(),
-                             "QR code text")
-                         {
-                             TextLocation = "None",
-                             format = "png"
-                         })
-                    )
-        {
-            await using (FileStream stream = File.Create(fileName))
+        await using Stream generated = await api.GetBarcodeGenerateAsync(
+            new GetBarcodeGenerateRequest(
+                EncodeBarcodeType.QR.ToString(),
+                "QR code text")
             {
-                await generated.CopyToAsync(stream);
-            }
-        }
+                TextLocation = CodeLocation.None.ToString(),
+                format = "png"
+            });
+        await using FileStream stream = File.Create(fileName);
+        await generated.CopyToAsync(stream);
     }
 
     public static async Task Main(string[] args)
