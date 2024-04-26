@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**PutBarcodeGenerateFile**](BarcodeApi.md#putbarcodegeneratefile) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)
 [**PutBarcodeRecognizeFromBody**](BarcodeApi.md#putbarcoderecognizefrombody) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.
 [**PutGenerateMultiple**](BarcodeApi.md#putgeneratemultiple) | **PUT** /barcode/{name}/generateMultiple | Generate image with multiple barcodes and put new file on server
+[**ScanBarcode**](BarcodeApi.md#scanbarcode) | **POST** /barcode/scan | Quickly scan a barcode from an image.
 
 
 ## **GetBarcodeGenerate**
@@ -335,5 +336,31 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json
+
+
+## **ScanBarcode**
+
+```csharp
+BarcodeResponseList ScanBarcode (System.IO.Stream imageFile, List<DecodeBarcodeType> decodeTypes = null, int? timeout = null)
+```
+
+Quickly scan a barcode from an image.
+
+### Parameters
+
+Name | Type | Description  | Notes
+---- | ---- | ------------ | -----
+ **imageFile** | **System.IO.Stream**| Image as file |
+ **decodeTypes** | [**List&lt;DecodeBarcodeType&gt;**](DecodeBarcodeType.md)| Types of barcode to recognize | [optional]
+ **timeout** | **int?**| Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. | [optional]
+
+### Return type
+
+[**BarcodeResponseList**](BarcodeResponseList.md)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 

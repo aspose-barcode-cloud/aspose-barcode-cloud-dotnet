@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="PutGenerateMultipleRequest.cs">
+// <copyright company="Aspose" file="ScanBarcodeRequest.cs">
 //   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -29,44 +29,33 @@ using System.Collections.Generic;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.PutGenerateMultipleAsync" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.ScanBarcodeAsync" /> operation.
     /// </summary>
-    public class PutGenerateMultipleRequest
+    public class ScanBarcodeRequest
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="PutGenerateMultipleRequest"/> class.
+        ///     Initializes a new instance of the <see cref="ScanBarcodeRequest"/> class.
         /// </summary>
-        /// <param name="name">New filename</param>
-        /// <param name="generatorParamsList">List of barcodes</param>
-        public PutGenerateMultipleRequest(string name, GeneratorParamsList generatorParamsList)
+        /// <param name="imageFile">Image as file</param>
+        public ScanBarcodeRequest(System.IO.Stream imageFile)
         {
-            this.name = name;
-            this.generatorParamsList = generatorParamsList;
+            this.imageFile = imageFile;
         }
 
         /// <summary>
-        ///     New filename
+        ///     Image as file
         /// </summary>
-        public string name { get; set; }
+        public System.IO.Stream imageFile { get; set; }
 
         /// <summary>
-        ///     List of barcodes
+        ///     Types of barcode to recognize
         /// </summary>
-        public GeneratorParamsList generatorParamsList { get; set; }
+        public List<DecodeBarcodeType> decodeTypes { get; set; }
 
         /// <summary>
-        ///     Format of file
+        ///     Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout.
         /// </summary>
-        public string format { get; set; }
-
-        /// <summary>
-        ///     Folder to place file to
-        /// </summary>
-        public string folder { get; set; }
-
-        /// <summary>
-        ///     The storage name
-        /// </summary>
-        public string storage { get; set; }
+        public int? timeout { get; set; }
     }
 }
+

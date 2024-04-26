@@ -824,5 +824,58 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             return null;
 
         }
+
+        /// <summary>
+        ///     Quickly scan a barcode from an image.
+        /// </summary>
+        /// <param name="request">Request. <see cref="ScanBarcodeRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
+        public async Task<BarcodeResponseList> ScanBarcodeAsync(ScanBarcodeRequest request)
+        {
+            // verify the required parameter 'imageFile' is set
+            if (request.imageFile == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'imageFile' when calling ScanBarcode");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            var formParams = new Dictionary<string, object>();
+
+
+
+            if (request.imageFile != null)
+            {
+                formParams.Add("imageFile", ApiInvoker.ToFileInfo(request.imageFile, "imageFile"));
+
+            }
+            if (request.decodeTypes != null)
+            {
+                formParams.Add("decodeTypes", request.decodeTypes); // form parameter
+            }
+            if (request.timeout != null)
+            {
+                formParams.Add("timeout", request.timeout); // form parameter
+            }
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "POST",
+                           null,
+                           null,
+                           formParams);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+
+        }
     }
 }

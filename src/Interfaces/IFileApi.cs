@@ -1,4 +1,3 @@
-using System.IO;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
@@ -10,6 +9,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
     /// </summary>
     public interface IFileApi
     {
+
         /// <summary>
         ///     Copy file
         /// </summary>
@@ -33,9 +33,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// </summary>
         /// <param name="request">Request. <see cref="DownloadFileRequest" /></param>
         /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="Stream" />.
+        ///     A task representing the asynchronous operation. The result is a <see cref="System.IO.Stream" />.
         /// </returns>
-        Task<Stream> DownloadFileAsync(DownloadFileRequest request);
+        Task<System.IO.Stream> DownloadFileAsync(DownloadFileRequest request);
 
         /// <summary>
         ///     Move file
