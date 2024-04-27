@@ -13,7 +13,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     public class AustralianPostParams : IToString
     {
         /// <summary>
-        ///     Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other\&quot;
+        ///     Interpreting type for the Customer Information of AustralianPost, default to CustomerInformationInterpretingType.Other
         /// </summary>
         public CustomerInformationInterpretingType? EncodingTable { get; set; }
 
