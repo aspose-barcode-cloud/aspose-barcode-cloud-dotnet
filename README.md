@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 24.3.0
+- SDK version: 24.4.0
 
 ## Demo applications
 
@@ -69,6 +69,7 @@ using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -79,7 +80,7 @@ internal static class Program
 {
     private static Configuration MakeConfiguration()
     {
-        Configuration config = new Configuration();
+        var config = new Configuration();
 
         string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
         if (string.IsNullOrEmpty(envToken))
@@ -97,18 +98,15 @@ internal static class Program
 
     private static async Task<string> ReadQR(IBarcodeApi api, string fileName)
     {
-        await using (FileStream imageStream = File.OpenRead(fileName))
-        {
-            BarcodeResponseList recognized = await api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(image: imageStream)
-                {
-                    Type = DecodeBarcodeType.QR.ToString(),
-                    Preset = PresetType.HighPerformance.ToString(),
-                }
-            );
+        await using FileStream imageStream = File.OpenRead(fileName);
+        BarcodeResponseList recognized = await api.ScanBarcodeAsync(
+            new ScanBarcodeRequest(imageStream)
+            {
+                decodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
+            }
+        );
 
-            return recognized.Barcodes[0].BarcodeValue;
-        }
+        return recognized.Barcodes[0].BarcodeValue;
     }
 
     public static async Task Main(string[] args)
@@ -119,7 +117,7 @@ internal static class Program
             "qr.png"
         ));
 
-        BarcodeApi api = new BarcodeApi(MakeConfiguration());
+        var api = new BarcodeApi(MakeConfiguration());
 
         string result = await ReadQR(api, fileName);
         Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");
@@ -148,7 +146,7 @@ internal static class Program
 {
     private static Configuration MakeConfiguration()
     {
-        Configuration config = new Configuration();
+        var config = new Configuration();
 
         string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
         if (string.IsNullOrEmpty(envToken))
@@ -166,21 +164,16 @@ internal static class Program
 
     private static async Task GenerateQR(IBarcodeApi api, string fileName)
     {
-        await using (Stream generated = await api.GetBarcodeGenerateAsync(
-                         new GetBarcodeGenerateRequest(
-                             EncodeBarcodeType.QR.ToString(),
-                             "QR code text")
-                         {
-                             TextLocation = "None",
-                             format = "png"
-                         })
-                    )
-        {
-            await using (FileStream stream = File.Create(fileName))
+        await using Stream generated = await api.GetBarcodeGenerateAsync(
+            new GetBarcodeGenerateRequest(
+                EncodeBarcodeType.QR.ToString(),
+                "QR code text")
             {
-                await generated.CopyToAsync(stream);
-            }
-        }
+                TextLocation = CodeLocation.None.ToString(),
+                format = "png"
+            });
+        await using FileStream stream = File.Create(fileName);
+        await generated.CopyToAsync(stream);
     }
 
     public static async Task Main(string[] args)
@@ -230,6 +223,7 @@ Class | Method | HTTP request | Description
 *BarcodeApi* | [**PutBarcodeGenerateFile**](docs/BarcodeApi.md#putbarcodegeneratefile) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)
 *BarcodeApi* | [**PutBarcodeRecognizeFromBody**](docs/BarcodeApi.md#putbarcoderecognizefrombody) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.
 *BarcodeApi* | [**PutGenerateMultiple**](docs/BarcodeApi.md#putgeneratemultiple) | **PUT** /barcode/{name}/generateMultiple | Generate image with multiple barcodes and put new file on server
+*BarcodeApi* | [**ScanBarcode**](docs/BarcodeApi.md#scanbarcode) | **POST** /barcode/scan | Quickly scan a barcode from an image.
 *FileApi* | [**CopyFile**](docs/FileApi.md#copyfile) | **PUT** /barcode/storage/file/copy/{srcPath} | Copy file
 *FileApi* | [**DeleteFile**](docs/FileApi.md#deletefile) | **DELETE** /barcode/storage/file/{path} | Delete file
 *FileApi* | [**DownloadFile**](docs/FileApi.md#downloadfile) | **GET** /barcode/storage/file/{path} | Download file

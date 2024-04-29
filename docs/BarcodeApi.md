@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**PutBarcodeGenerateFile**](BarcodeApi.md#putbarcodegeneratefile) | **PUT** /barcode/{name}/generate | Generate barcode and save on server (from query params or from file with json or xml content)
 [**PutBarcodeRecognizeFromBody**](BarcodeApi.md#putbarcoderecognizefrombody) | **PUT** /barcode/{name}/recognize | Recognition of a barcode from file on server with parameters in body.
 [**PutGenerateMultiple**](BarcodeApi.md#putgeneratemultiple) | **PUT** /barcode/{name}/generateMultiple | Generate image with multiple barcodes and put new file on server
+[**ScanBarcode**](BarcodeApi.md#scanbarcode) | **POST** /barcode/scan | Quickly scan a barcode from an image.
 
 
 ## **GetBarcodeGenerate**
@@ -116,7 +117,7 @@ Name | Type | Description  | Notes
  **allowAdditionalRestorations** | **bool?**| Allows engine using additional image restorations to recognize corrupted barcodes. At this time, it is used only in MicroPdf417 barcode type. Default value: False. | [optional]
  **regionLikelihoodThresholdPercent** | **double?**| Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. | [optional]
  **scanWindowSizes** | [**List&lt;int?&gt;**](int?.md)| Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. | [optional]
- **similarity** | **double?**| Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] | [optional]
+ **similarity** | **double?**| Similarity coefficient depends on how homogeneous barcodes are. Use high value for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] | [optional]
  **skipDiagonalSearch** | **bool?**| Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. | [optional]
  **readTinyBarcodes** | **bool?**| Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional]
  **australianPostEncodingTable** | **string**| Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional]
@@ -177,7 +178,7 @@ Name | Type | Description  | Notes
  **allowAdditionalRestorations** | **bool?**| Allows engine using additional image restorations to recognize corrupted barcodes. At this time, it is used only in MicroPdf417 barcode type. Default value: False. | [optional]
  **regionLikelihoodThresholdPercent** | **double?**| Sets threshold for detected regions that may contain barcodes. Value 0.7 means that bottom 70% of possible regions are filtered out and not processed further. Region likelihood threshold must be between [0.05, 0.9] Use high values for clear images with few barcodes. Use low values for images with many barcodes or for noisy images. Low value may lead to a bigger recognition time. | [optional]
  **scanWindowSizes** | [**List&lt;int?&gt;**](int?.md)| Scan window sizes in pixels. Allowed sizes are 10, 15, 20, 25, 30. Scanning with small window size takes more time and provides more accuracy but may fail in detecting very big barcodes. Combining of several window sizes can improve detection quality. | [optional]
- **similarity** | **double?**| Similarity coefficient depends on how homogeneous barcodes are. Use high value for for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] | [optional]
+ **similarity** | **double?**| Similarity coefficient depends on how homogeneous barcodes are. Use high value for clear barcodes. Use low values to detect barcodes that ara partly damaged or not lighten evenly. Similarity coefficient must be between [0.5, 0.9] | [optional]
  **skipDiagonalSearch** | **bool?**| Allows detector to skip search for diagonal barcodes. Setting it to false will increase detection time but allow to find diagonal barcodes that can be missed otherwise. Enabling of diagonal search leads to a bigger detection time. | [optional]
  **readTinyBarcodes** | **bool?**| Allows engine to recognize tiny barcodes on large images. Ignored if AllowIncorrectBarcodes is set to True. Default value: False. | [optional]
  **australianPostEncodingTable** | **string**| Interpreting Type for the Customer Information of AustralianPost BarCode.Default is CustomerInformationInterpretingType.Other. | [optional]
@@ -335,5 +336,31 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json
+
+
+## **ScanBarcode**
+
+```csharp
+BarcodeResponseList ScanBarcode (System.IO.Stream imageFile, List<DecodeBarcodeType> decodeTypes = null, int? timeout = null)
+```
+
+Quickly scan a barcode from an image.
+
+### Parameters
+
+Name | Type | Description  | Notes
+---- | ---- | ------------ | -----
+ **imageFile** | **System.IO.Stream**| Image as file |
+ **decodeTypes** | [**List&lt;DecodeBarcodeType&gt;**](DecodeBarcodeType.md)| Types of barcode to recognize | [optional]
+ **timeout** | **int?**| Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. | [optional]
+
+### Return type
+
+[**BarcodeResponseList**](BarcodeResponseList.md)
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 

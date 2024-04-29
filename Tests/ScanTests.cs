@@ -10,7 +10,7 @@ using NUnit.Framework;
 namespace Aspose.BarCode.Cloud.Sdk.Tests
 {
     [TestFixture]
-    public class RecognizeTests : TestsBase
+    public class ScanTests : TestsBase
     {
         private IBarcodeApi _api;
 
@@ -20,35 +20,30 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             _api = new BarcodeApi(TestConfiguration);
         }
 
-        [TearDown]
-        public void Cleanup()
-        {
-        }
 
         [Test]
-        public async Task RecognizeQrAsyncTest()
+        public async Task ScanBarcodeAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            BarcodeResponseList response = await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
+            BarcodeResponseList response = await _api.ScanBarcodeAsync(
+                new ScanBarcodeRequest(image)
                 {
-                    Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
+                    decodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Code128, DecodeBarcodeType.QR }
                 }
             );
 
             // Assert
-            Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.AreEqual(2, response.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
             Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
         }
 
 
         [Test]
-        public void RecognizeWithTimeoutAsyncTest()
+        public void ScanBarcodeAsyncTimeoutTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
@@ -56,10 +51,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Act
             var apiException = Assert.ThrowsAsync<ApiException>(async () =>
             {
-                await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                    new PostBarcodeRecognizeFromUrlOrContentRequest(image)
+                await _api.ScanBarcodeAsync(
+                    new ScanBarcodeRequest(image)
                     {
-                        Timeout = 1
+                        timeout = 1
                     }
                 );
             });

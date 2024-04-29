@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="DeleteFolderRequest.cs">
+// <copyright company="Aspose" file="ScanBarcodeRequest.cs">
 //   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -30,33 +30,34 @@ using System.Diagnostics.CodeAnalysis;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.FolderApi.DeleteFolderAsync" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.BarcodeApi.ScanBarcodeAsync" /> operation.
     /// </summary>
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public class DeleteFolderRequest
+    public class ScanBarcodeRequest
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="DeleteFolderRequest"/> class.
+        ///     Initializes a new instance of the <see cref="ScanBarcodeRequest"/> class.
         /// </summary>
-        /// <param name="path">Folder path e.g. &#39;/folder&#39;</param>
-        public DeleteFolderRequest(string path)
+        /// <param name="imageFile">Image as file</param>
+        public ScanBarcodeRequest(System.IO.Stream imageFile)
         {
-            this.path = path;
+            this.imageFile = imageFile;
         }
 
         /// <summary>
-        ///     Folder path e.g. '/folder'
+        ///     Image as file
         /// </summary>
-        public string path { get; set; }
+        public System.IO.Stream imageFile { get; set; }
 
         /// <summary>
-        ///     Storage name
+        ///     Types of barcode to recognize
         /// </summary>
-        public string storageName { get; set; }
+        public List<DecodeBarcodeType> decodeTypes { get; set; }
 
         /// <summary>
-        ///     Enable to delete folders, subfolders and files
+        ///     Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout.
         /// </summary>
-        public bool? recursive { get; set; }
+        public int? timeout { get; set; }
     }
 }
+

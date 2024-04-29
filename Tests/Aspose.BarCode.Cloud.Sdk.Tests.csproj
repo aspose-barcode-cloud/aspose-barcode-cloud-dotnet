@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net462;net480;net481;net6.0;net7.0;net8.0</TargetFrameworks>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <IsTestProject>true</IsTestProject>
-    <LangVersion>8.0</LangVersion>
-  </PropertyGroup>
-  <ItemGroup>
-    <Compile Remove="TestResults\**" />
-    <EmbeddedResource Remove="TestResults\**" />
-    <None Remove="TestResults\**" />
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Moq" Version="4.20.70" />
-    <PackageReference Include="NUnit" Version="3.14.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
-    <PackageReference Include="System.Net.Http" Version="4.3.4" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\src\Aspose.BarCode.Cloud.Sdk.csproj" />
-  </ItemGroup>
+    <PropertyGroup>
+        <TargetFrameworks>net462;net480;net481;net6.0;net7.0;net8.0</TargetFrameworks>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <IsTestProject>true</IsTestProject>
+        <LangVersion>8.0</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Remove="TestResults\**"/>
+        <EmbeddedResource Remove="TestResults\**"/>
+        <None Remove="TestResults\**"/>
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Moq" Version="4.20.70"/>
+        <PackageReference Include="NUnit" Version="3.14.0"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
+        <PackageReference Include="System.Net.Http" Version="4.3.4"/>
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\src\Aspose.BarCode.Cloud.Sdk.csproj"/>
+    </ItemGroup>
 </Project>

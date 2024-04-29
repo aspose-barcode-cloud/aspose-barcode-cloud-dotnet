@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.Net.Http.Headers;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,22 +44,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             string contentType = "application/json")
         {
             return InvokeInternal(path, method, false, body, headerParams, formParams, contentType) as string;
-        }
-
-        public Stream InvokeBinaryApi(
-            string path,
-            string method,
-            string body,
-            Dictionary<string, string> headerParams,
-            Dictionary<string, object> formParams,
-            string contentType = "application/json")
-        {
-            return (Stream)InvokeInternal(path, method, true, body, headerParams, formParams, contentType);
-        }
-
-        public static FileInfo ToFileInfo(Stream stream, string fileName)
-        {
-            return new FileInfo(fileName, StreamHelper.ReadAsBytes(stream));
         }
 
         private static byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
@@ -109,7 +92,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             // Dump the Stream into a byte[]
             formDataStream.Position = 0;
             var formData = new byte[formDataStream.Length];
-            formDataStream.Read(formData, 0, formData.Length);
+            int _ = formDataStream.Read(formData, 0, formData.Length);
             formDataStream.Close();
 
             return formData;
@@ -289,20 +272,23 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             string method,
             string body,
             Dictionary<string, string> headerParams,
-            Dictionary<string, object> formParams,
+            MultipartFormDataContent formParams,
             string contentType = "application/json")
         {
-            return (Stream)(await InvokeInternalAsync(path, method, true, body, headerParams, formParams, contentType));
+            var responseStream = await InvokeInternalAsync(path, method, true, body, headerParams, formParams, contentType)
+                    as Stream;
+            return responseStream;
         }
 
         public async Task<string> InvokeApiAsync(string path,
             string method,
             string body,
             Dictionary<string, string> headerParams,
-            Dictionary<string, object> formParams,
+            MultipartFormDataContent formParams,
             string contentType = "application/json")
         {
-            return (await InvokeInternalAsync(path, method, false, body, headerParams, formParams, contentType)) as string;
+            var response = await InvokeInternalAsync(path, method, false, body, headerParams, formParams, contentType) as string;
+            return response;
         }
 
         private async Task<object> InvokeInternalAsync(string path,
@@ -310,43 +296,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             bool binaryResponse,
             string body,
             Dictionary<string, string> headerParams,
-            Dictionary<string, object> formParams,
+            MultipartFormDataContent formParams,
             string contentType)
         {
-            if (formParams == null)
-            {
-                formParams = new Dictionary<string, object>();
-            }
-
             if (headerParams == null)
             {
                 headerParams = new Dictionary<string, string>();
             }
             await Task.WhenAll(_requestHandlers.Select(p => p.PreparingAsync()).ToArray());
 
-            using (HttpClient client = new HttpClient())
+            using (var client = new HttpClient())
             {
-                using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), path))
+                using (var request = new HttpRequestMessage(new HttpMethod(method), path))
                 {
-                    if (formParams.Count > 0)
+                    if (!(formParams is null))
                     {
-                        var formDataBoundary = Guid.NewGuid().ToString();
-                        request.Content = new MultipartFormDataContent(formDataBoundary);
-
-                        foreach (var param in formParams)
-                        {
-                            if (param.Value is FileInfo fileInfo)
-                            {
-                                var streamToSend = new MemoryStream(fileInfo.FileContent);
-                                var streamContent = new StreamContent(streamToSend);
-                                streamContent.Headers.ContentType = new MediaTypeHeaderValue(fileInfo.MimeType);
-                                ((MultipartFormDataContent)request.Content).Add(streamContent, param.Key, fileInfo.Name);
-                            }
-                            else
-                            {
-                                ((MultipartFormDataContent)request.Content).Add(new StringContent(param.Value.ToString()), param.Key);
-                            }
-                        }
+                        request.Content = formParams;
                     }
                     else if (body != null)
                     {

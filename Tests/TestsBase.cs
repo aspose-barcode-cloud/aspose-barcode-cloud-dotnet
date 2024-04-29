@@ -49,7 +49,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static Configuration LoadFromEnv()
         {
-
             string jsonStr = JsonConvert.SerializeObject(new Configuration());
             JObject obj = JObject.Parse(jsonStr);
             foreach (KeyValuePair<string, JToken> i in obj)
