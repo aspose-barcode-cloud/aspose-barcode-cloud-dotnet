@@ -20,10 +20,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             var config = new Configuration
             {
-                ApiBaseUrl = "http://localhost:12345"
+                ApiBaseUrl = "http://localhost:47972"
             };
 
-            Assert.AreEqual("http://localhost:12345/v3.0", config.GetApiRootUrl());
+            Assert.AreEqual("http://localhost:47972/v3.0", config.GetApiRootUrl());
         }
 
 
