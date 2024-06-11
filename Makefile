@@ -1,3 +1,5 @@
+LATEST_SDK_VERSION=$(shell dotnet --list-sdks | awk -F. '{print $$1 "." $$2}' | sort -n | tail -n 1)
+
 .PHONY: all
 all: test
 
@@ -18,7 +20,11 @@ format-doc:
 
 .PHONY: test
 test:
-	dotnet test
+	dotnet test -v normal --framework=net$(LATEST_SDK_VERSION)
+
+.PHONY: build
+build:
+	dotnet build -v normal --framework=net$(LATEST_SDK_VERSION)
 
 .PHONY: insert-examples
 insert-examples:
@@ -34,7 +40,7 @@ update:
 
 .PHONY: lint
 lint:
-	dotnet build --warnaserror Aspose.BarCode.Cloud.Sdk.sln
+	dotnet build --warnaserror Aspose.BarCode.Cloud.Sdk.sln --framework=net$(LATEST_SDK_VERSION)
 
 .PHONY: clean
 clean:
