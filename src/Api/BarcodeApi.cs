@@ -247,7 +247,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
-#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
 
@@ -360,8 +359,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
-#pragma warning restore CS0618 // Type or member is obsolete
-
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "GET",
@@ -394,7 +391,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             var formParams = new MultipartFormDataContent();
-#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
 
@@ -504,8 +500,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.url);
-#pragma warning restore CS0618 // Type or member is obsolete
-
             if (request.image != null)
             {
                 formParams.Add(new StreamContent(request.image), "image", "image.png");
@@ -546,9 +540,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
-#pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
@@ -746,7 +738,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
-#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.type);
 
 
@@ -754,7 +745,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "folder", request.folder);
-#pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.readerParams); // http body (model) parameter
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
@@ -798,7 +788,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "name", request.name);
-#pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "format", request.format);
 
 
@@ -806,7 +795,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "storage", request.storage);
-#pragma warning restore CS0618 // Type or member is obsolete
             string postBody = SerializationHelper.Serialize(request.generatorParamsList); // http body (model) parameter
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
@@ -861,7 +849,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
             if (request.timeout != null)
             {
-                formParams.Add(new StringContent(request.timeout.ToString()), "timeout");
+                formParams.Add(new StringContent($"{request.timeout}"), "timeout");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

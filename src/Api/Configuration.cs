@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -90,7 +91,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             string result = ApiBaseUrl + "/v" + ApiVersion;
 
-            return result.EndsWith("/") ? result.Substring(0, result.Length - 1) : result;
+            return result.EndsWith("/", StringComparison.InvariantCulture) ? result.Substring(0, result.Length - 1) : result;
         }
 
         private string _jwtToken;

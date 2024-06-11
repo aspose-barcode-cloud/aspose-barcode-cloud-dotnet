@@ -49,7 +49,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         private static byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
         {
             // TODO: stream is not disposed
-            Stream formDataStream = new MemoryStream();
+            MemoryStream formDataStream = new MemoryStream();
             var needsCrlf = false;
 
             if (postParameters.Count > 0)

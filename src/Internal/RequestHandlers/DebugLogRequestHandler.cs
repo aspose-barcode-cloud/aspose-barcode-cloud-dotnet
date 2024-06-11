@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
 using System.IO;
@@ -48,7 +47,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             }
         }
 
-        private void LogRequest(WebRequest request, Stream streamToSend)
+        private static void LogRequest(WebRequest request, Stream streamToSend)
         {
             var header = $"{request.Method}: {request.RequestUri}";
             var sb = new StringBuilder();
@@ -116,7 +115,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             }
         }
 
-        private async Task LogRequestAsync(HttpRequestMessage request)
+        private static async Task LogRequestAsync(HttpRequestMessage request)
         {
             var header = $"{request.Method}: {request.RequestUri}";
             var sb = new StringBuilder();
@@ -132,7 +131,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             Log(header, sb);
         }
 
-        private async Task LogResponseAsync(HttpResponseMessage response)
+        private static async Task LogResponseAsync(HttpResponseMessage response)
         {
             var header = $"\r\nResponse {(int)response.StatusCode}: {response.StatusCode}";
             var sb = new StringBuilder();
