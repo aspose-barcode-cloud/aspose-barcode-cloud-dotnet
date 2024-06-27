@@ -32,7 +32,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         {
             try
             {
-                if (json.StartsWith("{") || json.StartsWith("["))
+                if (json.StartsWith("{", StringComparison.InvariantCulture) || json.StartsWith("[", StringComparison.InvariantCulture))
                 {
                     object jObj = JsonConvert.DeserializeObject(json, type);
                     if (jObj is IToString jToString)

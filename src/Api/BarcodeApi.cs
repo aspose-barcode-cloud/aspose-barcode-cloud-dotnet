@@ -861,7 +861,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
             if (request.timeout != null)
             {
-                formParams.Add(new StringContent(request.timeout.ToString()), "timeout");
+                formParams.Add(new StringContent($"{request.timeout}"), "timeout");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
