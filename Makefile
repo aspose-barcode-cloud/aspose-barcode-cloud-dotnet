@@ -16,6 +16,7 @@ format:
 
 .PHONY: format-doc
 format-doc:
+	# Remove trailing white space
 	find . -iname "*.md" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 
 .PHONY: test
