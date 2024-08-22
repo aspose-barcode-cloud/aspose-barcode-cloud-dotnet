@@ -15,11 +15,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         public Configuration()
         {
-            ApiBaseUrl = "https://api.aspose.cloud";
+            ApiBaseUrl = "barcode.qa.aspose.cloud";
             DebugMode = false;
-            ApiVersion = "3.0";
+            ApiVersion = "4.0";
             AuthType = AuthType.JWT;
-            TokenUrl = "https://api.aspose.cloud/connect/token";
+            TokenUrl = "https://id-qa.aspose.cloud/connect/token";
             DefaultHeaders = new Dictionary<string, string>();
         }
 

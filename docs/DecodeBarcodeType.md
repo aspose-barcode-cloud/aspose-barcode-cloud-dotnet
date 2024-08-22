@@ -1,10 +1,10 @@
 # Aspose.BarCode.Cloud.Sdk.Model.DecodeBarcodeType
 
-See DecodeType
+See Aspose.BarCode.Aspose.BarCode.BarCodeRecognition.DecodeType
 
 ## Allowable values
 
-* **all**
+* **mostCommonlyUsed**
 * AustraliaPost
 * Aztec
 * ISBN
@@ -12,10 +12,10 @@ See DecodeType
 * Code11
 * Code128
 * GS1Code128
-* Code39Extended
-* Code39Standard
-* Code93Extended
-* Code93Standard
+* Code39
+* Code39FullASCII
+* Code93
+* Code93FullASCII
 * DataMatrix
 * DeutschePostIdentcode
 * DeutschePostLeitcode
@@ -42,6 +42,7 @@ See DecodeType
 * PZN
 * QR
 * MicroQR
+* RectMicroQR
 * RM4SCC
 * SCC14
 * SSCC18
@@ -88,4 +89,3 @@ See DecodeType
 * GS1Aztec
 * GS1CompositeBar
 * GS1MicroPdf417
-* mostCommonlyUsed

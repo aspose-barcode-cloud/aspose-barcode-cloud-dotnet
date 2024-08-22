@@ -6,9 +6,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     See Aspose.BarCode.Generation.EncodeTypes
+    ///     Recognition mode.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum EncodeBarcodeType
+    public enum RecognitionMode
     { }
 }

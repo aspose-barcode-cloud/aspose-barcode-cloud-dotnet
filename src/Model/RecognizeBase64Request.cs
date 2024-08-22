@@ -8,34 +8,29 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     Api Error.
+    ///     Barcode recognize request
     /// </summary>
-    public class ApiError : IToString
+    public class RecognizeBase64Request : IToString
     {
         /// <summary>
-        ///     Gets or sets api error code.
+        ///     Array of decode types to find on barcode
         /// </summary>
-        public string Code { get; set; }
+        public List<DecodeBarcodeType> BarcodeTypes { get; set; }
 
         /// <summary>
-        ///     Gets or sets error message.
+        ///     Gets or sets RecognitionMode
         /// </summary>
-        public string Message { get; set; }
+        public RecognitionMode RecognitionMode { get; set; }
 
         /// <summary>
-        ///     Gets or sets error description.
+        ///     Gets or sets ImageKind
         /// </summary>
-        public string Description { get; set; }
+        public RecognitionImageKind ImageKind { get; set; }
 
         /// <summary>
-        ///     Gets or sets server datetime.
+        ///     Barcode image bytes encoded as base-64.
         /// </summary>
-        public DateTime? DateTime { get; set; }
-
-        /// <summary>
-        ///     Gets or sets InnerError
-        /// </summary>
-        public ApiError InnerError { get; set; }
+        public string FileBase64 { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object

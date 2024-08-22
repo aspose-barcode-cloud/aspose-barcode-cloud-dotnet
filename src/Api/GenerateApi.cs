@@ -1,0 +1,301 @@
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright company="Aspose" file="GenerateApi.cs">
+//   Copyright (c) 2024 Aspose.BarCode for Cloud
+// </copyright>
+// <summary>
+//   Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+// </summary>
+// --------------------------------------------------------------------------------------------------------------------
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
+using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
+using Aspose.BarCode.Cloud.Sdk.Model;
+using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
+namespace Aspose.BarCode.Cloud.Sdk.Api
+{
+    /// <summary>
+    ///     GenerateApi
+    /// </summary>
+    public class GenerateApi : IGenerateApi
+    {
+        private readonly ApiInvoker _apiInvoker;
+        private readonly Configuration _configuration;
+
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="GenerateApi" /> class.
+        /// </summary>
+        /// <param name="configuration">Configuration settings</param>
+        public GenerateApi(Configuration configuration)
+        {
+            _configuration = configuration;
+
+            var requestHandlers = new List<IRequestHandler>();
+            switch (_configuration.AuthType)
+            {
+                case AuthType.JWT:
+                    requestHandlers.Add(new JwtRequestHandler(_configuration));
+                    break;
+                case AuthType.ExternalAuth:
+                    requestHandlers.Add(new ExternalAuthorizationRequestHandler(_configuration));
+                    break;
+                default:
+                    throw new System.ArgumentOutOfRangeException($"Unknown AuthType={_configuration.AuthType}.");
+            }
+
+            requestHandlers.Add(new DebugLogRequestHandler(_configuration));
+            requestHandlers.Add(new ApiExceptionRequestHandler());
+            _apiInvoker = new ApiInvoker(configuration, requestHandlers);
+        }
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="GenerateApi" /> class.
+        /// </summary>
+        /// <param name="clientSecret">
+        ///     The Client Secret.
+        /// </param>
+        /// <param name="clientId">
+        ///     The Client Id.
+        /// </param>
+        public GenerateApi(string clientSecret, string clientId)
+            : this(new Configuration { ClientSecret = clientSecret, ClientId = clientId })
+        {
+        }
+
+        /// <summary>
+        ///     Generate barcode using GET request with parameters in route and query string.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeGenerateBarcodeTypeGetRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="byte[]" />
+        /// </returns>
+        public async Task<byte[]> BarcodeGenerateBarcodeTypeGetAsync(BarcodeGenerateBarcodeTypeGetRequest request)
+        {
+            // verify the required parameter 'barcodeType' is set
+            if (request.barcodeType == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'barcodeType' when calling BarcodeGenerateBarcodeTypeGet");
+            }
+            // verify the required parameter 'dataType' is set
+            if (request.DataType == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'dataType' when calling BarcodeGenerateBarcodeTypeGet");
+            }
+            // verify the required parameter 'data' is set
+            if (request.Data == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'data' when calling BarcodeGenerateBarcodeTypeGet");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate/{barcodeType}";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", request.barcodeType);
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "dataType", request.DataType);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "data", request.Data);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageFormat", request.ImageFormat);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "twoDDisplayText", request.TwoDDisplayText);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textLocation", request.TextLocation);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textAlignment", request.TextAlignment);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "foregroundColor", request.ForegroundColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "backgroundColor", request.BackgroundColor);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "units", request.Units);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", request.Resolution);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageHeight", request.ImageHeight);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageWidth", request.ImageWidth);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", request.RotationAngle);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (byte[])SerializationHelper.Deserialize(response, typeof(byte[]));
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        ///     Generate barcode using POST request with parameters in body in json or xml format.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeGenerateBodyPostRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="byte[]" />
+        /// </returns>
+        public async Task<byte[]> BarcodeGenerateBodyPostAsync(BarcodeGenerateBodyPostRequest request)
+        {
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-body";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            string postBody = SerializationHelper.Serialize(request.body); // http body (model) parameter
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "POST",
+                           postBody,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (byte[])SerializationHelper.Deserialize(response, typeof(byte[]));
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        ///     Generate barcode using POST request with parameters in url ecncoded form.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeGenerateFormPostRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="byte[]" />
+        /// </returns>
+        public async Task<byte[]> BarcodeGenerateFormPostAsync(BarcodeGenerateFormPostRequest request)
+        {
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-form";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            var formParams = new MultipartFormDataContent();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            if (request.barcodeType != null)
+            {
+            }
+            if (request.DataType != null)
+            {
+            }
+            if (request.Data != null)
+            {
+                formParams.Add(new StringContent($"{request.Data}"), "Data");
+            }
+            if (request.ImageFormat != null)
+            {
+            }
+            if (request.TwoDDisplayText != null)
+            {
+                formParams.Add(new StringContent($"{request.TwoDDisplayText}"), "TwoDDisplayText");
+            }
+            if (request.TextLocation != null)
+            {
+            }
+            if (request.TextAlignment != null)
+            {
+            }
+            if (request.ForegroundColor != null)
+            {
+                formParams.Add(new StringContent($"{request.ForegroundColor}"), "ForegroundColor");
+            }
+            if (request.BackgroundColor != null)
+            {
+                formParams.Add(new StringContent($"{request.BackgroundColor}"), "BackgroundColor");
+            }
+            if (request.Units != null)
+            {
+            }
+            if (request.Resolution != null)
+            {
+                formParams.Add(new StringContent($"{request.Resolution}"), "Resolution");
+            }
+            if (request.ImageHeight != null)
+            {
+                formParams.Add(new StringContent($"{request.ImageHeight}"), "ImageHeight");
+            }
+            if (request.ImageWidth != null)
+            {
+                formParams.Add(new StringContent($"{request.ImageWidth}"), "ImageWidth");
+            }
+            if (request.RotationAngle != null)
+            {
+                formParams.Add(new StringContent($"{request.RotationAngle}"), "RotationAngle");
+            }
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "POST",
+                           null,
+                           null,
+                           formParams);
+
+            if (response != null)
+            {
+                return (byte[])SerializationHelper.Deserialize(response, typeof(byte[]));
+            }
+
+            return null;
+
+        }
+    }
+}

@@ -1,8 +1,10 @@
 # Aspose.BarCode.Cloud.Sdk.Model.ApiErrorResponse
 
+ApiError Response
+
 ## Properties
 
 Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
-**RequestId** | **string** |  | [optional]
+**RequestId** | **string** | Gets or sets request Id. | [optional]
 **Error** | [**ApiError**](ApiError.md) |  | [optional]

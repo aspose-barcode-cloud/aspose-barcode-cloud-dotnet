@@ -6,9 +6,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     See Aspose.BarCode.Generation.EncodeTypes
+    ///     Types of data can be encoded to barcode
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum EncodeBarcodeType
+    public enum EncodeDataType
     { }
 }

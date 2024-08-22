@@ -8,34 +8,24 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     Api Error.
+    ///     Barcode generation parameters
     /// </summary>
-    public class ApiError : IToString
+    public class GenerateParams : IToString
     {
         /// <summary>
-        ///     Gets or sets api error code.
+        ///     Gets or sets BarcodeType
         /// </summary>
-        public string Code { get; set; }
+        public EncodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
-        ///     Gets or sets error message.
+        ///     Gets or sets EncodeData
         /// </summary>
-        public string Message { get; set; }
+        public EncodeData EncodeData { get; set; }
 
         /// <summary>
-        ///     Gets or sets error description.
+        ///     Gets or sets BarcodeImageParams
         /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        ///     Gets or sets server datetime.
-        /// </summary>
-        public DateTime? DateTime { get; set; }
-
-        /// <summary>
-        ///     Gets or sets InnerError
-        /// </summary>
-        public ApiError InnerError { get; set; }
+        public BarcodeImageParams BarcodeImageParams { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object

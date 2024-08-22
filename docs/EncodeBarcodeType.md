@@ -1,15 +1,14 @@
 # Aspose.BarCode.Cloud.Sdk.Model.EncodeBarcodeType
 
-See EncodeTypes
+See Aspose.BarCode.Generation.EncodeTypes
 
 ## Allowable values
 
 * **Codabar**
 * Code11
-* Code39Standard
-* Code39Extended
-* Code93Standard
-* Code93Extended
+* Code39
+* Code39FullASCII
+* Code93
 * Code128
 * GS1Code128
 * EAN8
@@ -76,3 +75,5 @@ See EncodeTypes
 * GS1HanXin
 * GS1Aztec
 * GS1MicroPdf417
+* RectMicroQR
+* MicroQR

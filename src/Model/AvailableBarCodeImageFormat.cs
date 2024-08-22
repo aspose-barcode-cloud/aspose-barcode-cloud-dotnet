@@ -6,9 +6,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///     See Aspose.BarCode.Generation.EncodeTypes
+    ///     Specifies the file format of the image.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum EncodeBarcodeType
+    public enum AvailableBarCodeImageFormat
     { }
 }
