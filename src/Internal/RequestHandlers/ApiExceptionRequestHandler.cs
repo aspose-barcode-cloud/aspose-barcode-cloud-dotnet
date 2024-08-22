@@ -47,10 +47,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 using (StreamReader responseReader = new StreamReader(resultStream))
                 {
                     string responseData = responseReader.ReadToEnd();
-                    ApiErrorResponse errorResponse = (ApiErrorResponse)
-                        SerializationHelper.Deserialize(responseData,
-                            typeof(ApiErrorResponse));
-                    if (string.IsNullOrEmpty(errorResponse.Error.Code))
+                    ApiErrorResponse errorResponse = new ApiErrorResponse()
+                    {
+                        Error = new ApiError()
+                    };
+                    try
+                    {
+                        errorResponse = (ApiErrorResponse)
+                            SerializationHelper.Deserialize(responseData,
+                                typeof(ApiErrorResponse));
+                    }
+                    catch
+                    {
+                    }
+                    if (string.IsNullOrEmpty(errorResponse.Error?.Code))
                     {
                         errorResponse.Error.Message = responseData;
                     }
@@ -86,10 +96,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                     using (StreamReader responseReader = new StreamReader(resultStream))
                     {
                         string responseData = await responseReader.ReadToEndAsync();
-                        ApiErrorResponse errorResponse = (ApiErrorResponse)
-                            SerializationHelper.Deserialize(responseData,
-                                typeof(ApiErrorResponse));
-                        if (string.IsNullOrEmpty(errorResponse.Error.Code))
+                        ApiErrorResponse errorResponse = new ApiErrorResponse()
+                        {
+                            Error = new ApiError()
+                        };
+                        try
+                        {
+                            errorResponse = (ApiErrorResponse)
+                                SerializationHelper.Deserialize(responseData,
+                                    typeof(ApiErrorResponse));
+                        }
+                        catch
+                        {
+                        }
+                        if (string.IsNullOrEmpty(errorResponse.Error?.Code))
                         {
                             errorResponse.Error.Message = responseData;
                         }

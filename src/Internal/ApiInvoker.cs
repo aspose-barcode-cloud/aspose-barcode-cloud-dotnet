@@ -272,7 +272,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             string method,
             string body,
             Dictionary<string, string> headerParams,
-            MultipartFormDataContent formParams,
+            HttpContent formParams,
             string contentType = "application/json")
         {
             Stream responseStream = await InvokeInternalAsync(path, method, true, body, headerParams, formParams, contentType)
@@ -284,7 +284,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             string method,
             string body,
             Dictionary<string, string> headerParams,
-            MultipartFormDataContent formParams,
+            HttpContent formParams,
             string contentType = "application/json")
         {
             string response = await InvokeInternalAsync(path, method, false, body, headerParams, formParams, contentType) as string;
@@ -296,7 +296,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             bool binaryResponse,
             string body,
             Dictionary<string, string> headerParams,
-            MultipartFormDataContent formParams,
+            HttpContent formParams,
             string contentType)
         {
             if (headerParams == null)

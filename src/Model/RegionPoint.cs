@@ -15,12 +15,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     X-coordinate
         /// </summary>
-        public int? X { get; set; }
+        public int X { get; set; }
 
         /// <summary>
         ///     Y-coordinate
         /// </summary>
-        public int? Y { get; set; }
+        public int Y { get; set; }
 
         /// <summary>
         ///     Get the string presentation of the object

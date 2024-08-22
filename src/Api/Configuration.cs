@@ -17,9 +17,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             ApiBaseUrl = "https://api.aspose.cloud";
             DebugMode = false;
-            ApiVersion = "3.0";
+            ApiVersion = "4.0";
             AuthType = AuthType.JWT;
-            TokenUrl = "https://api.aspose.cloud/connect/token";
+            TokenUrl = "https://id.aspose.cloud/connect/token";
             DefaultHeaders = new Dictionary<string, string>();
         }
 

@@ -8,27 +8,27 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///
+    ///     Api Error.
     /// </summary>
     public class ApiError : IToString
     {
         /// <summary>
-        ///     Gets or sets Code
+        ///     Gets or sets api error code.
         /// </summary>
         public string Code { get; set; }
 
         /// <summary>
-        ///     Gets or sets Message
+        ///     Gets or sets error message.
         /// </summary>
         public string Message { get; set; }
 
         /// <summary>
-        ///     Gets or sets Description
+        ///     Gets or sets error description.
         /// </summary>
         public string Description { get; set; }
 
         /// <summary>
-        ///     Gets or sets DateTime
+        ///     Gets or sets server datetime.
         /// </summary>
         public DateTime? DateTime { get; set; }
 
