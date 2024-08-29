@@ -4,6 +4,6 @@ Types of data can be encoded to barcode
 
 ## Allowable values
 
-* **String**
+* **StringData**
 * Base64Bytes
 * HexBytes

@@ -15,7 +15,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///     Gets or sets BarcodeType
         /// </summary>
-        public EncodeBarcodeType BarcodeType { get; set; }
+        public EncodeBarcodeType? BarcodeType { get; set; }
 
         /// <summary>
         ///     Gets or sets EncodeData

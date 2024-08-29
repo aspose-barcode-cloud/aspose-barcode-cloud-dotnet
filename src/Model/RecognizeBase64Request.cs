@@ -13,19 +13,19 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     public class RecognizeBase64Request : IToString
     {
         /// <summary>
-        ///     Array of decode types to find on barcode
-        /// </summary>
-        public List<DecodeBarcodeType> BarcodeTypes { get; set; }
-
-        /// <summary>
         ///     Gets or sets RecognitionMode
         /// </summary>
-        public RecognitionMode RecognitionMode { get; set; }
+        public RecognitionMode? RecognitionMode { get; set; }
 
         /// <summary>
         ///     Gets or sets ImageKind
         /// </summary>
-        public RecognitionImageKind ImageKind { get; set; }
+        public RecognitionImageKind? ImageKind { get; set; }
+
+        /// <summary>
+        ///     Array of decode types to find on barcode
+        /// </summary>
+        public List<DecodeBarcodeType> BarcodeTypes { get; set; }
 
         /// <summary>
         ///     Barcode image bytes encoded as base-64.

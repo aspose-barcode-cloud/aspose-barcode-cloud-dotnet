@@ -10,5 +10,26 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum AvailableGraphicsUnit
-    { }
+    {
+        /// <summary>
+        ///     Enum value Pixel
+        /// </summary>
+        Pixel,
+
+        /// <summary>
+        ///     Enum value Point
+        /// </summary>
+        Point,
+
+        /// <summary>
+        ///     Enum value Inch
+        /// </summary>
+        Inch,
+
+        /// <summary>
+        ///     Enum value Millimeter
+        /// </summary>
+        Millimeter
+
+    }
 }

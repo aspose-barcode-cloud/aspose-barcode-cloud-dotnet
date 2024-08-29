@@ -38,14 +38,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="BarcodeGenerateBodyPostRequest"/> class.
         /// </summary>
-        public BarcodeGenerateBodyPostRequest(GenerateParams body = null)
+        /// <param name="generateParams">Parameters of generation</param>
+        public BarcodeGenerateBodyPostRequest(GenerateParams generateParams)
         {
-            this.body = body;
+            this.GenerateParams = generateParams;
         }
 
         /// <summary>
         ///     Parameters of generation
         /// </summary>
-        public GenerateParams body { get; set; }
+        public GenerateParams GenerateParams { get; set; }
     }
 }

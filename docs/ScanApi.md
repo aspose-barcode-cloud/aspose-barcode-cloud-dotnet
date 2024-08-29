@@ -8,10 +8,11 @@ Method | HTTP request | Description
 [**BarcodeScanFormPost**](ScanApi.md#barcodescanformpost) | **POST** /barcode/scan-form | Scan barcode from file in request body using POST requests with parameter in multipart form.
 [**BarcodeScanGet**](ScanApi.md#barcodescanget) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
 
+
 ## **BarcodeScanBodyPost**
 
 ```csharp
-BarcodeResponseList BarcodeScanBodyPost (ScanBase64Request body = null)
+BarcodeResponseList BarcodeScanBodyPost (ScanBase64Request scanBase64Request)
 ```
 
 Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
@@ -20,7 +21,7 @@ Scan barcode from file in request body using POST requests with parameter in bod
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **body** | [**ScanBase64Request**](ScanBase64Request.md)| Barcode scan request | [optional]
+ **scanBase64Request** | [**ScanBase64Request**](ScanBase64Request.md)| Barcode scan request |
 
 ### Return type
 
@@ -35,7 +36,7 @@ Name | Type | Description  | Notes
 ## **BarcodeScanFormPost**
 
 ```csharp
-BarcodeResponseList BarcodeScanFormPost (byte[] file = null)
+BarcodeResponseList BarcodeScanFormPost (System.IO.Stream file)
 ```
 
 Scan barcode from file in request body using POST requests with parameter in multipart form.
@@ -44,7 +45,7 @@ Scan barcode from file in request body using POST requests with parameter in mul
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **file** | **byte[]****byte[]**|  | [optional]
+ **file** | **System.IO.Stream****System.IO.Stream**|  |
 
 ### Return type
 
@@ -59,7 +60,7 @@ Name | Type | Description  | Notes
 ## **BarcodeScanGet**
 
 ```csharp
-BarcodeResponseList BarcodeScanGet (string url = null)
+BarcodeResponseList BarcodeScanGet (string url)
 ```
 
 Scan barcode from file on server using GET requests with parameter in query string.
@@ -68,7 +69,7 @@ Scan barcode from file on server using GET requests with parameter in query stri
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **url** | **string**| Url to barcode image | [optional]
+ **url** | **string**| Url to barcode image |
 
 ### Return type
 

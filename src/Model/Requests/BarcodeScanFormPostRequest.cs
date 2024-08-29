@@ -38,14 +38,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="BarcodeScanFormPostRequest"/> class.
         /// </summary>
-        public BarcodeScanFormPostRequest(byte[] file = null)
+        /// <param name="file"></param>
+        public BarcodeScanFormPostRequest(System.IO.Stream file)
         {
-            this.file = file;
+            this.File = file;
         }
 
         /// <summary>
-        ///     Gets or sets file
+        ///     Gets or sets File
         /// </summary>
-        public byte[] file { get; set; }
+        public System.IO.Stream File { get; set; }
     }
 }

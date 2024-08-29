@@ -43,16 +43,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="data">String represents data to encode</param>
         public BarcodeGenerateBarcodeTypeGetRequest(EncodeBarcodeType barcodeType, EncodeDataType dataType, string data)
         {
-            this.barcodeType = barcodeType;
+            this.BarcodeType = barcodeType;
             this.DataType = dataType;
             this.Data = data;
-
         }
 
         /// <summary>
         ///     Type of barcode to generate.
         /// </summary>
-        public EncodeBarcodeType barcodeType { get; set; }
+        public EncodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
         ///     Type of data to encode.
@@ -67,7 +66,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Barcode output image format.  Default value: png
         /// </summary>
-        public AvailableBarCodeImageFormat ImageFormat { get; set; }
+        public AvailableBarCodeImageFormat? ImageFormat { get; set; }
 
         /// <summary>
         ///     Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode
@@ -77,12 +76,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below.
         /// </summary>
-        public CodeLocation TextLocation { get; set; }
+        public CodeLocation? TextLocation { get; set; }
 
         /// <summary>
         ///     Text alignment.  Default value: TextAligment.Left
         /// </summary>
-        public TextAlignment TextAlignment { get; set; }
+        public TextAlignment? TextAlignment { get; set; }
 
         /// <summary>
         ///     Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.Black.
@@ -97,7 +96,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Common Units for all measuring in query. Default units: pixel.
         /// </summary>
-        public AvailableGraphicsUnit Units { get; set; }
+        public AvailableGraphicsUnit? Units { get; set; }
 
         /// <summary>
         ///     Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.

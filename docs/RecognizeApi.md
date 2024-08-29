@@ -8,10 +8,11 @@ Method | HTTP request | Description
 [**BarcodeRecognizeBodyPost**](RecognizeApi.md#barcoderecognizebodypost) | **POST** /barcode/recognize-body | Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
 [**BarcodeRecognizeFormPost**](RecognizeApi.md#barcoderecognizeformpost) | **POST** /barcode/recognize-form | Recognize barcode from file in request body using POST requests with parameters in multipart form.
 
+
 ## **BarcodeRecognizeBarcodeTypeGet**
 
 ```csharp
-BarcodeResponseList BarcodeRecognizeBarcodeTypeGet (DecodeBarcodeType barcodeType, string url, RecognitionMode recognitionMode = null, RecognitionImageKind imageKind = null)
+BarcodeResponseList BarcodeRecognizeBarcodeTypeGet (DecodeBarcodeType barcodeType, string url, RecognitionMode? recognitionMode = null, RecognitionImageKind? imageKind = null)
 ```
 
 Recognize barcode from file on server using GET requests with parameters in route and query string.
@@ -20,10 +21,10 @@ Recognize barcode from file on server using GET requests with parameters in rout
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **barcodeType** | [**DecodeBarcodeType**](DecodeBarcodeType.md)| Type of barcode to recognize |
+ **barcodeType** | **DecodeBarcodeType**| Type of barcode to recognize |
  **url** | **string**| Url to barcode image |
- **recognitionMode** | [**RecognitionMode**](RecognitionMode.md)| Recognition mode | [optional]
- **imageKind** | [**RecognitionImageKind**](RecognitionImageKind.md)| Image kind | [optional]
+ **recognitionMode** | **RecognitionMode?**| Recognition mode | [optional]
+ **imageKind** | **RecognitionImageKind?**| Image kind | [optional]
 
 ### Return type
 
@@ -38,7 +39,7 @@ Name | Type | Description  | Notes
 ## **BarcodeRecognizeBodyPost**
 
 ```csharp
-BarcodeResponseList BarcodeRecognizeBodyPost (RecognizeBase64Request body = null)
+BarcodeResponseList BarcodeRecognizeBodyPost (RecognizeBase64Request recognizeBase64Request)
 ```
 
 Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
@@ -47,7 +48,7 @@ Recognize barcode from file in request body using POST requests with parameters 
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **body** | [**RecognizeBase64Request**](RecognizeBase64Request.md)| Barcode recognition request | [optional]
+ **recognizeBase64Request** | [**RecognizeBase64Request**](RecognizeBase64Request.md)| Barcode recognition request |
 
 ### Return type
 
@@ -62,7 +63,7 @@ Name | Type | Description  | Notes
 ## **BarcodeRecognizeFormPost**
 
 ```csharp
-BarcodeResponseList BarcodeRecognizeFormPost (DecodeBarcodeType barcodeType = null, byte[] file = null, RecognitionMode recognitionMode = null, RecognitionImageKind imageKind = null)
+BarcodeResponseList BarcodeRecognizeFormPost (DecodeBarcodeType barcodeType, System.IO.Stream file, RecognitionMode? recognitionMode = null, RecognitionImageKind? imageKind = null)
 ```
 
 Recognize barcode from file in request body using POST requests with parameters in multipart form.
@@ -71,10 +72,10 @@ Recognize barcode from file in request body using POST requests with parameters 
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **barcodeType** | [**DecodeBarcodeType**](DecodeBarcodeType.md)|  | [optional]
- **file** | **byte[]****byte[]**|  | [optional]
- **recognitionMode** | [**RecognitionMode**](RecognitionMode.md)|  | [optional]
- **imageKind** | [**RecognitionImageKind**](RecognitionImageKind.md)|  | [optional]
+ **barcodeType** | **DecodeBarcodeType**|  |
+ **file** | **System.IO.Stream****System.IO.Stream**|  |
+ **recognitionMode** | **RecognitionMode?**|  | [optional]
+ **imageKind** | **RecognitionImageKind?**|  | [optional]
 
 ### Return type
 

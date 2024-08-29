@@ -225,18 +225,16 @@ Class | Method | HTTP request | Description
 *ScanApi* | [**BarcodeScanBodyPost**](docs/ScanApi.md#barcodescanbodypost) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
 *ScanApi* | [**BarcodeScanFormPost**](docs/ScanApi.md#barcodescanformpost) | **POST** /barcode/scan-form | Scan barcode from file in request body using POST requests with parameter in multipart form.
 *ScanApi* | [**BarcodeScanGet**](docs/ScanApi.md#barcodescanget) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
+
 ## Documentation for Models
 
 - [Model.ApiError](docs/ApiError.md)
 - [Model.ApiErrorResponse](docs/ApiErrorResponse.md)
 - [Model.AvailableBarCodeImageFormat](docs/AvailableBarCodeImageFormat.md)
 - [Model.AvailableGraphicsUnit](docs/AvailableGraphicsUnit.md)
-- [Model.BarcodeGenerateformBody](docs/BarcodeGenerateformBody.md)
 - [Model.BarcodeImageParams](docs/BarcodeImageParams.md)
-- [Model.BarcodeRecognizeformBody](docs/BarcodeRecognizeformBody.md)
 - [Model.BarcodeResponse](docs/BarcodeResponse.md)
 - [Model.BarcodeResponseList](docs/BarcodeResponseList.md)
-- [Model.BarcodeScanformBody](docs/BarcodeScanformBody.md)
 - [Model.CodeLocation](docs/CodeLocation.md)
 - [Model.DecodeBarcodeType](docs/DecodeBarcodeType.md)
 - [Model.EncodeBarcodeType](docs/EncodeBarcodeType.md)
@@ -249,3 +247,4 @@ Class | Method | HTTP request | Description
 - [Model.RegionPoint](docs/RegionPoint.md)
 - [Model.ScanBase64Request](docs/ScanBase64Request.md)
 - [Model.TextAlignment](docs/TextAlignment.md)
+

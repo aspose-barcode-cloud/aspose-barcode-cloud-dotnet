@@ -38,15 +38,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="BarcodeGenerateFormPostRequest"/> class.
         /// </summary>
-        public BarcodeGenerateFormPostRequest(int? rotationAngle = null)
+        /// <param name="barcodeType"></param>
+        /// <param name="dataType"></param>
+        /// <param name="data">String represents data to encode</param>
+        public BarcodeGenerateFormPostRequest(EncodeBarcodeType barcodeType, EncodeDataType dataType, string data)
         {
-            this.RotationAngle = rotationAngle;
+            this.BarcodeType = barcodeType;
+            this.DataType = dataType;
+            this.Data = data;
         }
 
         /// <summary>
-        ///     Gets or sets barcodeType
+        ///     Gets or sets BarcodeType
         /// </summary>
-        public EncodeBarcodeType barcodeType { get; set; }
+        public EncodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
         ///     Gets or sets DataType
@@ -54,63 +59,64 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public EncodeDataType DataType { get; set; }
 
         /// <summary>
-        ///     Gets or sets Data
+        ///     String represents data to encode
         /// </summary>
         public string Data { get; set; }
 
         /// <summary>
         ///     Gets or sets ImageFormat
         /// </summary>
-        public AvailableBarCodeImageFormat ImageFormat { get; set; }
+        public AvailableBarCodeImageFormat? ImageFormat { get; set; }
 
         /// <summary>
-        ///     Gets or sets TwoDDisplayText
+        ///     Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode
         /// </summary>
         public string TwoDDisplayText { get; set; }
 
         /// <summary>
         ///     Gets or sets TextLocation
         /// </summary>
-        public CodeLocation TextLocation { get; set; }
+        public CodeLocation? TextLocation { get; set; }
 
         /// <summary>
         ///     Gets or sets TextAlignment
         /// </summary>
-        public TextAlignment TextAlignment { get; set; }
+        public TextAlignment? TextAlignment { get; set; }
 
         /// <summary>
-        ///     Gets or sets ForegroundColor
+        ///     Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.Black.
         /// </summary>
         public string ForegroundColor { get; set; }
 
         /// <summary>
-        ///     Gets or sets BackgroundColor
+        ///     Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: Color.AliceBlue or #FF000000  Default value: Color.White.
         /// </summary>
         public string BackgroundColor { get; set; }
 
         /// <summary>
         ///     Gets or sets Units
         /// </summary>
-        public AvailableGraphicsUnit Units { get; set; }
+        public AvailableGraphicsUnit? Units { get; set; }
 
         /// <summary>
-        ///     Gets or sets Resolution
+        ///     Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.
         /// </summary>
         public float? Resolution { get; set; }
 
         /// <summary>
-        ///     Gets or sets ImageHeight
+        ///     Height of the barcode image in given units. Default units: pixel.
         /// </summary>
         public float? ImageHeight { get; set; }
 
         /// <summary>
-        ///     Gets or sets ImageWidth
+        ///     Width of the barcode image in given units. Default units: pixel.
         /// </summary>
         public float? ImageWidth { get; set; }
 
         /// <summary>
-        ///     Gets or sets RotationAngle
+        ///     BarCode image rotation angle, measured in degree, e.g. RotationAngle = 0 or RotationAngle = 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0.
         /// </summary>
         public int? RotationAngle { get; set; }
     }
 }
+

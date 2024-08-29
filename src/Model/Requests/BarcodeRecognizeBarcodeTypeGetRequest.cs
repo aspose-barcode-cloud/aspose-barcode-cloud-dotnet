@@ -42,29 +42,28 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <param name="url">Url to barcode image</param>
         public BarcodeRecognizeBarcodeTypeGetRequest(DecodeBarcodeType barcodeType, string url)
         {
-            this.barcodeType = barcodeType;
-            this.url = url;
-
+            this.BarcodeType = barcodeType;
+            this.Url = url;
         }
 
         /// <summary>
         ///     Type of barcode to recognize
         /// </summary>
-        public DecodeBarcodeType barcodeType { get; set; }
+        public DecodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
         ///     Url to barcode image
         /// </summary>
-        public string url { get; set; }
+        public string Url { get; set; }
 
         /// <summary>
         ///     Recognition mode
         /// </summary>
-        public RecognitionMode recognitionMode { get; set; }
+        public RecognitionMode? RecognitionMode { get; set; }
 
         /// <summary>
         ///     Image kind
         /// </summary>
-        public RecognitionImageKind imageKind { get; set; }
+        public RecognitionImageKind? ImageKind { get; set; }
     }
 }

@@ -38,14 +38,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="BarcodeScanBodyPostRequest"/> class.
         /// </summary>
-        public BarcodeScanBodyPostRequest(ScanBase64Request body = null)
+        /// <param name="scanBase64Request">Barcode scan request</param>
+        public BarcodeScanBodyPostRequest(ScanBase64Request scanBase64Request)
         {
-            this.body = body;
+            this.ScanBase64Request = scanBase64Request;
         }
 
         /// <summary>
         ///     Barcode scan request
         /// </summary>
-        public ScanBase64Request body { get; set; }
+        public ScanBase64Request ScanBase64Request { get; set; }
     }
 }

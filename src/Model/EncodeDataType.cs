@@ -10,5 +10,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
     public enum EncodeDataType
-    { }
+    {
+        /// <summary>
+        ///     Enum value StringData
+        /// </summary>
+        StringData,
+
+        /// <summary>
+        ///     Enum value Base64Bytes
+        /// </summary>
+        Base64Bytes,
+
+        /// <summary>
+        ///     Enum value HexBytes
+        /// </summary>
+        HexBytes
+
+    }
 }

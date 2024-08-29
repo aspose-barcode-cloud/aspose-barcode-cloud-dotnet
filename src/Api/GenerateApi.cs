@@ -22,6 +22,7 @@
 //  SOFTWARE.
 // </summary>
 // --------------------------------------------------------------------------------------------------------------------
+
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text.RegularExpressions;
@@ -88,20 +89,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeGenerateBarcodeTypeGetRequest" /></param>
         /// <returns>
-        /// A task that represents the asynchronous operation. Task result type is  <see cref="byte[]" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<byte[]> BarcodeGenerateBarcodeTypeGetAsync(BarcodeGenerateBarcodeTypeGetRequest request)
+        public async Task<System.IO.Stream> BarcodeGenerateBarcodeTypeGetAsync(BarcodeGenerateBarcodeTypeGetRequest request)
         {
-            // verify the required parameter 'barcodeType' is set
-            if (request.barcodeType == null)
-            {
-                throw new ApiException(400, "Missing required parameter 'barcodeType' when calling BarcodeGenerateBarcodeTypeGet");
-            }
-            // verify the required parameter 'dataType' is set
-            if (request.DataType == null)
-            {
-                throw new ApiException(400, "Missing required parameter 'dataType' when calling BarcodeGenerateBarcodeTypeGet");
-            }
             // verify the required parameter 'data' is set
             if (request.Data == null)
             {
@@ -113,7 +104,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", request.barcodeType);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", request.BarcodeType);
 #pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "dataType", request.DataType);
 
@@ -163,7 +154,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (byte[])SerializationHelper.Deserialize(response, typeof(byte[]));
+                return (System.IO.Stream)SerializationHelper.Deserialize(response, typeof(System.IO.Stream));
             }
 
             return null;
@@ -175,17 +166,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeGenerateBodyPostRequest" /></param>
         /// <returns>
-        /// A task that represents the asynchronous operation. Task result type is  <see cref="byte[]" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<byte[]> BarcodeGenerateBodyPostAsync(BarcodeGenerateBodyPostRequest request)
+        public async Task<System.IO.Stream> BarcodeGenerateBodyPostAsync(BarcodeGenerateBodyPostRequest request)
         {
+            // verify the required parameter 'generateParams' is set
+            if (request.GenerateParams == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'generateParams' when calling BarcodeGenerateBodyPost");
+            }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-body";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            string postBody = SerializationHelper.Serialize(request.body); // http body (model) parameter
+            string postBody = SerializationHelper.Serialize(request.GenerateParams); // http body (model) parameter
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
@@ -195,7 +191,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (byte[])SerializationHelper.Deserialize(response, typeof(byte[]));
+                return (System.IO.Stream)SerializationHelper.Deserialize(response, typeof(System.IO.Stream));
             }
 
             return null;
@@ -207,10 +203,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeGenerateFormPostRequest" /></param>
         /// <returns>
-        /// A task that represents the asynchronous operation. Task result type is  <see cref="byte[]" />
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<byte[]> BarcodeGenerateFormPostAsync(BarcodeGenerateFormPostRequest request)
+        public async Task<System.IO.Stream> BarcodeGenerateFormPostAsync(BarcodeGenerateFormPostRequest request)
         {
+            // verify the required parameter 'data' is set
+            if (request.Data == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'data' when calling BarcodeGenerateFormPost");
+            }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-form";
             resourcePath = Regex
@@ -232,29 +233,29 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
 
-            if (request.barcodeType != null)
-            {
-            }
-            if (request.DataType != null)
-            {
-            }
+
+            formParams.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
+
+
+            formParams.Add(new StringContent($"{request.DataType}"), "DataType");
+
             if (request.Data != null)
             {
                 formParams.Add(new StringContent($"{request.Data}"), "Data");
             }
-            if (request.ImageFormat != null)
-            {
-            }
+
+            formParams.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
+
             if (request.TwoDDisplayText != null)
             {
                 formParams.Add(new StringContent($"{request.TwoDDisplayText}"), "TwoDDisplayText");
             }
-            if (request.TextLocation != null)
-            {
-            }
-            if (request.TextAlignment != null)
-            {
-            }
+
+            formParams.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
+
+
+            formParams.Add(new StringContent($"{request.TextAlignment}"), "TextAlignment");
+
             if (request.ForegroundColor != null)
             {
                 formParams.Add(new StringContent($"{request.ForegroundColor}"), "ForegroundColor");
@@ -263,9 +264,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             {
                 formParams.Add(new StringContent($"{request.BackgroundColor}"), "BackgroundColor");
             }
-            if (request.Units != null)
-            {
-            }
+
+            formParams.Add(new StringContent($"{request.Units}"), "Units");
+
             if (request.Resolution != null)
             {
                 formParams.Add(new StringContent($"{request.Resolution}"), "Resolution");
@@ -291,7 +292,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             if (response != null)
             {
-                return (byte[])SerializationHelper.Deserialize(response, typeof(byte[]));
+                return (System.IO.Stream)SerializationHelper.Deserialize(response, typeof(System.IO.Stream));
             }
 
             return null;
