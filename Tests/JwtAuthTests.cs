@@ -47,10 +47,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 JwtToken = await FetchToken()
             };
 
-            var api = new BarcodeApi(configWithToken);
-            using Stream generated = await api.GetBarcodeGenerateAsync(
-                new GetBarcodeGenerateRequest(
-                    EncodeBarcodeType.QR.ToString(), "Test")
+            var api = new GenerateApi(configWithToken);
+            using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
+                new BarcodeGenerateBarcodeTypeGetRequest(
+                    EncodeBarcodeType.QR, EncodeDataType.StringData, "Test")
             );
             Assert.Greater(generated.Length, 0);
         }

@@ -110,7 +110,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             var config = new Configuration();
 
-            Assert.AreEqual("3.0", config.ApiVersion);
+            Assert.AreEqual("4.0", config.ApiVersion);
         }
 
 

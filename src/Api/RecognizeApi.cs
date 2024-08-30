@@ -115,6 +115,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageKind", request.ImageKind);
 #pragma warning restore CS0618 // Type or member is obsolete
 
+
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "GET",
@@ -152,6 +153,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.RecognizeBase64Request); // http body (model) parameter
+
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
@@ -190,21 +192,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             var formParams = new MultipartFormDataContent();
 
-
-
-
-
             formParams.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
+
 
             if (request.File != null)
             {
                 formParams.Add(new StreamContent(request.File), "File", "file.png");
             }
 
+
             formParams.Add(new StringContent($"{request.RecognitionMode}"), "RecognitionMode");
 
 
+
             formParams.Add(new StringContent($"{request.ImageKind}"), "ImageKind");
+
+
 
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

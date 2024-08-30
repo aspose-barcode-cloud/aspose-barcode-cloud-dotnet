@@ -16,28 +16,22 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [SetUp]
         public void Init()
         {
-            _api = new BarcodeApi(TestConfiguration);
+            _generateApi = new GenerateApi(TestConfiguration);
+            _scanApi = new ScanApi(TestConfiguration);
         }
 
-        private IBarcodeApi _api;
+        private IGenerateApi _generateApi;
+        private IScanApi _scanApi;
 
         [Test]
         [Category("AsyncTests")]
         public async Task GenerateAndThenRecognizeAsyncTest()
         {
-            Stream generatedImage = await _api.GetBarcodeGenerateAsync(new GetBarcodeGenerateRequest(
-                EncodeBarcodeType.QR.ToString(), "Test"));
+            Stream generatedImage = await _generateApi.BarcodeGenerateBarcodeTypeGetAsync(new BarcodeGenerateBarcodeTypeGetRequest(
+                EncodeBarcodeType.QR, EncodeDataType.StringData, "Test"));
 
-            BarcodeResponseList recognized = await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(generatedImage)
-                {
-                    Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType>
-                    {
-                        DecodeBarcodeType.QR
-                    }
-                }
-            );
+            BarcodeResponseList recognized = await _scanApi.BarcodeScanFormPostAsync(
+                new BarcodeScanFormPostRequest(generatedImage));
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);
@@ -46,7 +40,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "{\"barcodes\":[{" +
                 "\"barcodeValue\":\"Test\"," +
                 "\"type\":\"QR\"," +
-                "\"region\":[{\"x\":7,\"y\":7},{\"x\":49,\"y\":6},{\"x\":48,\"y\":48},{\"x\":6,\"y\":49}]}]}",
+                "\"region\":[{\"x\":7,\"y\":7},{\"x\":49,\"y\":6},{\"x\":48,\"y\":48},{\"x\":6,\"y\":49}],\"checksum\":null}]}",
                 recognized.ToString()
             );
         }

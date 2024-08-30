@@ -145,20 +145,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", request.RotationAngle);
 #pragma warning restore CS0618 // Type or member is obsolete
 
-            string response = await _apiInvoker.InvokeApiAsync(
-                           resourcePath,
-                           "GET",
-                           null,
-                           null,
-                           null);
 
-            if (response != null)
-            {
-                return (System.IO.Stream)SerializationHelper.Deserialize(response, typeof(System.IO.Stream));
-            }
-
-            return null;
-
+            return await _apiInvoker.InvokeBinaryApiAsync(
+                resourcePath,
+                "GET",
+                null,
+                null,
+                null);
         }
 
         /// <summary>
@@ -182,20 +175,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.GenerateParams); // http body (model) parameter
-            string response = await _apiInvoker.InvokeApiAsync(
-                           resourcePath,
-                           "POST",
-                           postBody,
-                           null,
-                           null);
 
-            if (response != null)
-            {
-                return (System.IO.Stream)SerializationHelper.Deserialize(response, typeof(System.IO.Stream));
-            }
-
-            return null;
-
+            return await _apiInvoker.InvokeBinaryApiAsync(
+                resourcePath,
+                "POST",
+                postBody,
+                null,
+                null);
         }
 
         /// <summary>
@@ -220,83 +206,76 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             var formParams = new MultipartFormDataContent();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             formParams.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
 
 
+
             formParams.Add(new StringContent($"{request.DataType}"), "DataType");
+
 
             if (request.Data != null)
             {
                 formParams.Add(new StringContent($"{request.Data}"), "Data");
             }
 
+
             formParams.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
+
 
             if (request.TwoDDisplayText != null)
             {
                 formParams.Add(new StringContent($"{request.TwoDDisplayText}"), "TwoDDisplayText");
             }
 
+
             formParams.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
 
 
+
             formParams.Add(new StringContent($"{request.TextAlignment}"), "TextAlignment");
+
 
             if (request.ForegroundColor != null)
             {
                 formParams.Add(new StringContent($"{request.ForegroundColor}"), "ForegroundColor");
             }
+
             if (request.BackgroundColor != null)
             {
                 formParams.Add(new StringContent($"{request.BackgroundColor}"), "BackgroundColor");
             }
 
+
             formParams.Add(new StringContent($"{request.Units}"), "Units");
+
 
             if (request.Resolution != null)
             {
                 formParams.Add(new StringContent($"{request.Resolution}"), "Resolution");
             }
+
             if (request.ImageHeight != null)
             {
                 formParams.Add(new StringContent($"{request.ImageHeight}"), "ImageHeight");
             }
+
             if (request.ImageWidth != null)
             {
                 formParams.Add(new StringContent($"{request.ImageWidth}"), "ImageWidth");
             }
+
             if (request.RotationAngle != null)
             {
                 formParams.Add(new StringContent($"{request.RotationAngle}"), "RotationAngle");
             }
-            string response = await _apiInvoker.InvokeApiAsync(
-                           resourcePath,
-                           "POST",
-                           null,
-                           null,
-                           formParams);
 
-            if (response != null)
-            {
-                return (System.IO.Stream)SerializationHelper.Deserialize(response, typeof(System.IO.Stream));
-            }
 
-            return null;
-
+            return await _apiInvoker.InvokeBinaryApiAsync(
+                resourcePath,
+                "POST",
+                null,
+                null,
+                formParams);
         }
     }
 }

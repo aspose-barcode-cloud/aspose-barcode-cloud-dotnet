@@ -14,18 +14,19 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void GetBarcodeGenerateAsyncTestThrows()
         {
             // Arrange
-            var api = new BarcodeApi(clientId: "client id", clientSecret: "client secret");
-            var request = new GetBarcodeGenerateRequest(
-                text: "Very sample text",
-                type: EncodeBarcodeType.Code128.ToString()
+            var api = new GenerateApi(clientId: "client id", clientSecret: "client secret");
+            var request = new BarcodeGenerateBarcodeTypeGetRequest(
+                data: "Very sample text",
+                dataType: EncodeDataType.StringData,
+                barcodeType: EncodeBarcodeType.Code128
             )
             {
-                format = "png"
+                ImageFormat = AvailableBarCodeImageFormat.Png
             };
 
             // Acts
             var ex = Assert.ThrowsAsync<ApiException>(
-                async () => { await api.GetBarcodeGenerateAsync(request); });
+                async () => { await api.BarcodeGenerateBarcodeTypeGetAsync(request); });
 
             Assert.AreEqual(400, ex!.ErrorCode);
             Assert.AreEqual("Bad Request", ex.Message);

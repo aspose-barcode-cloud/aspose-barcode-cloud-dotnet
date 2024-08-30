@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
@@ -12,12 +13,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     [TestFixture]
     public class RecognizeTests : TestsBase
     {
-        private IBarcodeApi _api;
+        private IRecognizeApi _api;
 
         [SetUp]
         public void Init()
         {
-            _api = new BarcodeApi(TestConfiguration);
+            _api = new RecognizeApi(TestConfiguration);
         }
 
         [TearDown]
@@ -26,17 +27,44 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task RecognizeQrAsyncTest()
+        public async Task BarcodeRecognizeBodyPostAsyncTest()
+        {
+            // Arrange
+            using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
+
+            byte[] buffer = new byte[image.Length];
+            await image.ReadAsync(buffer, 0, buffer.Length);
+
+            // Act
+            BarcodeResponseList response = await _api.BarcodeRecognizeBodyPostAsync(
+                new BarcodeRecognizeBodyPostRequest(new RecognizeBase64Request()
+                {
+                    ImageKind = RecognitionImageKind.ClearImage,
+                    RecognitionMode = RecognitionMode.Normal,
+                    BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
+                    FileBase64 = Convert.ToBase64String(buffer)
+                }
+                )
+            );
+
+            // Assert
+            Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
+        }
+
+        [Test]
+        public async Task BarcodeRecognizeFormPostAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            BarcodeResponseList response = await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                new PostBarcodeRecognizeFromUrlOrContentRequest(image)
+            BarcodeResponseList response = await _api.BarcodeRecognizeFormPostAsync(
+                new BarcodeRecognizeFormPostRequest(DecodeBarcodeType.QR, image)
                 {
-                    Preset = PresetType.HighPerformance.ToString(),
-                    Types = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
+                    ImageKind = RecognitionImageKind.ClearImage,
+                    RecognitionMode = RecognitionMode.Normal
                 }
             );
 
@@ -46,27 +74,47 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
         }
 
-
         [Test]
-        public void RecognizeWithTimeoutAsyncTest()
+        public async Task BarcodeRecognizeBarcodeTypeGetAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            var apiException = Assert.ThrowsAsync<ApiException>(async () =>
-            {
-                await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
-                    new PostBarcodeRecognizeFromUrlOrContentRequest(image)
-                    {
-                        Timeout = 1
-                    }
-                );
-            });
+            BarcodeResponseList response = await _api.BarcodeRecognizeBarcodeTypeGetAsync(
+                new BarcodeRecognizeBarcodeTypeGetRequest(DecodeBarcodeType.QR, "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
+                {
+                    ImageKind = RecognitionImageKind.ClearImage,
+                    RecognitionMode = RecognitionMode.Normal
+                }
+            );
 
             // Assert
-            Assert.IsNotNull(apiException);
-            Assert.AreEqual(408, apiException.ErrorCode);
+            Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual("http://en.m.wikipedia.org", response.Barcodes[0].BarcodeValue);
         }
+
+        //[Test]
+        //public void RecognizeWithTimeoutAsyncTest()
+        //{
+        //    // Arrange
+        //    using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
+
+        //    // Act
+        //    var apiException = Assert.ThrowsAsync<ApiException>(async () =>
+        //    {
+        //        await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
+        //            new PostBarcodeRecognizeFromUrlOrContentRequest(image)
+        //            {
+        //                Timeout = 1
+        //            }
+        //        );
+        //    });
+
+        //    // Assert
+        //    Assert.IsNotNull(apiException);
+        //    Assert.AreEqual(408, apiException.ErrorCode);
+        //}
     }
 }
