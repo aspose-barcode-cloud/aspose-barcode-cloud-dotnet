@@ -218,22 +218,25 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 formParams.Add(new StringContent($"{request.Data}"), "Data");
             }
 
-
-            formParams.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
-
+            if (request.ImageFormat != null)
+            {
+                formParams.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
+            }
 
             if (request.TwoDDisplayText != null)
             {
                 formParams.Add(new StringContent($"{request.TwoDDisplayText}"), "TwoDDisplayText");
             }
 
+            if (request.TextLocation != null)
+            {
+                formParams.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
+            }
 
-            formParams.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
-
-
-
-            formParams.Add(new StringContent($"{request.TextAlignment}"), "TextAlignment");
-
+            if (request.TextAlignment != null)
+            {
+                formParams.Add(new StringContent($"{request.TextAlignment}"), "TextAlignment");
+            }
 
             if (request.ForegroundColor != null)
             {
@@ -245,9 +248,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 formParams.Add(new StringContent($"{request.BackgroundColor}"), "BackgroundColor");
             }
 
-
-            formParams.Add(new StringContent($"{request.Units}"), "Units");
-
+            if (request.Units != null)
+            {
+                formParams.Add(new StringContent($"{request.Units}"), "Units");
+            }
 
             if (request.Resolution != null)
             {

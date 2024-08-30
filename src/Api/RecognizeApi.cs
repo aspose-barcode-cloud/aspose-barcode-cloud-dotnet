@@ -200,13 +200,15 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 formParams.Add(new StreamContent(request.File), "File", "file.png");
             }
 
+            if (request.RecognitionMode != null)
+            {
+                formParams.Add(new StringContent($"{request.RecognitionMode}"), "RecognitionMode");
+            }
 
-            formParams.Add(new StringContent($"{request.RecognitionMode}"), "RecognitionMode");
-
-
-
-            formParams.Add(new StringContent($"{request.ImageKind}"), "ImageKind");
-
+            if (request.ImageKind != null)
+            {
+                formParams.Add(new StringContent($"{request.ImageKind}"), "ImageKind");
+            }
 
 
             string response = await _apiInvoker.InvokeApiAsync(
