@@ -29,15 +29,16 @@ internal static class Program
         return config;
     }
 
-    private static async Task GenerateQR(IBarcodeApi api, string fileName)
+    private static async Task GenerateQR(IGenerateApi api, string fileName)
     {
-        await using Stream generated = await api.GetBarcodeGenerateAsync(
-            new GetBarcodeGenerateRequest(
-                EncodeBarcodeType.QR.ToString(),
+        await using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
+            new BarcodeGenerateBarcodeTypeGetRequest(
+                EncodeBarcodeType.QR,
+                EncodeDataType.StringData,
                 "QR code text")
             {
-                TextLocation = CodeLocation.None.ToString(),
-                format = "png"
+                TextLocation = CodeLocation.None,
+                ImageFormat = AvailableBarCodeImageFormat.Png
             });
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
@@ -51,7 +52,7 @@ internal static class Program
             "qr.png"
         ));
 
-        BarcodeApi api = new BarcodeApi(MakeConfiguration());
+        GenerateApi api = new GenerateApi(MakeConfiguration());
 
         await GenerateQR(api, fileName);
         Console.WriteLine($"File '{fileName}' generated.");

@@ -96,15 +96,20 @@ internal static class Program
         return config;
     }
 
-    private static async Task<string> ReadQR(IBarcodeApi api, string fileName)
+    private static async Task<string> ReadQR(IRecognizeApi api, string fileName)
     {
         await using FileStream imageStream = File.OpenRead(fileName);
-        BarcodeResponseList recognized = await api.ScanBarcodeAsync(
-            new ScanBarcodeRequest(imageStream)
+        byte[] imageBytes = new byte[imageStream.Length];
+        await  imageStream.ReadAsync(imageBytes, 0, imageBytes.Length);
+        string imageBase64 = Convert.ToBase64String(imageBytes);
+
+        BarcodeResponseList recognized = await api.BarcodeRecognizeBodyPostAsync(
+            new BarcodeRecognizeBodyPostRequest(new RecognizeBase64Request()
             {
-                decodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
+                BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
+                FileBase64 = imageBase64
             }
-        );
+        ));
 
         return recognized.Barcodes[0].BarcodeValue;
     }
@@ -117,7 +122,7 @@ internal static class Program
             "qr.png"
         ));
 
-        var api = new BarcodeApi(MakeConfiguration());
+        var api = new RecognizeApi(MakeConfiguration());
 
         string result = await ReadQR(api, fileName);
         Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");
@@ -162,15 +167,16 @@ internal static class Program
         return config;
     }
 
-    private static async Task GenerateQR(IBarcodeApi api, string fileName)
+    private static async Task GenerateQR(IGenerateApi api, string fileName)
     {
-        await using Stream generated = await api.GetBarcodeGenerateAsync(
-            new GetBarcodeGenerateRequest(
-                EncodeBarcodeType.QR.ToString(),
+        await using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
+            new BarcodeGenerateBarcodeTypeGetRequest(
+                EncodeBarcodeType.QR,
+                EncodeDataType.StringData,
                 "QR code text")
             {
-                TextLocation = CodeLocation.None.ToString(),
-                format = "png"
+                TextLocation = CodeLocation.None,
+                ImageFormat = AvailableBarCodeImageFormat.Png
             });
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
@@ -184,7 +190,7 @@ internal static class Program
             "qr.png"
         ));
 
-        BarcodeApi api = new BarcodeApi(MakeConfiguration());
+        GenerateApi api = new GenerateApi(MakeConfiguration());
 
         await GenerateQR(api, fileName);
         Console.WriteLine($"File '{fileName}' generated.");

@@ -23,7 +23,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 ApiBaseUrl = "http://localhost:47972"
             };
 
-            Assert.AreEqual("http://localhost:47972/v3.0", config.GetApiRootUrl());
+            Assert.AreEqual("http://localhost:47972/v4.0", config.GetApiRootUrl());
         }
 
 

@@ -15,7 +15,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </summary>
         public Configuration()
         {
-            ApiBaseUrl = "barcode.qa.aspose.cloud";
+            ApiBaseUrl = "https://barcode.qa.aspose.cloud";
             DebugMode = false;
             ApiVersion = "4.0";
             AuthType = AuthType.JWT;
