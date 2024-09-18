@@ -28,7 +28,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 async () => { await api.BarcodeGenerateBarcodeTypeGetAsync(request); });
 
             Assert.AreEqual(400, ex!.ErrorCode);
-            Assert.AreEqual("Bad Request", ex.Message);
+            Assert.AreEqual("{\"error\":\"invalid_client\"}: ", ex.Message);
         }
     }
 }
