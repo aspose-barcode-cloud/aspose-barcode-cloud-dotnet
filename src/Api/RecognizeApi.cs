@@ -93,10 +93,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </returns>
         public async Task<BarcodeResponseList> BarcodeRecognizeBarcodeTypeGetAsync(BarcodeRecognizeBarcodeTypeGetRequest request)
         {
-            // verify the required parameter 'url' is set
-            if (request.Url == null)
+            // verify the required parameter 'fileUrl' is set
+            if (request.FileUrl == null)
             {
-                throw new ApiException(400, "Missing required parameter 'url' when calling BarcodeRecognizeBarcodeTypeGet");
+                throw new ApiException(400, "Missing required parameter 'fileUrl' when calling BarcodeRecognizeBarcodeTypeGet");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize/{barcodeType}";
@@ -106,7 +106,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", request.BarcodeType);
 #pragma warning disable CS0618 // Type or member is obsolete
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.Url);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", request.FileUrl);
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recognitionMode", request.RecognitionMode);
@@ -114,7 +114,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageKind", request.ImageKind);
 #pragma warning restore CS0618 // Type or member is obsolete
-
 
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
@@ -153,7 +152,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.RecognizeBase64Request); // http body (model) parameter
-
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
@@ -190,33 +188,52 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new MultipartFormDataContent();
+            var formParams = new Dictionary<string, string>();
+            bool isMultipart = false;
 
-            formParams.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
+            formParams.Add("BarcodeType", $"{request.BarcodeType}");
 
 
             if (request.File != null)
             {
-                formParams.Add(new StreamContent(request.File), "File", "file.png");
+                isMultipart = true;
+
             }
 
             if (request.RecognitionMode != null)
             {
-                formParams.Add(new StringContent($"{request.RecognitionMode}"), "RecognitionMode");
+                formParams.Add("RecognitionMode", $"{request.RecognitionMode}");
             }
 
             if (request.ImageKind != null)
             {
-                formParams.Add(new StringContent($"{request.ImageKind}"), "ImageKind");
+                formParams.Add("ImageKind", $"{request.ImageKind}");
             }
 
+            HttpContent formContent;
+            if (isMultipart)
+            {
+                var multipartContent = new MultipartFormDataContent();
 
+                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
+
+
+                foreach (var param in formParams)
+                {
+                    multipartContent.Add(new StringContent($"{param.Value}"), param.Key);
+                }
+                formContent = multipartContent;
+            }
+            else
+            {
+                formContent = new FormUrlEncodedContent(formParams);
+            }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
                            null,
                            null,
-                           formParams);
+                           formContent);
 
             if (response != null)
             {

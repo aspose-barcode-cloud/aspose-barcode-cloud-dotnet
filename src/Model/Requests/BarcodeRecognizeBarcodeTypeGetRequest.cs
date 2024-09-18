@@ -39,11 +39,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="BarcodeRecognizeBarcodeTypeGetRequest"/> class.
         /// </summary>
         /// <param name="barcodeType">Type of barcode to recognize</param>
-        /// <param name="url">Url to barcode image</param>
-        public BarcodeRecognizeBarcodeTypeGetRequest(DecodeBarcodeType barcodeType, string url)
+        /// <param name="fileUrl">Url to barcode image</param>
+        public BarcodeRecognizeBarcodeTypeGetRequest(DecodeBarcodeType barcodeType, string fileUrl)
         {
             this.BarcodeType = barcodeType;
-            this.Url = url;
+            this.FileUrl = fileUrl;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Url to barcode image
         /// </summary>
-        public string Url { get; set; }
+        public string FileUrl { get; set; }
 
         /// <summary>
         ///     Recognition mode

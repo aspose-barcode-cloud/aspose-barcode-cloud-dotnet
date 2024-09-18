@@ -76,26 +76,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
         }
 
-        //[Test]
-        //public void ScanBarcodeAsyncTimeoutTest()
-        //{
-        //    // Arrange
-        //    using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
-
-        //    // Act
-        //    var apiException = Assert.ThrowsAsync<ApiException>(async () =>
-        //    {
-        //        await _api.ScanBarcodeAsync(
-        //            new ScanBarcodeRequest(image)
-        //            {
-        //                timeout = 1
-        //            }
-        //        );
-        //    });
-
-        //    // Assert
-        //    Assert.IsNotNull(apiException);
-        //    Assert.AreEqual(408, apiException.ErrorCode);
-        //}
     }
 }

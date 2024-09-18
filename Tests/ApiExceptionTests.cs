@@ -17,7 +17,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var api = new GenerateApi(clientId: "client id", clientSecret: "client secret");
             var request = new BarcodeGenerateBarcodeTypeGetRequest(
                 data: "Very sample text",
-                dataType: EncodeDataType.StringData,
                 barcodeType: EncodeBarcodeType.Code128
             )
             {

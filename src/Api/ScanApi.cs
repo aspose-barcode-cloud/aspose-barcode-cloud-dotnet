@@ -105,7 +105,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.ScanBase64Request); // http body (model) parameter
-
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
@@ -142,19 +141,38 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new MultipartFormDataContent();
+            var formParams = new Dictionary<string, string>();
+            bool isMultipart = false;
             if (request.File != null)
             {
-                formParams.Add(new StreamContent(request.File), "File", "file.png");
+                isMultipart = true;
+
             }
 
+            HttpContent formContent;
+            if (isMultipart)
+            {
+                var multipartContent = new MultipartFormDataContent();
 
+                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
+
+
+                foreach (var param in formParams)
+                {
+                    multipartContent.Add(new StringContent($"{param.Value}"), param.Key);
+                }
+                formContent = multipartContent;
+            }
+            else
+            {
+                formContent = new FormUrlEncodedContent(formParams);
+            }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
                            null,
                            null,
-                           formParams);
+                           formContent);
 
             if (response != null)
             {
@@ -174,10 +192,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         /// </returns>
         public async Task<BarcodeResponseList> BarcodeScanGetAsync(BarcodeScanGetRequest request)
         {
-            // verify the required parameter 'url' is set
-            if (request.Url == null)
+            // verify the required parameter 'fileUrl' is set
+            if (request.FileUrl == null)
             {
-                throw new ApiException(400, "Missing required parameter 'url' when calling BarcodeScanGet");
+                throw new ApiException(400, "Missing required parameter 'fileUrl' when calling BarcodeScanGet");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan";
@@ -186,9 +204,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
 #pragma warning disable CS0618 // Type or member is obsolete
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "url", request.Url);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", request.FileUrl);
 #pragma warning restore CS0618 // Type or member is obsolete
-
 
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

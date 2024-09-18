@@ -28,7 +28,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public async Task GenerateAndThenRecognizeAsyncTest()
         {
             Stream generatedImage = await _generateApi.BarcodeGenerateBarcodeTypeGetAsync(new BarcodeGenerateBarcodeTypeGetRequest(
-                EncodeBarcodeType.QR, EncodeDataType.StringData, "Test"));
+                EncodeBarcodeType.QR, "Test"));
 
             BarcodeResponseList recognized = await _scanApi.BarcodeScanFormPostAsync(
                 new BarcodeScanFormPostRequest(generatedImage));

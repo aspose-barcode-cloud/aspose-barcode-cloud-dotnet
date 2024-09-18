@@ -95,26 +95,5 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.AreEqual("http://en.m.wikipedia.org", response.Barcodes[0].BarcodeValue);
         }
 
-        //[Test]
-        //public void RecognizeWithTimeoutAsyncTest()
-        //{
-        //    // Arrange
-        //    using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
-
-        //    // Act
-        //    var apiException = Assert.ThrowsAsync<ApiException>(async () =>
-        //    {
-        //        await _api.PostBarcodeRecognizeFromUrlOrContentAsync(
-        //            new PostBarcodeRecognizeFromUrlOrContentRequest(image)
-        //            {
-        //                Timeout = 1
-        //            }
-        //        );
-        //    });
-
-        //    // Assert
-        //    Assert.IsNotNull(apiException);
-        //    Assert.AreEqual(408, apiException.ErrorCode);
-        //}
     }
 }

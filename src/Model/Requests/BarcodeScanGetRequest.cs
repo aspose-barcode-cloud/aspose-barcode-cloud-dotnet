@@ -38,16 +38,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Initializes a new instance of the <see cref="BarcodeScanGetRequest"/> class.
         /// </summary>
-        /// <param name="url">Url to barcode image</param>
-        public BarcodeScanGetRequest(string url)
+        /// <param name="fileUrl">Url to barcode image</param>
+        public BarcodeScanGetRequest(string fileUrl)
         {
-            this.Url = url;
+            this.FileUrl = fileUrl;
         }
 
         /// <summary>
         ///     Url to barcode image
         /// </summary>
-        public string Url { get; set; }
+        public string FileUrl { get; set; }
     }
 }
 

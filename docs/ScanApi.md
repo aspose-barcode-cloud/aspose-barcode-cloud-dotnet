@@ -60,7 +60,7 @@ Name | Type | Description  | Notes
 ## **BarcodeScanGet**
 
 ```csharp
-BarcodeResponseList BarcodeScanGet (string url)
+BarcodeResponseList BarcodeScanGet (string fileUrl)
 ```
 
 Scan barcode from file on server using GET requests with parameter in query string.
@@ -69,7 +69,7 @@ Scan barcode from file on server using GET requests with parameter in query stri
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **url** | **string**| Url to barcode image |
+ **fileUrl** | **string**| Url to barcode image |
 
 ### Return type
 

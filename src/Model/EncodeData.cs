@@ -8,7 +8,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///
+    ///     Data to encode in barcode
     /// </summary>
     public class EncodeData : IToString
     {

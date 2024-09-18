@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## **BarcodeRecognizeBarcodeTypeGet**
 
 ```csharp
-BarcodeResponseList BarcodeRecognizeBarcodeTypeGet (DecodeBarcodeType barcodeType, string url, RecognitionMode? recognitionMode = null, RecognitionImageKind? imageKind = null)
+BarcodeResponseList BarcodeRecognizeBarcodeTypeGet (DecodeBarcodeType barcodeType, string fileUrl, RecognitionMode? recognitionMode = null, RecognitionImageKind? imageKind = null)
 ```
 
 Recognize barcode from file on server using GET requests with parameters in route and query string.
@@ -22,7 +22,7 @@ Recognize barcode from file on server using GET requests with parameters in rout
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | **DecodeBarcodeType**| Type of barcode to recognize |
- **url** | **string**| Url to barcode image |
+ **fileUrl** | **string**| Url to barcode image |
  **recognitionMode** | **RecognitionMode?**| Recognition mode | [optional]
  **imageKind** | **RecognitionImageKind?**| Image kind | [optional]
 

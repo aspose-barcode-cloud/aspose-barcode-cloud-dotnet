@@ -50,7 +50,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var api = new GenerateApi(configWithToken);
             using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
                 new BarcodeGenerateBarcodeTypeGetRequest(
-                    EncodeBarcodeType.QR, EncodeDataType.StringData, "Test")
+                    EncodeBarcodeType.QR, "Test")
             );
             Assert.Greater(generated.Length, 0);
         }

@@ -172,7 +172,6 @@ internal static class Program
         await using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
             new BarcodeGenerateBarcodeTypeGetRequest(
                 EncodeBarcodeType.QR,
-                EncodeDataType.StringData,
                 "QR code text")
             {
                 TextLocation = CodeLocation.None,

@@ -145,7 +145,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", request.RotationAngle);
 #pragma warning restore CS0618 // Type or member is obsolete
 
-
             return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
                 "GET",
@@ -175,7 +174,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.GenerateParams); // http body (model) parameter
-
             return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
                 "POST",
@@ -204,82 +202,98 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new MultipartFormDataContent();
+            var formParams = new Dictionary<string, string>();
+            bool isMultipart = false;
 
-            formParams.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
+            formParams.Add("BarcodeType", $"{request.BarcodeType}");
 
 
-
-            formParams.Add(new StringContent($"{request.DataType}"), "DataType");
-
+            if (request.DataType != null)
+            {
+                formParams.Add("DataType", $"{request.DataType}");
+            }
 
             if (request.Data != null)
             {
-                formParams.Add(new StringContent($"{request.Data}"), "Data");
+                formParams.Add("Data", $"{request.Data}");
             }
 
             if (request.ImageFormat != null)
             {
-                formParams.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
+                formParams.Add("ImageFormat", $"{request.ImageFormat}");
             }
 
             if (request.TwoDDisplayText != null)
             {
-                formParams.Add(new StringContent($"{request.TwoDDisplayText}"), "TwoDDisplayText");
+                formParams.Add("TwoDDisplayText", $"{request.TwoDDisplayText}");
             }
 
             if (request.TextLocation != null)
             {
-                formParams.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
+                formParams.Add("TextLocation", $"{request.TextLocation}");
             }
 
             if (request.TextAlignment != null)
             {
-                formParams.Add(new StringContent($"{request.TextAlignment}"), "TextAlignment");
+                formParams.Add("TextAlignment", $"{request.TextAlignment}");
             }
 
             if (request.ForegroundColor != null)
             {
-                formParams.Add(new StringContent($"{request.ForegroundColor}"), "ForegroundColor");
+                formParams.Add("ForegroundColor", $"{request.ForegroundColor}");
             }
 
             if (request.BackgroundColor != null)
             {
-                formParams.Add(new StringContent($"{request.BackgroundColor}"), "BackgroundColor");
+                formParams.Add("BackgroundColor", $"{request.BackgroundColor}");
             }
 
             if (request.Units != null)
             {
-                formParams.Add(new StringContent($"{request.Units}"), "Units");
+                formParams.Add("Units", $"{request.Units}");
             }
 
             if (request.Resolution != null)
             {
-                formParams.Add(new StringContent($"{request.Resolution}"), "Resolution");
+                formParams.Add("Resolution", $"{request.Resolution}");
             }
 
             if (request.ImageHeight != null)
             {
-                formParams.Add(new StringContent($"{request.ImageHeight}"), "ImageHeight");
+                formParams.Add("ImageHeight", $"{request.ImageHeight}");
             }
 
             if (request.ImageWidth != null)
             {
-                formParams.Add(new StringContent($"{request.ImageWidth}"), "ImageWidth");
+                formParams.Add("ImageWidth", $"{request.ImageWidth}");
             }
 
             if (request.RotationAngle != null)
             {
-                formParams.Add(new StringContent($"{request.RotationAngle}"), "RotationAngle");
+                formParams.Add("RotationAngle", $"{request.RotationAngle}");
             }
 
+            HttpContent formContent;
+            if (isMultipart)
+            {
+                var multipartContent = new MultipartFormDataContent();
 
+                foreach (var param in formParams)
+                {
+                    multipartContent.Add(new StringContent($"{param.Value}"), param.Key);
+                }
+                formContent = multipartContent;
+            }
+            else
+            {
+                formContent = new FormUrlEncodedContent(formParams);
+            }
             return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
                 "POST",
                 null,
                 null,
-                formParams);
+                formContent);
         }
     }
 }

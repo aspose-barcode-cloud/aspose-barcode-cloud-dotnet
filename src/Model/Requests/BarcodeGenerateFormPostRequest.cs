@@ -39,12 +39,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="BarcodeGenerateFormPostRequest"/> class.
         /// </summary>
         /// <param name="barcodeType"></param>
-        /// <param name="dataType"></param>
         /// <param name="data">String represents data to encode</param>
-        public BarcodeGenerateFormPostRequest(EncodeBarcodeType barcodeType, EncodeDataType dataType, string data)
+        public BarcodeGenerateFormPostRequest(EncodeBarcodeType barcodeType, string data)
         {
             this.BarcodeType = barcodeType;
-            this.DataType = dataType;
             this.Data = data;
         }
 
@@ -54,14 +52,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public EncodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
-        ///     Gets or sets DataType
-        /// </summary>
-        public EncodeDataType DataType { get; set; }
-
-        /// <summary>
         ///     String represents data to encode
         /// </summary>
         public string Data { get; set; }
+
+        /// <summary>
+        ///     Gets or sets DataType
+        /// </summary>
+        public EncodeDataType? DataType { get; set; }
 
         /// <summary>
         ///     Gets or sets ImageFormat

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 ## **BarcodeGenerateBarcodeTypeGet**
 
 ```csharp
-System.IO.Stream BarcodeGenerateBarcodeTypeGet (EncodeBarcodeType barcodeType, EncodeDataType dataType, string data, AvailableBarCodeImageFormat? imageFormat = null, string twoDDisplayText = null, CodeLocation? textLocation = null, TextAlignment? textAlignment = null, string foregroundColor = null, string backgroundColor = null, AvailableGraphicsUnit? units = null, float? resolution = null, float? imageHeight = null, float? imageWidth = null, int? rotationAngle = null)
+System.IO.Stream BarcodeGenerateBarcodeTypeGet (EncodeBarcodeType barcodeType, string data, EncodeDataType? dataType = null, AvailableBarCodeImageFormat? imageFormat = null, string twoDDisplayText = null, CodeLocation? textLocation = null, TextAlignment? textAlignment = null, string foregroundColor = null, string backgroundColor = null, AvailableGraphicsUnit? units = null, float? resolution = null, float? imageHeight = null, float? imageWidth = null, int? rotationAngle = null)
 ```
 
 Generate barcode using GET request with parameters in route and query string.
@@ -22,8 +22,8 @@ Generate barcode using GET request with parameters in route and query string.
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | **EncodeBarcodeType**| Type of barcode to generate. |
- **dataType** | **EncodeDataType**| Type of data to encode. |
  **data** | **string**| String represents data to encode |
+ **dataType** | **EncodeDataType?**| Type of data to encode.  Default value:  EncodeDataType.StringData. | [optional]
  **imageFormat** | **AvailableBarCodeImageFormat?**| Barcode output image format.  Default value: png | [optional]
  **twoDDisplayText** | **string**| Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional]
  **textLocation** | **CodeLocation?**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. | [optional]
@@ -73,7 +73,7 @@ System.IO.Stream
 ## **BarcodeGenerateFormPost**
 
 ```csharp
-System.IO.Stream BarcodeGenerateFormPost (EncodeBarcodeType barcodeType, EncodeDataType dataType, string data, AvailableBarCodeImageFormat? imageFormat = null, string twoDDisplayText = null, CodeLocation? textLocation = null, TextAlignment? textAlignment = null, string foregroundColor = null, string backgroundColor = null, AvailableGraphicsUnit? units = null, float? resolution = null, float? imageHeight = null, float? imageWidth = null, int? rotationAngle = null)
+System.IO.Stream BarcodeGenerateFormPost (EncodeBarcodeType barcodeType, string data, EncodeDataType? dataType = null, AvailableBarCodeImageFormat? imageFormat = null, string twoDDisplayText = null, CodeLocation? textLocation = null, TextAlignment? textAlignment = null, string foregroundColor = null, string backgroundColor = null, AvailableGraphicsUnit? units = null, float? resolution = null, float? imageHeight = null, float? imageWidth = null, int? rotationAngle = null)
 ```
 
 Generate barcode using POST request with parameters in url ecncoded form.
@@ -83,8 +83,8 @@ Generate barcode using POST request with parameters in url ecncoded form.
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | **EncodeBarcodeType**|  |
- **dataType** | **EncodeDataType**|  |
  **data** | **string**| String represents data to encode |
+ **dataType** | **EncodeDataType?**|  | [optional]
  **imageFormat** | **AvailableBarCodeImageFormat?**|  | [optional]
  **twoDDisplayText** | **string**| Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional]
  **textLocation** | **CodeLocation?**|  | [optional]
