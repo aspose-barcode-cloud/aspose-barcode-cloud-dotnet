@@ -128,9 +128,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
-
-
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
 
 
@@ -606,9 +603,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
-
-
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);

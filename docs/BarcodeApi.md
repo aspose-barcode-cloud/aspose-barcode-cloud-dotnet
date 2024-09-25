@@ -17,7 +17,7 @@ Method | HTTP request | Description
 ## **GetBarcodeGenerate**
 
 ```csharp
-System.IO.Stream GetBarcodeGenerate (string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string format = null)
+System.IO.Stream GetBarcodeGenerate (string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string format = null)
 ```
 
 Generate barcode.
@@ -31,8 +31,7 @@ Name | Type | Description  | Notes
  **twoDDisplayText** | **string**| Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional]
  **textLocation** | **string**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. | [optional]
  **textAlignment** | **string**| Text alignment. | [optional]
- **textColor** | **string**| Specify the displaying CodeText&#39;s Color. Default value: Color.Black. | [optional]
- **fontSizeMode** | **string**| Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. | [optional]
+ **textColor** | **string**| Specify the displaying CodeText&#39;s Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
  **noWrap** | **bool?**| Specify word wraps (line breaks) within text. Default value: false. | [optional]
  **resolution** | **double?**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. | [optional]
  **resolutionX** | **double?**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional]
@@ -45,9 +44,9 @@ Name | Type | Description  | Notes
  **imageHeight** | **double?**| Height of the barcode image in given units. Default units: pixel. | [optional]
  **imageWidth** | **double?**| Width of the barcode image in given units. Default units: pixel. | [optional]
  **rotationAngle** | **double?**| BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
- **backColor** | **string**| Background color of the barcode image. Default value: Color.White. | [optional]
- **barColor** | **string**| Bars color. Default value: Color.Black. | [optional]
- **borderColor** | **string**| Border color. Default value: Color.Black. | [optional]
+ **backColor** | **string**| Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
+ **barColor** | **string**| Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
+ **borderColor** | **string**| Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
  **borderWidth** | **double?**| Border width. Default value: 0. Ignored if Visible is set to false. | [optional]
  **borderDashStyle** | **string**| Border dash style. Default value: BorderDashStyle.Solid. | [optional]
  **borderVisible** | **bool?**| Border visibility. If false than parameter Width is always ignored (0). Default value: false. | [optional]
@@ -224,7 +223,7 @@ System.IO.Stream
 ## **PutBarcodeGenerateFile**
 
 ```csharp
-ResultImageInfo PutBarcodeGenerateFile (string name, string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, string fontSizeMode = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string storage = null, string folder = null, string format = null)
+ResultImageInfo PutBarcodeGenerateFile (string name, string type, string text, string twoDDisplayText = null, string textLocation = null, string textAlignment = null, string textColor = null, bool? noWrap = null, double? resolution = null, double? resolutionX = null, double? resolutionY = null, double? dimensionX = null, double? textSpace = null, string units = null, string sizeMode = null, double? barHeight = null, double? imageHeight = null, double? imageWidth = null, double? rotationAngle = null, string backColor = null, string barColor = null, string borderColor = null, double? borderWidth = null, string borderDashStyle = null, bool? borderVisible = null, string enableChecksum = null, bool? enableEscape = null, bool? filledBars = null, bool? alwaysShowChecksum = null, double? wideNarrowRatio = null, bool? validateText = null, string supplementData = null, double? supplementSpace = null, double? barWidthReduction = null, bool? useAntiAlias = null, string storage = null, string folder = null, string format = null)
 ```
 
 Generate barcode and save on server (from query params or from file with json or xml content)
@@ -239,8 +238,7 @@ Name | Type | Description  | Notes
  **twoDDisplayText** | **string**| Text that will be displayed instead of codetext in 2D barcodes. Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode | [optional]
  **textLocation** | **string**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: CodeLocation.Below. | [optional]
  **textAlignment** | **string**| Text alignment. | [optional]
- **textColor** | **string**| Specify the displaying CodeText&#39;s Color. Default value: Color.Black. | [optional]
- **fontSizeMode** | **string**| Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto. | [optional]
+ **textColor** | **string**| Specify the displaying CodeText&#39;s Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
  **noWrap** | **bool?**| Specify word wraps (line breaks) within text. Default value: false. | [optional]
  **resolution** | **double?**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. | [optional]
  **resolutionX** | **double?**| DEPRECATED: Use &#39;Resolution&#39; instead. | [optional]
@@ -253,9 +251,9 @@ Name | Type | Description  | Notes
  **imageHeight** | **double?**| Height of the barcode image in given units. Default units: pixel. | [optional]
  **imageWidth** | **double?**| Width of the barcode image in given units. Default units: pixel. | [optional]
  **rotationAngle** | **double?**| BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
- **backColor** | **string**| Background color of the barcode image. Default value: Color.White. | [optional]
- **barColor** | **string**| Bars color. Default value: Color.Black. | [optional]
- **borderColor** | **string**| Border color. Default value: Color.Black. | [optional]
+ **backColor** | **string**| Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
+ **barColor** | **string**| Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
+ **borderColor** | **string**| Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF | [optional]
  **borderWidth** | **double?**| Border width. Default value: 0. Ignored if Visible is set to false. | [optional]
  **borderDashStyle** | **string**| Border dash style. Default value: BorderDashStyle.Solid. | [optional]
  **borderVisible** | **bool?**| Border visibility. If false than parameter Width is always ignored (0). Default value: false. | [optional]
