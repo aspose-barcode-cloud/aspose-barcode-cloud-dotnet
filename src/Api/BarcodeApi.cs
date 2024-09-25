@@ -842,6 +842,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
 
+
             if (request.imageFile != null)
             {
                 formParams.Add(new StreamContent(request.imageFile), "imageFile", "imageFile.png");
@@ -856,6 +857,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             if (request.timeout != null)
             {
                 formParams.Add(new StringContent($"{request.timeout}"), "timeout");
+            }
+            if (request.checksumValidation != null)
+            {
+                formParams.Add(new StringContent($"{request.checksumValidation}"), "checksumValidation");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

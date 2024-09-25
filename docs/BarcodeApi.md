@@ -340,7 +340,7 @@ Name | Type | Description  | Notes
 ## **ScanBarcode**
 
 ```csharp
-BarcodeResponseList ScanBarcode (System.IO.Stream imageFile, List<DecodeBarcodeType> decodeTypes = null, int? timeout = null)
+BarcodeResponseList ScanBarcode (System.IO.Stream imageFile, List<DecodeBarcodeType> decodeTypes = null, int? timeout = null, string checksumValidation = null)
 ```
 
 Quickly scan a barcode from an image.
@@ -352,6 +352,7 @@ Name | Type | Description  | Notes
  **imageFile** | **System.IO.Stream**| Image as file |
  **decodeTypes** | [**List&lt;DecodeBarcodeType&gt;**](DecodeBarcodeType.md)| Types of barcode to recognize | [optional]
  **timeout** | **int?**| Timeout of recognition process in milliseconds.  Default value is 15_000 (15 seconds).  Maximum value is 30_000 (1/2 minute).  In case of a timeout RequestTimeout (408) status will be returned.  Try reducing the image size to avoid timeout. | [optional]
+ **checksumValidation** | **string**| Checksum validation setting. Default is ON. | [optional]
 
 ### Return type
 
