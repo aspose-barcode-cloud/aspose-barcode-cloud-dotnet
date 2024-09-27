@@ -63,7 +63,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public string TwoDDisplayText { get; set; }
 
         /// <summary>
-        ///     Specify the displaying CodeText's Color. Default value: Color.Black.
+        ///     Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string TextColor { get; set; }
 
@@ -140,17 +140,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public CaptionParams CaptionBelow { get; set; }
 
         /// <summary>
-        ///     Background color of the barcode image. Default value: Color.White.
+        ///     Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string BackColor { get; set; }
 
         /// <summary>
-        ///     Bars color. Default value: Color.Black.
+        ///     Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string BarColor { get; set; }
 
         /// <summary>
-        ///     Border color. Default value: Color.Black.
+        ///     Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string BorderColor { get; set; }
 
@@ -285,7 +285,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public PatchCodeParams PatchCode { get; set; }
 
         /// <summary>
-        ///     Code128 params.
+        ///     Code128 parameters
         /// </summary>
         public Code128Params Code128 { get; set; }
 

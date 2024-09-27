@@ -128,9 +128,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
-
-
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
 
 
@@ -608,9 +605,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textColor", request.TextColor);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fontSizeMode", request.FontSizeMode);
-
-
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "noWrap", request.NoWrap);
 
 
@@ -848,6 +842,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 
 
 
+
             if (request.imageFile != null)
             {
                 formParams.Add(new StreamContent(request.imageFile), "imageFile", "imageFile.png");
@@ -862,6 +857,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             if (request.timeout != null)
             {
                 formParams.Add(new StringContent($"{request.timeout}"), "timeout");
+            }
+            if (request.checksumValidation != null)
+            {
+                formParams.Add(new StringContent($"{request.checksumValidation}"), "checksumValidation");
             }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

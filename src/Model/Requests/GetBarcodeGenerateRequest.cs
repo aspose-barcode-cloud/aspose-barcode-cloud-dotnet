@@ -72,14 +72,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public string TextAlignment { get; set; }
 
         /// <summary>
-        ///     Specify the displaying CodeText's Color. Default value: Color.Black.
+        ///     Specify the displaying CodeText's Color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string TextColor { get; set; }
-
-        /// <summary>
-        ///     Specify FontSizeMode. If FontSizeMode is set to Auto, font size will be calculated automatically based on xDimension value. It is recommended to use FontSizeMode.Auto especially in AutoSizeMode.Nearest or AutoSizeMode.Interpolation. Default value: FontSizeMode.Auto.
-        /// </summary>
-        public string FontSizeMode { get; set; }
 
         /// <summary>
         ///     Specify word wraps (line breaks) within text. Default value: false.
@@ -144,17 +139,17 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public double? RotationAngle { get; set; }
 
         /// <summary>
-        ///     Background color of the barcode image. Default value: Color.White.
+        ///     Background color of the barcode image. Default value: white. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string BackColor { get; set; }
 
         /// <summary>
-        ///     Bars color. Default value: Color.Black.
+        ///     Bars color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string BarColor { get; set; }
 
         /// <summary>
-        ///     Border color. Default value: Color.Black.
+        ///     Border color. Default value: black. Use named colors like: red, green, blue Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string BorderColor { get; set; }
 

@@ -63,5 +63,27 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.IsNotNull(apiException);
             Assert.AreEqual(408, apiException.ErrorCode);
         }
+
+
+        [Test]
+        public async Task ScanCode39Test()
+        {
+            // Arrange
+            using Stream image = GetTestImage("Code39.jpg");
+
+            // Act
+            BarcodeResponseList response = await _api.ScanBarcodeAsync(
+                new ScanBarcodeRequest(image)
+                {
+                    decodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Code39Extended },
+                    checksumValidation = ChecksumValidation.Off.ToString(),
+                }
+            );
+
+            // Assert
+            Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.AreEqual(DecodeBarcodeType.Code39Extended.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual("8M93", response.Barcodes[0].BarcodeValue);
+        }
     }
 }

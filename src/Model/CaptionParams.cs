@@ -23,7 +23,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public string Text { get; set; }
 
         /// <summary>
-        ///     Text color.
+        ///     Text color.   Default value: black   Use named colors like: red, green, blue   Or HTML colors like: #FF0000, #00FF00, #0000FF
         /// </summary>
         public string Color { get; set; }
 
