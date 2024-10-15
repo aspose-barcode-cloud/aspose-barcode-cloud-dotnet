@@ -45,7 +45,7 @@ Scan barcode from file in request body using POST requests with parameter in mul
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **file** | **System.IO.Stream****System.IO.Stream**|  |
+ **file** | **System.IO.Stream****System.IO.Stream**| Barcode image file |
 
 ### Return type
 

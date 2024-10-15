@@ -105,6 +105,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.ScanBase64Request); // http body (model) parameter
+
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
@@ -141,38 +142,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new Dictionary<string, string>();
-            bool isMultipart = false;
+            var multipartContent = new MultipartFormDataContent();
             if (request.File != null)
             {
-                isMultipart = true;
-
-            }
-
-            HttpContent formContent;
-            if (isMultipart)
-            {
-                var multipartContent = new MultipartFormDataContent();
 
                 multipartContent.Add(new StreamContent(request.File), "File", "file.png");
 
+            }
 
-                foreach (var param in formParams)
-                {
-                    multipartContent.Add(new StringContent($"{param.Value}"), param.Key);
-                }
-                formContent = multipartContent;
-            }
-            else
-            {
-                formContent = new FormUrlEncodedContent(formParams);
-            }
+
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
                            null,
                            null,
-                           formContent);
+                           multipartContent);
 
             if (response != null)
             {
@@ -206,6 +190,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
 #pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", request.FileUrl);
 #pragma warning restore CS0618 // Type or member is obsolete
+
 
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,

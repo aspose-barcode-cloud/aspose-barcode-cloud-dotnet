@@ -39,7 +39,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         ///     Initializes a new instance of the <see cref="BarcodeRecognizeFormPostRequest"/> class.
         /// </summary>
         /// <param name="barcodeType"></param>
-        /// <param name="file"></param>
+        /// <param name="file">Barcode image file</param>
         public BarcodeRecognizeFormPostRequest(DecodeBarcodeType barcodeType, System.IO.Stream file)
         {
             this.BarcodeType = barcodeType;
@@ -52,7 +52,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public DecodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
-        ///     Gets or sets File
+        ///     Barcode image file
         /// </summary>
         public System.IO.Stream File { get; set; }
 

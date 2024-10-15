@@ -73,7 +73,7 @@ Recognize barcode from file in request body using POST requests with parameters 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | **DecodeBarcodeType**|  |
- **file** | **System.IO.Stream****System.IO.Stream**|  |
+ **file** | **System.IO.Stream****System.IO.Stream**| Barcode image file |
  **recognitionMode** | **RecognitionMode?**|  | [optional]
  **imageKind** | **RecognitionImageKind?**|  | [optional]
 

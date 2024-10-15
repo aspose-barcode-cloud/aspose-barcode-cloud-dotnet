@@ -115,6 +115,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageKind", request.ImageKind);
 #pragma warning restore CS0618 // Type or member is obsolete
 
+
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "GET",
@@ -152,6 +153,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             string postBody = SerializationHelper.Serialize(request.RecognizeBase64Request); // http body (model) parameter
+
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
@@ -188,52 +190,35 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new Dictionary<string, string>();
-            bool isMultipart = false;
+            var multipartContent = new MultipartFormDataContent();
 
-            formParams.Add("BarcodeType", $"{request.BarcodeType}");
+            multipartContent.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
 
 
             if (request.File != null)
             {
-                isMultipart = true;
+
+                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
 
             }
 
             if (request.RecognitionMode != null)
             {
-                formParams.Add("RecognitionMode", $"{request.RecognitionMode}");
+                multipartContent.Add(new StringContent($"{request.RecognitionMode}"), "RecognitionMode");
             }
 
             if (request.ImageKind != null)
             {
-                formParams.Add("ImageKind", $"{request.ImageKind}");
+                multipartContent.Add(new StringContent($"{request.ImageKind}"), "ImageKind");
             }
 
-            HttpContent formContent;
-            if (isMultipart)
-            {
-                var multipartContent = new MultipartFormDataContent();
 
-                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
-
-
-                foreach (var param in formParams)
-                {
-                    multipartContent.Add(new StringContent($"{param.Value}"), param.Key);
-                }
-                formContent = multipartContent;
-            }
-            else
-            {
-                formContent = new FormUrlEncodedContent(formParams);
-            }
             string response = await _apiInvoker.InvokeApiAsync(
                            resourcePath,
                            "POST",
                            null,
                            null,
-                           formContent);
+                           multipartContent);
 
             if (response != null)
             {
