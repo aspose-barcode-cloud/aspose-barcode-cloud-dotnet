@@ -29,12 +29,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         Task<System.IO.Stream> BarcodeGenerateBodyPostAsync(BarcodeGenerateBodyPostRequest request);
 
         /// <summary>
-        ///     Generate barcode using POST request with parameters in url ecncoded form.
+        ///     Generate barcode using POST request with parameters in multipart form.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeGenerateFormPostRequest" /></param>
+        /// <param name="request">Request. <see cref="BarcodeGenerateMultipartPostRequest" /></param>
         /// <returns>
         ///     A task representing the asynchronous operation. The result is a <see cref="System.IO.Stream" />.
         /// </returns>
-        Task<System.IO.Stream> BarcodeGenerateFormPostAsync(BarcodeGenerateFormPostRequest request);
+        Task<System.IO.Stream> BarcodeGenerateMultipartPostAsync(BarcodeGenerateMultipartPostRequest request);
     }
 }

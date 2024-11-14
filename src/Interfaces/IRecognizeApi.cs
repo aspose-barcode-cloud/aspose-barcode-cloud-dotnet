@@ -11,15 +11,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
     {
 
         /// <summary>
-        ///     Recognize barcode from file on server using GET requests with parameters in route and query string.
-        /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeBarcodeTypeGetRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeRecognizeBarcodeTypeGetAsync(BarcodeRecognizeBarcodeTypeGetRequest request);
-
-        /// <summary>
         ///     Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeRecognizeBodyPostRequest" /></param>
@@ -29,12 +20,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         Task<BarcodeResponseList> BarcodeRecognizeBodyPostAsync(BarcodeRecognizeBodyPostRequest request);
 
         /// <summary>
-        ///     Recognize barcode from file in request body using POST requests with parameters in multipart form.
+        ///     Recognize barcode from file on server using GET requests with parameters in route and query string.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeFormPostRequest" /></param>
+        /// <param name="request">Request. <see cref="BarcodeRecognizeGetRequest" /></param>
         /// <returns>
         ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
         /// </returns>
-        Task<BarcodeResponseList> BarcodeRecognizeFormPostAsync(BarcodeRecognizeFormPostRequest request);
+        Task<BarcodeResponseList> BarcodeRecognizeGetAsync(BarcodeRecognizeGetRequest request);
+
+        /// <summary>
+        ///     Recognize barcode from file in request body using POST requests with parameters in multipart form.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeRecognizeMultipartPostRequest" /></param>
+        /// <returns>
+        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
+        /// </returns>
+        Task<BarcodeResponseList> BarcodeRecognizeMultipartPostAsync(BarcodeRecognizeMultipartPostRequest request);
     }
 }

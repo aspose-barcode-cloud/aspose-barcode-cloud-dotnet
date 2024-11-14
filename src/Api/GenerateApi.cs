@@ -115,13 +115,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageFormat", request.ImageFormat);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "twoDDisplayText", request.TwoDDisplayText);
-
-
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textLocation", request.TextLocation);
-
-
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textAlignment", request.TextAlignment);
 
 
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "foregroundColor", request.ForegroundColor);
@@ -185,21 +179,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        ///     Generate barcode using POST request with parameters in url ecncoded form.
+        ///     Generate barcode using POST request with parameters in multipart form.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeGenerateFormPostRequest" /></param>
+        /// <param name="request">Request. <see cref="BarcodeGenerateMultipartPostRequest" /></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<System.IO.Stream> BarcodeGenerateFormPostAsync(BarcodeGenerateFormPostRequest request)
+        public async Task<System.IO.Stream> BarcodeGenerateMultipartPostAsync(BarcodeGenerateMultipartPostRequest request)
         {
             // verify the required parameter 'data' is set
             if (request.Data == null)
             {
-                throw new ApiException(400, "Missing required parameter 'data' when calling BarcodeGenerateFormPost");
+                throw new ApiException(400, "Missing required parameter 'data' when calling BarcodeGenerateMultipartPost");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-form";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-multipart";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -224,19 +218,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 multipartContent.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
             }
 
-            if (request.TwoDDisplayText != null)
-            {
-                multipartContent.Add(new StringContent($"{request.TwoDDisplayText}"), "TwoDDisplayText");
-            }
-
             if (request.TextLocation != null)
             {
                 multipartContent.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
-            }
-
-            if (request.TextAlignment != null)
-            {
-                multipartContent.Add(new StringContent($"{request.TextAlignment}"), "TextAlignment");
             }
 
             if (request.ForegroundColor != null)

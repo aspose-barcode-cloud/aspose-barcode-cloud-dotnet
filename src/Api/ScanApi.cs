@@ -123,51 +123,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        ///     Scan barcode from file in request body using POST requests with parameter in multipart form.
-        /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanFormPostRequest" /></param>
-        /// <returns>
-        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
-        /// </returns>
-        public async Task<BarcodeResponseList> BarcodeScanFormPostAsync(BarcodeScanFormPostRequest request)
-        {
-            // verify the required parameter 'file' is set
-            if (request.File == null)
-            {
-                throw new ApiException(400, "Missing required parameter 'file' when calling BarcodeScanFormPost");
-            }
-            // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan-form";
-            resourcePath = Regex
-                .Replace(resourcePath, "\\*", string.Empty)
-                .Replace("&amp;", "&")
-                .Replace("/?", "?");
-            var multipartContent = new MultipartFormDataContent();
-            if (request.File != null)
-            {
-
-                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
-
-            }
-
-
-            string response = await _apiInvoker.InvokeApiAsync(
-                           resourcePath,
-                           "POST",
-                           null,
-                           null,
-                           multipartContent);
-
-            if (response != null)
-            {
-                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
-            }
-
-            return null;
-
-        }
-
-        /// <summary>
         ///     Scan barcode from file on server using GET requests with parameter in query string.
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeScanGetRequest" /></param>
@@ -198,6 +153,51 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                            null,
                            null,
                            null);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        ///     Scan barcode from file in request body using POST requests with parameter in multipart form.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeScanMultipartPostRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
+        public async Task<BarcodeResponseList> BarcodeScanMultipartPostAsync(BarcodeScanMultipartPostRequest request)
+        {
+            // verify the required parameter 'file' is set
+            if (request.File == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'file' when calling BarcodeScanMultipartPost");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan-multipart";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            var multipartContent = new MultipartFormDataContent();
+            if (request.File != null)
+            {
+
+                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
+
+            }
+
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "POST",
+                           null,
+                           null,
+                           multipartContent);
 
             if (response != null)
             {

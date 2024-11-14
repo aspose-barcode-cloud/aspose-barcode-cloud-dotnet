@@ -50,4 +50,3 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public string FileUrl { get; set; }
     }
 }
-

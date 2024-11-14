@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="BarcodeRecognizeBarcodeTypeGetRequest.cs">
+// <copyright company="Aspose" file="BarcodeRecognizeMultipartPostRequest.cs">
 //   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -30,40 +30,41 @@ using System.Diagnostics.CodeAnalysis;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.RecognizeApi.BarcodeRecognizeBarcodeTypeGetAsync" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.RecognizeApi.BarcodeRecognizeMultipartPostAsync" /> operation.
     /// </summary>
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public class BarcodeRecognizeBarcodeTypeGetRequest
+    public class BarcodeRecognizeMultipartPostRequest
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BarcodeRecognizeBarcodeTypeGetRequest"/> class.
+        ///     Initializes a new instance of the <see cref="BarcodeRecognizeMultipartPostRequest"/> class.
         /// </summary>
-        /// <param name="barcodeType">Type of barcode to recognize</param>
-        /// <param name="fileUrl">Url to barcode image</param>
-        public BarcodeRecognizeBarcodeTypeGetRequest(DecodeBarcodeType barcodeType, string fileUrl)
+        /// <param name="barcodeType"></param>
+        /// <param name="file">Barcode image file</param>
+        public BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType barcodeType, System.IO.Stream file)
         {
             this.BarcodeType = barcodeType;
-            this.FileUrl = fileUrl;
+            this.File = file;
         }
 
         /// <summary>
-        ///     Type of barcode to recognize
+        ///     Gets or sets BarcodeType
         /// </summary>
         public DecodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
-        ///     Url to barcode image
+        ///     Barcode image file
         /// </summary>
-        public string FileUrl { get; set; }
+        public System.IO.Stream File { get; set; }
 
         /// <summary>
-        ///     Recognition mode
+        ///     Gets or sets RecognitionMode
         /// </summary>
         public RecognitionMode? RecognitionMode { get; set; }
 
         /// <summary>
-        ///     Image kind
+        ///     Gets or sets RecognitionImageKind
         /// </summary>
-        public RecognitionImageKind? ImageKind { get; set; }
+        public RecognitionImageKind? RecognitionImageKind { get; set; }
     }
 }
+

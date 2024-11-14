@@ -20,15 +20,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         Task<BarcodeResponseList> BarcodeScanBodyPostAsync(BarcodeScanBodyPostRequest request);
 
         /// <summary>
-        ///     Scan barcode from file in request body using POST requests with parameter in multipart form.
-        /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanFormPostRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeScanFormPostAsync(BarcodeScanFormPostRequest request);
-
-        /// <summary>
         ///     Scan barcode from file on server using GET requests with parameter in query string.
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeScanGetRequest" /></param>
@@ -36,5 +27,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
         /// </returns>
         Task<BarcodeResponseList> BarcodeScanGetAsync(BarcodeScanGetRequest request);
+
+        /// <summary>
+        ///     Scan barcode from file in request body using POST requests with parameter in multipart form.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeScanMultipartPostRequest" /></param>
+        /// <returns>
+        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
+        /// </returns>
+        Task<BarcodeResponseList> BarcodeScanMultipartPostAsync(BarcodeScanMultipartPostRequest request);
     }
 }

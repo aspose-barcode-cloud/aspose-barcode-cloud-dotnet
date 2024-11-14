@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="BarcodeRecognizeFormPostRequest.cs">
+// <copyright company="Aspose" file="BarcodeScanMultipartPostRequest.cs">
 //   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -30,41 +30,24 @@ using System.Diagnostics.CodeAnalysis;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.RecognizeApi.BarcodeRecognizeFormPostAsync" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.ScanApi.BarcodeScanMultipartPostAsync" /> operation.
     /// </summary>
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public class BarcodeRecognizeFormPostRequest
+    public class BarcodeScanMultipartPostRequest
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BarcodeRecognizeFormPostRequest"/> class.
+        ///     Initializes a new instance of the <see cref="BarcodeScanMultipartPostRequest"/> class.
         /// </summary>
-        /// <param name="barcodeType"></param>
         /// <param name="file">Barcode image file</param>
-        public BarcodeRecognizeFormPostRequest(DecodeBarcodeType barcodeType, System.IO.Stream file)
+        public BarcodeScanMultipartPostRequest(System.IO.Stream file)
         {
-            this.BarcodeType = barcodeType;
             this.File = file;
         }
-
-        /// <summary>
-        ///     Gets or sets BarcodeType
-        /// </summary>
-        public DecodeBarcodeType BarcodeType { get; set; }
 
         /// <summary>
         ///     Barcode image file
         /// </summary>
         public System.IO.Stream File { get; set; }
-
-        /// <summary>
-        ///     Gets or sets RecognitionMode
-        /// </summary>
-        public RecognitionMode? RecognitionMode { get; set; }
-
-        /// <summary>
-        ///     Gets or sets ImageKind
-        /// </summary>
-        public RecognitionImageKind? ImageKind { get; set; }
     }
 }
 

@@ -18,9 +18,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         public RecognitionMode? RecognitionMode { get; set; }
 
         /// <summary>
-        ///     Gets or sets ImageKind
+        ///     Gets or sets RecognitionImageKind
         /// </summary>
-        public RecognitionImageKind? ImageKind { get; set; }
+        public RecognitionImageKind? RecognitionImageKind { get; set; }
 
         /// <summary>
         ///     Array of decode types to find on barcode

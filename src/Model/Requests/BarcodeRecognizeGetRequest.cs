@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="BarcodeScanFormPostRequest.cs">
+// <copyright company="Aspose" file="BarcodeRecognizeGetRequest.cs">
 //   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -30,23 +30,40 @@ using System.Diagnostics.CodeAnalysis;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.ScanApi.BarcodeScanFormPostAsync" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.RecognizeApi.BarcodeRecognizeGetAsync" /> operation.
     /// </summary>
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public class BarcodeScanFormPostRequest
+    public class BarcodeRecognizeGetRequest
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BarcodeScanFormPostRequest"/> class.
+        ///     Initializes a new instance of the <see cref="BarcodeRecognizeGetRequest"/> class.
         /// </summary>
-        /// <param name="file">Barcode image file</param>
-        public BarcodeScanFormPostRequest(System.IO.Stream file)
+        /// <param name="barcodeType">Type of barcode to recognize</param>
+        /// <param name="fileUrl">Url to barcode image</param>
+        public BarcodeRecognizeGetRequest(DecodeBarcodeType barcodeType, string fileUrl)
         {
-            this.File = file;
+            this.BarcodeType = barcodeType;
+            this.FileUrl = fileUrl;
         }
 
         /// <summary>
-        ///     Barcode image file
+        ///     Type of barcode to recognize
         /// </summary>
-        public System.IO.Stream File { get; set; }
+        public DecodeBarcodeType BarcodeType { get; set; }
+
+        /// <summary>
+        ///     Url to barcode image
+        /// </summary>
+        public string FileUrl { get; set; }
+
+        /// <summary>
+        ///     Recognition mode
+        /// </summary>
+        public RecognitionMode? RecognitionMode { get; set; }
+
+        /// <summary>
+        ///     Image kind for recognition
+        /// </summary>
+        public RecognitionImageKind? RecognitionImageKind { get; set; }
     }
 }

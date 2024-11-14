@@ -6,25 +6,30 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
     /// <summary>
-    ///
+    ///     Subset of Aspose.Drawing.GraphicsUnit.
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum TextAlignment
+    public enum GraphicsUnit
     {
         /// <summary>
-        ///     Enum value Left
+        ///     Enum value Pixel
         /// </summary>
-        Left,
+        Pixel,
 
         /// <summary>
-        ///     Enum value Center
+        ///     Enum value Point
         /// </summary>
-        Center,
+        Point,
 
         /// <summary>
-        ///     Enum value Right
+        ///     Enum value Inch
         /// </summary>
-        Right
+        Inch,
+
+        /// <summary>
+        ///     Enum value Millimeter
+        /// </summary>
+        Millimeter
 
     }
 }

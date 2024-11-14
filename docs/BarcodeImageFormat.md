@@ -1,4 +1,4 @@
-# Aspose.BarCode.Cloud.Sdk.Model.AvailableBarCodeImageFormat
+# Aspose.BarCode.Cloud.Sdk.Model.BarcodeImageFormat
 
 Specifies the file format of the image.
 

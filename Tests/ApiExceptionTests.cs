@@ -20,7 +20,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 barcodeType: EncodeBarcodeType.Code128
             )
             {
-                ImageFormat = AvailableBarCodeImageFormat.Png
+                ImageFormat = BarcodeImageFormat.Png
             };
 
             // Acts

@@ -30,8 +30,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Stream generatedImage = await _generateApi.BarcodeGenerateBarcodeTypeGetAsync(new BarcodeGenerateBarcodeTypeGetRequest(
                 EncodeBarcodeType.QR, "Test"));
 
-            BarcodeResponseList recognized = await _scanApi.BarcodeScanFormPostAsync(
-                new BarcodeScanFormPostRequest(generatedImage));
+            BarcodeResponseList recognized = await _scanApi.BarcodeScanMultipartPostAsync(
+                new BarcodeScanMultipartPostRequest(generatedImage));
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);

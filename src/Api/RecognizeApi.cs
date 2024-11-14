@@ -85,54 +85,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        ///     Recognize barcode from file on server using GET requests with parameters in route and query string.
-        /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeBarcodeTypeGetRequest" /></param>
-        /// <returns>
-        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
-        /// </returns>
-        public async Task<BarcodeResponseList> BarcodeRecognizeBarcodeTypeGetAsync(BarcodeRecognizeBarcodeTypeGetRequest request)
-        {
-            // verify the required parameter 'fileUrl' is set
-            if (request.FileUrl == null)
-            {
-                throw new ApiException(400, "Missing required parameter 'fileUrl' when calling BarcodeRecognizeBarcodeTypeGet");
-            }
-            // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize/{barcodeType}";
-            resourcePath = Regex
-                .Replace(resourcePath, "\\*", string.Empty)
-                .Replace("&amp;", "&")
-                .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", request.BarcodeType);
-#pragma warning disable CS0618 // Type or member is obsolete
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", request.FileUrl);
-
-
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recognitionMode", request.RecognitionMode);
-
-
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageKind", request.ImageKind);
-#pragma warning restore CS0618 // Type or member is obsolete
-
-
-            string response = await _apiInvoker.InvokeApiAsync(
-                           resourcePath,
-                           "GET",
-                           null,
-                           null,
-                           null);
-
-            if (response != null)
-            {
-                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
-            }
-
-            return null;
-
-        }
-
-        /// <summary>
         ///     Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
         /// </summary>
         /// <param name="request">Request. <see cref="BarcodeRecognizeBodyPostRequest" /></param>
@@ -171,21 +123,71 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         }
 
         /// <summary>
-        ///     Recognize barcode from file in request body using POST requests with parameters in multipart form.
+        ///     Recognize barcode from file on server using GET requests with parameters in route and query string.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeFormPostRequest" /></param>
+        /// <param name="request">Request. <see cref="BarcodeRecognizeGetRequest" /></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
         /// </returns>
-        public async Task<BarcodeResponseList> BarcodeRecognizeFormPostAsync(BarcodeRecognizeFormPostRequest request)
+        public async Task<BarcodeResponseList> BarcodeRecognizeGetAsync(BarcodeRecognizeGetRequest request)
+        {
+            // verify the required parameter 'fileUrl' is set
+            if (request.FileUrl == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'fileUrl' when calling BarcodeRecognizeGet");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+#pragma warning disable CS0618 // Type or member is obsolete
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "barcodeType", request.BarcodeType);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", request.FileUrl);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recognitionMode", request.RecognitionMode);
+
+
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "recognitionImageKind", request.RecognitionImageKind);
+#pragma warning restore CS0618 // Type or member is obsolete
+
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "GET",
+                           null,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        ///     Recognize barcode from file in request body using POST requests with parameters in multipart form.
+        /// </summary>
+        /// <param name="request">Request. <see cref="BarcodeRecognizeMultipartPostRequest" /></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
+        public async Task<BarcodeResponseList> BarcodeRecognizeMultipartPostAsync(BarcodeRecognizeMultipartPostRequest request)
         {
             // verify the required parameter 'file' is set
             if (request.File == null)
             {
-                throw new ApiException(400, "Missing required parameter 'file' when calling BarcodeRecognizeFormPost");
+                throw new ApiException(400, "Missing required parameter 'file' when calling BarcodeRecognizeMultipartPost");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize-form";
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/recognize-multipart";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -207,9 +209,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 multipartContent.Add(new StringContent($"{request.RecognitionMode}"), "RecognitionMode");
             }
 
-            if (request.ImageKind != null)
+            if (request.RecognitionImageKind != null)
             {
-                multipartContent.Add(new StringContent($"{request.ImageKind}"), "ImageKind");
+                multipartContent.Add(new StringContent($"{request.RecognitionImageKind}"), "RecognitionImageKind");
             }
 
 

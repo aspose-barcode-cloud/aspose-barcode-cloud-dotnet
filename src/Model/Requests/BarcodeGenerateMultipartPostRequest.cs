@@ -1,5 +1,5 @@
 // --------------------------------------------------------------------------------------------------------------------
-// <copyright company="Aspose" file="BarcodeGenerateFormPostRequest.cs">
+// <copyright company="Aspose" file="BarcodeGenerateMultipartPostRequest.cs">
 //   Copyright (c) 2024 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
@@ -30,17 +30,17 @@ using System.Diagnostics.CodeAnalysis;
 namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
 {
     /// <summary>
-    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.GenerateApi.BarcodeGenerateFormPostAsync" /> operation.
+    ///     Request model for <see cref="Aspose.BarCode.Cloud.Sdk.Api.GenerateApi.BarcodeGenerateMultipartPostAsync" /> operation.
     /// </summary>
     [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
-    public class BarcodeGenerateFormPostRequest
+    public class BarcodeGenerateMultipartPostRequest
     {
         /// <summary>
-        ///     Initializes a new instance of the <see cref="BarcodeGenerateFormPostRequest"/> class.
+        ///     Initializes a new instance of the <see cref="BarcodeGenerateMultipartPostRequest"/> class.
         /// </summary>
         /// <param name="barcodeType"></param>
         /// <param name="data">String represents data to encode</param>
-        public BarcodeGenerateFormPostRequest(EncodeBarcodeType barcodeType, string data)
+        public BarcodeGenerateMultipartPostRequest(EncodeBarcodeType barcodeType, string data)
         {
             this.BarcodeType = barcodeType;
             this.Data = data;
@@ -64,12 +64,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         /// <summary>
         ///     Gets or sets ImageFormat
         /// </summary>
-        public AvailableBarCodeImageFormat? ImageFormat { get; set; }
-
-        /// <summary>
-        ///     Text that will be displayed instead of codetext in 2D barcodes.  Used for: Aztec, Pdf417, DataMatrix, QR, MaxiCode, DotCode
-        /// </summary>
-        public string TwoDDisplayText { get; set; }
+        public BarcodeImageFormat? ImageFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets TextLocation
@@ -77,37 +72,32 @@ namespace Aspose.BarCode.Cloud.Sdk.Model.Requests
         public CodeLocation? TextLocation { get; set; }
 
         /// <summary>
-        ///     Gets or sets TextAlignment
-        /// </summary>
-        public TextAlignment? TextAlignment { get; set; }
-
-        /// <summary>
-        ///     Specify the displaying bars and content Color.   Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: Black.
+        ///     Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black.
         /// </summary>
         public string ForegroundColor { get; set; }
 
         /// <summary>
-        ///     Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.   For example: AliceBlue or #FF000000  Default value: White.
+        ///     Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White.
         /// </summary>
         public string BackgroundColor { get; set; }
 
         /// <summary>
         ///     Gets or sets Units
         /// </summary>
-        public AvailableGraphicsUnit? Units { get; set; }
+        public GraphicsUnit? Units { get; set; }
 
         /// <summary>
-        ///     Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.
+        ///     Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot.
         /// </summary>
         public float? Resolution { get; set; }
 
         /// <summary>
-        ///     Height of the barcode image in given units. Default units: pixel.
+        ///     Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot.
         /// </summary>
         public float? ImageHeight { get; set; }
 
         /// <summary>
-        ///     Width of the barcode image in given units. Default units: pixel.
+        ///     Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot.
         /// </summary>
         public float? ImageWidth { get; set; }
 

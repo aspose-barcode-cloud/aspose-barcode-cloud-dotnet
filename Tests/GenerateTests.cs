@@ -42,7 +42,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // Generate barcode from params in body
             var imageParams = new BarcodeImageParams
             {
-                ImageFormat = AvailableBarCodeImageFormat.Jpeg
+                ImageFormat = BarcodeImageFormat.Jpeg
             };
 
             var encodeData = new EncodeData()
@@ -67,16 +67,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task TestBarcodeGenerateFormPost()
+        public async Task TestBarcodeGenerateMultipartPost()
         {
             // Test case for barcode_generate_form_post
             // Generate barcode from params in form
-            var request = new BarcodeGenerateFormPostRequest(EncodeBarcodeType.QR, "54657374")
+            var request = new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.QR, "54657374")
             {
                 DataType = EncodeDataType.HexBytes
             };
 
-            var response = await _api.BarcodeGenerateFormPostAsync(request);
+            var response = await _api.BarcodeGenerateMultipartPostAsync(request);
 
             long contentLength = response.Length;
             Assert.True(contentLength > 0, "Content length is zero or negative");

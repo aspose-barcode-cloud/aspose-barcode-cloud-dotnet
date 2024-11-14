@@ -60,14 +60,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task BarcodeScanFormPostAsyncTest()
+        public async Task BarcodeScanMultipartPostAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            BarcodeResponseList response = await _api.BarcodeScanFormPostAsync(
-                new BarcodeScanFormPostRequest(image)
+            BarcodeResponseList response = await _api.BarcodeScanMultipartPostAsync(
+                new BarcodeScanMultipartPostRequest(image)
             );
 
             // Assert

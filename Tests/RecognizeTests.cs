@@ -39,7 +39,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             BarcodeResponseList response = await _api.BarcodeRecognizeBodyPostAsync(
                 new BarcodeRecognizeBodyPostRequest(new RecognizeBase64Request()
                 {
-                    ImageKind = RecognitionImageKind.ClearImage,
+                    RecognitionImageKind = RecognitionImageKind.ClearImage,
                     RecognitionMode = RecognitionMode.Normal,
                     BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
                     FileBase64 = Convert.ToBase64String(buffer)
@@ -54,16 +54,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task BarcodeRecognizeFormPostAsyncTest()
+        public async Task BarcodeRecognizeMultipartPostAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            BarcodeResponseList response = await _api.BarcodeRecognizeFormPostAsync(
-                new BarcodeRecognizeFormPostRequest(DecodeBarcodeType.QR, image)
+            BarcodeResponseList response = await _api.BarcodeRecognizeMultipartPostAsync(
+                new BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType.QR, image)
                 {
-                    ImageKind = RecognitionImageKind.ClearImage,
+                    RecognitionImageKind = RecognitionImageKind.ClearImage,
                     RecognitionMode = RecognitionMode.Normal
                 }
             );
@@ -81,10 +81,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            BarcodeResponseList response = await _api.BarcodeRecognizeBarcodeTypeGetAsync(
-                new BarcodeRecognizeBarcodeTypeGetRequest(DecodeBarcodeType.QR, "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
+            BarcodeResponseList response = await _api.BarcodeRecognizeGetAsync(
+                new BarcodeRecognizeGetRequest(DecodeBarcodeType.QR, "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
                 {
-                    ImageKind = RecognitionImageKind.ClearImage,
+                    RecognitionImageKind = RecognitionImageKind.ClearImage,
                     RecognitionMode = RecognitionMode.Normal
                 }
             );
