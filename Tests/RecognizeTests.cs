@@ -75,7 +75,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task BarcodeRecognizeBarcodeTypeGetAsyncTest()
+        public async Task BarcodeRecognizeGetAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");

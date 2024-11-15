@@ -37,7 +37,7 @@ internal static class Program
                 "QR code text")
             {
                 TextLocation = CodeLocation.None,
-                ImageFormat = AvailableBarCodeImageFormat.Png
+                ImageFormat = BarcodeImageFormat.Png
             });
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
