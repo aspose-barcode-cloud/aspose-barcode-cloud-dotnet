@@ -41,7 +41,7 @@ internal static class Program
         ));
 
         using var fileStream = new FileStream(fileName, FileMode.Open);
-        var request = new BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType.mostCommonlyUsed, fileStream);
+        var request = new BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType.MostCommonlyUsed, fileStream);
         request.ImageKind = RecognitionImageKind.ClearImage;
 
         BarcodeResponseList result = await recognizeApi.BarcodeRecognizeMultipartPostAsync(request);

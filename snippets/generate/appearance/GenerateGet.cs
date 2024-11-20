@@ -3,12 +3,11 @@ using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace RecognizeSnippets;
+namespace GenerateSnippets;
 
 internal static class Program
 {
@@ -32,29 +31,33 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
-
         string fileName = Path.GetFullPath(Path.Join(
             Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "aztec.png"
+            "..", "..", "..", "..",
+            "qr.png"
         ));
 
-        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
-        string imageBase64 = Convert.ToBase64String(imageBytes);
+        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
 
+var request = new BarcodeGenerateBarcodeTypeGetRequest(
+    barcodeType: EncodeBarcodeType.QR,
+    data: "Aspose.BarCode.Cloud"
+)
+{
+    ImageFormat = BarcodeImageFormat.Png,
+    ForegroundColor = "Black",
+    BackgroundColor = "White",
+    TextLocation = CodeLocation.Below,
+    Resolution = 300,
+    ImageHeight = 200,
+    ImageWidth = 200
+};
 
-        var base64Request = new RecognizeBase64Request {
-        BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Aztec, DecodeBarcodeType.QR },
-        FileBase64 = imageBase64,
-        ImageKind = RecognitionImageKind.ScannedDocument
-      };
+var generated = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(request);
 
-        var request = new BarcodeRecognizeBodyPostRequest(base64Request);
+        await using FileStream stream = File.Create(fileName);
+        await generated.CopyToAsync(stream);
 
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, results: value: '{result.Barcodes[0].BarcodeValue}', type: {result.Barcodes[0].Type}");
-
+        Console.WriteLine($"File '{fileName}' generated.");
     }
 }

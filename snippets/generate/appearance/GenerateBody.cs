@@ -3,12 +3,11 @@ using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using Aspose.BarCode.Cloud.Sdk.Model.Requests;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace RecognizeSnippets;
+namespace GenerateSnippets;
 
 internal static class Program
 {
@@ -32,29 +31,33 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        var recognizeApi = new RecognizeApi(MakeConfiguration());
-
         string fileName = Path.GetFullPath(Path.Join(
             Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "aztec.png"
+            "..", "..", "..", "..",
+            "Code39.jpeg"
         ));
 
-        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
-        string imageBase64 = Convert.ToBase64String(imageBytes);
+        GenerateApi generateApi = new GenerateApi(MakeConfiguration());
+        
+var generateParams = new GenerateParams
+{
+    BarcodeType = EncodeBarcodeType.Code39,
+    EncodeData = new EncodeData { Data = "Aspose", DataType = EncodeDataType.StringData },
+    BarcodeImageParams = new BarcodeImageParams
+    {
+        ForegroundColor = "#FF0000",
+        BackgroundColor = "#FFFF00",
+        ImageFormat = BarcodeImageFormat.Jpeg,
+        RotationAngle = 90
+    }
+};
 
+var request = new BarcodeGenerateBodyPostRequest(generateParams);
+var generated = await generateApi.BarcodeGenerateBodyPostAsync(request);
 
-        var base64Request = new RecognizeBase64Request {
-        BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Aztec, DecodeBarcodeType.QR },
-        FileBase64 = imageBase64,
-        ImageKind = RecognitionImageKind.ScannedDocument
-      };
+        await using FileStream stream = File.Create(fileName);
+        await generated.CopyToAsync(stream);
 
-        var request = new BarcodeRecognizeBodyPostRequest(base64Request);
-
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
-
-        Console.WriteLine($"File '{fileName}' recognized, results: value: '{result.Barcodes[0].BarcodeValue}', type: {result.Barcodes[0].Type}");
-
+        Console.WriteLine($"File '{fileName}' generated.");
     }
 }
