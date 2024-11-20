@@ -32,9 +32,7 @@ internal static class Program
 
     private static async Task<string> ReadQR(IRecognizeApi api, string fileName)
     {
-        await using FileStream imageStream = File.OpenRead(fileName);
-        byte[] imageBytes = new byte[imageStream.Length];
-        await  imageStream.ReadAsync(imageBytes, 0, imageBytes.Length);
+        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
         string imageBase64 = Convert.ToBase64String(imageBytes);
 
         BarcodeResponseList recognized = await api.BarcodeRecognizeBodyPostAsync(

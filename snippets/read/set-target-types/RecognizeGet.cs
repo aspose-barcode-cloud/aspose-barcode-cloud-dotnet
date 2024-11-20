@@ -8,7 +8,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace ScanSnippets;
+namespace RecgonizeSnippets;
 
 internal static class Program
 {
@@ -32,22 +32,13 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        var scanApi = new ScanApi(MakeConfiguration());
+        var recognizeApi = new RecognizeApi(MakeConfiguration());
         
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "qr.png"
-        ));
-        
-        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
-        string imageBase64 = Convert.ToBase64String(imageBytes);
-
-        var base64Request = new ScanBase64Request {
-            FileBase64 = imageBase64
-        };
-        var request = new BarcodeScanBodyPostRequest(base64Request);
-        var result = await scanApi.BarcodeScanBodyPostAsync(request);
+        var request = new BarcodeRecognizeGetRequest(
+            DecodeBarcodeType.MostCommonlyUsed, 
+            "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"
+        );
+        var result = await recognizeApi.BarcodeRecognizeGetAsync(request);
 
         Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

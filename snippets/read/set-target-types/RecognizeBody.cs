@@ -8,7 +8,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace ScanSnippets;
+namespace RecognizeSnippets;
 
 internal static class Program
 {
@@ -32,23 +32,32 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        var scanApi = new ScanApi(MakeConfiguration());
-        
+        var recognizeApi = new RecognizeApi(MakeConfiguration());
+
         string fileName = Path.GetFullPath(Path.Join(
             Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
             "..", "..", "..", "..", ".."
-            "qr.png"
+            "multi-types.png"
         ));
-        
+
         byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
         string imageBase64 = Convert.ToBase64String(imageBytes);
 
-        var base64Request = new ScanBase64Request {
+
+        var recognizeBase64Request = new RecognizeBase64Request
+        {
+            BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR, DecodeBarcodeType.Pdf417 },
             FileBase64 = imageBase64
         };
-        var request = new BarcodeScanBodyPostRequest(base64Request);
-        var result = await scanApi.BarcodeScanBodyPostAsync(request);
 
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
+        var request = new BarcodeRecognizeBodyPostRequest(recognizeBase64Request);
+        BarcodeResponseList response = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
+
+        Console.WriteLine($"File '{fileName}' recognized, results: ");
+        foreach(var result in response.Barcodes)
+        {
+             Console.WriteLine($"Value: '{result.BarcodeValue}', type: {result.Type}");
+        }
+
     }
 }

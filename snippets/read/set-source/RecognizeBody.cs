@@ -39,9 +39,7 @@ internal static class Program
             "..", "..", "..", "..", ".."
             "qr.png"
         ));
-        await using FileStream imageStream = File.OpenRead(fileName);
-        byte[] imageBytes = new byte[imageStream.Length];
-        await  imageStream.ReadAsync(imageBytes, 0, imageBytes.Length);
+        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
         string imageBase64 = Convert.ToBase64String(imageBytes);
 
 
@@ -52,6 +50,6 @@ internal static class Program
     var request = new BarcodeRecognizeBodyPostRequest(base64Request);
     var result = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
 
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
+    Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }
 }
