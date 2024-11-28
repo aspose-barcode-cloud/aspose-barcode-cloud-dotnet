@@ -10,8 +10,8 @@ internal static class Program
 {
 public static async Task Main(string[] args)
 {
-    var clientId = "<Your-Client-Id>";
-    var clientSecret = "<Your-Client-Secret>";
+    var clientId = "Client Id from https://dashboard.aspose.cloud/applications";
+    var clientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
 
     using var client = new HttpClient
     {
