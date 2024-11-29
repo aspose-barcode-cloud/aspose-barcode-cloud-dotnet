@@ -1,4 +1,4 @@
-using System.Collections.Specialized;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
@@ -49,8 +49,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static void LogRequest(WebRequest request, Stream streamToSend)
         {
-            var header = $"{request.Method}: {request.RequestUri}";
-            var sb = new StringBuilder();
+            string header = $"{request.Method}: {request.RequestUri}";
+            StringBuilder sb = new StringBuilder();
 
             FormatHeaders(sb, request.Headers);
             if (streamToSend != null)
@@ -65,8 +65,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static void LogResponse(HttpWebResponse response, Stream resultStream)
         {
-            var header = $"\r\nResponse {(int)response.StatusCode}: {response.StatusCode}";
-            var sb = new StringBuilder();
+            string header = $"\r\nResponse {(int)response.StatusCode}: {response.StatusCode}";
+            StringBuilder sb = new StringBuilder();
 
             FormatHeaders(sb, response.Headers);
             StreamHelper.CopyStreamToStringBuilder(sb, resultStream);
@@ -75,7 +75,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static void FormatHeaders(StringBuilder sb, WebHeaderCollection headerDictionary)
         {
-            foreach (var key in headerDictionary.AllKeys)
+            foreach (string key in headerDictionary.AllKeys)
             {
                 sb.Append(key);
                 sb.Append(": ");
@@ -85,7 +85,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static void FormatHeaders(StringBuilder sb, HttpHeaders headers)
         {
-            foreach (var header in headers)
+            foreach (KeyValuePair<string, IEnumerable<string>> header in headers)
             {
                 sb.Append(header.Key);
                 sb.Append(": ");
@@ -117,8 +117,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static async Task LogRequestAsync(HttpRequestMessage request)
         {
-            var header = $"{request.Method}: {request.RequestUri}";
-            var sb = new StringBuilder();
+            string header = $"{request.Method}: {request.RequestUri}";
+            StringBuilder sb = new StringBuilder();
 
             FormatHeaders(sb, request.Headers);
             string content = await request.Content.ReadAsStringAsync();
@@ -133,8 +133,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private static async Task LogResponseAsync(HttpResponseMessage response)
         {
-            var header = $"\r\nResponse {(int)response.StatusCode}: {response.StatusCode}";
-            var sb = new StringBuilder();
+            string header = $"\r\nResponse {(int)response.StatusCode}: {response.StatusCode}";
+            StringBuilder sb = new StringBuilder();
 
             FormatHeaders(sb, response.Headers);
             string content = await response.Content.ReadAsStringAsync();

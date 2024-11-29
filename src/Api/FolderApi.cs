@@ -52,7 +52,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             _configuration = configuration;
 
-            var requestHandlers = new List<IRequestHandler>();
+            List<IRequestHandler> requestHandlers = new List<IRequestHandler>();
             switch (_configuration.AuthType)
             {
                 case AuthType.JWT:

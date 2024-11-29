@@ -44,10 +44,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             try
             {
                 resultStream.Position = 0;
-                using (var responseReader = new StreamReader(resultStream))
+                using (StreamReader responseReader = new StreamReader(resultStream))
                 {
                     string responseData = responseReader.ReadToEnd();
-                    var errorResponse = (ApiErrorResponse)
+                    ApiErrorResponse errorResponse = (ApiErrorResponse)
                         SerializationHelper.Deserialize(responseData,
                             typeof(ApiErrorResponse));
                     if (string.IsNullOrEmpty(errorResponse.Error.Code))
@@ -83,10 +83,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 using (Stream resultStream = await response.Content.ReadAsStreamAsync())
                 {
                     resultStream.Position = 0;
-                    using (var responseReader = new StreamReader(resultStream))
+                    using (StreamReader responseReader = new StreamReader(resultStream))
                     {
                         string responseData = await responseReader.ReadToEndAsync();
-                        var errorResponse = (ApiErrorResponse)
+                        ApiErrorResponse errorResponse = (ApiErrorResponse)
                             SerializationHelper.Deserialize(responseData,
                                 typeof(ApiErrorResponse));
                         if (string.IsNullOrEmpty(errorResponse.Error.Code))
