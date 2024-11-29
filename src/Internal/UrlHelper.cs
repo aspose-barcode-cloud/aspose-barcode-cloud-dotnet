@@ -9,14 +9,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
     {
         public static string AddPathParameter(string url, string parameterName, object parameterValue)
         {
-            if (parameterValue == null || string.IsNullOrEmpty(parameterValue.ToString()))
-            {
-                url = url.Replace("/{" + parameterName + "}", string.Empty);
-            }
-            else
-            {
-                url = url.Replace("{" + parameterName + "}", parameterValue.ToString());
-            }
+            url = parameterValue == null || string.IsNullOrEmpty(parameterValue.ToString())
+                ? url.Replace("/{" + parameterName + "}", string.Empty)
+                : url.Replace("{" + parameterName + "}", parameterValue.ToString());
 
             return url;
         }
