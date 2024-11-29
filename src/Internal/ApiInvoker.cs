@@ -341,7 +341,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                         {
                             if (binaryResponse)
                             {
-                                Stream resultStream = new MemoryStream();
+                                MemoryStream resultStream = new MemoryStream();
                                 await response.Content.CopyToAsync(resultStream);
                                 resultStream.Position = 0;
                                 return resultStream;

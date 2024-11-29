@@ -73,7 +73,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
             Log(header, sb);
         }
 
-        private static void FormatHeaders(StringBuilder sb, NameValueCollection headerDictionary)
+        private static void FormatHeaders(StringBuilder sb, WebHeaderCollection headerDictionary)
         {
             foreach (var key in headerDictionary.AllKeys)
             {
