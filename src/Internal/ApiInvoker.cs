@@ -50,7 +50,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         {
             // TODO: stream is not disposed
             MemoryStream formDataStream = new MemoryStream();
-            var needsCrlf = false;
+            bool needsCrlf = false;
 
             if (postParameters.Count > 0)
             {
@@ -91,7 +91,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
             // Dump the Stream into a byte[]
             formDataStream.Position = 0;
-            var formData = new byte[formDataStream.Length];
+            byte[] formData = new byte[formDataStream.Length];
             int _ = formDataStream.Read(formData, 0, formData.Length);
             formDataStream.Close();
 
@@ -143,14 +143,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
         private WebRequest PrepareRequest(string path, string method, Dictionary<string, object> formParams,
             Dictionary<string, string> headerParams, string body, string contentType)
         {
-            var request = WebRequest.Create(path);
+            WebRequest request = WebRequest.Create(path);
             request.Method = method;
 
             byte[] formData = null;
             if (formParams.Count > 0)
             {
 
-                var formDataBoundary = Guid.NewGuid().ToString();
+                string formDataBoundary = Guid.NewGuid().ToString();
                 request.ContentType = "multipart/form-data; boundary=" + formDataBoundary;
                 formData = GetMultipartFormData(formParams, formDataBoundary);
 
@@ -193,7 +193,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
                         if (body != null)
                         {
-                            var requestWriter = new StreamWriter(streamToSend);
+                            StreamWriter requestWriter = new StreamWriter(streamToSend);
                             requestWriter.Write(body);
                             requestWriter.Flush();
                         }
@@ -223,8 +223,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
         private object ReadResponse(WebRequest client, bool binaryResponse)
         {
-            var webResponse = (HttpWebResponse)GetResponse(client);
-            var resultStream = new MemoryStream();
+            HttpWebResponse webResponse = (HttpWebResponse)GetResponse(client);
+            MemoryStream resultStream = new MemoryStream();
 
             StreamHelper.CopyTo(webResponse.GetResponseStream(), resultStream);
             try
@@ -237,7 +237,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                     return resultStream;
                 }
 
-                using (var responseReader = new StreamReader(resultStream))
+                using (StreamReader responseReader = new StreamReader(resultStream))
                 {
                     string responseData = responseReader.ReadToEnd();
                     resultStream.Dispose();
@@ -275,7 +275,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             MultipartFormDataContent formParams,
             string contentType = "application/json")
         {
-            var responseStream = await InvokeInternalAsync(path, method, true, body, headerParams, formParams, contentType)
+            Stream responseStream = await InvokeInternalAsync(path, method, true, body, headerParams, formParams, contentType)
                     as Stream;
             return responseStream;
         }
@@ -287,7 +287,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             MultipartFormDataContent formParams,
             string contentType = "application/json")
         {
-            var response = await InvokeInternalAsync(path, method, false, body, headerParams, formParams, contentType) as string;
+            string response = await InvokeInternalAsync(path, method, false, body, headerParams, formParams, contentType) as string;
             return response;
         }
 
@@ -305,9 +305,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             }
             await Task.WhenAll(_requestHandlers.Select(p => p.PreparingAsync()).ToArray());
 
-            using (var client = new HttpClient())
+            using (HttpClient client = new HttpClient())
             {
-                using (var request = new HttpRequestMessage(new HttpMethod(method), path))
+                using (HttpRequestMessage request = new HttpRequestMessage(new HttpMethod(method), path))
                 {
                     if (!(formParams is null))
                     {

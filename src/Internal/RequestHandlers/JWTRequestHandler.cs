@@ -20,7 +20,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
         {
             _configuration = configuration;
 
-            var requestHandlers = new List<IRequestHandler>
+            List<IRequestHandler> requestHandlers = new List<IRequestHandler>
             {
                 new DebugLogRequestHandler(_configuration),
                 new ApiExceptionRequestHandler()
@@ -88,7 +88,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private void RequestToken()
         {
-            var postData = "grant_type=client_credentials";
+            string postData = "grant_type=client_credentials";
 
             if (string.IsNullOrEmpty(_configuration.ClientId))
             {
@@ -112,7 +112,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 null,
                 contentType: "application/x-www-form-urlencoded");
 
-            var result = (GetAccessTokenResult)
+            GetAccessTokenResult result = (GetAccessTokenResult)
                 SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
             _accessToken = result.AccessToken;
@@ -120,7 +120,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private async Task RequestTokenAsync()
         {
-            var postData = "grant_type=client_credentials";
+            string postData = "grant_type=client_credentials";
 
             if (string.IsNullOrEmpty(_configuration.ClientId))
             {
@@ -144,7 +144,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
                 null,
                 contentType: "application/x-www-form-urlencoded");
 
-            var result = (GetAccessTokenResult)
+            GetAccessTokenResult result = (GetAccessTokenResult)
                 SerializationHelper.Deserialize(responseString, typeof(GetAccessTokenResult));
 
             _accessToken = result.AccessToken;

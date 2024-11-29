@@ -13,7 +13,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 source.Position = 0;
             }
 
-            var array = new byte[bufferSize];
+            byte[] array = new byte[bufferSize];
             int count;
             while ((count = source.Read(array, 0, array.Length)) != 0)
             {
@@ -23,8 +23,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
 
         public static byte[] ReadAsBytes(Stream input)
         {
-            var buffer = new byte[16 * 1024];
-            using (var ms = new MemoryStream())
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
             {
                 int read;
                 while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
@@ -55,10 +55,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             }
 
             streamToRead.Seek(0, SeekOrigin.Begin);
-            var bodyReader = new StreamReader(streamToRead);
+            StreamReader bodyReader = new StreamReader(streamToRead);
             if (bodyReader.Peek() != -1)
             {
-                var content = bodyReader.ReadToEnd();
+                string content = bodyReader.ReadToEnd();
                 streamToRead.Seek(0, SeekOrigin.Begin);
 
                 sb.AppendLine("Body:");

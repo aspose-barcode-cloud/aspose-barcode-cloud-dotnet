@@ -36,7 +36,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
                 return url;
             }
 
-            var uriBuilder = new UriBuilder(url);
+            UriBuilder uriBuilder = new UriBuilder(url);
             NameValueCollection query = HttpUtility.ParseQueryString(uriBuilder.Query);
 
             if (parameterValue is string stringValue)

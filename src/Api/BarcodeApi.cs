@@ -52,7 +52,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             _configuration = configuration;
 
-            var requestHandlers = new List<IRequestHandler>();
+            List<IRequestHandler> requestHandlers = new List<IRequestHandler>();
             switch (_configuration.AuthType)
             {
                 case AuthType.JWT:
@@ -386,7 +386,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new MultipartFormDataContent();
+            MultipartFormDataContent formParams = new MultipartFormDataContent();
 #pragma warning disable CS0618 // Type or member is obsolete
             resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "type", request.Type);
 
@@ -818,7 +818,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            var formParams = new MultipartFormDataContent();
+            MultipartFormDataContent formParams = new MultipartFormDataContent();
 
 
 
@@ -829,7 +829,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             }
             if (request.decodeTypes != null)
             {
-                foreach (var oneParam in request.decodeTypes)
+                foreach (DecodeBarcodeType oneParam in request.decodeTypes)
                 {
                     formParams.Add(new StringContent(oneParam.ToString()), "decodeTypes");
                 }
