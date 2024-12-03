@@ -31,20 +31,18 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "Code128.png"
         ));
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
         
-      var formRequest = new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.Code128, "4173706F73652E426172436F64652E436C6F7564")
-{
-    DataType = EncodeDataType.HexBytes
-};
+         var formRequest = new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.Code128, "4173706F73652E426172436F64652E436C6F7564")
+        {
+            DataType = EncodeDataType.HexBytes
+        };
 
-Stream generated = await generateApi.BarcodeGenerateMultipartPostAsync(formRequest);
+        Stream generated = await generateApi.BarcodeGenerateMultipartPostAsync(formRequest);
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);

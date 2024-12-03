@@ -7,3 +7,5 @@ obj
 Tests/Configuration*.json
 *.DotSettings
 *.binlog
+snippets_test/
+*.nupkg

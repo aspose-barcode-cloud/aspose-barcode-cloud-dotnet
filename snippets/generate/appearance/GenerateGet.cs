@@ -31,9 +31,7 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "qr.png"
         ));
 

@@ -34,9 +34,7 @@ internal static class Program
     {
         var scanApi = new ScanApi(MakeConfiguration());
         
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "qr.png"
         ));
 

@@ -34,10 +34,8 @@ internal static class Program
     {
         var recognizeApi = new RecognizeApi(MakeConfiguration());
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "qr.png"
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
+            "Pdf417.png"
         ));
         byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
         string imageBase64 = Convert.ToBase64String(imageBytes);

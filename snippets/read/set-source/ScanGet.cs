@@ -37,6 +37,6 @@ internal static class Program
         var request = new BarcodeScanGetRequest("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
         var result = await scanApi.BarcodeScanGetAsync(request);
 
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
+        Console.WriteLine($"File recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }
 }

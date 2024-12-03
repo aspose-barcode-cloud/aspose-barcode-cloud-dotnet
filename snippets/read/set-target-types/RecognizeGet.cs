@@ -40,6 +40,6 @@ internal static class Program
         );
         var result = await recognizeApi.BarcodeRecognizeGetAsync(request);
 
-        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
+        Console.WriteLine($"File recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }
 }

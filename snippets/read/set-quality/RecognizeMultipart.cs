@@ -34,9 +34,7 @@ internal static class Program
     {
         var recognizeApi = new RecognizeApi(MakeConfiguration());
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "aztec.png"
         ));
 
@@ -44,7 +42,7 @@ internal static class Program
         var request = new BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType.Aztec, fileStream)
         {
             RecognitionMode = RecognitionMode.Normal,
-            ImageKind = RecognitionImageKind.ScannedDocument
+            RecognitionImageKind = RecognitionImageKind.ScannedDocument
         };
 
         BarcodeResponseList result = await recognizeApi.BarcodeRecognizeMultipartPostAsync(request);

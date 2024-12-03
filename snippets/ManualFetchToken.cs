@@ -1,10 +1,12 @@
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
-namespace AuthSnippets;
+namespace Snippets;
 
 internal static class Program
 {
@@ -15,7 +17,7 @@ public static async Task Main(string[] args)
 
     using var client = new HttpClient
     {
-        BaseAddress = new Uri("https://id.aspose.cloud/")
+        BaseAddress = new Uri("https://id-qa.aspose.cloud/")
     };
 
     var payload = new FormUrlEncodedContent(new[]
@@ -25,21 +27,15 @@ public static async Task Main(string[] args)
         new KeyValuePair<string, string>("client_secret", clientSecret)
     });
 
-    try
-    {
         var response = await client.PostAsync("connect/token", payload);
         response.EnsureSuccessStatusCode();
 
-        var data = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(data);
-    }
-    catch (HttpRequestException ex)
-    {
-        Console.WriteLine($"Request error: {ex.Message}");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"An unexpected error occurred: {ex.Message}");
-    }
+        var strData = await response.Content.ReadAsStringAsync();
+
+        JsonNode data = JsonSerializer.Deserialize<JsonNode>(strData)!;
+
+        Console.WriteLine("Token reciewed successfullly.");
+        // Uncomment next line to view token
+        // Console.WriteLine(data["access_token"]!.GetValue<string>());
 }
 }

@@ -34,10 +34,8 @@ internal static class Program
     {
         var recognizeApi = new RecognizeApi(MakeConfiguration());
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
-            "multi-types.png"
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
+            "ManyTypes.png"
         ));
 
         byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
@@ -46,7 +44,7 @@ internal static class Program
 
         var recognizeBase64Request = new RecognizeBase64Request
         {
-            BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR, DecodeBarcodeType.Pdf417 },
+            BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR, DecodeBarcodeType.Code128 },
             FileBase64 = imageBase64
         };
 

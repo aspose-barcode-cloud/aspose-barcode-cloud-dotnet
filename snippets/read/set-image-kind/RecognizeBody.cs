@@ -34,9 +34,7 @@ internal static class Program
     {
         var recognizeApi = new RecognizeApi(MakeConfiguration());
 
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..", ".."
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "aztec.png"
         ));
 
@@ -47,7 +45,7 @@ internal static class Program
         var base64Request = new RecognizeBase64Request {
         BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Aztec, DecodeBarcodeType.QR },
         FileBase64 = imageBase64,
-        ImageKind = RecognitionImageKind.ScannedDocument
+        RecognitionImageKind = RecognitionImageKind.ScannedDocument
       };
 
         var request = new BarcodeRecognizeBodyPostRequest(base64Request);

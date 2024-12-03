@@ -31,18 +31,16 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "Code128.jpeg"
         ));
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
 
-var request = new BarcodeGenerateBarcodeTypeGetRequest(EncodeBarcodeType.Code128, "Aspose.BarCode.Cloud");
-request.ImageFormat = BarcodeImageFormat.Png;
+        var request = new BarcodeGenerateBarcodeTypeGetRequest(EncodeBarcodeType.Code128, "Aspose.BarCode.Cloud");
+        request.ImageFormat = BarcodeImageFormat.Png;
 
-using var stream = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(request);
+        using var generated = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(request);
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);

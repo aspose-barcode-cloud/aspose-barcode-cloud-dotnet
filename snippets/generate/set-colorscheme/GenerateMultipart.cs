@@ -31,9 +31,7 @@ internal static class Program
 
     public static async Task Main(string[] args)
     {
-        string fileName = Path.GetFullPath(Path.Join(
-            Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location),
-            "..", "..", "..", "..",
+        string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "Code39.png"
         ));
 
@@ -46,7 +44,7 @@ internal static class Program
             ImageFormat = BarcodeImageFormat.Gif
         };
 
-        Stream barcodeStream = await generateApi.BarcodeGenerateMultipartPostAsync(request);
+        Stream generated = await generateApi.BarcodeGenerateMultipartPostAsync(request);
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
