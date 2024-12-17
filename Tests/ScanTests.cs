@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -22,7 +22,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
 
         [Test]
-        public async Task BarcodeScanBodyPostAsyncTest()
+        public async Task ScanBase64AsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
@@ -31,14 +31,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             await image.ReadAsync(buffer, 0, buffer.Length);
             // Act
-            BarcodeResponseList response = await _api.BarcodeScanBodyPostAsync(
-                new BarcodeScanBodyPostRequest(
+            BarcodeResponseList response = await _api.ScanBase64Async(
                     new ScanBase64Request()
                     {
                         FileBase64 = Convert.ToBase64String(buffer)
                     }
-                    )
-
             );
 
             // Assert
@@ -48,10 +45,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task BarcodeScanGetAsyncTest()
+        public async Task ScanAsyncTest()
         {
             // Act
-            BarcodeResponseList response = await _api.BarcodeScanGetAsync(new BarcodeScanGetRequest("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png"));
+            BarcodeResponseList response = await _api.ScanAsync("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
@@ -60,15 +57,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
-        public async Task BarcodeScanMultipartPostAsyncTest()
+        public async Task ScanMultipartAsyncTest()
         {
             // Arrange
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             // Act
-            BarcodeResponseList response = await _api.BarcodeScanMultipartPostAsync(
-                new BarcodeScanMultipartPostRequest(image)
-            );
+            BarcodeResponseList response = await _api.ScanMultipartAsync(image);
 
             // Assert
             Assert.AreEqual(2, response.Barcodes.Count);

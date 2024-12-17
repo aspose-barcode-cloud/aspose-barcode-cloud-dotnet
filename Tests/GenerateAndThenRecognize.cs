@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -27,11 +27,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Category("AsyncTests")]
         public async Task GenerateAndThenRecognizeAsyncTest()
         {
-            Stream generatedImage = await _generateApi.BarcodeGenerateBarcodeTypeGetAsync(new BarcodeGenerateBarcodeTypeGetRequest(
-                EncodeBarcodeType.QR, "Test"));
+            Stream generatedImage = await _generateApi.GenerateAsync(EncodeBarcodeType.QR, "Test");
 
-            BarcodeResponseList recognized = await _scanApi.BarcodeScanMultipartPostAsync(
-                new BarcodeScanMultipartPostRequest(generatedImage));
+            BarcodeResponseList recognized = await _scanApi.ScanMultipartAsync(generatedImage);
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
             Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);

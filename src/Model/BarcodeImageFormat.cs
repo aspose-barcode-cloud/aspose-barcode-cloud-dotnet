@@ -12,9 +12,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     public enum BarcodeImageFormat
     {
         /// <summary>
-        ///     Enum value Gif
+        ///     Enum value Png
         /// </summary>
-        Gif,
+        Png,
 
         /// <summary>
         ///     Enum value Jpeg
@@ -22,9 +22,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         Jpeg,
 
         /// <summary>
-        ///     Enum value Png
+        ///     Enum value Svg
         /// </summary>
-        Png,
+        Svg,
 
         /// <summary>
         ///     Enum value Tiff
@@ -32,9 +32,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         Tiff,
 
         /// <summary>
-        ///     Enum value Svg
+        ///     Enum value Gif
         /// </summary>
-        Svg
+        Gif
 
     }
 }

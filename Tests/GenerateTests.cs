@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -23,13 +23,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public async Task TestBarcodeGenerateBarcodeTypeGet()
         {
-            // Test case for barcode_generate_barcode_type_get
-            // Generate barcode
-            var request = new BarcodeGenerateBarcodeTypeGetRequest(
-                EncodeBarcodeType.Code128, "Hello!"
-            );
 
-            var response = await _api.BarcodeGenerateBarcodeTypeGetAsync(request);
+            var response = await _api.GenerateAsync(EncodeBarcodeType.Code128, "Hello!");
 
             long contentLength = response.Length;
             Assert.True(contentLength > 0, "Content length is zero or negative");
@@ -58,9 +53,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 BarcodeImageParams = imageParams
             };
 
-            var request = new BarcodeGenerateBodyPostRequest(generatorParams);
 
-            var response = await _api.BarcodeGenerateBodyPostAsync(request);
+            var response = await _api.GenerateBodyAsync(generatorParams);
 
             long contentLength = response.Length;
             Assert.True(contentLength > 0, "Content length is zero or negative");
@@ -69,14 +63,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public async Task TestBarcodeGenerateMultipartPost()
         {
-            // Test case for barcode_generate_form_post
-            // Generate barcode from params in form
-            var request = new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.QR, "54657374")
-            {
-                DataType = EncodeDataType.HexBytes
-            };
 
-            var response = await _api.BarcodeGenerateMultipartPostAsync(request);
+            var response = await _api.GenerateMultipartAsync(EncodeBarcodeType.QR, "54657374", dataType: EncodeDataType.HexBytes);
 
             long contentLength = response.Length;
             Assert.True(contentLength > 0, "Content length is zero or negative");

@@ -4,8 +4,8 @@ Specifies the file format of the image.
 
 ## Allowable values
 
-* **Gif**
+* **Png**
 * Jpeg
-* Png
-* Tiff
 * Svg
+* Tiff
+* Gif

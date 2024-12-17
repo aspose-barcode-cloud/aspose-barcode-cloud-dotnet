@@ -35,8 +35,8 @@ internal static class Program
         byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
         string imageBase64 = Convert.ToBase64String(imageBytes);
 
-        BarcodeResponseList recognized = await api.BarcodeRecognizeBodyPostAsync(
-            new BarcodeRecognizeBodyPostRequest(new RecognizeBase64Request()
+        BarcodeResponseList recognized = await api.RecognizeBase64Async(
+            new RecognizeBase64Request(new RecognizeBase64Request()
             {
                 BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
                 FileBase64 = imageBase64

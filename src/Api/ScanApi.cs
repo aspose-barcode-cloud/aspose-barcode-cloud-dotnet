@@ -31,7 +31,7 @@ using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
@@ -83,58 +83,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             : this(new Configuration { ClientSecret = clientSecret, ClientId = clientId })
         {
         }
-
         /// <summary>
-        ///     Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+        /// Scan barcode from file on server using GET requests with parameter in query string.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanBodyPostRequest" /></param>
+        /// <param name="fileUrl">Url to barcode image</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
         /// </returns>
-        public async Task<BarcodeResponseList> BarcodeScanBodyPostAsync(BarcodeScanBodyPostRequest request)
-        {
-            // verify the required parameter 'scanBase64Request' is set
-            if (request.ScanBase64Request == null)
-            {
-                throw new ApiException(400, "Missing required parameter 'scanBase64Request' when calling BarcodeScanBodyPost");
-            }
-            // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan-body";
-            resourcePath = Regex
-                .Replace(resourcePath, "\\*", string.Empty)
-                .Replace("&amp;", "&")
-                .Replace("/?", "?");
-            string postBody = SerializationHelper.Serialize(request.ScanBase64Request); // http body (model) parameter
-
-            string response = await _apiInvoker.InvokeApiAsync(
-                           resourcePath,
-                           "POST",
-                           postBody,
-                           null,
-                           null);
-
-            if (response != null)
-            {
-                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
-            }
-
-            return null;
-
-        }
-
-        /// <summary>
-        ///     Scan barcode from file on server using GET requests with parameter in query string.
-        /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanGetRequest" /></param>
-        /// <returns>
-        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
-        /// </returns>
-        public async Task<BarcodeResponseList> BarcodeScanGetAsync(BarcodeScanGetRequest request)
+        public async Task<BarcodeResponseList> ScanAsync(string fileUrl, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'fileUrl' is set
-            if (request.FileUrl == null)
+            if (fileUrl == null)
             {
-                throw new ApiException(400, "Missing required parameter 'fileUrl' when calling BarcodeScanGet");
+                throw new ApiException(400, "Missing required parameter 'fileUrl' when calling Scan");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan";
@@ -143,7 +105,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
 #pragma warning disable CS0618 // Type or member is obsolete
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", request.FileUrl);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "fileUrl", fileUrl);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
@@ -162,20 +124,58 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             return null;
 
         }
-
         /// <summary>
-        ///     Scan barcode from file in request body using POST requests with parameter in multipart form.
+        /// Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanMultipartPostRequest" /></param>
+        /// <param name="scanBase64Request">Barcode scan request</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
         /// </returns>
-        public async Task<BarcodeResponseList> BarcodeScanMultipartPostAsync(BarcodeScanMultipartPostRequest request)
+        public async Task<BarcodeResponseList> ScanBase64Async(ScanBase64Request scanBase64Request, System.Threading.CancellationToken cancellationToken = default)
+        {
+            // verify the required parameter 'scanBase64Request' is set
+            if (scanBase64Request == null)
+            {
+                throw new ApiException(400, "Missing required parameter 'scanBase64Request' when calling ScanBase64");
+            }
+            // create path and map variables
+            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan-body";
+            resourcePath = Regex
+                .Replace(resourcePath, "\\*", string.Empty)
+                .Replace("&amp;", "&")
+                .Replace("/?", "?");
+            string postBody = SerializationHelper.Serialize(scanBase64Request); // http body (model) parameter
+
+            string response = await _apiInvoker.InvokeApiAsync(
+                           resourcePath,
+                           "POST",
+                           postBody,
+                           null,
+                           null);
+
+            if (response != null)
+            {
+                return (BarcodeResponseList)SerializationHelper.Deserialize(response, typeof(BarcodeResponseList));
+            }
+
+            return null;
+
+        }
+        /// <summary>
+        /// Scan barcode from file in request body using POST requests with parameter in multipart form.
+        /// </summary>
+        /// <param name="file">Barcode image file</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns>
+        /// A task that represents the asynchronous operation. Task result type is  <see cref="BarcodeResponseList" />
+        /// </returns>
+        public async Task<BarcodeResponseList> ScanMultipartAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'file' is set
-            if (request.File == null)
+            if (file == null)
             {
-                throw new ApiException(400, "Missing required parameter 'file' when calling BarcodeScanMultipartPost");
+                throw new ApiException(400, "Missing required parameter 'file' when calling ScanMultipart");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/scan-multipart";
@@ -184,10 +184,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
             var multipartContent = new MultipartFormDataContent();
-            if (request.File != null)
+            if (file != null)
             {
 
-                multipartContent.Add(new StreamContent(request.File), "File", "file.png");
+                multipartContent.Add(new StreamContent(file), "file", "file.png");
 
             }
 

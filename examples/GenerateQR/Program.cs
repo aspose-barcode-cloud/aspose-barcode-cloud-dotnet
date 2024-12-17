@@ -31,8 +31,8 @@ internal static class Program
 
     private static async Task GenerateQR(IGenerateApi api, string fileName)
     {
-        await using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
-            new BarcodeGenerateBarcodeTypeGetRequest(
+        await using Stream generated = await api.GenerateAsync(
+            new GenerateRequest(
                 EncodeBarcodeType.QR,
                 "QR code text")
             {

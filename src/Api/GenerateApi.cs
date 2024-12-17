@@ -31,7 +31,7 @@ using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 
 namespace Aspose.BarCode.Cloud.Sdk.Api
 {
@@ -83,20 +83,31 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
             : this(new Configuration { ClientSecret = clientSecret, ClientId = clientId })
         {
         }
-
         /// <summary>
-        ///     Generate barcode using GET request with parameters in route and query string.
+        /// Generate barcode using GET request with parameters in route and query string.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeGenerateBarcodeTypeGetRequest" /></param>
+        /// <param name="barcodeType">Type of barcode to generate.</param>
+        /// <param name="data">String represents data to encode</param>
+        /// <param name="dataType">Type of data to encode.  Default value: StringData. (optional)</param>
+        /// <param name="imageFormat">Barcode output image format.  Default value: png (optional)</param>
+        /// <param name="textLocation">Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. (optional)</param>
+        /// <param name="foregroundColor">Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. (optional, default to &quot;Black&quot;)</param>
+        /// <param name="backgroundColor">Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. (optional, default to &quot;White&quot;)</param>
+        /// <param name="units">Common Units for all measuring in query. Default units: pixel. (optional)</param>
+        /// <param name="resolution">Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. (optional)</param>
+        /// <param name="imageHeight">Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. (optional)</param>
+        /// <param name="imageWidth">Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot. (optional)</param>
+        /// <param name="rotationAngle">BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0. (optional)</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<System.IO.Stream> BarcodeGenerateBarcodeTypeGetAsync(BarcodeGenerateBarcodeTypeGetRequest request)
+        public async Task<System.IO.Stream> GenerateAsync(EncodeBarcodeType barcodeType, string data, EncodeDataType? dataType = default, BarcodeImageFormat? imageFormat = default, CodeLocation? textLocation = default, string foregroundColor = default, string backgroundColor = default, GraphicsUnit? units = default, float? resolution = default, float? imageHeight = default, float? imageWidth = default, int? rotationAngle = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'data' is set
-            if (request.Data == null)
+            if (data == null)
             {
-                throw new ApiException(400, "Missing required parameter 'data' when calling BarcodeGenerateBarcodeTypeGet");
+                throw new ApiException(400, "Missing required parameter 'data' when calling Generate");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate/{barcodeType}";
@@ -104,39 +115,39 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", request.BarcodeType);
+            resourcePath = UrlHelper.AddPathParameter(resourcePath, "barcodeType", barcodeType);
 #pragma warning disable CS0618 // Type or member is obsolete
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "dataType", request.DataType);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "dataType", dataType);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "data", request.Data);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "data", data);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageFormat", request.ImageFormat);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageFormat", imageFormat);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textLocation", request.TextLocation);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "textLocation", textLocation);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "foregroundColor", request.ForegroundColor);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "foregroundColor", foregroundColor);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "backgroundColor", request.BackgroundColor);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "backgroundColor", backgroundColor);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "units", request.Units);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "units", units);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", request.Resolution);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "resolution", resolution);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageHeight", request.ImageHeight);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageHeight", imageHeight);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageWidth", request.ImageWidth);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "imageWidth", imageWidth);
 
 
-            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", request.RotationAngle);
+            resourcePath = UrlHelper.AddQueryParameterToUrl(resourcePath, "rotationAngle", rotationAngle);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 
@@ -147,20 +158,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null,
                 null);
         }
-
         /// <summary>
-        ///     Generate barcode using POST request with parameters in body in json or xml format.
+        /// Generate barcode using POST request with parameters in body in json or xml format.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeGenerateBodyPostRequest" /></param>
+        /// <param name="generateParams">Parameters of generation</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<System.IO.Stream> BarcodeGenerateBodyPostAsync(BarcodeGenerateBodyPostRequest request)
+        public async Task<System.IO.Stream> GenerateBodyAsync(GenerateParams generateParams, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'generateParams' is set
-            if (request.GenerateParams == null)
+            if (generateParams == null)
             {
-                throw new ApiException(400, "Missing required parameter 'generateParams' when calling BarcodeGenerateBodyPost");
+                throw new ApiException(400, "Missing required parameter 'generateParams' when calling GenerateBody");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-body";
@@ -168,7 +179,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
                 .Replace("/?", "?");
-            string postBody = SerializationHelper.Serialize(request.GenerateParams); // http body (model) parameter
+            string postBody = SerializationHelper.Serialize(generateParams); // http body (model) parameter
 
             return await _apiInvoker.InvokeBinaryApiAsync(
                 resourcePath,
@@ -177,20 +188,31 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 null,
                 null);
         }
-
         /// <summary>
-        ///     Generate barcode using POST request with parameters in multipart form.
+        /// Generate barcode using POST request with parameters in multipart form.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeGenerateMultipartPostRequest" /></param>
+        /// <param name="barcodeType"></param>
+        /// <param name="data">String represents data to encode</param>
+        /// <param name="dataType"> (optional)</param>
+        /// <param name="imageFormat"> (optional)</param>
+        /// <param name="textLocation"> (optional)</param>
+        /// <param name="foregroundColor">Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. (optional, default to &quot;Black&quot;)</param>
+        /// <param name="backgroundColor">Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. (optional, default to &quot;White&quot;)</param>
+        /// <param name="units"> (optional)</param>
+        /// <param name="resolution">Resolution of the BarCode image.  One value for both dimensions.  Default value: 96 dpi.  Decimal separator is dot. (optional)</param>
+        /// <param name="imageHeight">Height of the barcode image in given units. Default units: pixel.  Decimal separator is dot. (optional)</param>
+        /// <param name="imageWidth">Width of the barcode image in given units. Default units: pixel.  Decimal separator is dot. (optional)</param>
+        /// <param name="rotationAngle">BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation.  If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image.  Default value: 0. (optional)</param>
+        /// <param name="cancellationToken"></param>
         /// <returns>
         /// A task that represents the asynchronous operation. Task result type is  <see cref="System.IO.Stream" />
         /// </returns>
-        public async Task<System.IO.Stream> BarcodeGenerateMultipartPostAsync(BarcodeGenerateMultipartPostRequest request)
+        public async Task<System.IO.Stream> GenerateMultipartAsync(EncodeBarcodeType barcodeType, string data, EncodeDataType? dataType = default, BarcodeImageFormat? imageFormat = default, CodeLocation? textLocation = default, string foregroundColor = default, string backgroundColor = default, GraphicsUnit? units = default, float? resolution = default, float? imageHeight = default, float? imageWidth = default, int? rotationAngle = default, System.Threading.CancellationToken cancellationToken = default)
         {
             // verify the required parameter 'data' is set
-            if (request.Data == null)
+            if (data == null)
             {
-                throw new ApiException(400, "Missing required parameter 'data' when calling BarcodeGenerateMultipartPost");
+                throw new ApiException(400, "Missing required parameter 'data' when calling GenerateMultipart");
             }
             // create path and map variables
             string resourcePath = _configuration.GetApiRootUrl() + "/barcode/generate-multipart";
@@ -200,62 +222,62 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 .Replace("/?", "?");
             var multipartContent = new MultipartFormDataContent();
 
-            multipartContent.Add(new StringContent($"{request.BarcodeType}"), "BarcodeType");
+            multipartContent.Add(new StringContent($"{barcodeType}"), "barcodeType");
 
 
-            if (request.DataType != null)
+            if (dataType != null)
             {
-                multipartContent.Add(new StringContent($"{request.DataType}"), "DataType");
+                multipartContent.Add(new StringContent($"{dataType}"), "dataType");
             }
 
-            if (request.Data != null)
+            if (data != null)
             {
-                multipartContent.Add(new StringContent($"{request.Data}"), "Data");
+                multipartContent.Add(new StringContent($"{data}"), "data");
             }
 
-            if (request.ImageFormat != null)
+            if (imageFormat != null)
             {
-                multipartContent.Add(new StringContent($"{request.ImageFormat}"), "ImageFormat");
+                multipartContent.Add(new StringContent($"{imageFormat}"), "imageFormat");
             }
 
-            if (request.TextLocation != null)
+            if (textLocation != null)
             {
-                multipartContent.Add(new StringContent($"{request.TextLocation}"), "TextLocation");
+                multipartContent.Add(new StringContent($"{textLocation}"), "textLocation");
             }
 
-            if (request.ForegroundColor != null)
+            if (foregroundColor != null)
             {
-                multipartContent.Add(new StringContent($"{request.ForegroundColor}"), "ForegroundColor");
+                multipartContent.Add(new StringContent($"{foregroundColor}"), "foregroundColor");
             }
 
-            if (request.BackgroundColor != null)
+            if (backgroundColor != null)
             {
-                multipartContent.Add(new StringContent($"{request.BackgroundColor}"), "BackgroundColor");
+                multipartContent.Add(new StringContent($"{backgroundColor}"), "backgroundColor");
             }
 
-            if (request.Units != null)
+            if (units != null)
             {
-                multipartContent.Add(new StringContent($"{request.Units}"), "Units");
+                multipartContent.Add(new StringContent($"{units}"), "units");
             }
 
-            if (request.Resolution != null)
+            if (resolution != null)
             {
-                multipartContent.Add(new StringContent($"{request.Resolution}"), "Resolution");
+                multipartContent.Add(new StringContent($"{resolution}"), "resolution");
             }
 
-            if (request.ImageHeight != null)
+            if (imageHeight != null)
             {
-                multipartContent.Add(new StringContent($"{request.ImageHeight}"), "ImageHeight");
+                multipartContent.Add(new StringContent($"{imageHeight}"), "imageHeight");
             }
 
-            if (request.ImageWidth != null)
+            if (imageWidth != null)
             {
-                multipartContent.Add(new StringContent($"{request.ImageWidth}"), "ImageWidth");
+                multipartContent.Add(new StringContent($"{imageWidth}"), "imageWidth");
             }
 
-            if (request.RotationAngle != null)
+            if (rotationAngle != null)
             {
-                multipartContent.Add(new StringContent($"{request.RotationAngle}"), "RotationAngle");
+                multipartContent.Add(new StringContent($"{rotationAngle}"), "rotationAngle");
             }
 
 

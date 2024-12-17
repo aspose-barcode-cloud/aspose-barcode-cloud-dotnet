@@ -1,42 +1,18 @@
 # Aspose.BarCode.Cloud.Sdk.Api.ScanApi
 
-All URIs are relative to *<https://barcode.qa.aspose.cloud/v4.0>*
+All URIs are relative to *<http://api.aspose.cloud/v4.0>*
 
 Method | HTTP request | Description
 ------ | ------------ | -----------
-[**BarcodeScanBodyPost**](ScanApi.md#barcodescanbodypost) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
-[**BarcodeScanGet**](ScanApi.md#barcodescanget) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
-[**BarcodeScanMultipartPost**](ScanApi.md#barcodescanmultipartpost) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
+[**Scan**](ScanApi.md#scan) | **GET** /barcode/scan | Scan barcode from file on server using GET requests with parameter in query string.
+[**ScanBase64**](ScanApi.md#scanbase64) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+[**ScanMultipart**](ScanApi.md#scanmultipart) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
 
 
-## **BarcodeScanBodyPost**
-
-```csharp
-BarcodeResponseList BarcodeScanBodyPost (ScanBase64Request scanBase64Request)
-```
-
-Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
-
-### Parameters
-
-Name | Type | Description  | Notes
----- | ---- | ------------ | -----
- **scanBase64Request** | [**ScanBase64Request**](ScanBase64Request.md)| Barcode scan request |
-
-### Return type
-
-[**BarcodeResponseList**](BarcodeResponseList.md)
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-
-## **BarcodeScanGet**
+## **Scan**
 
 ```csharp
-BarcodeResponseList BarcodeScanGet (string fileUrl)
+BarcodeResponseList Scan (string fileUrl)
 ```
 
 Scan barcode from file on server using GET requests with parameter in query string.
@@ -57,10 +33,34 @@ Name | Type | Description  | Notes
 - **Accept**: application/json, application/xml
 
 
-## **BarcodeScanMultipartPost**
+## **ScanBase64**
 
 ```csharp
-BarcodeResponseList BarcodeScanMultipartPost (System.IO.Stream file)
+BarcodeResponseList ScanBase64 (ScanBase64Request scanBase64Request)
+```
+
+Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+
+### Parameters
+
+Name | Type | Description  | Notes
+---- | ---- | ------------ | -----
+ **scanBase64Request** | [**ScanBase64Request**](ScanBase64Request.md)| Barcode scan request |
+
+### Return type
+
+[**BarcodeResponseList**](BarcodeResponseList.md)
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+
+## **ScanMultipart**
+
+```csharp
+BarcodeResponseList ScanMultipart (System.IO.Stream file)
 ```
 
 Scan barcode from file in request body using POST requests with parameter in multipart form.

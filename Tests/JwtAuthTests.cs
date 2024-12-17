@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -48,10 +48,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             };
 
             var api = new GenerateApi(configWithToken);
-            using Stream generated = await api.BarcodeGenerateBarcodeTypeGetAsync(
-                new BarcodeGenerateBarcodeTypeGetRequest(
-                    EncodeBarcodeType.QR, "Test")
-            );
+            using Stream generated = await api.GenerateAsync(EncodeBarcodeType.QR, "Test");
             Assert.Greater(generated.Length, 0);
         }
     }

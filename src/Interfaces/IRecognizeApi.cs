@@ -1,40 +1,55 @@
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 
 namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
     /// <summary>
     ///     RecognizeApi interface
     /// </summary>
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
     public interface IRecognizeApi
     {
-
         /// <summary>
-        ///     Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
+        /// Recognize barcode from file on server using GET requests with parameters in route and query string.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeBodyPostRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeRecognizeBodyPostAsync(BarcodeRecognizeBodyPostRequest request);
-
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Aspose.BarCode.Cloud.Sdk.Api.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="barcodeType">Type of barcode to recognize</param>
+        /// <param name="fileUrl">Url to barcode image</param>
+        /// <param name="recognitionMode">Recognition mode</param>
+        /// <param name="recognitionImageKind">Image kind for recognition</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BarcodeResponseList</returns>
+        Task<BarcodeResponseList> RecognizeAsync(DecodeBarcodeType barcodeType, string fileUrl, RecognitionMode? recognitionMode = default, RecognitionImageKind? recognitionImageKind = default, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        ///     Recognize barcode from file on server using GET requests with parameters in route and query string.
+        /// Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeGetRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeRecognizeGetAsync(BarcodeRecognizeGetRequest request);
-
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Aspose.BarCode.Cloud.Sdk.Api.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="recognizeBase64Request">Barcode recognition request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BarcodeResponseList</returns>
+        Task<BarcodeResponseList> RecognizeBase64Async(RecognizeBase64Request recognizeBase64Request, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        ///     Recognize barcode from file in request body using POST requests with parameters in multipart form.
+        /// Recognize barcode from file in request body using POST requests with parameters in multipart form.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeRecognizeMultipartPostRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeRecognizeMultipartPostAsync(BarcodeRecognizeMultipartPostRequest request);
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Aspose.BarCode.Cloud.Sdk.Api.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="barcodeType"></param>
+        /// <param name="file">Barcode image file</param>
+        /// <param name="recognitionMode"></param>
+        /// <param name="recognitionImageKind"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BarcodeResponseList</returns>
+        Task<BarcodeResponseList> RecognizeMultipartAsync(DecodeBarcodeType barcodeType, System.IO.Stream file, RecognitionMode? recognitionMode = default, RecognitionImageKind? recognitionImageKind = default, System.Threading.CancellationToken cancellationToken = default);
     }
 }

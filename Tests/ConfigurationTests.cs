@@ -128,7 +128,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "JwtToken\":null,\"" +
                 "DebugMode\":false,\"" +
                 "AuthType\":\"JWT\",\"" +
-                "ApiVersion\":\"3.0\",\"" +
+                "ApiVersion\":\"4.0\",\"" +
                 "DefaultHeaders\":{}" +
                 "}",
                 JsonConvert.SerializeObject(config));

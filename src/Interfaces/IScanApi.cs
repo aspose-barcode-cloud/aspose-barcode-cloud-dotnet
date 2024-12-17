@@ -1,40 +1,49 @@
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 
 namespace Aspose.BarCode.Cloud.Sdk.Interfaces
 {
     /// <summary>
     ///     ScanApi interface
     /// </summary>
+    /// <summary>
+    /// Represents a collection of functions to interact with the API endpoints
+    /// </summary>
     public interface IScanApi
     {
-
         /// <summary>
-        ///     Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+        /// Scan barcode from file on server using GET requests with parameter in query string.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanBodyPostRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeScanBodyPostAsync(BarcodeScanBodyPostRequest request);
-
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Aspose.BarCode.Cloud.Sdk.Api.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="fileUrl">Url to barcode image</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BarcodeResponseList</returns>
+        Task<BarcodeResponseList> ScanAsync(string fileUrl, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        ///     Scan barcode from file on server using GET requests with parameter in query string.
+        /// Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanGetRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeScanGetAsync(BarcodeScanGetRequest request);
-
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Aspose.BarCode.Cloud.Sdk.Api.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="scanBase64Request">Barcode scan request</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BarcodeResponseList</returns>
+        Task<BarcodeResponseList> ScanBase64Async(ScanBase64Request scanBase64Request, System.Threading.CancellationToken cancellationToken = default);
         /// <summary>
-        ///     Scan barcode from file in request body using POST requests with parameter in multipart form.
+        /// Scan barcode from file in request body using POST requests with parameter in multipart form.
         /// </summary>
-        /// <param name="request">Request. <see cref="BarcodeScanMultipartPostRequest" /></param>
-        /// <returns>
-        ///     A task representing the asynchronous operation. The result is a <see cref="BarcodeResponseList" />.
-        /// </returns>
-        Task<BarcodeResponseList> BarcodeScanMultipartPostAsync(BarcodeScanMultipartPostRequest request);
+        /// <remarks>
+        ///
+        /// </remarks>
+        /// <exception cref="Aspose.BarCode.Cloud.Sdk.Api.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="file">Barcode image file</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of BarcodeResponseList</returns>
+        Task<BarcodeResponseList> ScanMultipartAsync(System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default);
     }
 }
