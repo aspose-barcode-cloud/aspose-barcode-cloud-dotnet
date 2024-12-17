@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,11 +39,9 @@ internal static class Program
         ));
 
         using var fileStream = new FileStream(fileName, FileMode.Open);
-        var request = new BarcodeRecognizeMultipartPostRequest(
-            DecodeBarcodeType.Pdf417,
-            fileStream
-        );
-        var result = await recognizeApi.BarcodeRecognizeMultipartPostAsync(request);
+
+        var result = await recognizeApi.RecognizeMultipartAsync(DecodeBarcodeType.Pdf417,
+            fileStream);
 
         Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

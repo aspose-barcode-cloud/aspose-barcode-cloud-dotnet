@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,15 +33,11 @@ internal static class Program
     public static async Task Main(string[] args)
     {
         var recognizeApi = new RecognizeApi(MakeConfiguration());
-        
 
-        var request = new BarcodeRecognizeGetRequest(DecodeBarcodeType.QR, "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png")
-                            {
-                                RecognitionMode = RecognitionMode.Fast,
-                                RecognitionImageKind = RecognitionImageKind.Photo
-                            };
-
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeGetAsync(request);
+        BarcodeResponseList result = await recognizeApi.RecognizeAsync(DecodeBarcodeType.QR,
+         "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
+            recognitionMode: RecognitionMode.Fast,
+            recognitionImageKind: RecognitionImageKind.Photo);
 
         Console.WriteLine($"File recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

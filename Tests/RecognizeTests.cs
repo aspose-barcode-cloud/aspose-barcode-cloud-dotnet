@@ -60,7 +60,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             BarcodeResponseList response = await _api.RecognizeMultipartAsync(DecodeBarcodeType.QR, image,
-                recognitionImageKind:  RecognitionImageKind.ClearImage,recognitionMode: RecognitionMode.Normal);
+                recognitionImageKind: RecognitionImageKind.ClearImage, recognitionMode: RecognitionMode.Normal);
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);

@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -36,17 +36,12 @@ internal static class Program
         ));
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-var request = new BarcodeGenerateMultipartPostRequest(
-    barcodeType: EncodeBarcodeType.Pdf417,
-    data: "Aspose.BarCode.Cloud"
-)
-{
-    TextLocation = CodeLocation.Above,
-    ImageFormat = BarcodeImageFormat.Svg,
-};
 
-        var generated = await generateApi.BarcodeGenerateMultipartPostAsync(request);
+        var generated = await generateApi.GenerateMultipartAsync(barcodeType: EncodeBarcodeType.Pdf417,
+            data: "Aspose.BarCode.Cloud",
+            textLocation: CodeLocation.Above,
+            imageFormat: BarcodeImageFormat.Svg
+            );
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);

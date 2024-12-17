@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -37,16 +37,12 @@ internal static class Program
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
 
-        var request =
-                new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.Aztec, "Aspose.BarCode.Cloud")
-        {
-            ImageHeight = 200,
-            ImageWidth = 200,
-            Resolution = 150,
-            Units = GraphicsUnit.Point
-        };
 
-        Stream generated = await generateApi.BarcodeGenerateMultipartPostAsync(request);
+        Stream generated = await generateApi.GenerateMultipartAsync(EncodeBarcodeType.Aztec, "Aspose.BarCode.Cloud",
+                    imageHeight: 200,
+                    imageWidth: 200,
+                    resolution: 150,
+                    units: GraphicsUnit.Point);
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);

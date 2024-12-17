@@ -10,18 +10,18 @@ namespace Snippets;
 
 internal static class Program
 {
-public static async Task Main(string[] args)
-{
-    var clientId = "Client Id from https://dashboard.aspose.cloud/applications";
-    var clientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
-
-    using var client = new HttpClient
+    public static async Task Main(string[] args)
     {
-        BaseAddress = new Uri("https://id-qa.aspose.cloud/")
-    };
+        var clientId = "Client Id from https://dashboard.aspose.cloud/applications";
+        var clientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
 
-    var payload = new FormUrlEncodedContent(new[]
-    {
+        using var client = new HttpClient
+        {
+            BaseAddress = new Uri("https://id.aspose.cloud/")
+        };
+
+        var payload = new FormUrlEncodedContent(new[]
+        {
         new KeyValuePair<string, string>("grant_type", "client_credentials"),
         new KeyValuePair<string, string>("client_id", clientId),
         new KeyValuePair<string, string>("client_secret", clientSecret)
@@ -37,5 +37,5 @@ public static async Task Main(string[] args)
         Console.WriteLine("Token reciewed successfullly.");
         // Uncomment next line to view token
         // Console.WriteLine(data["access_token"]!.GetValue<string>());
-}
+    }
 }

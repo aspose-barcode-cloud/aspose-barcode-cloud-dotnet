@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -33,14 +33,14 @@ internal static class Program
     public static async Task Main(string[] args)
     {
         var scanApi = new ScanApi(MakeConfiguration());
-        
+
         string fileName = Path.GetFullPath(Path.Join("Tests", "test_data",
             "qr.png"
         ));
 
         using var fileStream = new FileStream(fileName, FileMode.Open);
-        var request = new BarcodeScanMultipartPostRequest(fileStream);
-        var result = await scanApi.BarcodeScanMultipartPostAsync(request);
+
+        var result = await scanApi.ScanMultipartAsync(fileStream);
 
         Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

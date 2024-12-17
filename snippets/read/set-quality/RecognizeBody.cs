@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,16 +41,16 @@ internal static class Program
         string imageBase64 = Convert.ToBase64String(imageBytes);
 
 
-        var base64Request = new RecognizeBase64Request
-            {
-                FileBase64 = imageBase64,
-                RecognitionMode = RecognitionMode.Excellent,
-                BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Pdf417 }
-            };
+        var request = new RecognizeBase64Request
+        {
+            FileBase64 = imageBase64,
+            RecognitionMode = RecognitionMode.Excellent,
+            BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.Pdf417 }
+        };
 
-    var request = new BarcodeRecognizeBodyPostRequest(base64Request);
-    BarcodeResponseList result = await recognizeApi.BarcodeRecognizeBodyPostAsync(request);
 
-    Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
+        BarcodeResponseList result = await recognizeApi.RecognizeBase64Async(request);
+
+        Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }
 }

@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,13 +39,11 @@ internal static class Program
         ));
 
         using var fileStream = File.OpenRead(fileName);
-        var request = new BarcodeRecognizeMultipartPostRequest(DecodeBarcodeType.Aztec, fileStream)
-        {
-            RecognitionMode = RecognitionMode.Normal,
-            RecognitionImageKind = RecognitionImageKind.ScannedDocument
-        };
 
-        BarcodeResponseList result = await recognizeApi.BarcodeRecognizeMultipartPostAsync(request);
+        BarcodeResponseList result = await recognizeApi.RecognizeMultipartAsync(DecodeBarcodeType.Aztec, fileStream, 
+            recognitionMode: RecognitionMode.Normal,
+            recognitionImageKind: RecognitionImageKind.ScannedDocument
+                    );
 
         Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

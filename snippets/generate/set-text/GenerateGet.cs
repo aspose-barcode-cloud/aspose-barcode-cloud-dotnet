@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -36,15 +36,9 @@ internal static class Program
         ));
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-        var getRequest = new BarcodeGenerateBarcodeTypeGetRequest
-                                                        (EncodeBarcodeType.QR, "Aspose.BarCode.Cloud")
-        {
-            DataType = EncodeDataType.StringData
-        };
 
-        Stream generated = await generateApi.BarcodeGenerateBarcodeTypeGetAsync(getRequest);
-        
+        Stream generated = await generateApi.GenerateAsync(EncodeBarcodeType.QR, "Aspose.BarCode.Cloud", dataType: EncodeDataType.StringData);
+
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
 

@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -36,22 +36,21 @@ internal static class Program
         ));
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-var generateParams = new GenerateParams
-{
-    BarcodeType = EncodeBarcodeType.Code39,
-    EncodeData = new EncodeData { Data = "Aspose", DataType = EncodeDataType.StringData },
-    BarcodeImageParams = new BarcodeImageParams
-    {
-        ForegroundColor = "#FF0000",
-        BackgroundColor = "#FFFF00",
-        ImageFormat = BarcodeImageFormat.Jpeg,
-        RotationAngle = 90
-    }
-};
 
-var request = new BarcodeGenerateBodyPostRequest(generateParams);
-var generated = await generateApi.BarcodeGenerateBodyPostAsync(request);
+        var generateParams = new GenerateParams
+        {
+            BarcodeType = EncodeBarcodeType.Code39,
+            EncodeData = new EncodeData { Data = "Aspose", DataType = EncodeDataType.StringData },
+            BarcodeImageParams = new BarcodeImageParams
+            {
+                ForegroundColor = "#FF0000",
+                BackgroundColor = "#FFFF00",
+                ImageFormat = BarcodeImageFormat.Jpeg,
+                RotationAngle = 90
+            }
+        };
+
+        var generated = await generateApi.GenerateBodyAsync(generateParams);
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);

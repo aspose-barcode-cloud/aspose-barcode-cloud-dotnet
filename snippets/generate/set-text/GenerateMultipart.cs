@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -36,13 +36,8 @@ internal static class Program
         ));
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
-        
-         var formRequest = new BarcodeGenerateMultipartPostRequest(EncodeBarcodeType.Code128, "4173706F73652E426172436F64652E436C6F7564")
-        {
-            DataType = EncodeDataType.HexBytes
-        };
 
-        Stream generated = await generateApi.BarcodeGenerateMultipartPostAsync(formRequest);
+        Stream generated = await generateApi.GenerateMultipartAsync(EncodeBarcodeType.Code128, "4173706F73652E426172436F64652E436C6F7564", dataType: EncodeDataType.HexBytes);
 
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
