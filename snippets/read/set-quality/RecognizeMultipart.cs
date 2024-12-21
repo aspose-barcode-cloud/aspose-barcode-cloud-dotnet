@@ -40,7 +40,7 @@ internal static class Program
 
         using var fileStream = File.OpenRead(fileName);
 
-        BarcodeResponseList result = await recognizeApi.RecognizeMultipartAsync(DecodeBarcodeType.Aztec, fileStream, 
+        BarcodeResponseList result = await recognizeApi.RecognizeMultipartAsync(DecodeBarcodeType.Aztec, fileStream,
             recognitionMode: RecognitionMode.Normal,
             recognitionImageKind: RecognitionImageKind.ScannedDocument
                     );

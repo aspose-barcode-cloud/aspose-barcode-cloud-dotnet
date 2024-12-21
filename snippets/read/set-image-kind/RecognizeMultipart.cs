@@ -40,7 +40,7 @@ internal static class Program
 
         using var fileStream = new FileStream(fileName, FileMode.Open);
 
-        BarcodeResponseList result = await recognizeApi.RecognizeMultipartAsync(DecodeBarcodeType.MostCommonlyUsed, 
+        BarcodeResponseList result = await recognizeApi.RecognizeMultipartAsync(DecodeBarcodeType.MostCommonlyUsed,
         fileStream, recognitionImageKind: RecognitionImageKind.ClearImage);
 
         Console.WriteLine($"File '{fileName}' recognized, result: '{result.Barcodes[0].BarcodeValue}'");

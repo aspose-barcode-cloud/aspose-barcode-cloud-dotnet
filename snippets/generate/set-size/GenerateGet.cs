@@ -37,7 +37,7 @@ internal static class Program
 
         GenerateApi generateApi = new GenerateApi(MakeConfiguration());
 
-        Stream generated = await generateApi.GenerateAsync(EncodeBarcodeType.QR, "Aspose.BarCode.Cloud", 
+        Stream generated = await generateApi.GenerateAsync(EncodeBarcodeType.QR, "Aspose.BarCode.Cloud",
                         imageHeight: 200,
                         imageWidth: 200,
                         resolution: 300,

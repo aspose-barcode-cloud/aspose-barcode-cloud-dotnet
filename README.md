@@ -215,7 +215,7 @@ All Aspose.BarCode for Cloud SDKs, helper scripts and templates are licensed und
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *<http://api.aspose.cloud/v4.0>*
+All URIs are relative to *<https://api.aspose.cloud/v4.0>*
 
 Class | Method | HTTP request | Description
 ----- | ------ | ------------ | -----------
