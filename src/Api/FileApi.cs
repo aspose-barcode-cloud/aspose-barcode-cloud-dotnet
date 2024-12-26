@@ -104,7 +104,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling CopyFile");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/copy/{srcPath}";
+            string resourcePath = _configuration.ApiRootUrl + "/barcode/storage/file/copy/{srcPath}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -146,7 +146,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling DeleteFile");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            string resourcePath = _configuration.ApiRootUrl + "/barcode/storage/file/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -182,7 +182,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'path' when calling DownloadFile");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            string resourcePath = _configuration.ApiRootUrl + "/barcode/storage/file/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -223,7 +223,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter 'destPath' when calling MoveFile");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/move/{srcPath}";
+            string resourcePath = _configuration.ApiRootUrl + "/barcode/storage/file/move/{srcPath}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
@@ -270,7 +270,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
                 throw new ApiException(400, "Missing required parameter '_file' when calling UploadFile");
             }
             // create path and map variables
-            string resourcePath = _configuration.GetApiRootUrl() + "/barcode/storage/file/{path}";
+            string resourcePath = _configuration.ApiRootUrl + "/barcode/storage/file/{path}";
             resourcePath = Regex
                 .Replace(resourcePath, "\\*", string.Empty)
                 .Replace("&amp;", "&")
