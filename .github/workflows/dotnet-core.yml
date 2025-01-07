@@ -30,12 +30,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Setup latest version of dotnet
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
     - name: Build with latest version
       run: dotnet build --warnaserror Aspose.BarCode.Cloud.Sdk.sln
 
     - name: Setup ${{ matrix.dotnet-version }} version of dotnet
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: ${{ matrix.dotnet-version }}
 
