@@ -23,7 +23,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 ApiBaseUrl = "http://localhost:47972"
             };
 
-            Assert.AreEqual("http://localhost:47972/v3.0", config.GetApiRootUrl());
+            Assert.AreEqual("http://localhost:47972/v3.0", config.ApiRootUrl);
         }
 
 
@@ -81,7 +81,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var config = new Configuration();
 
             Assert.AreEqual("https://api.aspose.cloud", config.ApiBaseUrl);
-            Assert.AreEqual("https://api.aspose.cloud/v3.0", config.GetApiRootUrl());
+            Assert.AreEqual("https://api.aspose.cloud/v3.0", config.ApiRootUrl);
             Assert.AreEqual("https://api.aspose.cloud/connect/token", config.TokenUrl);
             Assert.AreEqual(false, config.DebugMode);
         }
@@ -110,7 +110,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             var config = new Configuration();
 
-            Assert.AreEqual("3.0", config.ApiVersion);
+            Assert.AreEqual("3.0", Configuration.ApiVersion);
         }
 
 
@@ -128,8 +128,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "JwtToken\":null,\"" +
                 "DebugMode\":false,\"" +
                 "AuthType\":\"JWT\",\"" +
-                "ApiVersion\":\"3.0\",\"" +
-                "DefaultHeaders\":{}" +
+                "DefaultHeaders\":{},\"" +
+                "ApiRootUrl\":\"https://api.aspose.cloud/v3.0\"" +
                 "}",
                 JsonConvert.SerializeObject(config));
         }

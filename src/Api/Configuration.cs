@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -17,7 +16,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         {
             ApiBaseUrl = "https://api.aspose.cloud";
             DebugMode = false;
-            ApiVersion = "3.0";
             AuthType = AuthType.JWT;
             TokenUrl = "https://api.aspose.cloud/connect/token";
             DefaultHeaders = new Dictionary<string, string>();
@@ -75,9 +73,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public AuthType AuthType { get; private set; }
 
         /// <summary>
-        ///     Get or sets Cloud API Version.
+        ///     Cloud API Version.
         /// </summary>
-        public string ApiVersion { get; }
+        public static string ApiVersion => "3.0";
 
         /// <summary>
         ///     Gets or sets HTTP headers
@@ -85,14 +83,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Api
         public Dictionary<string, string> DefaultHeaders { get; set; }
 
         /// <summary>
-        ///     Get API root url
+        ///     API root URL
         /// </summary>
-        public string GetApiRootUrl()
-        {
-            string result = ApiBaseUrl + "/v" + ApiVersion;
-
-            return result.EndsWith("/", StringComparison.InvariantCulture) ? result.Substring(0, result.Length - 1) : result;
-        }
+        public string ApiRootUrl => ApiBaseUrl + "/v" + ApiVersion;
 
         private string _jwtToken;
     }
