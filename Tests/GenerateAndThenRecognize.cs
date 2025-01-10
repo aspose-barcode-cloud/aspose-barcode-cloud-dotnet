@@ -13,13 +13,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     [TestFixture]
     public class GenerateAndThenRecognize : TestsBase
     {
+        private IBarcodeApi _api = null!;
         [SetUp]
         public void Init()
         {
             _api = new BarcodeApi(TestConfiguration);
         }
-
-        private IBarcodeApi _api;
 
         [Test]
         [Category("AsyncTests")]

@@ -1,18 +1,13 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
 {
     public class TestsBase
     {
-        private const string ENV_NAME_PREFIX = "TEST_CONFIGURATION_";
-
         /// <summary>
         ///     Temp folder path
         /// </summary>
@@ -30,6 +25,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static Configuration LoadTestConfiguration()
         {
+            return LoadFromEnv() ?? LoadFromFile() ?? throw new Exception("Unable to load test configuration");
+        }
+
+        private static Configuration? LoadFromFile()
+        {
             string configFilename = Path.GetFullPath(Path.Combine(
                 TestContext.CurrentContext.TestDirectory,
                 "..", "..", "..",
@@ -42,54 +42,21 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 return serializer.Deserialize<Configuration>(reader);
             }
 
-            Configuration config = LoadFromEnv();
-
-            return config;
+            return null;
         }
 
-        private static Configuration LoadFromEnv()
+        private static Configuration? LoadFromEnv()
         {
-            string jsonStr = JsonConvert.SerializeObject(new Configuration());
-            JObject obj = JObject.Parse(jsonStr);
-            foreach (KeyValuePair<string, JToken> i in obj)
+            string? maybeToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+            if (!string.IsNullOrEmpty(maybeToken))
             {
-                if (!(i.Value.Type == JTokenType.String || i.Value.Type == JTokenType.Null))
+                return new Configuration
                 {
-                    continue;
-                }
-
-                string name = i.Key;
-                var envName = $"{ENV_NAME_PREFIX}{CamelCaseToUpper(name)}";
-                string envValue = Environment.GetEnvironmentVariable(envName);
-                if (!string.IsNullOrEmpty(envValue))
-                {
-                    obj[name] = envValue;
-                }
+                    JwtToken = maybeToken
+                };
             }
 
-            return JsonConvert.DeserializeObject<Configuration>(obj.ToString());
-        }
-
-        private static string CamelCaseToUpper(string name)
-        {
-            var result = new StringBuilder();
-            var prevCharWasLower = false;
-            foreach (char c in name)
-            {
-                if (char.IsUpper(c))
-                {
-                    if (prevCharWasLower)
-                    {
-                        result.Append('_');
-                    }
-                }
-
-                result.Append(char.ToUpperInvariant(c));
-
-                prevCharWasLower = char.IsLower(c);
-            }
-
-            return result.ToString();
+            return null;
         }
 
         protected static string TestFilePath(string fileName)

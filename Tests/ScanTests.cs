@@ -12,7 +12,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     [TestFixture]
     public class ScanTests : TestsBase
     {
-        private IBarcodeApi _api;
+        private IBarcodeApi _api = null!;
 
         [SetUp]
         public void Init()
@@ -61,7 +61,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Assert
             Assert.IsNotNull(apiException);
-            Assert.AreEqual(408, apiException.ErrorCode);
+            Assert.AreEqual(408, apiException!.ErrorCode);
         }
 
 

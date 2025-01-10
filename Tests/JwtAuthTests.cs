@@ -24,12 +24,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 // ReSharper disable once RedundantToStringCall
                 ["client_secret"] = TestConfiguration.ClientSecret.ToString()
             };
-            var formContent = new FormUrlEncodedContent(formParams);
+            var formContent = new FormUrlEncodedContent(formParams!);
             HttpResponseMessage response = await new HttpClient().PostAsync(TestConfiguration.TokenUrl, formContent);
             response.EnsureSuccessStatusCode();
             JObject json = JObject.Parse(await response.Content.ReadAsStringAsync());
             var accessToken = Convert.ToString(json["access_token"]);
-            return accessToken;
+            return accessToken!;
         }
 
         [Test]

@@ -99,7 +99,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             var config = serializer.Deserialize<Configuration>(reader);
 
             Assert.IsNotNull(config);
-            Assert.AreEqual("Client Secret from https://dashboard.aspose.cloud/applications", config.ClientSecret);
+            Assert.AreEqual("Client Secret from https://dashboard.aspose.cloud/applications", config!.ClientSecret);
             Assert.AreEqual("Client Id from https://dashboard.aspose.cloud/applications", config.ClientId);
             Assert.AreEqual(AuthType.JWT, config.AuthType);
         }
