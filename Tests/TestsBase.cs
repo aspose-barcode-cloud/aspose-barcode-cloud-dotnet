@@ -47,7 +47,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static Configuration? LoadFromEnv()
         {
-            string? maybeToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+            string? maybeToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_ACCESS_TOKEN");
             if (!string.IsNullOrEmpty(maybeToken))
             {
                 return new Configuration
