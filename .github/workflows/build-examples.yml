@@ -8,12 +8,12 @@ on:
 
 jobs:
   build-examples:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
     - name: Setup latest version of dotnet
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
     - name: Build nuget with latest version
       run: ./scripts/pack-nuget.bash "examples/nuget-packages"
     - name: Build examples with new nuget
