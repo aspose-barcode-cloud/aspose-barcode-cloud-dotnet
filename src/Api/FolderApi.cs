@@ -1,6 +1,6 @@
 // --------------------------------------------------------------------------------------------------------------------
 // <copyright company="Aspose" file="FolderApi.cs">
-//   Copyright (c) 2024 Aspose.BarCode for Cloud
+//   Copyright (c) 2025 Aspose.BarCode for Cloud
 // </copyright>
 // <summary>
 //   Permission is hereby granted, free of charge, to any person obtaining a copy

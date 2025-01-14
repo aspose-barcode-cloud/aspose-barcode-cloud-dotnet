@@ -19,7 +19,7 @@ Aspose.Barcode for Cloud allows you to control all aspects of the image and barc
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <DebugType>embedded</DebugType>
     <PackageTags>Barcode Scan Recognize Generate QR DataMatrix AustraliaPost VIN MSI Aztec ISBN OPC Postnet Aspose Aspose.BarCode Aspose.BarCode-Cloud EAN13 ISSN PZN SingaporePost UPCA UPCE Code11 Code128 Code32 DotCode EAN14 EAN8 GS1DataMatrix</PackageTags>
-    <Copyright>© Aspose Pty Ltd 2001-2024. All Rights Reserved.</Copyright>
+    <Copyright>© Aspose Pty Ltd 2001-2025. All Rights Reserved.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Aspose.BarCode-Cloud</PackageId>
     <Product>Aspose.BarCode Cloud SDK for .NET</Product>
