@@ -22,14 +22,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     [TestFixture]
     public class JWTRequestHandlerTests : TestsBase
     {
+        private Mock<IWebRequestFactory> _requestFactory = null!;
+
         [SetUp]
         public void Init()
         {
             _requestFactory = RequestFactoryMock();
         }
-
-        private Mock<IWebRequestFactory> _requestFactory;
-
 
         [Test]
         public void TestTokenFetched()
@@ -49,7 +48,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // assert
             Assert.Contains("Authorization", request.Headers.Keys);
-            string auth = request.Headers["Authorization"];
+            string auth = request.Headers["Authorization"]!;
             Assert.Greater(auth.Length, "Bearer ".Length);
             string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
@@ -85,7 +84,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             jwtHandler.BeforeSend(request2, new MemoryStream());
 
             Assert.Contains("Authorization", request2.Headers.Keys);
-            string auth = request2.Headers["Authorization"];
+            string auth = request2.Headers["Authorization"]!;
             Assert.Greater(auth.Length, "Bearer ".Length);
             string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
@@ -109,7 +108,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // assert
             Assert.IsTrue(request.Headers.Contains("Authorization"));
-            var auth = request.Headers.Authorization.ToString();
+            var auth = request.Headers.Authorization!.ToString();
             Assert.Greater(auth.Length, "Bearer ".Length);
             string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
@@ -144,7 +143,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // assert
             Assert.IsTrue(request2.Headers.Contains("Authorization"));
-            var auth = request2.Headers.Authorization.ToString();
+            var auth = request2.Headers.Authorization!.ToString();
             Assert.Greater(auth.Length, "Bearer ".Length);
             string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);

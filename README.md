@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 3.0
-- SDK version: 24.12.0
+- SDK version: 25.1.0
 
 ## Demo applications
 
@@ -82,7 +82,7 @@ internal static class Program
     {
         var config = new Configuration();
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_ACCESS_TOKEN");
         if (string.IsNullOrEmpty(envToken))
         {
             config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";
@@ -148,7 +148,7 @@ internal static class Program
     {
         var config = new Configuration();
 
-        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_JWT_TOKEN");
+        string? envToken = Environment.GetEnvironmentVariable("TEST_CONFIGURATION_ACCESS_TOKEN");
         if (string.IsNullOrEmpty(envToken))
         {
             config.ClientId = "Client Id from https://dashboard.aspose.cloud/applications";

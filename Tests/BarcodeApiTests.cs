@@ -20,6 +20,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
     [TestFixture]
     public class BarcodeApiTests : TestsBase
     {
+        private IBarcodeApi _api = null!;
+        private IFileApi _fileApi = null!;
+
         /// <summary>
         ///     Setup before each unit test
         /// </summary>
@@ -37,9 +40,6 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void Cleanup()
         {
         }
-
-        private IBarcodeApi _api;
-        private IFileApi _fileApi;
 
         private async Task<string> PutTestFileAsync(string fileName)
         {
