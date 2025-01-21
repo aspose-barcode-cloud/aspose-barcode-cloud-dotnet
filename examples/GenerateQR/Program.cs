@@ -32,13 +32,11 @@ internal static class Program
     private static async Task GenerateQR(IGenerateApi api, string fileName)
     {
         await using Stream generated = await api.GenerateAsync(
-            new GenerateRequest(
                 EncodeBarcodeType.QR,
-                "QR code text")
-            {
-                TextLocation = CodeLocation.None,
-                ImageFormat = BarcodeImageFormat.Png
-            });
+                "QR code text",
+                textLocation: CodeLocation.None,
+                imageFormat: BarcodeImageFormat.Png
+            );
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
     }
