@@ -1,4 +1,4 @@
-name: Build examples
+name: Build examples and run snippets
 
 on:
   push:
@@ -24,3 +24,5 @@ jobs:
       run: |
         chmod +x scripts/*
         ./scripts/run_snippets.sh
+      env:
+        TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
