@@ -15,6 +15,12 @@ jobs:
     - name: Setup latest version of dotnet
       uses: actions/setup-dotnet@v4
     - name: Build nuget with latest version
-      run: ./scripts/pack-nuget.bash "examples/nuget-packages"
+      run: |
+         ./scripts/pack-nuget.bash
+         cp *.nupkg examples/nuget-packages
     - name: Build examples with new nuget
       run: dotnet build --warnaserror "examples/examples.sln"
+    - name: Run documentation code snippets
+      run: |
+        chmod +x scripts/*
+        ./scripts/run_snippets.sh

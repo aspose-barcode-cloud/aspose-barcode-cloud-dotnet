@@ -15,6 +15,13 @@ internal static class Program
         var clientId = "Client Id from https://dashboard.aspose.cloud/applications";
         var clientSecret = "Client Secret from https://dashboard.aspose.cloud/applications";
 
+        //Check the clientId is changed to not break github ci pipeline
+        if(clientId.StartsWith("Client Id"))
+        {
+            Console.WriteLine("Client Id not changed. Skip this snippet test.");
+            return;
+
+        }
         using var client = new HttpClient
         {
             BaseAddress = new Uri("https://id.aspose.cloud/")
