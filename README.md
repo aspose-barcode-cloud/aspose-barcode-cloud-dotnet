@@ -8,6 +8,11 @@
 - API version: 4.0
 - SDK version: 25.1.0
 
+## SDK and API Version Compatibility:
+
+- SDK Version 25.1 and Later: Starting from SDK version 25.1, all subsequent versions are compatible with API Version v4.0.
+- SDK Version 24.12 and Earlier: These versions are compatible with API Version v3.0.
+
 ## Demo applications
 
 [Scan QR](https://products.aspose.app/barcode/scanqr) | [Generate Barcode](https://products.aspose.app/barcode/generate) | [Recognize Barcode](https://products.aspose.app/barcode/recognize)
@@ -102,12 +107,12 @@ internal static class Program
         string imageBase64 = Convert.ToBase64String(imageBytes);
 
         BarcodeResponseList recognized = await api.RecognizeBase64Async(
-            new RecognizeBase64Request(new RecognizeBase64Request()
+            new RecognizeBase64Request()
             {
                 BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
                 FileBase64 = imageBase64
             }
-        ));
+        );
 
         return recognized.Barcodes[0].BarcodeValue;
     }
@@ -168,13 +173,11 @@ internal static class Program
     private static async Task GenerateQR(IGenerateApi api, string fileName)
     {
         await using Stream generated = await api.GenerateAsync(
-            new GenerateRequest(
                 EncodeBarcodeType.QR,
-                "QR code text")
-            {
-                TextLocation = CodeLocation.None,
-                ImageFormat = BarcodeImageFormat.Png
-            });
+                "QR code text",
+                textLocation: CodeLocation.None,
+                imageFormat: BarcodeImageFormat.Png
+            );
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
     }
