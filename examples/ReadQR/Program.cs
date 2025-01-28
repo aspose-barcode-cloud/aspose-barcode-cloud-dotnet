@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,13 +30,16 @@ internal static class Program
         return config;
     }
 
-    private static async Task<string> ReadQR(IBarcodeApi api, string fileName)
+    private static async Task<string> ReadQR(IRecognizeApi api, string fileName)
     {
-        await using FileStream imageStream = File.OpenRead(fileName);
-        BarcodeResponseList recognized = await api.ScanBarcodeAsync(
-            new ScanBarcodeRequest(imageStream)
+        byte[] imageBytes = await File.ReadAllBytesAsync(fileName);
+        string imageBase64 = Convert.ToBase64String(imageBytes);
+
+        BarcodeResponseList recognized = await api.RecognizeBase64Async(
+            new RecognizeBase64Request()
             {
-                decodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR }
+                BarcodeTypes = new List<DecodeBarcodeType> { DecodeBarcodeType.QR },
+                FileBase64 = imageBase64
             }
         );
 
@@ -51,7 +54,7 @@ internal static class Program
             "qr.png"
         ));
 
-        var api = new BarcodeApi(MakeConfiguration());
+        var api = new RecognizeApi(MakeConfiguration());
 
         string result = await ReadQR(api, fileName);
         Console.WriteLine($"File '{fileName}' recognized, result: '{result}'");

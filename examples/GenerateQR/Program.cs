@@ -1,7 +1,7 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using System;
 using System.IO;
 using System.Reflection;
@@ -29,16 +29,14 @@ internal static class Program
         return config;
     }
 
-    private static async Task GenerateQR(IBarcodeApi api, string fileName)
+    private static async Task GenerateQR(IGenerateApi api, string fileName)
     {
-        await using Stream generated = await api.GetBarcodeGenerateAsync(
-            new GetBarcodeGenerateRequest(
-                EncodeBarcodeType.QR.ToString(),
-                "QR code text")
-            {
-                TextLocation = CodeLocation.None.ToString(),
-                format = "png"
-            });
+        await using Stream generated = await api.GenerateAsync(
+                EncodeBarcodeType.QR,
+                "QR code text",
+                textLocation: CodeLocation.None,
+                imageFormat: BarcodeImageFormat.Png
+            );
         await using FileStream stream = File.Create(fileName);
         await generated.CopyToAsync(stream);
     }
@@ -51,7 +49,7 @@ internal static class Program
             "qr.png"
         ));
 
-        BarcodeApi api = new BarcodeApi(MakeConfiguration());
+        GenerateApi api = new GenerateApi(MakeConfiguration());
 
         await GenerateQR(api, fileName);
         Console.WriteLine($"File '{fileName}' generated.");

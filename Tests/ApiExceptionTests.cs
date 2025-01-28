@@ -1,6 +1,6 @@
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Model;
-using Aspose.BarCode.Cloud.Sdk.Model.Requests;
+
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -14,21 +14,18 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public void GetBarcodeGenerateAsyncTestThrows()
         {
             // Arrange
-            var api = new BarcodeApi(clientId: "client id", clientSecret: "client secret");
-            var request = new GetBarcodeGenerateRequest(
-                text: "Very sample text",
-                type: EncodeBarcodeType.Code128.ToString()
-            )
-            {
-                format = "png"
-            };
+            GenerateApi api = new GenerateApi(clientId: "client id", clientSecret: "client secret");
 
             // Acts
-            var ex = Assert.ThrowsAsync<ApiException>(
-                async () => { await api.GetBarcodeGenerateAsync(request); });
+            ApiException ex = Assert.ThrowsAsync<ApiException>(
+                async () =>
+                {
+                    await api.GenerateAsync(data: "Very sample text",
+                barcodeType: EncodeBarcodeType.Code128, imageFormat: BarcodeImageFormat.Png);
+                });
 
             Assert.AreEqual(400, ex!.ErrorCode);
-            Assert.AreEqual("Bad Request", ex.Message);
+            Assert.AreEqual("{\"error\":\"invalid_client\"}: ", ex.Message);
         }
     }
 }

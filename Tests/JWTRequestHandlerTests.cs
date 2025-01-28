@@ -40,7 +40,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             // arrange
-            var jwtHandler = new JwtRequestHandler(TestConfiguration);
+            JwtRequestHandler jwtHandler = new JwtRequestHandler(TestConfiguration);
             jwtHandler.Preparing();
 
             // act
@@ -67,10 +67,10 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             // arrange
             WebRequest unauthorizedRequest = _requestFactory.Object.Create("http://some url/");
             unauthorizedRequest.Method = WebRequestMethods.Http.Get;
-            var response401 = (HttpWebResponse)unauthorizedRequest.GetResponse();
+            HttpWebResponse response401 = (HttpWebResponse)unauthorizedRequest.GetResponse();
             Assert.AreEqual(HttpStatusCode.Unauthorized, response401.StatusCode);
 
-            var jwtHandler = new JwtRequestHandler(TestConfiguration);
+            JwtRequestHandler jwtHandler = new JwtRequestHandler(TestConfiguration);
 
             // act
             Assert.Throws<NeedRepeatRequestException>(
@@ -100,16 +100,16 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             // arrange
-            var jwtHandler = new JwtRequestHandler(TestConfiguration);
+            JwtRequestHandler jwtHandler = new JwtRequestHandler(TestConfiguration);
             await jwtHandler.PreparingAsync();
 
             // act
-            var request = new HttpRequestMessage();
+            HttpRequestMessage request = new HttpRequestMessage();
             await jwtHandler.BeforeSendAsync(request);
 
             // assert
             Assert.IsTrue(request.Headers.Contains("Authorization"));
-            var auth = request.Headers.Authorization.ToString();
+            string auth = request.Headers.Authorization.ToString();
             Assert.Greater(auth.Length, "Bearer ".Length);
             string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
@@ -125,9 +125,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             }
 
             // arrange
-            var response401 = new HttpResponseMessage(HttpStatusCode.Unauthorized);
+            HttpResponseMessage response401 = new HttpResponseMessage(HttpStatusCode.Unauthorized);
 
-            var jwtHandler = new JwtRequestHandler(TestConfiguration);
+            JwtRequestHandler jwtHandler = new JwtRequestHandler(TestConfiguration);
 
             // act
             Assert.ThrowsAsync<NeedRepeatRequestException>(
@@ -139,12 +139,12 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 });
 
             // arrange
-            var request2 = new HttpRequestMessage();
+            HttpRequestMessage request2 = new HttpRequestMessage();
             await jwtHandler.BeforeSendAsync(request2);
 
             // assert
             Assert.IsTrue(request2.Headers.Contains("Authorization"));
-            var auth = request2.Headers.Authorization.ToString();
+            string auth = request2.Headers.Authorization.ToString();
             Assert.Greater(auth.Length, "Bearer ".Length);
             string token = auth.Substring("Bearer ".Length);
             AssertTokenIsValid(token);
@@ -152,14 +152,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static Mock<IWebRequestFactory> RequestFactoryMock()
         {
-            var responseMock = new Mock<HttpWebResponse>();
+            Mock<HttpWebResponse> responseMock = new Mock<HttpWebResponse>();
             responseMock.Setup(c => c.StatusCode).Returns(HttpStatusCode.Unauthorized);
 
-            var requestMock = new Mock<WebRequest>();
+            Mock<WebRequest> requestMock = new Mock<WebRequest>();
             requestMock.Setup(c => c.GetResponse()).Returns(responseMock.Object);
             requestMock.Setup(c => c.Headers).Returns(new WebHeaderCollection());
 
-            var requestFactory = new Mock<IWebRequestFactory>();
+            Mock<IWebRequestFactory> requestFactory = new Mock<IWebRequestFactory>();
             requestFactory.Setup(c => c.Create(It.IsAny<string>()))
                 .Returns(requestMock.Object);
             return requestFactory;
@@ -167,7 +167,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static void AssertTokenIsValid(string token)
         {
-            var firstPartBeforeDot = new string(token.TakeWhile(c => c != '.').ToArray());
+            string firstPartBeforeDot = new string(token.TakeWhile(c => c != '.').ToArray());
             byte[] tokenBytes = Convert.FromBase64String(firstPartBeforeDot);
             JObject tokenHeader = JObject.Parse(Encoding.UTF8.GetString(tokenBytes));
 

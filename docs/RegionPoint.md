@@ -6,5 +6,5 @@ Wrapper around Drawing.Point for proper specification.
 
 Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
-**X** | **int?** | X-coordinate |
-**Y** | **int?** | Y-coordinate |
+**X** | **int** | X-coordinate | [optional]
+**Y** | **int** | Y-coordinate | [optional]

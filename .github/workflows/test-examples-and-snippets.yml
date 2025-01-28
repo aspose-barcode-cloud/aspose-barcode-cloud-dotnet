@@ -1,0 +1,28 @@
+name: Build examples and run snippets
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-examples:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Setup latest version of dotnet
+      uses: actions/setup-dotnet@v4
+    - name: Build nuget with latest version
+      run: |
+         ./scripts/pack-nuget.bash
+         cp *.nupkg examples/nuget-packages
+    - name: Build examples with new nuget
+      run: dotnet build --warnaserror "examples/examples.sln"
+    - name: Run documentation code snippets
+      run: |
+        chmod +x scripts/*
+        ./scripts/run_snippets.sh
+      env:
+        TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

@@ -37,8 +37,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             if (File.Exists(configFilename))
             {
                 using StreamReader file = File.OpenText(configFilename);
-                using var reader = new JsonTextReader(file);
-                var serializer = new JsonSerializer();
+                using JsonTextReader reader = new JsonTextReader(file);
+                JsonSerializer serializer = new JsonSerializer();
                 return serializer.Deserialize<Configuration>(reader);
             }
 
@@ -59,7 +59,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 }
 
                 string name = i.Key;
-                var envName = $"{ENV_NAME_PREFIX}{CamelCaseToUpper(name)}";
+                string envName = $"{ENV_NAME_PREFIX}{CamelCaseToUpper(name)}";
                 string envValue = Environment.GetEnvironmentVariable(envName);
                 if (!string.IsNullOrEmpty(envValue))
                 {
@@ -72,8 +72,8 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
         private static string CamelCaseToUpper(string name)
         {
-            var result = new StringBuilder();
-            var prevCharWasLower = false;
+            StringBuilder result = new StringBuilder();
+            bool prevCharWasLower = false;
             foreach (char c in name)
             {
                 if (char.IsUpper(c))

@@ -11,8 +11,10 @@ init:
 format:
 	dotnet restore ./Aspose.BarCode.Cloud.Sdk.sln
 	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln --no-restore
+	dotnet format --include ./snippets/
 	# Trim white space in comments
 	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
+
 
 .PHONY: format-doc
 format-doc:
@@ -22,6 +24,7 @@ format-doc:
 .PHONY: test
 test:
 	dotnet test -v normal --framework=net$(LATEST_SDK_VERSION)
+	./scripts/run_snippests.sh
 
 .PHONY: build
 build:

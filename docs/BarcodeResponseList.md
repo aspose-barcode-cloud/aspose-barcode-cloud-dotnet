@@ -6,4 +6,4 @@ Represents information about barcode list.
 
 Name | Type | Description | Notes
 ---- | ---- | ----------- | -----
-**Barcodes** | [**List&lt;BarcodeResponse&gt;**](BarcodeResponse.md) | List of barcodes which are present in image. | [optional]
+**Barcodes** | [**List&lt;BarcodeResponse&gt;**](BarcodeResponse.md) | List of barcodes which are present in image. |
