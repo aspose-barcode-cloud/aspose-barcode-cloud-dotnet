@@ -29,7 +29,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             byte[] buffer = new byte[image.Length];
 
+#pragma warning disable CA2022
             await image.ReadAsync(buffer, 0, buffer.Length);
+#pragma warning restore CA2022
             // Act
             BarcodeResponseList response = await _api.ScanBase64Async(
                     new ScanBase64Request()

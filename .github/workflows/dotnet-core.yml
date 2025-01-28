@@ -20,10 +20,10 @@ jobs:
             framework: netcoreapp3.1
           - dotnet-version: 5.0.x
             framework: net5.0
-          - dotnet-version: 6.0.x
-            framework: net6.0
           - dotnet-version: 8.0.x
             framework: net8.0
+          - dotnet-version: 9.0.x
+            framework: net9.0
 
     continue-on-error: true
 
