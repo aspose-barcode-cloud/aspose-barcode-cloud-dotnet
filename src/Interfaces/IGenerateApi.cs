@@ -23,7 +23,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Interfaces
         /// <param name="data">String represents data to encode</param>
         /// <param name="dataType">Type of data to encode.  Default value: StringData.</param>
         /// <param name="imageFormat">Barcode output image format.  Default value: png</param>
-        /// <param name="textLocation">Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below.</param>
+        /// <param name="textLocation">Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: Depends on BarcodeType. CodeLocation.Below for 1D Barcodes. CodeLocation.None for 2D Barcodes.</param>
         /// <param name="foregroundColor">Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black.</param>
         /// <param name="backgroundColor">Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White.</param>
         /// <param name="units">Common Units for all measuring in query. Default units: pixel.</param>

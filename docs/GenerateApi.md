@@ -25,7 +25,7 @@ Name | Type | Description  | Notes
  **data** | **string**| String represents data to encode |
  **dataType** | **EncodeDataType?**| Type of data to encode.  Default value: StringData. | [optional]
  **imageFormat** | **BarcodeImageFormat?**| Barcode output image format.  Default value: png | [optional]
- **textLocation** | **CodeLocation?**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: CodeLocation.Below. | [optional]
+ **textLocation** | **CodeLocation?**| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText.  Default value: Depends on BarcodeType. CodeLocation.Below for 1D Barcodes. CodeLocation.None for 2D Barcodes. | [optional]
  **foregroundColor** | **string**| Specify the displaying bars and content Color.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: Black. | [optional] [default to &quot;Black&quot;]
  **backgroundColor** | **string**| Background color of the barcode image.  Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #.  For example: AliceBlue or #FF000000  Default value: White. | [optional] [default to &quot;White&quot;]
  **units** | **GraphicsUnit?**| Common Units for all measuring in query. Default units: pixel. | [optional]
