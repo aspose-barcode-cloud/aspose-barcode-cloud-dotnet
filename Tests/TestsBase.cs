@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Aspose.BarCode.Cloud.Sdk.Api;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Text.Json;
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -36,38 +35,44 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "Configuration.json"));
             if (File.Exists(configFilename))
             {
-                using StreamReader file = File.OpenText(configFilename);
-                using JsonTextReader reader = new JsonTextReader(file);
-                JsonSerializer serializer = new JsonSerializer();
-                return serializer.Deserialize<Configuration>(reader);
+                using FileStream file = File.OpenRead(configFilename);
+                return JsonSerializer.Deserialize<Configuration>(file)
+                    ?? throw new Exception("Configuration file is empty or invalid");
             }
-
             Configuration config = LoadFromEnv();
-
             return config;
         }
 
         private static Configuration LoadFromEnv()
         {
-            string jsonStr = JsonConvert.SerializeObject(new Configuration());
-            JObject obj = JObject.Parse(jsonStr);
-            foreach (KeyValuePair<string, JToken> i in obj)
-            {
-                if (!(i.Value.Type == JTokenType.String || i.Value.Type == JTokenType.Null))
-                {
-                    continue;
-                }
+            // Serialize default config to JSON then to a dictionary
+            string jsonStr = JsonSerializer.Serialize(new Configuration());
+            var dict = JsonSerializer.Deserialize<Dictionary<string, object>>(jsonStr);
 
-                string name = i.Key;
-                string envName = $"{ENV_NAME_PREFIX}{CamelCaseToUpper(name)}";
+            if (dict == null)
+                throw new Exception("Default configuration invalid");
+
+            foreach (var key in new List<string>(dict.Keys))
+            {
+                var value = dict[key];
+
+                // Accept strings and nulls (JSON null becomes null here)
+                if (value != null && !(value is string))
+                    continue;
+
+                string envName = $"{ENV_NAME_PREFIX}{CamelCaseToUpper(key)}";
                 string envValue = Environment.GetEnvironmentVariable(envName);
                 if (!string.IsNullOrEmpty(envValue))
                 {
-                    obj[name] = envValue;
+                    dict[key] = envValue;
                 }
             }
-
-            return JsonConvert.DeserializeObject<Configuration>(obj.ToString());
+            // Serialize back and then deserialize to Configuration
+            string updatedJson = JsonSerializer.Serialize(dict);
+            var config = JsonSerializer.Deserialize<Configuration>(updatedJson);
+            if (config == null)
+                throw new Exception("Failed to create Configuration from environment variables");
+            return config;
         }
 
         private static string CamelCaseToUpper(string name)

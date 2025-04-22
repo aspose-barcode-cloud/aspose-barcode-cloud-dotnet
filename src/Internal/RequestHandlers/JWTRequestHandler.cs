@@ -5,7 +5,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 {
@@ -198,13 +199,13 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers
 
         private class GetAccessTokenResult
         {
-            [JsonProperty(PropertyName = "access_token")]
+            [JsonPropertyName("access_token")]
             public string AccessToken { get; set; }
 
-            [JsonProperty(PropertyName = "expires_in")]
+            [JsonPropertyName("expires_in")]
             public long ExpiresIn { get; set; }
 
-            [JsonProperty(PropertyName = "token_type")]
+            [JsonPropertyName("token_type")]
             public string TokenType { get; set; }
         }
     }

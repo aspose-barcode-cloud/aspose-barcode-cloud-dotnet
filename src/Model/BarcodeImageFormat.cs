@@ -1,6 +1,6 @@
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
+
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -8,7 +8,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     Specifies the file format of the image.
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum BarcodeImageFormat
     {
         /// <summary>

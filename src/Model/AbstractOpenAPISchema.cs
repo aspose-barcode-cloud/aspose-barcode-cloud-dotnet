@@ -25,8 +25,8 @@
 
 
 using System;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -38,35 +38,28 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
         /// <summary>
         ///  Custom JSON serializer
         /// </summary>
-        public static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
+        public static readonly JsonSerializerOptions SerializerOptions = new JsonSerializerOptions
         {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            MissingMemberHandling = MissingMemberHandling.Error,
-            ContractResolver = new DefaultContractResolver
-            {
-                NamingStrategy = new CamelCaseNamingStrategy
-                {
-                    OverrideSpecifiedNames = false
-                }
-            }
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = false,
+            // To ignore comments or trailing commas, set these:
+            ReadCommentHandling = JsonCommentHandling.Disallow,
+            UnmappedMemberHandling = JsonUnmappedMemberHandling.Disallow,
+            AllowTrailingCommas = false,
         };
 
+
         /// <summary>
-        ///  Custom JSON serializer for objects with additional properties
+        /// Custom JSON serializer options for objects with additional properties.
         /// </summary>
-        public static readonly JsonSerializerSettings AdditionalPropertiesSerializerSettings = new JsonSerializerSettings
+        public static readonly JsonSerializerOptions AdditionalPropertiesSerializerOptions = new JsonSerializerOptions
         {
-            // OpenAPI generated types generally hide default constructors.
-            ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor,
-            MissingMemberHandling = MissingMemberHandling.Ignore,
-            ContractResolver = new DefaultContractResolver
-            {
-                NamingStrategy = new CamelCaseNamingStrategy
-                {
-                    OverrideSpecifiedNames = false
-                }
-            }
+            PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+            PropertyNameCaseInsensitive = false,
+
+            ReadCommentHandling = JsonCommentHandling.Disallow,
+            AllowTrailingCommas = false,
+
         };
 
         /// <summary>

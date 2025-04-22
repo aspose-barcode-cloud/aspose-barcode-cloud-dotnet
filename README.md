@@ -6,7 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 4.0
-- SDK version: 25.3.0
+- SDK version: 25.4.0
 
 ## SDK and API Version Compatibility:
 
@@ -201,7 +201,7 @@ internal static class Program
 
 ## Dependencies
 
-- [Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/)
+- [System.Text.Json](https://www.nuget.org/packages/System.Text.json)
 
 ## Licensing
 
