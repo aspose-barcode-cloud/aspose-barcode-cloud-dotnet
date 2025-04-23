@@ -1,7 +1,6 @@
 
 using System.Text.Json.Serialization;
 
-
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
 
