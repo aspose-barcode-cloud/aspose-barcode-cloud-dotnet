@@ -27,9 +27,8 @@ This repository contains Aspose.BarCode Cloud SDK for .NET source code. This SDK
 
 Aspose.BarCode Cloud SDK for .NET provides cross-platform bindings for:
 
-- .NET 5 and higher
+- .NET 8 and higher
 - .NET Standard 2.0 and higher
-- .NET Core 3.1 and higher
 - .NET Framework 4.6.2 and higher
 
 To use these SDKs, you will need Client Id and Client Secret which can be looked up at [Aspose Cloud Dashboard](https://dashboard.aspose.cloud/applications) (free registration in Aspose Cloud is required for this).

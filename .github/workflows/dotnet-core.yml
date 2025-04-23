@@ -1,4 +1,4 @@
-name: .NET Core Linux
+name: .NET Linux
 
 on:
   push:
@@ -16,8 +16,6 @@ jobs:
         # and https://github.com/dotnet/core/blob/main/releases.md
         # for versions
         include:
-          - dotnet-version: 6.0.x
-            framework: net6.0
           - dotnet-version: 8.0.x
             framework: net8.0
           - dotnet-version: 9.0.x
