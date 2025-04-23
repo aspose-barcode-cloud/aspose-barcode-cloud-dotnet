@@ -32,7 +32,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             using Stream image = GetTestImage("Test_PostGenerateMultiple.png");
 
             byte[] buffer = new byte[image.Length];
-            await image.ReadAsync(buffer, 0, buffer.Length);
+            _ = await image.ReadAsync(buffer, 0, buffer.Length);
 
             // Act
             BarcodeResponseList response = await _api.RecognizeBase64Async(
