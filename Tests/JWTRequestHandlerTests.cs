@@ -4,12 +4,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Internal;
 using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Moq;
-using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -169,9 +169,9 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         {
             string firstPartBeforeDot = new string(token.TakeWhile(c => c != '.').ToArray());
             byte[] tokenBytes = Convert.FromBase64String(firstPartBeforeDot);
-            JObject tokenHeader = JObject.Parse(Encoding.UTF8.GetString(tokenBytes));
+            JsonElement tokenHeader = JsonDocument.Parse(Encoding.UTF8.GetString(tokenBytes)).RootElement;
 
-            Assert.AreEqual("JWT", tokenHeader["typ"]?.ToString());
+            Assert.AreEqual("JWT", tokenHeader.GetProperty("typ").GetString());
         }
     }
 }

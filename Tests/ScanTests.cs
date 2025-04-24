@@ -29,7 +29,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             byte[] buffer = new byte[image.Length];
 
-            await image.ReadAsync(buffer, 0, buffer.Length);
+            _ = await image.ReadAsync(buffer, 0, buffer.Length);
             // Act
             BarcodeResponseList response = await _api.ScanBase64Async(
                     new ScanBase64Request()

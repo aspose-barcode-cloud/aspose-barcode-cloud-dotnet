@@ -3,23 +3,26 @@ using System.IO;
 using System.Xml;
 using Aspose.BarCode.Cloud.Sdk.Api;
 using Aspose.BarCode.Cloud.Sdk.Interfaces;
-using Newtonsoft.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Aspose.BarCode.Cloud.Sdk.Internal
 {
     internal static class SerializationHelper
     {
+        private static readonly JsonSerializerOptions JsonOptions = new JsonSerializerOptions
+        {
+            DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+            PropertyNameCaseInsensitive = true,
+        };
         public static string Serialize(object obj)
         {
             try
             {
                 return obj != null
-                    ? JsonConvert.SerializeObject(
-                        obj,
-                        new JsonSerializerSettings
-                        {
-                            NullValueHandling = NullValueHandling.Ignore
-                        })
+                    ? JsonSerializer.Serialize(
+                        obj, JsonOptions
+                       )
                     : null;
             }
             catch (Exception e)
@@ -34,7 +37,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             {
                 if (json.StartsWith("{", StringComparison.InvariantCulture) || json.StartsWith("[", StringComparison.InvariantCulture))
                 {
-                    object jObj = JsonConvert.DeserializeObject(json, type);
+                    object jObj = JsonSerializer.Deserialize(json, type, JsonOptions);
                     if (jObj is IToString jToString)
                     {
                         jToString.SetSrcString(json);
@@ -48,7 +51,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Internal
             {
                 throw new ApiException(500, e.Message);
             }
-            catch (JsonSerializationException jsE)
+            catch (JsonException jsE)
             {
                 throw new ApiException(500, jsE.Message);
             }

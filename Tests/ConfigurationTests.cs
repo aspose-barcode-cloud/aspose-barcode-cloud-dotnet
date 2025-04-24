@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Aspose.BarCode.Cloud.Sdk.Api;
-using Newtonsoft.Json;
+using System.Text.Json;
 using NUnit.Framework;
 
 namespace Aspose.BarCode.Cloud.Sdk.Tests
@@ -90,13 +90,11 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void DeserializeTest()
         {
-            using StreamReader file = File.OpenText(Path.Combine(
+            using FileStream file = File.OpenRead(Path.Combine(
                 TestContext.CurrentContext.TestDirectory,
                 "..", "..", "..",
                 "Configuration.template.json"));
-            JsonSerializer serializer = new JsonSerializer();
-            using JsonTextReader reader = new JsonTextReader(file);
-            Configuration config = serializer.Deserialize<Configuration>(reader);
+            var config = JsonSerializer.Deserialize<Configuration>(file);
 
             Assert.IsNotNull(config);
             Assert.AreEqual("Client Secret from https://dashboard.aspose.cloud/applications", config.ClientSecret);
@@ -131,7 +129,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 "ApiVersion\":\"4.0\",\"" +
                 "DefaultHeaders\":{}" +
                 "}",
-                JsonConvert.SerializeObject(config));
+                JsonSerializer.Serialize(config));
         }
     }
 }

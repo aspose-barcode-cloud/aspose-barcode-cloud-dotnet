@@ -1,6 +1,5 @@
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Aspose.BarCode.Cloud.Sdk.Model
 {
@@ -8,7 +7,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Model
     /// <summary>
     ///     See Aspose.BarCode.Generation.EncodeTypes
     /// </summary>
-    [JsonConverter(typeof(StringEnumConverter))]
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum EncodeBarcodeType
     {
         /// <summary>
