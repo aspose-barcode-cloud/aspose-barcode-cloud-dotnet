@@ -2,9 +2,9 @@ name: .NET Core Linux
 
 on:
   push:
-    branches: [ main ]
+    branches: [ v3 ]
   pull_request:
-    branches: [ main ]
+    branches: [ v3 ]
 
 jobs:
   build-and-test:
