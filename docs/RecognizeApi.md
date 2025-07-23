@@ -4,7 +4,7 @@ All URIs are relative to *<https://api.aspose.cloud/v4.0>*
 
 Method | HTTP request | Description
 ------ | ------------ | -----------
-[**Recognize**](RecognizeApi.md#recognize) | **GET** /barcode/recognize | Recognize barcode from file on server using GET requests with parameters in route and query string.
+[**Recognize**](RecognizeApi.md#recognize) | **GET** /barcode/recognize | Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use &#x60;recognize-body&#x60; or &#x60;recognize-multipart&#x60; endpoints instead.
 [**RecognizeBase64**](RecognizeApi.md#recognizebase64) | **POST** /barcode/recognize-body | Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
 [**RecognizeMultipart**](RecognizeApi.md#recognizemultipart) | **POST** /barcode/recognize-multipart | Recognize barcode from file in request body using POST requests with parameters in multipart form.
 
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 BarcodeResponseList Recognize (DecodeBarcodeType barcodeType, string fileUrl, RecognitionMode? recognitionMode = null, RecognitionImageKind? recognitionImageKind = null)
 ```
 
-Recognize barcode from file on server using GET requests with parameters in route and query string.
+Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
 
 ### Parameters
 
