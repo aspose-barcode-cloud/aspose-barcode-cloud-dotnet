@@ -22,9 +22,9 @@ format-doc:
 	find . -iname "*.md" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 
 .PHONY: test
-test:
+test: nuget
 	dotnet test -v normal --framework=net$(LATEST_SDK_VERSION)
-	./scripts/run_snippests.sh
+	./scripts/run_snippets.sh
 
 .PHONY: build
 build:
