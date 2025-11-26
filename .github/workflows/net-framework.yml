@@ -38,6 +38,7 @@ jobs:
       run: msbuild .\src\Aspose.BarCode.Cloud.Sdk.csproj `
         -restore `
         -p:Configuration=Release `
+        -p:TargetFramework=netstandard2.0
 
     - name: Build test project for ${{ matrix.framework }}
       run: msbuild .\Tests\Aspose.BarCode.Cloud.Sdk.Tests.csproj `
