@@ -28,17 +28,19 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Setup .NET 10 SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1.2
 
-    - name: Build projects
-      run: |
-          msbuild .\src\Aspose.BarCode.Cloud.Sdk.csproj  -restore -p:Configuration=Release -p:TargetFramework=netstandard2.0
-          msbuild .\Tests\Aspose.BarCode.Cloud.Sdk.Tests.csproj  -restore  -p:Configuration=Release  -p:TargetFramework=${{ matrix.framework }}
-
+    - name: Build the Solution
+      run: msbuild -restore -p:Configuration=Release
 
     - name: Test with VSTest
       run: |
