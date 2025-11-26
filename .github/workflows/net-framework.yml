@@ -34,17 +34,10 @@ jobs:
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1.2
 
-    - name: Build main project
-      run: msbuild .\src\Aspose.BarCode.Cloud.Sdk.csproj `
-        -restore `
-        -p:Configuration=Release `
-        -p:TargetFramework=netstandard2.0
-
-    - name: Build test project for ${{ matrix.framework }}
-      run: msbuild .\Tests\Aspose.BarCode.Cloud.Sdk.Tests.csproj `
-        -restore `
-        -p:Configuration=Release `
-        -p:TargetFramework=${{ matrix.framework }}
+    - name: Build projects
+      run: |
+          msbuild .\src\Aspose.BarCode.Cloud.Sdk.csproj  -restore -p:Configuration=Release -p:TargetFramework=netstandard2.0
+          msbuild .\Tests\Aspose.BarCode.Cloud.Sdk.Tests.csproj  -restore  -p:Configuration=Release  -p:TargetFramework=${{ matrix.framework }}
 
 
     - name: Test with VSTest
