@@ -3,6 +3,7 @@
     <PropertyGroup>
         <TargetFrameworks>net462;net480;net481;net8.0;net9.0;net10.0</TargetFrameworks>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningsNotAsErrors>NU1510</WarningsNotAsErrors>
         <IsTestProject>true</IsTestProject>
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>
