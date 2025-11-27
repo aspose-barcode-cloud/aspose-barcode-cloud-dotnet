@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net462;net480;net481;net8.0;net9.0</TargetFrameworks>
+        <TargetFrameworks>net462;net480;net481;net8.0;net9.0;net10.0</TargetFrameworks>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <WarningsNotAsErrors>NU1510</WarningsNotAsErrors>
         <IsTestProject>true</IsTestProject>
         <LangVersion>8.0</LangVersion>
     </PropertyGroup>

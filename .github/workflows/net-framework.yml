@@ -28,6 +28,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Setup .NET 10 SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
