@@ -11,8 +11,7 @@ init:
 format:
 	dotnet restore ./Aspose.BarCode.Cloud.Sdk.sln
 	dotnet format ./Aspose.BarCode.Cloud.Sdk.sln --no-restore
-	dotnet format --include ./snippets/
-	dotnet format --include ./NetFrameworkTests/
+	dotnet format --include ./snippets/ --include ./NetFrameworkTests/
 	# Trim white space in comments
 	find . -iname "*.cs" -exec sed -i -e 's_[[:space:]]*$$__' {} \;
 
