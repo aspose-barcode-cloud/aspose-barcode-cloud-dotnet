@@ -36,12 +36,12 @@ jobs:
 
     - name: Pack nuget
       run: |
-           msbuild -restore -t:clean,rebuild,pack -p:Configuration=Release
-           copy src\bin\Release\*.nupkg NetFrameworkTests
+            docker build . --file Dockerfile -t aspose-barcode-cloud-dotnet:test-nuget
+            $containerId = docker run -di --rm aspose-barcode-cloud-dotnet:test-nuget
+            docker cp "$containerId:/packed/*.nupkg" NetFrameworkTests
 
-    - name: Build the Solution
+    - name: Build test project
       run: msbuild NetFrameworkTests\Aspose.BarCode.Cloud.Sdk.NetFrameworkTests.csproj -restore -p:Configuration=Release
-
 
     - name: Test with VSTest
       run: |
