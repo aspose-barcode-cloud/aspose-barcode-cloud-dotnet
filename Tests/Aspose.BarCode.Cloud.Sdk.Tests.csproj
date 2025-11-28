@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFrameworks>net462;net480;net481;net8.0;net9.0;net10.0</TargetFrameworks>
+        <TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <WarningsNotAsErrors>NU1510</WarningsNotAsErrors>
         <IsTestProject>true</IsTestProject>
-        <LangVersion>8.0</LangVersion>
     </PropertyGroup>
     <ItemGroup>
         <Compile Remove="TestResults\**"/>
@@ -17,7 +15,6 @@
         <PackageReference Include="NUnit" Version="3.14.0"/>
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0"/>
-        <PackageReference Include="System.Net.Http" Version="4.3.4"/>
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\src\Aspose.BarCode.Cloud.Sdk.csproj"/>
