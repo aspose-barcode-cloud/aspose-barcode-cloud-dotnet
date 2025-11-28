@@ -4,7 +4,7 @@ _ReSharper.*
 bin
 obj
 .vs
-Tests/Configuration*.json
+Configuration.json
 *.DotSettings
 *.binlog
 snippets_test/

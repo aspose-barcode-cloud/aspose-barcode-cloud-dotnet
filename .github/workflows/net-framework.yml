@@ -28,25 +28,26 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Setup .NET 10 SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '10.0.x'
-
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Setup VSTest
       uses: darenm/Setup-VSTest@v1.2
 
+    - name: Pack nuget
+      run: |
+           msbuild -restore -t:clean,rebuild,pack -p:Configuration=Release
+           copy src\bin\Release\*.nupkg NetFrameworkTests
+
     - name: Build the Solution
-      run: msbuild -restore -p:Configuration=Release
+      run: msbuild NetFrameworkTests\Aspose.BarCode.Cloud.Sdk.NetFrameworkTests.csproj -restore -p:Configuration=Release
+
 
     - name: Test with VSTest
       run: |
           $ErrorActionPreference = "Stop"
-          VSTest.Console.exe /Framework:".NETFramework,Version=${{ matrix.net-version }}" /ResultsDirectory:Tests\Results /Logger:"trx;LogFileName=test.log" Tests\bin\Release\${{ matrix.framework }}\Aspose.BarCode.Cloud.Sdk.Tests.dll
-          if( ([xml](Get-Content Tests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 25 ){ throw "Not all tests were explored or added new tests" }
+          VSTest.Console.exe /Framework:".NETFramework,Version=${{ matrix.net-version }}" /ResultsDirectory:NetFrameworkTests\Results /Logger:"trx;LogFileName=test.log" NetFrameworkTests\bin\Release\${{ matrix.framework }}\Aspose.BarCode.Cloud.Sdk.NetFrameworkTests.dll
+          if( ([xml](Get-Content NetFrameworkTests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 21 ){ throw "Not all tests were explored or added new tests" }
 
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
