@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Aspose.BarCode-Cloud" Version="25.12.0" />
+    <PackageReference Include="Aspose.BarCode-Cloud" Version="26.1.0" />
   </ItemGroup>
 
 </Project>
