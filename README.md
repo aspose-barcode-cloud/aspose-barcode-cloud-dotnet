@@ -7,7 +7,7 @@
 [![Nuget](https://img.shields.io/nuget/v/Aspose.BarCode-Cloud)](https://www.nuget.org/packages/Aspose.BarCode-Cloud/)
 
 - API version: 4.0
-- SDK version: 26.6.0
+- SDK version: 26.7.0
 
 ## SDK and API Version Compatibility:
 
