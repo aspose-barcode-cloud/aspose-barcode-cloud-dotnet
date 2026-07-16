@@ -31,7 +31,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 typeof(BarcodeResponseList));
 
             Assert.AreEqual(1, result.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), result.Barcodes[0].Type);
+            Assert.AreEqual(nameof(DecodeBarcodeType.QR), result.Barcodes[0].Type);
             Assert.AreEqual("http://en.m.wikipedia.org", result.Barcodes[0].BarcodeValue);
             StringAssert.Contains("\"barcodeValue\":\"http://en.m.wikipedia.org\"", result.ToString());
             StringAssert.Contains("\"BarcodeValue\":\"http://en.m.wikipedia.org\"", result.Barcodes[0].ToString());

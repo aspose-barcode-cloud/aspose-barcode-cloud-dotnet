@@ -51,7 +51,9 @@ jobs:
       run: |
           $ErrorActionPreference = "Stop"
           VSTest.Console.exe /Framework:".NETFramework,Version=${{ matrix.net-version }}" /ResultsDirectory:NetFrameworkTests\Results /Logger:"trx;LogFileName=test.log" NetFrameworkTests\bin\Release\${{ matrix.framework }}\Aspose.BarCode.Cloud.Sdk.NetFrameworkTests.dll
-          if( ([xml](Get-Content NetFrameworkTests\Results\test.log)).TestRun.ResultSummary.Counters.total -ne 27 ){ throw "Not all tests were explored or added new tests" }
+          $expected = 27
+          $counters = ([xml](Get-Content NetFrameworkTests\Results\test.log)).TestRun.ResultSummary.Counters
+          if( $counters.total -ne $expected ){ throw "Expected $expected tests but found $($counters.total) (executed: $($counters.executed), passed: $($counters.passed), failed: $($counters.failed)). Not all tests were explored, or tests were added/removed without updating the expected count." }
 
       env:
         TEST_CONFIGURATION_JWT_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
