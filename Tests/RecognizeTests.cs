@@ -48,7 +48,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual(nameof(DecodeBarcodeType.QR), response.Barcodes[0].Type);
             Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
         }
 
@@ -64,7 +64,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual(nameof(DecodeBarcodeType.QR), response.Barcodes[0].Type);
             Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
         }
 
@@ -82,7 +82,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), response.Barcodes[0].Type);
+            Assert.AreEqual(nameof(DecodeBarcodeType.QR), response.Barcodes[0].Type);
             Assert.AreEqual("http://en.m.wikipedia.org", response.Barcodes[0].BarcodeValue);
         }
 

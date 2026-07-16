@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,7 +31,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             BarcodeResponseList recognized = await _scanApi.ScanMultipartAsync(generatedImage);
 
             Assert.AreEqual(1, recognized.Barcodes.Count);
-            Assert.AreEqual(DecodeBarcodeType.QR.ToString(), recognized.Barcodes.First().Type);
+            Assert.AreEqual(nameof(DecodeBarcodeType.QR), recognized.Barcodes.First().Type);
             Assert.AreEqual("Test", recognized.Barcodes.First().BarcodeValue);
             Assert.AreEqual(
                 "{\"barcodes\":[{" +
