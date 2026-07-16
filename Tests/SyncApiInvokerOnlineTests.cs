@@ -1,8 +1,12 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Aspose.BarCode.Cloud.Sdk.Api;
+using Aspose.BarCode.Cloud.Sdk.Interfaces;
 using Aspose.BarCode.Cloud.Sdk.Internal;
+using Aspose.BarCode.Cloud.Sdk.Internal.RequestHandlers;
 using Aspose.BarCode.Cloud.Sdk.Model;
 using NUnit.Framework;
 using SdkFileInfo = Aspose.BarCode.Cloud.Sdk.Internal.FileInfo;
@@ -15,7 +19,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void SyncScanGetUsesOnlineApi()
         {
-            ApiInvoker invoker = ApiInvokerFactory.CreateInvoker(TestConfiguration);
+            ApiInvoker invoker = CreateInvoker(TestConfiguration);
             string resourcePath = UrlHelper.AddQueryParameterToUrl(
                 TestConfiguration.GetApiRootUrl() + "/barcode/scan",
                 "fileUrl",
@@ -37,7 +41,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void SyncScanBodyUsesOnlineApi()
         {
-            ApiInvoker invoker = ApiInvokerFactory.CreateInvoker(TestConfiguration);
+            ApiInvoker invoker = CreateInvoker(TestConfiguration);
             byte[] imageBytes;
             using (Stream image = GetTestImage("Test_PostGenerateMultiple.png"))
             {
@@ -67,7 +71,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void SyncScanMultipartUsesOnlineApi()
         {
-            ApiInvoker invoker = ApiInvokerFactory.CreateInvoker(TestConfiguration);
+            ApiInvoker invoker = CreateInvoker(TestConfiguration);
             byte[] imageBytes = File.ReadAllBytes(TestFilePath("Test_PostGenerateMultiple.png"));
             Dictionary<string, object> formParams = new Dictionary<string, object>
             {
@@ -91,7 +95,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         [Test]
         public void SyncApiExceptionHandlerUsesOnlineApiError()
         {
-            ApiInvoker invoker = ApiInvokerFactory.CreateInvoker(TestConfiguration);
+            ApiInvoker invoker = CreateInvoker(TestConfiguration);
 
             ApiException exception = Assert.Throws<ApiException>(
                 () => invoker.InvokeApi(
@@ -106,6 +110,70 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         }
 
         [Test]
+        public void SyncDebugModeLogsOnlineRequestAndResponse()
+        {
+            using StringWriter writer = new StringWriter();
+            TextWriterTraceListener listener = new TextWriterTraceListener(writer);
+            Trace.Listeners.Add(listener);
+            try
+            {
+                Configuration configuration = DebugConfiguration();
+                ApiInvoker invoker = CreateInvoker(configuration);
+                string resourcePath = UrlHelper.AddQueryParameterToUrl(
+                    configuration.GetApiRootUrl() + "/barcode/scan",
+                    "fileUrl",
+                    "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
+
+                string response = invoker.InvokeApi(resourcePath, "GET", null, null, null);
+
+                Assert.IsNotEmpty(response);
+                Trace.Flush();
+            }
+            finally
+            {
+                Trace.Listeners.Remove(listener);
+                listener.Dispose();
+            }
+
+            string trace = writer.ToString();
+            StringAssert.Contains("GET:", trace);
+            StringAssert.Contains("Response 200", trace);
+            StringAssert.Contains("http://en.m.wikipedia.org", trace);
+        }
+
+        [Test]
+        public async Task AsyncDebugModeLogsOnlineRequestAndResponse()
+        {
+            using StringWriter writer = new StringWriter();
+            TextWriterTraceListener listener = new TextWriterTraceListener(writer);
+            Trace.Listeners.Add(listener);
+            try
+            {
+                ScanApi api = new ScanApi(DebugConfiguration());
+                byte[] imageBytes = File.ReadAllBytes(TestFilePath("Test_PostGenerateMultiple.png"));
+
+                BarcodeResponseList response = await api.ScanBase64Async(
+                    new ScanBase64Request
+                    {
+                        FileBase64 = System.Convert.ToBase64String(imageBytes)
+                    });
+
+                Assert.AreEqual(2, response.Barcodes.Count);
+                Trace.Flush();
+            }
+            finally
+            {
+                Trace.Listeners.Remove(listener);
+                listener.Dispose();
+            }
+
+            string trace = writer.ToString();
+            StringAssert.Contains("POST:", trace);
+            StringAssert.Contains("Response 200", trace);
+            StringAssert.Contains("Hello world!", trace);
+        }
+
+        [Test]
         public void ConfigurationJsonKeepsOnlineAuthMode()
         {
             string json = JsonSerializer.Serialize(TestConfiguration);
@@ -114,6 +182,47 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             Assert.IsTrue(
                 TestConfiguration.AuthType == AuthType.JWT ||
                 TestConfiguration.AuthType == AuthType.ExternalAuth);
+        }
+
+        private static ApiInvoker CreateInvoker(Configuration configuration)
+        {
+            List<IRequestHandler> requestHandlers = new List<IRequestHandler>();
+            switch (configuration.AuthType)
+            {
+                case AuthType.JWT:
+                    requestHandlers.Add(new JwtRequestHandler(configuration));
+                    break;
+                case AuthType.ExternalAuth:
+                    requestHandlers.Add(new ExternalAuthorizationRequestHandler(configuration));
+                    break;
+                default:
+                    throw new System.ArgumentOutOfRangeException(
+                        $"Unknown AuthType={configuration.AuthType}.");
+            }
+
+            requestHandlers.Add(new DebugLogRequestHandler(configuration));
+            requestHandlers.Add(new ApiExceptionRequestHandler());
+            return new ApiInvoker(configuration, requestHandlers);
+        }
+
+        private Configuration DebugConfiguration()
+        {
+            Configuration configuration = new Configuration
+            {
+                ApiBaseUrl = TestConfiguration.ApiBaseUrl,
+                TokenUrl = TestConfiguration.TokenUrl,
+                ClientId = TestConfiguration.ClientId,
+                ClientSecret = TestConfiguration.ClientSecret,
+                DebugMode = true,
+                DefaultHeaders = new Dictionary<string, string>(TestConfiguration.DefaultHeaders)
+            };
+
+            if (TestConfiguration.AuthType == AuthType.ExternalAuth)
+            {
+                configuration.JwtToken = TestConfiguration.JwtToken;
+            }
+
+            return configuration;
         }
     }
 }
