@@ -35,7 +35,7 @@ internal static class Program
         var recognizeApi = new RecognizeApi(MakeConfiguration());
 
         var result = await recognizeApi.RecognizeAsync(DecodeBarcodeType.QR,
-            "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
+            "https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-.NET/main/Tests/test_data/Test_PostGenerateMultiple.png");
 
         Console.WriteLine($"File recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

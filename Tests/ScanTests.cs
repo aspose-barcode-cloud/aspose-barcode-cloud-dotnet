@@ -48,12 +48,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
         public async Task ScanAsyncTest()
         {
             // Act
-            BarcodeResponseList response = await _api.ScanAsync("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
+            BarcodeResponseList response = await _api.ScanAsync("https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-.NET/main/Tests/test_data/Test_PostGenerateMultiple.png");
 
             // Assert
-            Assert.AreEqual(1, response.Barcodes.Count);
+            Assert.AreEqual(2, response.Barcodes.Count);
             Assert.AreEqual(nameof(DecodeBarcodeType.QR), response.Barcodes[0].Type);
-            Assert.AreEqual("http://en.m.wikipedia.org", response.Barcodes[0].BarcodeValue);
+            Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
+            Assert.AreEqual(nameof(DecodeBarcodeType.Code128), response.Barcodes[1].Type);
+            Assert.AreEqual("Hello world!", response.Barcodes[1].BarcodeValue);
         }
 
         [Test]

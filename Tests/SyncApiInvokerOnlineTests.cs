@@ -23,18 +23,20 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             string resourcePath = UrlHelper.AddQueryParameterToUrl(
                 TestConfiguration.GetApiRootUrl() + "/barcode/scan",
                 "fileUrl",
-                "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
+                "https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-.NET/main/Tests/test_data/Test_PostGenerateMultiple.png");
 
             string response = invoker.InvokeApi(resourcePath, "GET", null, null, null);
             BarcodeResponseList result = (BarcodeResponseList)SerializationHelper.Deserialize(
                 response,
                 typeof(BarcodeResponseList));
 
-            Assert.AreEqual(1, result.Barcodes.Count);
+            Assert.AreEqual(2, result.Barcodes.Count);
             Assert.AreEqual(nameof(DecodeBarcodeType.QR), result.Barcodes[0].Type);
-            Assert.AreEqual("http://en.m.wikipedia.org", result.Barcodes[0].BarcodeValue);
-            StringAssert.Contains("\"barcodeValue\":\"http://en.m.wikipedia.org\"", result.ToString());
-            StringAssert.Contains("\"BarcodeValue\":\"http://en.m.wikipedia.org\"", result.Barcodes[0].ToString());
+            Assert.AreEqual("Hello world!", result.Barcodes[0].BarcodeValue);
+            Assert.AreEqual(nameof(DecodeBarcodeType.Code128), result.Barcodes[1].Type);
+            Assert.AreEqual("Hello world!", result.Barcodes[1].BarcodeValue);
+            StringAssert.Contains("\"barcodeValue\":\"Hello world!\"", result.ToString());
+            StringAssert.Contains("\"BarcodeValue\":\"Hello world!\"", result.Barcodes[0].ToString());
             StringAssert.Contains("\"X\":", result.Barcodes[0].Region[0].ToString());
         }
 
@@ -122,7 +124,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
                 string resourcePath = UrlHelper.AddQueryParameterToUrl(
                     configuration.GetApiRootUrl() + "/barcode/scan",
                     "fileUrl",
-                    "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
+                    "https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-.NET/main/Tests/test_data/Test_PostGenerateMultiple.png");
 
                 string response = invoker.InvokeApi(resourcePath, "GET", null, null, null);
 
@@ -138,7 +140,7 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
             string trace = writer.ToString();
             StringAssert.Contains("GET:", trace);
             StringAssert.Contains("Response 200", trace);
-            StringAssert.Contains("http://en.m.wikipedia.org", trace);
+            StringAssert.Contains("Hello world!", trace);
         }
 
         [Test]

@@ -34,7 +34,7 @@ internal static class Program
     {
         var scanApi = new ScanApi(MakeConfiguration());
 
-        var result = await scanApi.ScanAsync("https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png");
+        var result = await scanApi.ScanAsync("https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-.NET/main/Tests/test_data/Test_PostGenerateMultiple.png");
 
         Console.WriteLine($"File recognized, result: '{result.Barcodes[0].BarcodeValue}'");
     }

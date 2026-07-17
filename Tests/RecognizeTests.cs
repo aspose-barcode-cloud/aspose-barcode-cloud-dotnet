@@ -76,14 +76,14 @@ namespace Aspose.BarCode.Cloud.Sdk.Tests
 
             // Act
             BarcodeResponseList response = await _api.RecognizeAsync(DecodeBarcodeType.QR,
-                "https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png",
+                "https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-.NET/main/Tests/test_data/Test_PostGenerateMultiple.png",
                 recognitionImageKind: RecognitionImageKind.ClearImage,
                 recognitionMode: RecognitionMode.Normal);
 
             // Assert
             Assert.AreEqual(1, response.Barcodes.Count);
             Assert.AreEqual(nameof(DecodeBarcodeType.QR), response.Barcodes[0].Type);
-            Assert.AreEqual("http://en.m.wikipedia.org", response.Barcodes[0].BarcodeValue);
+            Assert.AreEqual("Hello world!", response.Barcodes[0].BarcodeValue);
         }
 
     }
